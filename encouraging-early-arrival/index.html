@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Encouraging Early Arrival — Clubhouse Host Guide</title>
+<meta name="description" content="A pastoral host guide for Dominion Hour and L137 online ministry rooms — Scripture-rooted words to encourage members to arrive early." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FBF8F1;
+    --surface: #FFFFFF;
+    --ink: #1F1B14;
+    --ink-muted: #6B6459;
+    --gold: #B08A3E;
+    --gold-deep: #7C5E22;
+    --gold-tint: #F4EBD3;
+    --border: #E6DDC7;
+    --accent: #4A2E1A;
+    --shadow: 0 1px 2px rgba(31,27,20,0.04), 0 8px 24px rgba(31,27,20,0.06);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header {
+    padding: 56px 0 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    background:
+      radial-gradient(ellipse at top, rgba(176,138,62,0.08), transparent 60%),
+      var(--bg);
+  }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(32px, 5vw, 46px);
+    line-height: 1.15;
+    margin: 0 0 18px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold-deep);
+  }
+  .subtitle {
+    font-size: 17px;
+    color: var(--ink-muted);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .ornament {
+    margin: 28px auto 0;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    position: relative;
+  }
+  .ornament::before, .ornament::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+  .ornament::before { left: -12px; }
+  .ornament::after { right: -12px; }
+
+  /* Main */
+  main { padding: 56px 0 80px; }
+  section { margin-bottom: 56px; }
+
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.25;
+    margin: 0 0 8px;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  h2 .num {
+    display: inline-block;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--gold-deep);
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: 400;
+  }
+  h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 21px;
+    margin: 32px 0 10px;
+    color: var(--ink);
+  }
+  .section-lead {
+    color: var(--ink-muted);
+    font-size: 16px;
+    margin: 0 0 24px;
+  }
+  p { margin: 0 0 16px; }
+
+  /* Script card */
+  .script {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 26px 28px;
+    margin: 18px 0 24px;
+    box-shadow: var(--shadow);
+  }
+  .script .time {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .script p {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+  .script p:last-child { margin-bottom: 0; }
+  .script .verse {
+    font-style: italic;
+    color: var(--accent);
+    padding-left: 14px;
+    border-left: 2px solid var(--gold-tint);
+    margin: 12px 0;
+  }
+
+  /* Phrase list */
+  .phrases {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .phrases li {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink);
+    position: relative;
+    padding-left: 42px;
+  }
+  .phrases li::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  /* Declaration */
+  .declaration {
+    background: linear-gradient(135deg, #F4EBD3 0%, #FBF8F1 100%);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 32px 32px;
+    margin: 24px 0;
+    text-align: center;
+  }
+  .declaration .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .declaration .lines {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.8;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .declaration .lines p { margin: 0 0 4px; }
+
+  /* Callout */
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 22px 26px;
+    margin: 18px 0;
+  }
+  .callout .tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  /* Tip */
+  .tip {
+    background: var(--gold-tint);
+    border-radius: 6px;
+    padding: 22px 26px;
+    margin: 18px 0;
+    font-size: 16px;
+    color: var(--accent);
+  }
+  .tip strong { color: var(--ink); }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0 60px;
+    text-align: center;
+    color: var(--ink-muted);
+    font-size: 14px;
+  }
+  footer .ministries {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  footer .scripture {
+    margin-top: 20px;
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    color: var(--gold-deep);
+    font-size: 15px;
+  }
+
+  @media (max-width: 640px) {
+    header { padding: 40px 0 32px; }
+    main { padding: 40px 0 60px; }
+    section { margin-bottom: 44px; }
+    .script, .declaration, .callout, .tip { padding: 20px; }
+    .declaration .lines { font-size: 17px; }
+    h2 { font-size: 24px; }
+  }
+
+  /* Print (for browser save-as-PDF) */
+  @media print {
+    body { background: white; font-size: 12pt; }
+    header, footer, .script, .declaration, .callout, .tip { box-shadow: none; }
+    section { break-inside: avoid; }
+    h2 { break-after: avoid; }
+    .script, .declaration { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="eyebrow">Dominion Hour · L137 Deliverance Ministry</div>
+    <h1>Encouraging Early Arrival<br><em>to the Clubhouse Room</em></h1>
+    <p class="subtitle">A pastoral host guide with Scripture-rooted words for the 8:30–9:00 AM gathering window — warm, expectant, and Spirit-focused.</p>
+    <div class="ornament"></div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <section>
+      <h2><span class="num">I.</span>The Heart Behind the Words</h2>
+      <p class="section-lead">Since the room is online and listeners are anonymous, the tone must be warm, expectant, and Spirit-focused — never scolding. Three principles guide every word spoken in the 8:30–9:00 AM window:</p>
+      <div class="callout">
+        <div class="tag">Principle One</div>
+        <p><strong>Reward the early ones.</strong> Speak to those already present as if they made the right choice — because they did.</p>
+      </div>
+      <div class="callout">
+        <div class="tag">Principle Two</div>
+        <p><strong>Build hunger for what is coming.</strong> Hint at what God is about to release through the Prophet.</p>
+      </div>
+      <div class="callout">
+        <div class="tag">Principle Three</div>
+        <p><strong>Never shame the latecomers.</strong> Instead, invite them deeper each time someone new joins.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">II.</span>The Host Script</h2>
+      <p class="section-lead">A timed flow the host can follow each morning — opening welcome, mid-window encouragement, final gathering, and gentle welcome for those trickling in after 9:00 AM.</p>
+
+      <div class="script">
+        <div class="time">8:30 AM · Opening Welcome</div>
+        <p>Good morning, family. Welcome into Dominion Hour. We are so glad you pressed in this morning. Wherever you are joining us from — your kitchen, your car, your bedroom, another country — the moment you entered this room, you stepped onto holy ground.</p>
+        <p>We are gathering quietly before the Prophet begins to minister. This is our preparation time.</p>
+        <p class="verse">"Keep thy foot when thou goest to the house of God, and be more ready to hear, than to give the sacrifice of fools." — Ecclesiastes 5:1 (KJV)</p>
+        <p>So take a deep breath. Quiet your heart. Get your Bible. Get your pen. God is about to speak.</p>
+      </div>
+
+      <div class="script">
+        <div class="time">8:40 AM · Building Expectation</div>
+        <p>Family, if you just joined us — welcome. You are right on time. Heaven has been waiting for you.</p>
+        <p>As we wait on the Prophet, let me encourage you: the ones who come early are the ones who catch the first drop of the anointing.</p>
+        <p class="verse">"O God, thou art my God; early will I seek thee: my soul thirsteth for thee, my flesh longeth for thee in a dry and thirsty land, where no water is." — Psalm 63:1 (KJV)</p>
+        <p>Something is being released this morning. Don't miss the beginning. Stay in the room. Invite someone. The Prophet will begin shortly.</p>
+      </div>
+
+      <div class="script">
+        <div class="time">8:50 AM · Final Gathering</div>
+        <p>We are minutes away, family. If you are just walking in — welcome home. Pull up a chair in the spirit. Get quiet.</p>
+        <p>To everyone who came early this morning: thank you for honoring the presence of God. You set the atmosphere for what God is about to do.</p>
+        <p class="verse">"My voice shalt thou hear in the morning, O Lord; in the morning will I direct my prayer unto thee, and will look up." — Psalm 5:3 (KJV)</p>
+        <p>You looked up this morning. You showed up. Now get ready to receive.</p>
+      </div>
+
+      <div class="script">
+        <div class="time">After 9:00 AM · Welcoming Those Trickling In</div>
+        <p>Welcome, welcome — whoever just joined, you are in the right place. Don't scroll. Don't leave. Stay right here. What God is releasing this morning is for you. Rewind in your spirit — the Prophet is ministering.</p>
+        <p style="color: var(--ink-muted); font-size: 15px; margin-top: 8px;"><em>Or alternatively:</em></p>
+        <p>To the one who just walked in — God knew you were coming. Your timing is not late; it is ordained. Settle in. Receive.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">III.</span>Recurring Phrases That Build Culture</h2>
+      <p class="section-lead">Repeat these week after week until they become part of the room's identity. Consistent language shapes the atmosphere.</p>
+      <ul class="phrases">
+        <li>The early ones catch the first drop of the anointing.</li>
+        <li>Heaven has been waiting for you.</li>
+        <li>You didn't stumble into this room — you were drawn.</li>
+        <li>Wherever you are joining us from, you just stepped onto holy ground.</li>
+        <li>Get your Bible. Get your pen. God is about to speak.</li>
+        <li>This is Dominion Hour — where dominion is restored.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">IV.</span>Monthly Teaching Moment</h2>
+      <p class="section-lead">Every few weeks, take 2–3 minutes before the Prophet begins to teach why coming early matters — without naming or shaming anyone.</p>
+      <div class="script">
+        <div class="time">Teaching · 2–3 minutes</div>
+        <p>Family, let me share something on my heart. In the natural, when we love someone, we show up early. We don't want to miss a moment. The same is true in the spirit.</p>
+        <p>When we come early to meet with God, we are saying, "Lord, You are worth my time. You are worth my attention. I don't want to miss what You are saying today."</p>
+        <p class="verse">"Prepare to meet thy God." — Amos 4:12 (KJV)</p>
+        <p>Preparation is a posture. It says, God, I honor You. And when we honor God with our time, He honors us with His presence.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">V.</span>Pre-Service Declaration</h2>
+      <p class="section-lead">Lead the room in this declaration before the Prophet begins to minister. The congregation repeats each line aloud.</p>
+      <div class="declaration">
+        <div class="label">Repeat After Me</div>
+        <div class="lines">
+          <p>I honor the presence of God this morning.</p>
+          <p>I am not here by accident.</p>
+          <p>I came expecting to receive.</p>
+          <p>Every spirit of distraction, delay, and slumber<br>is broken off me now, in the name of Jesus.</p>
+          <p>My ears are open. My heart is open. My spirit is open.</p>
+          <p>Lord, speak — Your servant heareth.</p>
+          <p><strong>Amen.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">VI.</span>A Word on the Online Room</h2>
+      <p class="section-lead">Since we cannot see who is coming and going, we shepherd the atmosphere — not the attendance.</p>
+      <div class="tip">
+        <p><strong>Name the atmosphere, not the attendance.</strong></p>
+        <p style="margin: 0;">Instead of "some of you are late," say "the atmosphere in this room is shifting." Instead of "people keep leaving," say "the ones who stay will carry something home." This keeps the focus on God's presence — not on people's behavior.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="ministries">Prepared for Dominion Hour Ministries International<br>and L137 Deliverance Ministry</div>
+    <div>A pastoral host guide for online ministry rooms.</div>
+    <div class="scripture">"Prepare to meet thy God." — Amos 4:12 (KJV)</div>
+  </div>
+</footer>
+
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

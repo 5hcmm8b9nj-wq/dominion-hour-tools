@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aftercare & Mind Renewal — Post-Deliverance Companion</title>
+<meta name="description" content="A KJV Scripture and fire-declaration companion for use immediately after a deliverance prayer session. Every declaration is anchored in a full King James Version verse." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ivory:#FAF7EF;
+    --cream:#F3EEDF;
+    --charcoal:#221E1A;
+    --teal:#0F5B5F;
+    --teal-deep:#083E42;
+    --gold:#B6871A;
+    --gold-light:#E7C965;
+    --ember:#C24A16;
+    --plum:#6E2F5A;
+    --green:#4F7A2E;
+    --shadow: 0 6px 24px rgba(34,30,26,0.08);
+    --shadow-lg: 0 12px 40px rgba(34,30,26,0.14);
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'DM Sans',system-ui,sans-serif;
+    background:var(--ivory);
+    color:var(--charcoal);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .container{max-width:960px;margin:0 auto;padding:0 20px}
+
+  /* ---------- HEADER ---------- */
+  header.hero{
+    background:linear-gradient(160deg, var(--teal-deep) 0%, var(--teal) 100%);
+    color:var(--ivory);
+    padding:56px 20px 44px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;bottom:-1px;left:0;right:0;height:24px;
+    background:radial-gradient(ellipse at center top, transparent 0%, var(--ivory) 100%);
+  }
+  .kicker{
+    font-family:'DM Sans',sans-serif;
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold-light);
+    margin-bottom:14px;
+  }
+  h1.title{
+    font-family:'Source Serif 4',serif;
+    font-weight:700;
+    font-size:clamp(28px,4.6vw,44px);
+    line-height:1.15;
+    margin-bottom:12px;
+    letter-spacing:-0.01em;
+  }
+  .subtitle{
+    font-size:clamp(15px,1.6vw,17px);
+    max-width:640px;margin:0 auto;
+    color:rgba(250,247,239,0.9);
+  }
+  .verse-header{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    color:var(--gold-light);
+    margin-top:22px;
+    font-size:15px;
+  }
+
+  /* ---------- PROGRESS BAR ---------- */
+  .progress-wrap{
+    position:sticky;top:0;z-index:50;
+    background:var(--ivory);
+    border-bottom:1px solid rgba(34,30,26,0.08);
+    padding:12px 20px;
+    box-shadow:var(--shadow);
+  }
+  .progress-inner{
+    max-width:960px;margin:0 auto;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  }
+  .progress-label{
+    font-size:13px;font-weight:600;color:var(--teal-deep);
+    letter-spacing:.04em;
+  }
+  .progress-track{
+    flex:1;min-width:180px;height:8px;background:var(--cream);border-radius:20px;overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--ember));
+    transition:width .4s ease;border-radius:20px;
+  }
+  .progress-count{font-size:13px;color:var(--charcoal);opacity:.7}
+  .reset-btn{
+    background:transparent;border:1px solid var(--teal);
+    color:var(--teal-deep);padding:6px 12px;border-radius:20px;
+    font-size:12px;font-weight:600;letter-spacing:.04em;cursor:pointer;
+    font-family:'DM Sans',sans-serif;
+  }
+  .reset-btn:hover{background:var(--teal);color:var(--ivory)}
+
+  /* ---------- STATION NAV ---------- */
+  .stations{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:10px;
+    margin:28px 0 20px;
+  }
+  .station-chip{
+    background:var(--cream);
+    border:1px solid transparent;
+    padding:14px 12px;
+    border-radius:var(--radius-sm);
+    text-align:left;
+    cursor:pointer;
+    font-family:'DM Sans',sans-serif;
+    font-size:13px;
+    color:var(--charcoal);
+    transition:all .2s ease;
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .station-chip:hover{background:var(--gold-light);border-color:var(--gold)}
+  .station-chip.active{background:var(--teal-deep);color:var(--ivory)}
+  .station-chip.done{background:var(--green);color:var(--ivory)}
+  .station-num{font-size:11px;letter-spacing:.15em;opacity:.7;text-transform:uppercase}
+  .station-title{font-weight:600;font-size:14px}
+
+  /* ---------- STATION ---------- */
+  section.station{
+    display:none;
+    background:#fff;
+    border:1px solid rgba(34,30,26,0.06);
+    border-radius:var(--radius);
+    padding:32px;
+    margin-bottom:24px;
+    box-shadow:var(--shadow);
+    animation:fadeIn .35s ease;
+  }
+  section.station.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+  .station-header{
+    display:flex;align-items:center;gap:14px;margin-bottom:8px;
+  }
+  .station-icon{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--cream);display:flex;align-items:center;justify-content:center;
+    font-size:22px;flex-shrink:0;
+  }
+  .station-header h2{
+    font-family:'Source Serif 4',serif;font-weight:700;
+    font-size:clamp(22px,3vw,28px);line-height:1.2;color:var(--teal-deep);
+  }
+  .station-lead{
+    font-size:15px;color:var(--charcoal);opacity:.85;
+    margin-bottom:22px;
+    padding-left:58px;
+  }
+
+  /* ---------- ANCHOR SCRIPTURES ---------- */
+  .anchor-label{
+    font-family:'DM Sans',sans-serif;font-weight:700;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--teal-deep);
+    margin:24px 0 8px;
+  }
+  .scripture{
+    background:var(--cream);
+    border-left:4px solid var(--gold);
+    padding:18px 22px;
+    border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+    margin:10px 0;
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:16px;
+    line-height:1.7;
+    color:var(--charcoal);
+  }
+  .scripture .ref{
+    display:block;
+    font-family:'DM Sans',sans-serif;
+    font-style:normal;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+    margin-top:10px;
+  }
+
+  /* ---------- DECLARATION BLOCK ---------- */
+  .decl-block{
+    background:linear-gradient(135deg, #fff 0%, var(--cream) 100%);
+    border:1px solid var(--gold-light);
+    border-radius:var(--radius);
+    padding:22px;
+    margin:24px 0 20px;
+  }
+  .decl-title{
+    display:flex;align-items:center;gap:8px;
+    font-family:'DM Sans',sans-serif;font-weight:700;
+    color:var(--ember);
+    font-size:14px;letter-spacing:.12em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .decl-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .decl-item{
+    background:#fff;
+    border-radius:var(--radius-sm);
+    border:1px solid rgba(34,30,26,0.06);
+    padding:14px 16px;
+    cursor:pointer;
+    transition:all .18s ease;
+  }
+  .decl-item:hover{border-color:var(--gold)}
+  .decl-item.spoken{
+    background:linear-gradient(90deg, rgba(79,122,46,.08), #fff);
+    border-color:var(--green);
+  }
+  .decl-item.spoken .decl-text{color:var(--green);font-weight:500}
+  .decl-row{
+    display:flex;align-items:flex-start;gap:12px;
+    font-size:15px;line-height:1.55;
+  }
+  .check{
+    width:22px;height:22px;border-radius:50%;
+    border:2px solid var(--teal);
+    flex-shrink:0;margin-top:2px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:700;color:transparent;
+    transition:all .18s ease;
+  }
+  .decl-item.spoken .check{
+    background:var(--green);border-color:var(--green);color:#fff;
+  }
+  .decl-text{flex:1;font-weight:600}
+  .decl-verse{
+    margin-top:10px;margin-left:34px;
+    padding:12px 14px;
+    background:var(--cream);
+    border-left:3px solid var(--gold);
+    border-radius:0 6px 6px 0;
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:14.5px;
+    line-height:1.65;
+    color:var(--charcoal);
+  }
+  .decl-verse .ref{
+    display:block;
+    font-family:'DM Sans',sans-serif;font-style:normal;font-weight:700;
+    font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--teal-deep);margin-top:6px;
+  }
+
+  /* ---------- BUTTON ROW ---------- */
+  .btn-row{
+    display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;
+    margin-top:28px;padding-top:20px;
+    border-top:1px solid rgba(34,30,26,0.08);
+  }
+  .btn{
+    background:var(--teal-deep);color:var(--ivory);
+    border:none;padding:12px 22px;border-radius:var(--radius-sm);
+    font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;
+    letter-spacing:.05em;cursor:pointer;
+    transition:all .18s ease;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn:hover{background:var(--teal);transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn.secondary{background:transparent;color:var(--teal-deep);border:1.5px solid var(--teal-deep)}
+  .btn.secondary:hover{background:var(--teal-deep);color:var(--ivory)}
+  .btn.ember{background:var(--ember)}
+  .btn.ember:hover{background:#a03d10}
+  .btn:disabled{opacity:.4;cursor:not-allowed}
+
+  /* ---------- TIMER (Section 8) ---------- */
+  .timer-card{
+    background:linear-gradient(135deg, var(--teal-deep), var(--teal));
+    color:var(--ivory);
+    border-radius:var(--radius);
+    padding:28px;text-align:center;
+    margin:16px 0;
+  }
+  .timer-display{
+    font-family:'Source Serif 4',serif;
+    font-size:56px;font-weight:700;letter-spacing:.02em;
+    margin:12px 0;
+  }
+  .timer-controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .timer-controls .btn{background:var(--gold);color:var(--charcoal)}
+  .timer-controls .btn:hover{background:var(--gold-light)}
+  .timer-note{font-size:14px;opacity:.85;margin-top:14px;font-family:'DM Sans',sans-serif}
+
+  /* ---------- BREATH GUIDE ---------- */
+  .breath-wrap{
+    display:flex;flex-direction:column;align-items:center;
+    margin:20px 0;padding:20px;
+    background:var(--cream);border-radius:var(--radius);
+  }
+  .breath-circle{
+    width:120px;height:120px;border-radius:50%;
+    background:radial-gradient(circle,var(--gold-light),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    color:var(--charcoal);font-family:'Source Serif 4',serif;font-weight:600;font-size:18px;
+    transition:transform 4s ease-in-out;
+  }
+  .breath-circle.inhale{transform:scale(1.4)}
+  .breath-circle.hold{transform:scale(1.4)}
+  .breath-circle.exhale{transform:scale(1)}
+  .breath-instruction{margin-top:14px;font-weight:600;color:var(--teal-deep);letter-spacing:.05em}
+
+  /* ---------- REFLECTION FIELD ---------- */
+  .reflect-field{
+    width:100%;min-height:120px;
+    padding:14px;
+    border:1.5px solid var(--cream);
+    border-radius:var(--radius-sm);
+    font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6;
+    background:#fff;color:var(--charcoal);
+    resize:vertical;
+    margin-top:10px;
+  }
+  .reflect-field:focus{outline:none;border-color:var(--gold)}
+  .reflect-label{font-weight:600;color:var(--teal-deep);font-size:14px;letter-spacing:.04em}
+
+  /* ---------- COMPLETION ---------- */
+  .completion{
+    text-align:center;padding:40px 20px;
+    background:linear-gradient(160deg,var(--gold-light),var(--gold));
+    border-radius:var(--radius);color:var(--charcoal);
+    margin-top:24px;
+  }
+  .completion h3{
+    font-family:'Source Serif 4',serif;font-size:28px;font-weight:700;margin-bottom:10px;
+  }
+  .completion p{font-size:16px;line-height:1.7;max-width:520px;margin:0 auto 18px}
+
+  /* ---------- SHARE BAR ---------- */
+  .share-bar{
+    background:var(--teal-deep);color:var(--ivory);
+    padding:24px 20px;margin-top:40px;
+    text-align:center;
+  }
+  .share-buttons{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .share-btn{
+    background:var(--gold);color:var(--charcoal);
+    border:none;padding:10px 18px;border-radius:20px;
+    font-family:'DM Sans',sans-serif;font-weight:600;font-size:13px;
+    cursor:pointer;letter-spacing:.04em;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .share-btn:hover{background:var(--gold-light)}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    text-align:center;padding:30px 20px 40px;
+    font-size:13px;color:var(--charcoal);opacity:.75;
+    font-family:'DM Sans',sans-serif;
+  }
+  footer a{color:var(--teal-deep);text-decoration:none;font-weight:600}
+  .copyright-line{
+    margin-top:14px;
+    font-size:12px;
+    color:var(--charcoal);
+    opacity:.7;
+    letter-spacing:.02em;
+    line-height:1.6;
+  }
+
+  /* ---------- INTRO CARD ---------- */
+  .intro-card{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:28px;
+    margin:24px 0;
+    box-shadow:var(--shadow);
+    border-left:4px solid var(--teal);
+  }
+  .intro-card h2{
+    font-family:'Source Serif 4',serif;font-size:22px;color:var(--teal-deep);margin-bottom:14px;
+  }
+  .intro-card p{font-size:15px;line-height:1.7;margin-bottom:12px}
+  .intro-card ul{padding-left:22px;margin:10px 0}
+  .intro-card li{margin-bottom:6px;font-size:14px}
+
+  @media (max-width: 640px){
+    section.station{padding:20px}
+    .station-header h2{font-size:20px}
+    .station-lead{padding-left:0}
+    .timer-display{font-size:44px}
+    header.hero{padding:40px 20px 32px}
+    .decl-verse{margin-left:0}
+  }
+
+  @media print{
+    header.hero, .progress-wrap, .stations, .btn-row, .share-bar, footer, .timer-controls, .breath-wrap, .reset-btn{display:none !important}
+    section.station{display:block !important;box-shadow:none;border:1px solid #ccc;page-break-inside:avoid;margin-bottom:20px}
+    body{background:#fff}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">Post-Deliverance Companion</div>
+  <h1 class="title">Aftercare &amp; Mind Renewal</h1>
+  <p class="subtitle">A guided walk of sealing, Word, and fire declarations for the moments immediately after a deliverance prayer session. Every declaration is anchored in a full King James Version verse.</p>
+  <p class="verse-header">“Let the word of Christ dwell in you richly.” — Colossians 3:16 (KJV)</p>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <span class="progress-label">Your walk</span>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <span class="progress-count" id="progressCount">0 of 9 stations</span>
+    <button class="reset-btn" onclick="resetAll()">Start Over</button>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Station chips -->
+  <div class="stations" id="stationChips"></div>
+
+  <!-- INTRO -->
+  <div class="intro-card" id="intro">
+    <h2>Before you begin</h2>
+    <p>You have just come out of a deliverance session. The Word teaches that after the strongman is bound and the goods are spoiled, the house must be swept clean and filled — otherwise seven worse spirits may return (Matthew 12:43–45). This companion is that <strong>sweeping and filling</strong>.</p>
+    <p>Move through the nine stations in order. Speak every declaration <strong>aloud</strong>, and read its verse <strong>aloud</strong> as well. The Word is the sword; the declaration is the swing. Tap each line as you say it.</p>
+    <ul>
+      <li>Every declaration is anchored in a full KJV verse right beneath it.</li>
+      <li>All scripture is King James Version, written out in full.</li>
+      <li>Nothing here replaces your pastor’s spiritual authority — this is companion material for private prayer.</li>
+    </ul>
+    <div style="text-align:center;margin-top:20px">
+      <button class="btn" onclick="goToStation(0)">Begin the walk →</button>
+    </div>
+  </div>
+
+  <!-- STATIONS -->
+  <div id="stationContainer"></div>
+
+  <!-- COMPLETION -->
+  <div class="completion" id="completion" style="display:none">
+    <h3>Sealed and Standing 🕊️</h3>
+    <p>You have swept the house and filled it with the Word. Rest now. Behold, he that keepeth Israel shall neither slumber nor sleep (Psalm 121:4, KJV).</p>
+    <button class="btn" onclick="window.print()">Print this walk</button>
+    <button class="btn secondary" onclick="resetAll()" style="margin-left:8px">Walk again</button>
+  </div>
+
+  <!-- SHARE -->
+  <div class="share-bar">
+    <div class="share-buttons">
+      <button class="share-btn" onclick="shareWhatsApp()">💬 WhatsApp</button>
+      <button class="share-btn" onclick="copyLink()">🔗 Copy link</button>
+      <button class="share-btn" onclick="window.print()">🖨️ Print</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Aftercare &amp; Mind Renewal · A Post-Deliverance Companion · KJV Scripture</p>
+  <p style="margin-top:6px">For use after any deliverance session.</p>
+  <p class="copyright-line">
+    &copy; L137 Deliverance Ministry International with Pastor Kiki Ocansey &nbsp;·&nbsp;
+    Dominion Hour with Prophet Prince Amo David
+  </p>
+</footer>
+
+<script>
+/* -------------------- CONTENT --------------------
+   Each declaration is a { decl, verse, ref } object.
+   The verse is the FULL KJV text anchoring that specific declaration.
+*/
+const STATIONS = [
+
+  /* ============================================================
+     STATION 1 — SEAL THE DELIVERANCE
+  ============================================================ */
+  {
+    id: "sealing",
+    icon: "🩸",
+    title: "Seal the deliverance",
+    lead: "Before anything else, seal the ground the Lord just took. The blood of Jesus is the sealing agent — no other element is required.",
+    anchor: [
+      { text: "Neither by the blood of goats and calves, but by his own blood he entered in once into the holy place, having obtained eternal redemption for us.", ref: "Hebrews 9:12 (KJV)" }
+    ],
+    declTitle: "Sealing Prayer — speak aloud",
+    declarations: [
+      {
+        decl: "Father, in the name of Jesus, I thank You for the deliverance You just worked in me.",
+        verse: "I thank my God upon every remembrance of you, Always in every prayer of mine for you all making request with joy, For your fellowship in the gospel from the first day until now; Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ.",
+        ref: "Philippians 1:3–6 (KJV)"
+      },
+      {
+        decl: "I seal every place You delivered with the blood of Jesus Christ.",
+        verse: "How much more shall the blood of Christ, who through the eternal Spirit offered himself without spot to God, purge your conscience from dead works to serve the living God?",
+        ref: "Hebrews 9:14 (KJV)"
+      },
+      {
+        decl: "I seal my mind, my heart, my body, my womb, my bed, my dreams, and my home with the blood of Jesus.",
+        verse: "And the very God of peace sanctify you wholly; and I pray God your whole spirit and soul and body be preserved blameless unto the coming of our Lord Jesus Christ. Faithful is he that calleth you, who also will do it.",
+        ref: "1 Thessalonians 5:23–24 (KJV)"
+      },
+      {
+        decl: "I seal my bloodline — backward to Adam and forward to my generations — by the blood of Jesus.",
+        verse: "And to Jesus the mediator of the new covenant, and to the blood of sprinkling, that speaketh better things than that of Abel.",
+        ref: "Hebrews 12:24 (KJV)"
+      },
+      {
+        decl: "I close every open door, every open dream, every open thought pattern, in the name of Jesus.",
+        verse: "Neither give place to the devil.",
+        ref: "Ephesians 4:27 (KJV)"
+      },
+      {
+        decl: "I am sealed by the Holy Spirit until the day of redemption.",
+        verse: "And grieve not the holy Spirit of God, whereby ye are sealed unto the day of redemption.",
+        ref: "Ephesians 4:30 (KJV)"
+      },
+      {
+        decl: "It is finished. In Jesus' mighty name. Amen.",
+        verse: "When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost.",
+        ref: "John 19:30 (KJV)"
+      }
+    ],
+    extras: { breath: true }
+  },
+
+  /* ============================================================
+     STATION 2 — SILENCE THE VOICES
+  ============================================================ */
+  {
+    id: "silence",
+    icon: "🤫",
+    title: "Silence the voices",
+    lead: "Every deliverance is followed by counter-attack thoughts — comparison, shame, isolation, self-doubt. Name them and cast them down.",
+    anchor: [
+      { text: "For though we walk in the flesh, we do not war after the flesh: (For the weapons of our warfare are not carnal, but mighty through God to the pulling down of strong holds;) Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ.", ref: "2 Corinthians 10:3–5 (KJV)" }
+    ],
+    declTitle: "Mind Fortress",
+    declarations: [
+      {
+        decl: "My mind is not a battlefield the enemy owns — my mind is a fortress the Holy Spirit occupies, in the name of Jesus.",
+        verse: "Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee. Trust ye in the LORD for ever: for in the LORD JEHOVAH is everlasting strength.",
+        ref: "Isaiah 26:3–4 (KJV)"
+      },
+      {
+        decl: "I have the mind of Christ.",
+        verse: "For who hath known the mind of the Lord, that he may instruct him? But we have the mind of Christ.",
+        ref: "1 Corinthians 2:16 (KJV)"
+      },
+      {
+        decl: "God has not given me the spirit of fear. He has given me power, love, and a sound mind.",
+        verse: "For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind.",
+        ref: "2 Timothy 1:7 (KJV)"
+      },
+      {
+        decl: "Every thought of shame about missing an instruction — I cast it down in the name of Jesus.",
+        verse: "For God is not the author of confusion, but of peace, as in all churches of the saints.",
+        ref: "1 Corinthians 14:33 (KJV)"
+      },
+      {
+        decl: "Every voice of isolation — “no one is with you, quit and leave” — I cast it down in the name of Jesus.",
+        verse: "Let your conversation be without covetousness; and be content with such things as ye have: for he hath said, I will never leave thee, nor forsake thee.",
+        ref: "Hebrews 13:5 (KJV)"
+      },
+      {
+        decl: "Every whisper of doubt that my deliverance was not real — I cast it down by the blood of Jesus.",
+        verse: "If the Son therefore shall make you free, ye shall be free indeed.",
+        ref: "John 8:36 (KJV)"
+      },
+      {
+        decl: "I bring EVERY thought into captivity to the obedience of Christ, by the power of the Holy Spirit.",
+        verse: "Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ.",
+        ref: "2 Corinthians 10:5 (KJV)"
+      },
+      {
+        decl: "The Lord keeps me in perfect peace because my mind is stayed on Him. Amen.",
+        verse: "Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.",
+        ref: "Isaiah 26:3 (KJV)"
+      }
+    ]
+  },
+
+  /* ============================================================
+     STATION 3 — RESET YOUR IDENTITY
+  ============================================================ */
+  {
+    id: "identity",
+    icon: "🕊️",
+    title: "Reset your identity",
+    lead: "The enemy attacks identity right after deliverance — whispering orphan, forgotten, alone. Anchor yourself in who God says you are: not an orphan, but a son / daughter seated with Christ.",
+    anchor: [
+      { text: "I will not leave you comfortless: I will come to you.", ref: "John 14:18 (KJV)" },
+      { text: "And hath raised us up together, and made us sit together in heavenly places in Christ Jesus: That in the ages to come he might shew the exceeding riches of his grace in his kindness toward us through Christ Jesus.", ref: "Ephesians 2:6–7 (KJV)" }
+    ],
+    declTitle: "Not An Orphan — Seated With Christ",
+    declarations: [
+      {
+        decl: "I declare: I am NOT an orphan. Jesus said He would not leave me comfortless — He has come to me.",
+        verse: "I will not leave you comfortless: I will come to you.",
+        ref: "John 14:18 (KJV)"
+      },
+      {
+        decl: "Every spirit of orphan-hood, abandonment, and fatherlessness — I command you to leave my mind and my life NOW, in the name of Jesus, by the blood of Jesus.",
+        verse: "A father of the fatherless, and a judge of the widows, is God in his holy habitation. God setteth the solitary in families: he bringeth out those which are bound with chains: but the rebellious dwell in a dry land.",
+        ref: "Psalm 68:5–6 (KJV)"
+      },
+      {
+        decl: "I declare: I am seated together with Christ in heavenly places, FAR ABOVE every principality, power, might, and dominion.",
+        verse: "And hath raised us up together, and made us sit together in heavenly places in Christ Jesus: That in the ages to come he might shew the exceeding riches of his grace in his kindness toward us through Christ Jesus.",
+        ref: "Ephesians 2:6–7 (KJV)"
+      },
+      {
+        decl: "I sit far above every principality and power that would rise against me.",
+        verse: "Far above all principality, and power, and might, and dominion, and every name that is named, not only in this world, but also in that which is to come: And hath put all things under his feet, and gave him to be the head over all things to the church.",
+        ref: "Ephesians 1:21–22 (KJV)"
+      },
+      {
+        decl: "I am NOT a stepchild in the Kingdom of God. I have received the Spirit of adoption. I cry, Abba, Father, in the name of Jesus.",
+        verse: "For ye have not received the spirit of bondage again to fear; but ye have received the Spirit of adoption, whereby we cry, Abba, Father. The Spirit itself beareth witness with our spirit, that we are the children of God.",
+        ref: "Romans 8:15–16 (KJV)"
+      },
+      {
+        decl: "When my earthly father and my earthly mother forsake me, the LORD takes me up.",
+        verse: "When my father and my mother forsake me, then the LORD will take me up.",
+        ref: "Psalm 27:10 (KJV)"
+      },
+      {
+        decl: "I am a son / daughter of the Most High God, born again of the incorruptible seed of the Word, by the power of the Holy Spirit.",
+        verse: "Being born again, not of corruptible seed, but of incorruptible, by the word of God, which liveth and abideth for ever.",
+        ref: "1 Peter 1:23 (KJV)"
+      },
+      {
+        decl: "My name is engraved on the palms of His hands. He cannot forget me.",
+        verse: "Can a woman forget her sucking child, that she should not have compassion on the son of her womb? yea, they may forget, yet will I not forget thee. Behold, I have graven thee upon the palms of my hands; thy walls are continually before me.",
+        ref: "Isaiah 49:15–16 (KJV)"
+      },
+      {
+        decl: "I am an heir of God and a joint-heir with Christ — seated, sealed, and beloved.",
+        verse: "And if children, then heirs; heirs of God, and joint-heirs with Christ; if so be that we suffer with him, that we may be also glorified together.",
+        ref: "Romans 8:17 (KJV)"
+      },
+      {
+        decl: "I am covered. I am sealed. I am adopted. I am seated with Christ. Amen.",
+        verse: "According as he hath chosen us in him before the foundation of the world, that we should be holy and without blame before him in love: Having predestinated us unto the adoption of children by Jesus Christ to himself, according to the good pleasure of his will.",
+        ref: "Ephesians 1:4–5 (KJV)"
+      }
+    ]
+  },
+
+  /* ============================================================
+     STATION 4 — CANCEL EVERY BEWITCHMENT
+  ============================================================ */
+  {
+    id: "bewitchment",
+    icon: "🔥",
+    title: "Cancel every bewitchment",
+    lead: "Cancel every word, look, or written thing sent against you and your household.",
+    anchor: [
+      { text: "No weapon that is formed against thee shall prosper; and every tongue that shall rise against thee in judgment thou shalt condemn. This is the heritage of the servants of the LORD, and their righteousness is of me, saith the LORD.", ref: "Isaiah 54:17 (KJV)" }
+    ],
+    declTitle: "Bewitchment Dies",
+    declarations: [
+      {
+        decl: "Every bewitchment spoken against me — CANCELLED by the blood of Jesus, in the name of Jesus.",
+        verse: "How shall I curse, whom God hath not cursed? or how shall I defy, whom the LORD hath not defied?",
+        ref: "Numbers 23:8 (KJV)"
+      },
+      {
+        decl: "Every bewitchment written against me — BURNED by the fire of God, in the name of Jesus.",
+        verse: "Blotting out the handwriting of ordinances that was against us, which was contrary to us, and took it out of the way, nailing it to his cross; And having spoiled principalities and powers, he made a shew of them openly, triumphing over them in it.",
+        ref: "Colossians 2:14–15 (KJV)"
+      },
+      {
+        decl: "Every bewitchment inherited through my bloodline — SEVERED by the blood of Jesus and the sword of the Spirit.",
+        verse: "Christ hath redeemed us from the curse of the law, being made a curse for us: for it is written, Cursed is every one that hangeth on a tree.",
+        ref: "Galatians 3:13 (KJV)"
+      },
+      {
+        decl: "Every bewitchment against my mind, my dreams, my sleep, and my bedroom — DIES NOW in the name of Jesus.",
+        verse: "Surely there is no enchantment against Jacob, neither is there any divination against Israel: according to this time it shall be said of Jacob and of Israel, What hath God wrought!",
+        ref: "Numbers 23:23 (KJV)"
+      },
+      {
+        decl: "Every bewitchment against my marriage covenant, my body, and my calling — DIES NOW in the name of Jesus.",
+        verse: "O foolish Galatians, who hath bewitched you, that ye should not obey the truth, before whose eyes Jesus Christ hath been evidently set forth, crucified among you?",
+        ref: "Galatians 3:1 (KJV)"
+      },
+      {
+        decl: "Every eye monitoring me — BLINDED by the light of the gospel, in the name of Jesus.",
+        verse: "Then said Jesus to them, Yet a little while is the light with you. Walk while ye have the light, lest darkness come upon you: for he that walketh in darkness knoweth not whither he goeth.",
+        ref: "John 12:35 (KJV)"
+      },
+      {
+        decl: "Every tongue that rises against me in judgment, I condemn in the name of Jesus.",
+        verse: "No weapon that is formed against thee shall prosper; and every tongue that shall rise against thee in judgment thou shalt condemn. This is the heritage of the servants of the LORD, and their righteousness is of me, saith the LORD.",
+        ref: "Isaiah 54:17 (KJV)"
+      },
+      {
+        decl: "I tread on serpents and scorpions by the authority of the name of Jesus. Nothing shall by any means hurt me. Amen.",
+        verse: "Behold, I give unto you power to tread on serpents and scorpions, and over all the power of the enemy: and nothing shall by any means hurt you.",
+        ref: "Luke 10:19 (KJV)"
+      }
+    ]
+  },
+
+  /* ============================================================
+     STATION 5 — PULL DOWN BLOODLINE ALTARS
+  ============================================================ */
+  {
+    id: "altars",
+    icon: "⛰️",
+    title: "Pull down bloodline altars",
+    lead: "Every altar not planted by the Father must be pulled down.",
+    anchor: [
+      { text: "But he answered and said, Every plant, which my heavenly Father hath not planted, shall be rooted up.", ref: "Matthew 15:13 (KJV)" }
+    ],
+    declTitle: "Altar-Cutting Decree",
+    declarations: [
+      {
+        decl: "Every altar raised against my life on my father's side — I pull it down NOW by the blood of Jesus, in the name of Jesus.",
+        verse: "Ye shall utterly destroy all the places, wherein the nations which ye shall possess served their gods, upon the high mountains, and upon the hills, and under every green tree: And ye shall overthrow their altars, and break their pillars, and burn their groves with fire; and ye shall hew down the graven images of their gods, and destroy the names of them out of that place.",
+        ref: "Deuteronomy 12:2–3 (KJV)"
+      },
+      {
+        decl: "Every altar raised against my life on my mother's side — I pull it down NOW by the blood of Jesus, in the name of Jesus.",
+        verse: "And it came to pass the same night, that the LORD said unto him, Take thy father's young bullock, even the second bullock of seven years old, and throw down the altar of Baal that thy father hath, and cut down the grove that is by it.",
+        ref: "Judges 6:25 (KJV)"
+      },
+      {
+        decl: "Every altar against my marriage, my children, my body, my mind, my finances, my ministry — I pull it down NOW by the blood of Jesus, in the name of Jesus.",
+        verse: "But he answered and said, Every plant, which my heavenly Father hath not planted, shall be rooted up.",
+        ref: "Matthew 15:13 (KJV)"
+      },
+      {
+        decl: "Every priest ministering at any evil altar concerning my life — I decree you are unemployed by the fire of God, in the name of Jesus.",
+        verse: "And Elijah said unto them, Take the prophets of Baal; let not one of them escape. And they took them: and Elijah brought them down to the brook Kishon, and slew them there.",
+        ref: "1 Kings 18:40 (KJV)"
+      },
+      {
+        decl: "Every sacrifice offered to bind me — CANCELLED by the blood of the Lamb, in the name of Jesus.",
+        verse: "Nor yet that he should offer himself often, as the high priest entereth into the holy place every year with blood of others; For then must he often have suffered since the foundation of the world: but now once in the end of the world hath he appeared to put away sin by the sacrifice of himself.",
+        ref: "Hebrews 9:25–26 (KJV)"
+      },
+      {
+        decl: "Every covenant made by any ancestor that would touch my life — I RENOUNCE it and DIVORCE it by the blood of Jesus, in the name of Jesus.",
+        verse: "And your covenant with death shall be disannulled, and your agreement with hell shall not stand; when the overflowing scourge shall pass through, then ye shall be trodden down by it.",
+        ref: "Isaiah 28:18 (KJV)"
+      },
+      {
+        decl: "Christ has redeemed me from every generational curse by the blood of Jesus.",
+        verse: "Christ hath redeemed us from the curse of the law, being made a curse for us: for it is written, Cursed is every one that hangeth on a tree: That the blessing of Abraham might come on the Gentiles through Jesus Christ; that we might receive the promise of the Spirit through faith.",
+        ref: "Galatians 3:13–14 (KJV)"
+      },
+      {
+        decl: "Every curse converts to a blessing on me, because the Lord loves me, in the name of Jesus.",
+        verse: "Nevertheless the LORD thy God would not hearken unto Balaam; but the LORD thy God turned the curse into a blessing unto thee, because the LORD thy God loved thee.",
+        ref: "Deuteronomy 23:5 (KJV)"
+      },
+      {
+        decl: "The house is swept clean by the blood of Jesus. The house is filled with the Holy Ghost. No returning spirit will find rest, in the name of Jesus. Amen.",
+        verse: "When the unclean spirit is gone out of a man, he walketh through dry places, seeking rest, and findeth none. Then he saith, I will return into my house from whence I came out; and when he is come, he findeth it empty, swept, and garnished. Then goeth he, and taketh with himself seven other spirits more wicked than himself, and they enter in and dwell there: and the last state of that man is worse than the first. Even so shall it be also unto this wicked generation.",
+        ref: "Matthew 12:43–45 (KJV)"
+      }
+    ]
+  },
+
+  /* ============================================================
+     STATION 6 — COVER YOUR DREAMS
+  ============================================================ */
+  {
+    id: "dreams",
+    icon: "🌙",
+    title: "Cover your dreams",
+    lead: "The bedroom is the next battleground. Cover it before you sleep tonight — and every night going forward.",
+    anchor: [
+      { text: "I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety.", ref: "Psalm 4:8 (KJV)" }
+    ],
+    declTitle: "Bedtime Covering",
+    declarations: [
+      {
+        decl: "I lie down in peace because the LORD makes me dwell in safety.",
+        verse: "I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety.",
+        ref: "Psalm 4:8 (KJV)"
+      },
+      {
+        decl: "My bed is holy ground. My pillow is anointed. My sheets are covered by the blood of Jesus, in the name of Jesus.",
+        verse: "Every place whereon the soles of your feet shall tread shall be yours: from the wilderness and Lebanon, from the river, the river Euphrates, even unto the uttermost sea shall your coast be.",
+        ref: "Deuteronomy 11:24 (KJV)"
+      },
+      {
+        decl: "No terror by night shall approach me. No arrow that flieth by day shall pierce me.",
+        verse: "Thou shalt not be afraid for the terror by night; nor for the arrow that flieth by day; Nor for the pestilence that walketh in darkness; nor for the destruction that wasteth at noonday. A thousand shall fall at thy side, and ten thousand at thy right hand; but it shall not come nigh thee.",
+        ref: "Psalm 91:5–7 (KJV)"
+      },
+      {
+        decl: "The Keeper of Israel does not slumber. He is awake over me while I sleep.",
+        verse: "He will not suffer thy foot to be moved: he that keepeth thee will not slumber. Behold, he that keepeth Israel shall neither slumber nor sleep. The LORD is thy keeper: the LORD is thy shade upon thy right hand.",
+        ref: "Psalm 121:3–5 (KJV)"
+      },
+      {
+        decl: "I command every witchcraft dream, every monitoring spirit, every dream-stealer to LEAVE my bedroom NOW, in the name of Jesus.",
+        verse: "Wherefore behold, I am against the prophets, saith the LORD, that steal my words every one from his neighbour. Behold, I am against the prophets, saith the LORD, that use their tongues, and say, He saith. Behold, I am against them that prophesy false dreams, saith the LORD, and do tell them, and cause my people to err by their lies, and by their lightness; yet I sent them not, nor commanded them: therefore they shall not profit this people at all, saith the LORD.",
+        ref: "Jeremiah 23:30–32 (KJV)"
+      },
+      {
+        decl: "I close every dream portal opened without my consent, by the blood of Jesus Christ, in the name of Jesus.",
+        verse: "Neither give place to the devil.",
+        ref: "Ephesians 4:27 (KJV)"
+      },
+      {
+        decl: "Only the Holy Spirit has access to my dreams tonight, in the name of Jesus.",
+        verse: "For God speaketh once, yea twice, yet man perceiveth it not. In a dream, in a vision of the night, when deep sleep falleth upon men, in slumberings upon the bed; Then he openeth the ears of men, and sealeth their instruction.",
+        ref: "Job 33:14–16 (KJV)"
+      },
+      {
+        decl: "Angels of the Lord encamp round about my bed, in the name of Jesus.",
+        verse: "The angel of the LORD encampeth round about them that fear him, and delivereth them.",
+        ref: "Psalm 34:7 (KJV)"
+      },
+      {
+        decl: "I will hear God speak in the night by the Holy Spirit. I will NOT hear the enemy, in the name of Jesus.",
+        verse: "My sheep hear my voice, and I know them, and they follow me: And I give unto them eternal life; and they shall never perish, neither shall any man pluck them out of my hand.",
+        ref: "John 10:27–28 (KJV)"
+      },
+      {
+        decl: "My sleep is sweet. My rest is deep. My waking is glorious. In Jesus' name. Amen.",
+        verse: "When thou liest down, thou shalt not be afraid: yea, thou shalt lie down, and thy sleep shall be sweet.",
+        ref: "Proverbs 3:24 (KJV)"
+      }
+    ]
+  },
+
+  /* ============================================================
+     STATION 7 — GUARD THE TEMPLE
+  ============================================================ */
+  {
+    id: "purity",
+    icon: "🛡️",
+    title: "Guard the temple",
+    lead: "Renounce every spiritual counterfeit that would try to enter your body, your bed, or your affections.",
+    anchor: [
+      { text: "What? know ye not that your body is the temple of the Holy Ghost which is in you, which ye have of God, and ye are not your own? For ye are bought with a price: therefore glorify God in your body, and in your spirit, which are God's.", ref: "1 Corinthians 6:19–20 (KJV)" }
+    ],
+    declTitle: "Temple Guarded",
+    declarations: [
+      {
+        decl: "My body is the temple of the Holy Ghost. No unclean spirit has legal residence here, in the name of Jesus.",
+        verse: "What? know ye not that your body is the temple of the Holy Ghost which is in you, which ye have of God, and ye are not your own? For ye are bought with a price: therefore glorify God in your body, and in your spirit, which are God's.",
+        ref: "1 Corinthians 6:19–20 (KJV)"
+      },
+      {
+        decl: "I renounce every spirit-spouse, every dream-lover, every night visitor — known and unknown — in the name of Jesus, by the blood of Jesus.",
+        verse: "Ye cannot drink the cup of the Lord, and the cup of devils: ye cannot be partakers of the Lord's table, and of the table of devils.",
+        ref: "1 Corinthians 10:21 (KJV)"
+      },
+      {
+        decl: "I break every soul-tie formed in dreams by the blood of Jesus, in the name of Jesus.",
+        verse: "What? know ye not that he which is joined to an harlot is one body? for two, saith he, shall be one flesh. But he that is joined unto the Lord is one spirit.",
+        ref: "1 Corinthians 6:16–17 (KJV)"
+      },
+      {
+        decl: "I break every dream-marriage, every dream-covenant, every dream-ceremony by the blood of Jesus, in the name of Jesus.",
+        verse: "And your covenant with death shall be disannulled, and your agreement with hell shall not stand; when the overflowing scourge shall pass through, then ye shall be trodden down by it.",
+        ref: "Isaiah 28:18 (KJV)"
+      },
+      {
+        decl: "The LORD of hosts is my Maker and my Redeemer. I bow to no counterfeit, in the name of Jesus.",
+        verse: "For thy Maker is thine husband; the LORD of hosts is his name; and thy Redeemer the Holy One of Israel; The God of the whole earth shall he be called.",
+        ref: "Isaiah 54:5 (KJV)"
+      },
+      {
+        decl: "I close every gate opened by past sin, past soul-ties, past media, or past agreement — by the blood of the Lamb, in the name of Jesus.",
+        verse: "If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness.",
+        ref: "1 John 1:9 (KJV)"
+      },
+      {
+        decl: "I set a hedge of thorns around my body and my bed, in the name of Jesus.",
+        verse: "Therefore, behold, I will hedge up thy way with thorns, and make a wall, that she shall not find her paths.",
+        ref: "Hosea 2:6 (KJV)"
+      },
+      {
+        decl: "I submit to God. I resist the devil. He must flee. In Jesus' name. Amen.",
+        verse: "Submit yourselves therefore to God. Resist the devil, and he will flee from you.",
+        ref: "James 4:7 (KJV)"
+      }
+    ]
+  },
+
+  /* ============================================================
+     STATION 8 — RENEW YOUR MIND
+  ============================================================ */
+  {
+    id: "renew",
+    icon: "📖",
+    title: "Renew your mind",
+    lead: "Sweep clean, then fill. Take three minutes to receive the Word into the space just cleared.",
+    anchor: [
+      { text: "And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect will of God.", ref: "Romans 12:2 (KJV)" }
+    ],
+    declTitle: "Filling the Inner Man",
+    declarations: [
+      {
+        decl: "I am not conformed to this world. I am being transformed by the renewing of my mind.",
+        verse: "And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect will of God.",
+        ref: "Romans 12:2 (KJV)"
+      },
+      {
+        decl: "Faith rises in me now as I hear the Word out of my own mouth, by the power of the Holy Spirit.",
+        verse: "So then faith cometh by hearing, and hearing by the word of God.",
+        ref: "Romans 10:17 (KJV)"
+      },
+      {
+        decl: "I am strengthened with might by the Holy Spirit in my inner man, in the name of Jesus.",
+        verse: "That he would grant you, according to the riches of his glory, to be strengthened with might by his Spirit in the inner man; That Christ may dwell in your hearts by faith; that ye, being rooted and grounded in love.",
+        ref: "Ephesians 3:16–17 (KJV)"
+      },
+      {
+        decl: "Christ dwells in my heart by faith. I am rooted and grounded in love, by the power of the Holy Spirit.",
+        verse: "May be able to comprehend with all saints what is the breadth, and length, and depth, and height; And to know the love of Christ, which passeth knowledge, that ye might be filled with all the fulness of God.",
+        ref: "Ephesians 3:18–19 (KJV)"
+      },
+      {
+        decl: "The Word of God is a fire in my bones, by the power of the Holy Spirit.",
+        verse: "Then I said, I will not make mention of him, nor speak any more in his name. But his word was in mine heart as a burning fire shut up in my bones, and I was weary with forbearing, and I could not stay.",
+        ref: "Jeremiah 20:9 (KJV)"
+      },
+      {
+        decl: "The Word of God is a hammer that breaks every rock in my life, in the name of Jesus.",
+        verse: "Is not my word like as a fire? saith the LORD; and like a hammer that breaketh the rock in pieces?",
+        ref: "Jeremiah 23:29 (KJV)"
+      },
+      {
+        decl: "I let the word of Christ dwell in me richly, by the power of the Holy Spirit. Amen.",
+        verse: "Let the word of Christ dwell in you richly in all wisdom; teaching and admonishing one another in psalms and hymns and spiritual songs, singing with grace in your hearts to the Lord.",
+        ref: "Colossians 3:16 (KJV)"
+      }
+    ],
+    extras: { timer: true }
+  },
+
+  /* ============================================================
+     STATION 9 — STAND AND TESTIFY
+  ============================================================ */
+  {
+    id: "stand",
+    icon: "⚔️",
+    title: "Stand and testify",
+    lead: "The final act of every deliverance is the decree to stand. Do not shrink back. Speak this loudly.",
+    anchor: [
+      { text: "Wherefore take unto you the whole armour of God, that ye may be able to withstand in the evil day, and having done all, to stand.", ref: "Ephesians 6:13 (KJV)" }
+    ],
+    declTitle: "Standing Decree",
+    declarations: [
+      {
+        decl: "Having done all — I STAND in the name of Jesus.",
+        verse: "Wherefore take unto you the whole armour of God, that ye may be able to withstand in the evil day, and having done all, to stand.",
+        ref: "Ephesians 6:13 (KJV)"
+      },
+      {
+        decl: "I stand on the blood of Jesus.",
+        verse: "And they overcame him by the blood of the Lamb, and by the word of their testimony; and they loved not their lives unto the death.",
+        ref: "Revelation 12:11 (KJV)"
+      },
+      {
+        decl: "I stand on the Word of God — the sword of the Spirit — in the name of Jesus.",
+        verse: "And take the helmet of salvation, and the sword of the Spirit, which is the word of God.",
+        ref: "Ephesians 6:17 (KJV)"
+      },
+      {
+        decl: "I stand in the finished work of the cross, by the blood of Jesus.",
+        verse: "When Jesus therefore had received the vinegar, he said, It is finished: and he bowed his head, and gave up the ghost.",
+        ref: "John 19:30 (KJV)"
+      },
+      {
+        decl: "I stand as a redeemed son / daughter, adopted, sealed by the Holy Spirit, and beloved in the name of Jesus.",
+        verse: "Having predestinated us unto the adoption of children by Jesus Christ to himself, according to the good pleasure of his will, To the praise of the glory of his grace, wherein he hath made us accepted in the beloved.",
+        ref: "Ephesians 1:5–6 (KJV)"
+      },
+      {
+        decl: "I overcome by the blood of the Lamb and the word of my testimony.",
+        verse: "And they overcame him by the blood of the Lamb, and by the word of their testimony; and they loved not their lives unto the death. Therefore rejoice, ye heavens, and ye that dwell in them.",
+        ref: "Revelation 12:11–12 (KJV)"
+      },
+      {
+        decl: "No weapon formed against me shall prosper. Every tongue that rises against me in judgment, I condemn in the name of Jesus.",
+        verse: "No weapon that is formed against thee shall prosper; and every tongue that shall rise against thee in judgment thou shalt condemn. This is the heritage of the servants of the LORD, and their righteousness is of me, saith the LORD.",
+        ref: "Isaiah 54:17 (KJV)"
+      },
+      {
+        decl: "I am more than a conqueror through Him that loved me — in the name of Jesus.",
+        verse: "Nay, in all these things we are more than conquerors through him that loved us. For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, Nor height, nor depth, nor any other creature, shall be able to separate us from the love of God, which is in Christ Jesus our Lord.",
+        ref: "Romans 8:37–39 (KJV)"
+      },
+      {
+        decl: "It is finished. I am sealed until the day of redemption. In Jesus' mighty name. Amen.",
+        verse: "And grieve not the holy Spirit of God, whereby ye are sealed unto the day of redemption.",
+        ref: "Ephesians 4:30 (KJV)"
+      }
+    ],
+    extras: { reflection: true }
+  }
+];
+
+/* -------------------- STATE (in-memory) -------------------- */
+let state = { spoken: {}, reflection: "", currentStation: -1 };
+function save() { /* in-memory only */ }
+
+/* -------------------- RENDER -------------------- */
+function renderChips() {
+  const wrap = document.getElementById("stationChips");
+  wrap.innerHTML = STATIONS.map((s,i) => {
+    const done = isStationDone(s.id);
+    const active = state.currentStation === i;
+    return `<button class="station-chip ${active?'active':''} ${done?'done':''}" onclick="goToStation(${i})">
+      <span class="station-num">Station ${i+1}</span>
+      <span class="station-title">${s.icon} ${s.title}</span>
+    </button>`;
+  }).join("");
+}
+
+function renderStations() {
+  const container = document.getElementById("stationContainer");
+  container.innerHTML = STATIONS.map((s,i) => {
+    const spokenLines = state.spoken[s.id] || [];
+    return `
+      <section class="station" id="station-${i}">
+        <div class="station-header">
+          <div class="station-icon">${s.icon}</div>
+          <h2>${s.title}</h2>
+        </div>
+        <p class="station-lead">${s.lead}</p>
+
+        <div class="anchor-label">Anchor Scripture</div>
+        ${s.anchor.map(sc => `
+          <div class="scripture">
+            "${sc.text}"
+            <span class="ref">${sc.ref}</span>
+          </div>
+        `).join("")}
+
+        ${s.extras && s.extras.breath ? renderBreath() : ""}
+        ${s.extras && s.extras.timer ? renderTimer() : ""}
+
+        <div class="decl-block">
+          <div class="decl-title">🔥 ${s.declTitle}</div>
+          <ul class="decl-list">
+            ${s.declarations.map((d,idx) => `
+              <li class="decl-item ${spokenLines.includes(idx)?'spoken':''}" onclick="toggleLine('${s.id}',${idx},this)">
+                <div class="decl-row">
+                  <span class="check">✓</span>
+                  <span class="decl-text">${d.decl}</span>
+                </div>
+                <div class="decl-verse">
+                  "${d.verse}"
+                  <span class="ref">${d.ref}</span>
+                </div>
+              </li>
+            `).join("")}
+          </ul>
+        </div>
+
+        ${s.extras && s.extras.reflection ? renderReflection() : ""}
+
+        <div class="btn-row">
+          <button class="btn secondary" onclick="goToStation(${i-1})" ${i===0?'disabled':''}>← Previous</button>
+          <button class="btn" onclick="markSpokenAll('${s.id}')">Mark all spoken</button>
+          ${i < STATIONS.length-1
+            ? `<button class="btn ember" onclick="goToStation(${i+1})">Next station →</button>`
+            : `<button class="btn ember" onclick="finish()">Complete walk 🕊️</button>`}
+        </div>
+      </section>
+    `;
+  }).join("");
+}
+
+function renderBreath() {
+  return `
+    <div class="breath-wrap">
+      <div class="breath-circle" id="breathCircle">Breathe</div>
+      <div class="breath-instruction" id="breathText">Tap to begin</div>
+      <button class="btn secondary" style="margin-top:14px" onclick="toggleBreath()">Start / Stop</button>
+    </div>
+  `;
+}
+
+function renderTimer() {
+  return `
+    <div class="timer-card">
+      <div style="font-size:14px;letter-spacing:.14em;text-transform:uppercase;opacity:.85">Soak in the Word</div>
+      <div class="timer-display" id="timerDisplay">03:00</div>
+      <div class="timer-controls">
+        <button class="btn" onclick="startTimer(180)">3 min</button>
+        <button class="btn" onclick="startTimer(300)">5 min</button>
+        <button class="btn" onclick="startTimer(600)">10 min</button>
+        <button class="btn" onclick="stopTimer()">Stop</button>
+      </div>
+      <div class="timer-note">Read one of the verses above aloud, slowly, on repeat, until the timer ends.</div>
+    </div>
+  `;
+}
+
+function renderReflection() {
+  return `
+    <div style="margin-top:24px">
+      <label class="reflect-label">One line of testimony (optional)</label>
+      <textarea class="reflect-field" id="reflectField" placeholder="What did the Lord do in this walk? One sentence is enough.">${state.reflection || ""}</textarea>
+    </div>
+  `;
+}
+
+/* -------------------- INTERACTION -------------------- */
+function goToStation(i) {
+  if (i < 0) { document.getElementById("intro").scrollIntoView({behavior:"smooth"}); return; }
+  state.currentStation = i;
+  save();
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("completion").style.display = "none";
+  document.querySelectorAll("section.station").forEach(el=>el.classList.remove("active"));
+  const target = document.getElementById(`station-${i}`);
+  if (target) {
+    target.classList.add("active");
+    target.scrollIntoView({behavior:"smooth", block:"start"});
+  }
+  renderChips();
+  updateProgress();
+}
+
+function toggleLine(stationId, idx, el) {
+  if (!state.spoken[stationId]) state.spoken[stationId] = [];
+  const arr = state.spoken[stationId];
+  const pos = arr.indexOf(idx);
+  if (pos >= 0) { arr.splice(pos,1); el.classList.remove("spoken"); }
+  else { arr.push(idx); el.classList.add("spoken"); }
+  save(); renderChips(); updateProgress();
+}
+
+function markSpokenAll(stationId) {
+  const s = STATIONS.find(x=>x.id===stationId);
+  state.spoken[stationId] = s.declarations.map((_,i)=>i);
+  save();
+  renderStations();
+  renderChips();
+  updateProgress();
+  const i = STATIONS.findIndex(x=>x.id===stationId);
+  document.getElementById(`station-${i}`).classList.add("active");
+}
+
+function isStationDone(stationId) {
+  const s = STATIONS.find(x=>x.id===stationId);
+  const spoken = state.spoken[stationId] || [];
+  return spoken.length === s.declarations.length;
+}
+
+function updateProgress() {
+  const done = STATIONS.filter(s=>isStationDone(s.id)).length;
+  const pct = (done / STATIONS.length) * 100;
+  document.getElementById("progressFill").style.width = pct + "%";
+  document.getElementById("progressCount").textContent = `${done} of ${STATIONS.length} stations`;
+}
+
+function finish() {
+  const rf = document.getElementById("reflectField");
+  if (rf) { state.reflection = rf.value; save(); }
+  document.querySelectorAll("section.station").forEach(el=>el.classList.remove("active"));
+  document.getElementById("completion").style.display = "block";
+  document.getElementById("completion").scrollIntoView({behavior:"smooth"});
+}
+
+function resetAll() {
+  if (!confirm("Clear all progress and start the walk over?")) return;
+  state = { spoken:{}, reflection:"", currentStation:-1 };
+  save();
+  location.reload();
+}
+
+/* -------------------- BREATH -------------------- */
+let breathTimer = null;
+function toggleBreath() {
+  const circle = document.getElementById("breathCircle");
+  const text = document.getElementById("breathText");
+  if (breathTimer) { clearInterval(breathTimer); breathTimer = null; circle.className = "breath-circle"; text.textContent = "Paused"; return; }
+  const cycle = ["Breathe in — 4", "Hold — 4", "Breathe out — 6"];
+  const cls = ["inhale","hold","exhale"];
+  const durs = [4000,4000,6000];
+  let i = 0;
+  const step = () => {
+    circle.className = "breath-circle " + cls[i];
+    circle.textContent = i===0?"Inhale":i===1?"Hold":"Exhale";
+    text.textContent = cycle[i];
+    breathTimer = setTimeout(()=>{ i=(i+1)%3; step(); }, durs[i]);
+  };
+  step();
+}
+
+/* -------------------- TIMER -------------------- */
+let timerInterval = null;
+function startTimer(sec) {
+  stopTimer();
+  let remaining = sec;
+  updateTimerDisplay(remaining);
+  timerInterval = setInterval(()=>{
+    remaining--;
+    updateTimerDisplay(remaining);
+    if (remaining <= 0) { stopTimer(); alert("Timer complete. The Word is now in your inner man."); }
+  }, 1000);
+}
+function stopTimer() { if (timerInterval) { clearInterval(timerInterval); timerInterval = null; } }
+function updateTimerDisplay(sec) {
+  const disp = document.getElementById("timerDisplay");
+  if (!disp) return;
+  const m = String(Math.floor(sec/60)).padStart(2,"0");
+  const s = String(sec%60).padStart(2,"0");
+  disp.textContent = `${m}:${s}`;
+}
+
+/* -------------------- SHARE -------------------- */
+function shareWhatsApp() {
+  const url = window.location.href;
+  const text = "Aftercare & Mind Renewal — a KJV companion for use right after a deliverance prayer session. " + url;
+  window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank");
+}
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(()=>{
+    alert("Link copied.");
+  });
+}
+
+/* -------------------- SAVE REFLECTION ON TYPE -------------------- */
+document.addEventListener("input", (e)=>{
+  if (e.target && e.target.id === "reflectField") { state.reflection = e.target.value; save(); }
+});
+
+/* -------------------- INIT -------------------- */
+renderStations();
+renderChips();
+updateProgress();
+if (state.currentStation >= 0) {
+  document.getElementById("intro").style.display = "none";
+  goToStation(state.currentStation);
+}
+</script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>A Tribute of Thanksgiving — Prayers for Pastor Kiky Ocansey & Prophet Prince Amo David</title>
+<meta name="description" content="An interactive prayer, provision, and declaration companion honoring Pastor Kiky Ocansey and Prophet Prince Amo David. 32 categories with full KJV scriptures, prayers, and declarations." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --ivory:#FAF7EF; --cream:#F3EEDF; --charcoal:#221E1A; --charcoal-2:#3a352e;
+  --teal:#0F5B5F; --teal-deep:#083E42; --gold:#B6871A; --gold-light:#E7C965;
+  --ember:#C24A16; --plum:#6E2F5A; --green:#4F7A2E;
+  --line: rgba(34,30,26,.14);
+  --shadow: 0 1px 2px rgba(34,30,26,.06), 0 10px 30px rgba(34,30,26,.06);
+  --serif:"Source Serif 4", Georgia, serif;
+  --sans:"DM Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--ivory); color:var(--charcoal); font-family:var(--sans);
+  font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+a{color:var(--teal-deep); text-decoration:none; border-bottom:1px solid rgba(15,91,95,.25)}
+a:hover{color:var(--ember); border-bottom-color:var(--ember)}
+.wrap{max-width:1080px; margin:0 auto; padding:28px 22px 80px}
+
+/* Header */
+.masthead{
+  padding:56px 22px 40px; text-align:center; border-bottom:1px solid var(--line);
+  background: linear-gradient(180deg, #FDFBF5 0%, var(--ivory) 100%);
+}
+.tribute-photo{
+  max-width:640px; width:100%; margin:28px auto 6px; display:block;
+  border-radius:18px; box-shadow:0 10px 42px rgba(34,30,26,.22);
+  border:1px solid var(--line);
+}
+
+/* Pastor portrait row */
+.portrait-section{
+  max-width:1100px; margin:0 auto; padding:40px 22px 8px;
+  display:grid; grid-template-columns:1fr 1fr; gap:32px;
+}
+@media (max-width:720px){ .portrait-section{ grid-template-columns:1fr; gap:28px; padding:28px 18px 0; } }
+.portrait-card{
+  background:#fff; border:1px solid var(--line); border-radius:16px;
+  padding:22px 22px 26px; box-shadow:0 6px 22px rgba(34,30,26,.06);
+  text-align:center;
+}
+.portrait-card .frame{
+  width:100%; aspect-ratio:1/1; overflow:hidden; border-radius:12px;
+  background:var(--cream); border:1px solid var(--line);
+  margin-bottom:18px; position:relative;
+}
+.portrait-card .frame img{
+  width:100%; height:100%; object-fit:cover; object-position:center 30%;
+  display:block;
+}
+.portrait-card .frame img.zoom{
+  transform: scale(1.10); transform-origin: center 25%;
+  object-position: center 25%;
+}
+.portrait-card .inset{
+  position:absolute; bottom:-14px; right:-14px;
+  width:86px; height:86px; border-radius:50%; overflow:hidden;
+  border:4px solid var(--ivory); box-shadow:0 6px 18px rgba(34,30,26,.28);
+  background:var(--cream);
+}
+.portrait-card .inset img{
+  width:100%; height:100%; object-fit:cover; object-position:center 32%;
+  display:block;
+}
+@media (max-width:520px){ .portrait-card .inset{ width:72px; height:72px; bottom:-10px; right:-10px; } }
+.portrait-card .role{
+  font-family:var(--sans); font-size:11px; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--gold-deep); margin-bottom:6px;
+}
+.portrait-card h3{
+  font-family:var(--serif); font-size:26px; color:var(--teal-deep); margin:0 0 4px; font-weight:600;
+}
+.portrait-card .ministry{
+  font-family:var(--serif); font-style:italic; color:var(--charcoal); opacity:.78; font-size:15px;
+  margin-bottom:12px;
+}
+.portrait-card .years{
+  font-family:var(--sans); font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--teal-deep); font-weight:600;
+}
+.eyebrow{
+  font-family:var(--sans); font-size:12px; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--teal-deep); margin-bottom:14px;
+}
+.masthead h1{
+  font-family:var(--serif); font-weight:600; font-size:clamp(30px, 4.4vw, 52px);
+  line-height:1.08; margin:0 0 12px; color:var(--charcoal); letter-spacing:-.01em;
+}
+.masthead h1 .amp{color:var(--gold); font-style:italic; font-weight:500}
+.masthead p.lede{
+  font-family:var(--serif); font-size:clamp(17px, 1.6vw, 20px); font-style:italic;
+  color:var(--charcoal-2); max-width:720px; margin:8px auto 0;
+}
+.pastor-row{
+  display:flex; gap:18px; justify-content:center; margin:28px auto 8px; flex-wrap:wrap;
+}
+.pastor{
+  background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 22px;
+  min-width:280px; box-shadow:var(--shadow);
+}
+.pastor .name{font-family:var(--serif); font-weight:600; font-size:19px; color:var(--teal-deep)}
+.pastor .min{font-size:13px; color:var(--charcoal-2); margin-top:2px}
+.pastor .yrs{font-size:12px; color:var(--gold); letter-spacing:.06em; text-transform:uppercase; margin-top:6px; font-weight:600}
+
+/* Tribute panel */
+.tribute{
+  margin:44px 0 32px; padding:32px 28px; background:#fff; border:1px solid var(--line);
+  border-radius:16px; box-shadow:var(--shadow);
+}
+.tribute h2{
+  font-family:var(--serif); font-weight:600; font-size:26px; margin:0 0 12px; color:var(--teal-deep);
+}
+.tribute p{margin:0 0 12px; color:var(--charcoal-2)}
+.tribute p strong{color:var(--charcoal)}
+
+/* Toolbar */
+.toolbar{
+  display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:8px 0 22px;
+  padding:12px 14px; background:var(--cream); border:1px solid var(--line);
+  border-radius:12px;
+}
+.toolbar input[type=search]{
+  flex:1 1 260px; min-width:200px; padding:10px 12px; border:1px solid var(--line);
+  border-radius:8px; font:inherit; background:#fff; color:var(--charcoal);
+}
+.toolbar input[type=search]:focus{outline:2px solid var(--teal); outline-offset:1px}
+.btn{
+  display:inline-flex; align-items:center; gap:8px; padding:9px 14px;
+  background:var(--teal-deep); color:#fff; border:1px solid var(--teal-deep); border-radius:8px;
+  font:600 14px var(--sans); cursor:pointer; text-decoration:none;
+}
+.btn:hover{background:var(--teal); border-color:var(--teal); color:#fff}
+.btn.secondary{background:#fff; color:var(--teal-deep)}
+.btn.secondary:hover{background:var(--cream); color:var(--teal-deep)}
+.btn.gold{background:var(--gold); border-color:var(--gold)}
+.btn.gold:hover{background:#a17714; border-color:#a17714}
+
+/* Category grid */
+.grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr));
+  gap:14px; margin-top:12px;
+}
+.tile{
+  background:#fff; border:1px solid var(--line); border-radius:14px;
+  padding:16px 16px 14px; cursor:pointer; text-align:left; font:inherit; color:inherit;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  box-shadow:0 1px 2px rgba(34,30,26,.04);
+}
+.tile:hover{transform:translateY(-2px); border-color:var(--teal); box-shadow:var(--shadow)}
+.tile .icon{font-size:26px; line-height:1}
+.tile h3{font-family:var(--serif); font-weight:600; font-size:19px; margin:10px 0 4px; color:var(--teal-deep)}
+.tile p{margin:0; font-size:14px; color:var(--charcoal-2); line-height:1.5}
+
+/* Detail panel */
+.detail{
+  display:none; margin-top:22px; padding:28px 28px 26px; background:#fff;
+  border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); scroll-margin-top:20px;
+}
+.detail.open{display:block}
+.detail .cat-head{display:flex; align-items:center; gap:14px; margin-bottom:8px}
+.detail .cat-head .icon{font-size:34px}
+.detail h2{font-family:var(--serif); font-weight:600; font-size:30px; margin:0; color:var(--teal-deep); letter-spacing:-.01em}
+.detail .summary{color:var(--charcoal-2); margin:6px 0 22px; font-style:italic; font-family:var(--serif); font-size:18px}
+.section-title{
+  font-family:var(--sans); text-transform:uppercase; letter-spacing:.16em;
+  font-size:12px; color:var(--gold); font-weight:700; margin:22px 0 10px;
+  border-top:1px solid var(--line); padding-top:16px;
+}
+.section-title:first-of-type{border-top:none; padding-top:0; margin-top:0}
+.verse{
+  background:var(--cream); border-left:3px solid var(--gold); padding:14px 16px;
+  border-radius:6px; margin-bottom:10px;
+}
+.verse .ref{font-family:var(--sans); font-weight:700; font-size:13px; color:var(--teal-deep); letter-spacing:.04em; text-transform:uppercase; margin-bottom:4px}
+.verse .text{font-family:var(--serif); font-size:17px; line-height:1.6; color:var(--charcoal)}
+.prayer{
+  background:#fff; border:1px solid var(--line); border-radius:8px; padding:16px 18px;
+  font-family:var(--serif); font-size:17px; line-height:1.65;
+}
+.declarations{list-style:none; padding:0; margin:0}
+.declarations li{
+  background:#fff; border:1px solid var(--line); border-radius:8px;
+  padding:12px 14px 12px 44px; margin-bottom:8px; position:relative;
+  font-family:var(--serif); font-size:16.5px; line-height:1.5;
+}
+.declarations li::before{
+  content:""; position:absolute; left:16px; top:16px; width:16px; height:16px;
+  border-radius:50%; background:var(--gold); box-shadow:0 0 0 3px rgba(182,135,26,.18);
+}
+.repeat-note{
+  display:inline-block; background:var(--teal-deep); color:#fff; font:700 11px var(--sans);
+  letter-spacing:.16em; text-transform:uppercase; padding:5px 10px; border-radius:999px; margin-bottom:8px;
+}
+
+/* Footer */
+footer{
+  margin-top:60px; text-align:center; color:var(--charcoal-2); font-size:14px; padding:0 20px;
+}
+footer .luke{font-family:var(--serif); font-style:italic; color:var(--teal-deep); margin-bottom:6px}
+
+/* Print */
+@media print{
+  body{background:#fff}
+  .masthead{padding:20px 0 12px; border-bottom:2px solid var(--charcoal)}
+  .toolbar,.tile,.grid,#backTop{display:none !important}
+  .detail{display:block !important; page-break-before:always; box-shadow:none; border:none; padding:0}
+  .detail:first-of-type{page-break-before:auto}
+  .tribute{box-shadow:none}
+  a{color:var(--charcoal); border:none}
+}
+
+/* Back to top */
+#backTop{
+  position:fixed; right:18px; bottom:18px; background:var(--teal-deep); color:#fff;
+  border:none; border-radius:999px; width:44px; height:44px; font-size:20px; cursor:pointer;
+  box-shadow:var(--shadow); display:none;
+}
+#backTop.show{display:block}
+
+/* Front cover */
+.cover{
+  position:relative; width:100%; max-height:640px; overflow:hidden;
+  background:var(--charcoal);
+}
+.cover img{
+  width:100%; height:100%; max-height:640px; object-fit:cover; object-position:center 25%;
+  display:block;
+}
+.cover::after{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(34,30,26,.45) 100%);
+  pointer-events:none;
+}
+.cover-caption{
+  position:absolute; left:0; right:0; bottom:22px; text-align:center;
+  font-family:var(--sans); color:#fff; letter-spacing:.18em; text-transform:uppercase;
+  font-size:12px; text-shadow:0 2px 12px rgba(0,0,0,.55);
+}
+@media (max-width:640px){
+  .cover{max-height:480px}
+  .cover img{max-height:480px}
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .masthead{padding:36px 18px 28px}
+  .tribute{padding:22px 18px}
+  .detail{padding:22px 18px}
+  .wrap{padding:20px 14px 60px}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="eyebrow">A Tribute of Thanksgiving</div>
+  <h1>Prayers, Provision <span class="amp">&amp;</span> Declarations</h1>
+  <p class="lede">Honoring the faithful service of two shepherds and standing with them in prayer for every category of life and ministry.</p>
+
+</header>
+
+<section class="portrait-section" aria-label="Our shepherds">
+  <div class="portrait-card">
+    <div class="frame">
+      <img src="assets/pastor-kiky-v4.jpeg" alt="Pastor Kiky Ocansey — L137 Deliverance Ministry International" />
+    </div>
+    <div class="role">Pastor</div>
+    <h3>Pastor Kiky Ocansey</h3>
+    <div class="ministry">L137 Deliverance Ministry International</div>
+    <div class="years">10+ Years · 6+ Years on Clubhouse</div>
+  </div>
+  <div class="portrait-card">
+    <div class="frame">
+      <img src="assets/prophet-prince-v4.jpeg" alt="Prophet Prince Amo David — Dominion Hour with Prophet Prince Amo David" />
+    </div>
+    <div class="role">Prophet</div>
+    <h3>Prophet Prince Amo David</h3>
+    <div class="ministry">Dominion Hour with Prophet Prince Amo David</div>
+    <div class="years">20+ Years · 2+ Years on Clubhouse</div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section class="tribute" id="tribute">
+    <h2>To the L137 Deliverance Ministry &amp; Dominion Hour Family</h2>
+    <p>With hearts full of gratitude, we honor and thank God for the faithful lives and dedicated service of <strong>Pastor Kiky Ocansey</strong> of <strong>L137 Deliverance Ministry</strong> and <strong>Prophet Prince Amo David</strong> of <strong>Dominion Hour with Prophet Prince Amo David</strong>. Their perseverance, sacrifice, prayers, teachings, and commitment to deliverance ministry have strengthened both ministry families and advanced the work of God's Kingdom.</p>
+    <p>We recognize that ministry requires sacrifice. Behind every sermon, prayer, deliverance session, prophetic word, and act of service are hours of preparation, spiritual warfare, intercession, discipline, and personal surrender. Today, we pause to say — <em>thank you</em>.</p>
+    <p style="font-family:var(--serif); font-style:italic; color:var(--teal-deep); margin-top:16px; border-top:1px solid var(--line); padding-top:14px;">"For God is not unrighteous to forget your work and labour of love, which ye have shewed toward his name, in that ye have ministered to the saints, and do minister." <br>— Hebrews 6:10 (KJV)</p>
+  </section>
+
+  <div class="toolbar" role="search">
+    <input type="search" id="q" placeholder="Search a category, verse, or word (e.g. protection, wisdom, Psalm 91)…" aria-label="Search categories" />
+    <button class="btn" onclick="expandAll()">Open all</button>
+    <button class="btn secondary" onclick="collapseAll()">Collapse all</button>
+    <button class="btn gold" onclick="window.print()">🖨 Print / Save PDF</button>
+    <button class="btn" id="shareBtn" onclick="sharePage()" title="Share the link (great for Clubhouse, WhatsApp, or texts)">🔗 Share link</button>
+  </div>
+  <div id="shareToast" role="status" aria-live="polite" style="display:none; margin:-14px 2px 12px; padding:10px 14px; background:#e7f3ee; border:1px solid #b7d9c5; border-radius:8px; color:#0F5B5F; font-weight:600; font-size:14px;">Link copied — paste it into Clubhouse, WhatsApp, or anywhere.</div>
+
+  <div class="grid" id="grid" role="list"></div>
+
+  <div id="detailHost"></div>
+
+  <footer>
+    <div class="luke">"For with God nothing shall be impossible." — Luke 1:37 (KJV)</div>
+    <div>In the mighty name of Jesus Christ, amen.</div>
+  </footer>
+</main>
+
+<button id="backTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+let DATA = null;
+
+async function load(){
+  const res = await fetch('categories.json');
+  DATA = await res.json();
+  renderGrid(DATA.categories);
+  renderDetails(DATA.categories);
+  hookSearch();
+  hookBackTop();
+}
+
+function renderGrid(cats){
+  const g = document.getElementById('grid');
+  g.innerHTML = cats.map(c => `
+    <button class="tile" role="listitem" data-id="${c.id}" onclick="openCat('${c.id}')" aria-label="Open ${c.title}">
+      <div class="icon" aria-hidden="true">${c.icon}</div>
+      <h3>${c.title}</h3>
+      <p>${c.summary}</p>
+    </button>
+  `).join('');
+}
+
+function renderDetails(cats){
+  const host = document.getElementById('detailHost');
+  host.innerHTML = cats.map(c => `
+    <article class="detail" id="d-${c.id}" data-id="${c.id}">
+      <div class="cat-head">
+        <div class="icon" aria-hidden="true">${c.icon}</div>
+        <h2>${c.title}</h2>
+      </div>
+      <p class="summary">${c.summary}</p>
+
+      <div class="section-title">Scriptures (KJV — Full)</div>
+      ${c.verses.map(v => `
+        <div class="verse">
+          <div class="ref">${v.ref} (KJV)</div>
+          <div class="text">"${v.text}"</div>
+        </div>
+      `).join('')}
+
+      <div class="section-title">Prayer</div>
+      <div class="prayer">${c.prayer}</div>
+
+      <div class="section-title">Declarations</div>
+      <div class="repeat-note">Repeat after me</div>
+      <ul class="declarations">
+        ${c.declarations.map(d => `<li>${d}</li>`).join('')}
+      </ul>
+    </article>
+  `).join('');
+}
+
+function openCat(id){
+  document.querySelectorAll('.detail').forEach(d => d.classList.remove('open'));
+  const el = document.getElementById('d-'+id);
+  if(el){ el.classList.add('open'); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+}
+function expandAll(){
+  document.querySelectorAll('.detail').forEach(d => d.classList.add('open'));
+  document.getElementById('detailHost').scrollIntoView({behavior:'smooth'});
+}
+function collapseAll(){
+  document.querySelectorAll('.detail').forEach(d => d.classList.remove('open'));
+}
+
+function hookSearch(){
+  const q = document.getElementById('q');
+  q.addEventListener('input', () => {
+    const term = q.value.trim().toLowerCase();
+    if(!term){ renderGrid(DATA.categories); return; }
+    const filtered = DATA.categories.filter(c => {
+      const hay = [c.title, c.summary, c.prayer, ...c.declarations,
+        ...c.verses.map(v => v.ref + ' ' + v.text)].join(' ').toLowerCase();
+      return hay.includes(term);
+    });
+    renderGrid(filtered);
+  });
+}
+
+function hookBackTop(){
+  const btn = document.getElementById('backTop');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 400) btn.classList.add('show'); else btn.classList.remove('show');
+  });
+}
+
+async function sharePage(){
+  const url = window.location.href;
+  const title = document.title;
+  const text = 'A Tribute of Thanksgiving — Prayers for Pastor Kiky Ocansey & Prophet Prince Amo David';
+  // Try native share on mobile
+  if(navigator.share){
+    try { await navigator.share({title, text, url}); return; } catch(e) { /* fall through to copy */ }
+  }
+  // Fallback: copy link
+  try {
+    await navigator.clipboard.writeText(url);
+    const t = document.getElementById('shareToast');
+    t.style.display = 'block';
+    setTimeout(() => { t.style.display = 'none'; }, 3200);
+  } catch(e) {
+    prompt('Copy this link to share:', url);
+  }
+}
+
+load();
+</script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

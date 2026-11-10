@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#1E1B4B" />
+<title>Daily Word · L137 Deliverance Ministry — Bible Verses & Daily Lessons</title>
+<meta name="description" content="Daily Bible verses, prophetic declarations, and short teaching lessons from Pastor Kiki Ocansey and L137 Deliverance Ministry." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+<style>
+  /* Daily Word page-specific layout (uses existing tokens) */
+  .daily-hero {
+    position: relative; color: white;
+    padding: 60px var(--pad-x) 56px;
+    background: radial-gradient(120% 100% at 20% 0%, #312E81 0%, var(--c-l137) 55%, #0B0A26 100%);
+    overflow: hidden;
+  }
+  .daily-hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 80% 20%, rgba(234,179,8,0.22), transparent 40%),
+      radial-gradient(circle at 10% 90%, rgba(217,119,6,0.16), transparent 50%);
+    pointer-events: none;
+  }
+  .daily-hero .inner { position: relative; max-width: var(--max-w); margin: 0 auto; }
+  .daily-hero .eyebrow { display: inline-block; color: var(--c-gold-soft); margin-bottom: 14px; }
+  .daily-hero h1 { color: white; margin-bottom: 14px; }
+  .daily-hero p { color: rgba(255,255,255,0.85); font-size: 17px; max-width: 620px; }
+
+  /* Featured entry — large daily card */
+  .entry-card {
+    background: var(--c-card);
+    border: 1px solid var(--c-line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    margin-bottom: 28px;
+  }
+  .entry-card .entry-head {
+    padding: 24px 28px 18px;
+    border-bottom: 1px solid var(--c-line);
+    background: linear-gradient(180deg, var(--c-cream) 0%, transparent 100%);
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+  }
+  .entry-card .entry-head .date-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--c-l137);
+    padding: 5px 12px; border-radius: 999px;
+    background: rgba(30, 27, 75, 0.08);
+  }
+  .entry-card .entry-head .tag-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #8A6611;
+    padding: 4px 10px; border-radius: 999px;
+    background: rgba(234,179,8,0.12);
+    border: 1px solid rgba(234,179,8,0.35);
+  }
+  .entry-card .entry-body { padding: 28px; }
+  .entry-card h2 {
+    font-family: var(--font-display); font-size: clamp(26px, 4vw, 32px);
+    line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 18px;
+  }
+  .verse-block {
+    border-left: 3px solid var(--c-gold); padding: 4px 0 4px 18px;
+    margin: 6px 0 22px;
+  }
+  .verse-block .verse-text {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 18px; line-height: 1.55; color: var(--c-ink);
+  }
+  .verse-block .verse-cite {
+    display: block; margin-top: 8px;
+    font-family: var(--font-sans); font-style: normal;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--c-muted); font-weight: 700;
+  }
+  .entry-body .lesson-stanza {
+    font-size: 16px; line-height: 1.65; color: var(--c-ink-soft);
+    margin-bottom: 16px;
+  }
+  .entry-body .lesson-stanza strong {
+    color: var(--c-ink); font-weight: 600;
+  }
+  .entry-body .declarations {
+    background: var(--c-cream); border-radius: var(--radius);
+    border: 1px solid var(--c-line);
+    padding: 22px 24px; margin: 22px 0 12px;
+  }
+  .entry-body .declarations h4 {
+    font-family: var(--font-sans); font-size: 12px; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--c-muted);
+    margin-bottom: 12px;
+  }
+  .entry-body .declarations p {
+    font-size: 16px; line-height: 1.6; color: var(--c-ink);
+    padding-left: 20px; position: relative; margin-bottom: 12px;
+  }
+  .entry-body .declarations p::before {
+    content: "†"; position: absolute; left: 0; top: 0;
+    color: var(--c-gold); font-weight: 700;
+  }
+  .entry-body .declarations p:last-child { margin-bottom: 0; }
+  .entry-body .closing {
+    margin-top: 22px; padding-top: 22px;
+    border-top: 1px dashed var(--c-line);
+    text-align: center;
+  }
+  .entry-body .closing .amen {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 18px; color: var(--c-l137); margin-bottom: 4px;
+  }
+  .entry-body .closing .signoff {
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--c-muted); font-weight: 700;
+  }
+
+  /* Share row */
+  .share-row {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px;
+  }
+  .share-row .btn { font-size: 14px; padding: 10px 16px; min-height: 0; }
+
+  /* Archive grid (older entries placeholder) */
+  .archive-grid {
+    display: grid; gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) { .archive-grid { grid-template-columns: 1fr 1fr; } }
+  .archive-card {
+    background: var(--c-card); border: 1px solid var(--c-line);
+    border-radius: var(--radius); padding: 22px;
+    border-left: 3px solid var(--c-l137);
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .archive-card .meta {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--c-muted); font-weight: 700;
+  }
+  .archive-card h3 { font-size: 18px; line-height: 1.3; }
+  .archive-card .verse-mini {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 14px; line-height: 1.5; color: var(--c-ink-soft);
+    border-left: 2px solid var(--c-gold); padding-left: 10px;
+    margin-top: 4px;
+  }
+  .archive-card .status {
+    margin-top: auto; padding-top: 12px;
+    font-size: 12px; color: var(--c-muted);
+  }
+
+  /* Subscribe / contribute block */
+  .contribute-block {
+    background: var(--c-cream); border-radius: var(--radius-lg);
+    border: 1px solid var(--c-line);
+    padding: 36px 28px; margin-top: 12px;
+  }
+  .contribute-block h2 { margin-bottom: 6px; }
+  .contribute-block p { color: var(--c-ink-soft); max-width: 640px; margin-bottom: 18px; }
+  .contribute-block .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar">
+  <div class="inner">
+    <a href="index.html" class="brand" aria-label="Home">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 5v22M5 16h22" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="4" fill="#EAB308"/>
+      </svg>
+      <span>L137 · Dominion</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="l137.html">L137</a>
+      <a href="dominion.html">Dominion Hour</a>
+      <a href="daily.html" aria-current="page">Daily Word</a>
+      <a href="l137.html#watch">Watch</a>
+      <a href="resources.html">Resources</a>
+      <a href="index.html#give" class="btn btn-primary" style="padding:10px 18px; min-height: 0;">Give</a>
+    </nav>
+
+    <div style="display:flex; gap:8px; align-items:center;">
+      <a href="#" class="live-pill" data-demo="Live stream opens here when a service is on air.">
+        <span class="dot"></span> LIVE
+      </a>
+      <button class="icon-btn hamburger" data-open-drawer aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ DRAWER ============ -->
+<div class="drawer-bg" data-close-drawer></div>
+<aside class="drawer" aria-label="Menu">
+  <div class="drawer-head">
+    <span class="brand"><span>Menu</span></span>
+    <button class="icon-btn" data-close-drawer aria-label="Close menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+
+  <div class="ministry-cards">
+    <a href="l137.html" class="ministry-card l137">
+      <span class="label">Pastor Kiki Ocansey</span>
+      <span class="title">L137 Deliverance</span>
+      <span class="sub">Warfare prayer · Wed &amp; Sat midnight GMT</span>
+    </a>
+    <a href="dominion.html" class="ministry-card dominion">
+      <span class="label">Prophet Prince Amo David</span>
+      <span class="title">Dominion Hour</span>
+      <span class="sub">Prophetic teaching from Accra, Ghana</span>
+    </a>
+  </div>
+
+  <h4>Daily Word</h4>
+  <a href="daily.html">Today's Verse &amp; Lesson</a>
+  <a href="daily.html#archive">Past Words</a>
+
+  <h4>Watch &amp; Listen</h4>
+  <a href="l137.html#watch">Latest Services</a>
+  <a href="https://www.clubhouse.com/house/l137-deliverance-ministry" target="_blank" rel="noopener">L137 on Clubhouse</a>
+
+  <h4>Resources</h4>
+  <a href="resources.html">Workbooks &amp; PDFs</a>
+  <a href="resources.html#workbook">Destroying Evil Covenants</a>
+
+  <h4>Engage</h4>
+  <a href="l137.html#request">Submit a Prayer Request</a>
+  <a href="index.html#give">Give / Tithe</a>
+</aside>
+
+<!-- ============ HERO ============ -->
+<section class="daily-hero">
+  <div class="inner">
+    <span class="eyebrow">Daily Word · Verses · Lessons</span>
+    <h1>A word for today.<br/>Carry it through the day.</h1>
+    <p>A daily Bible verse and short lesson from Pastor Kiki Ocansey. Read it slowly, declare it out loud, and let the Word do its work in you.</p>
+  </div>
+</section>
+
+<!-- ============ TODAY'S ENTRY ============ -->
+<section>
+  <div class="container">
+
+    <article class="entry-card" id="today">
+      <div class="entry-head">
+        <span class="date-pill">Monday · 1 June 2026</span>
+        <span class="tag-pill">Prophetic Declaration</span>
+        <span class="tag-pill">New Month</span>
+      </div>
+
+      <div class="entry-body">
+        <h2>Prophetic Declarations &amp; Blessings for the Month of June</h2>
+
+        <blockquote class="verse-block">
+          <span class="verse-text">"And the key of the house of David will I lay upon his shoulder; so he shall open, and none shall shut; and he shall shut, and none shall open."</span>
+          <cite class="verse-cite">Isaiah 22:22 · KJV</cite>
+        </blockquote>
+
+        <p class="lesson-stanza"><strong>Step into this new month with unwavering faith.</strong> I decree that doors of supernatural favor, accelerated breakthroughs, and divine provision are opening for you. Any form of stagnation is broken, and every step you take will yield a massive, joyful harvest.</p>
+
+        <div class="declarations">
+          <h4>Declarations for the Month</h4>
+          <p>I declare that heaven is open over my life. Every closed door I encountered in the past months is now open by the power of the Holy Spirit.</p>
+          <p>Helpers of destiny will locate me from the north, south, east, and west. Divine appointments will find me, and I will not labor in vain.</p>
+          <p>I declare total recovery and restoration over everything I have lost or that was delayed. God is making up for lost time, and my joy is overflowing.</p>
+          <p>I speak divine protection over my health, finances, business, and connections.</p>
+          <p>I declare in the Name of Jesus Christ that the Lord orders my steps, and I am safely led by the Holy Spirit in my daily endeavors.</p>
+        </div>
+
+        <div class="closing">
+          <div class="amen">Amen.</div>
+          <div class="signoff">Jesus is coming soon · Let's repent · Happy New Month</div>
+        </div>
+
+        <div class="share-row">
+          <a href="https://wa.me/?text=Prophetic%20Declarations%20%26%20Blessings%20for%20June%20%E2%80%94%20Isaiah%2022%3A22.%20Read%20today%27s%20word%3A%20https%3A%2F%2Fl137deliveranceministry.pplx.app%2Fdaily.html" target="_blank" rel="noopener" class="btn btn-primary">Share to WhatsApp</a>
+          <a href="resources.html" class="btn btn-outline">More Resources</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ ARCHIVE ============ -->
+<section id="archive" style="padding-top: 8px;">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Past Words</div>
+        <h2>Recent verses &amp; lessons</h2>
+      </div>
+    </div>
+
+    <div class="archive-grid">
+      <article class="archive-card">
+        <span class="meta">Coming soon · Daily entry</span>
+        <h3>Tuesday's Word</h3>
+        <blockquote class="verse-mini">Verse and short lesson will be posted in the morning.</blockquote>
+        <span class="status">Check back tomorrow</span>
+      </article>
+
+      <article class="archive-card">
+        <span class="meta">Coming soon · Daily entry</span>
+        <h3>Wednesday's Word</h3>
+        <blockquote class="verse-mini">Midweek warfare reflection — paired with Wednesday midnight service.</blockquote>
+        <span class="status">Check back midweek</span>
+      </article>
+
+      <article class="archive-card">
+        <span class="meta">Coming soon · Weekly</span>
+        <h3>This Week's Scripture</h3>
+        <blockquote class="verse-mini">One scripture to memorize and confess each day this week.</blockquote>
+        <span class="status">Updated weekly</span>
+      </article>
+
+      <article class="archive-card">
+        <span class="meta">Coming soon · Monthly</span>
+        <h3>July Declarations</h3>
+        <blockquote class="verse-mini">Prophetic declarations and blessings for the new month.</blockquote>
+        <span class="status">Posts on the 1st</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTRIBUTE ============ -->
+<section>
+  <div class="container">
+    <div class="contribute-block">
+      <div class="eyebrow">Submit</div>
+      <h2>Send Pastor Kiki a verse or testimony</h2>
+      <p>Share a scripture the Lord is laying on your heart, or a testimony from a recent service. With permission, it may be featured in a future Daily Word.</p>
+      <div class="actions">
+        <a href="l137.html#request" class="btn btn-primary">Submit a Word</a>
+        <a href="https://www.clubhouse.com/house/l137-deliverance-ministry" target="_blank" rel="noopener" class="btn btn-outline">Join the next service</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="grid">
+      <div>
+        <div class="brand" style="color: white; margin-bottom: 12px;">
+          <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" width="28" height="28">
+            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M16 5v22M5 16h22" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16" cy="16" r="4" fill="#EAB308"/>
+          </svg>
+          <span>L137 · Dominion</span>
+        </div>
+        <p style="color: rgba(255,255,255,0.6); font-size: 14px; max-width: 320px;">L137 Deliverance Ministry with Pastor Kiki Ocansey, and Dominion Hour with Prophet Prince Amo David. For with God, nothing shall be impossible. — Luke 1:37</p>
+      </div>
+
+      <div>
+        <h4>Ministries</h4>
+        <a href="l137.html">L137</a>
+        <a href="dominion.html">Dominion Hour</a>
+        <a href="l137.html#watch">Watch &amp; Listen</a>
+      </div>
+
+      <div>
+        <h4>Daily Word</h4>
+        <a href="daily.html">Today's Verse</a>
+        <a href="daily.html#archive">Past Words</a>
+        <a href="resources.html">Workbooks</a>
+      </div>
+
+      <div>
+        <h4>Engage</h4>
+        <a href="l137.html#request">Prayer Request</a>
+        <a href="index.html#give">Give</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+
+    <div class="legal">
+      <span>© 2026 L137 Deliverance Ministry · Dominion Hour</span>
+      <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ BOTTOM TAB BAR ============ -->
+<nav class="tabbar" aria-label="Quick actions">
+  <a href="index.html" class="tab">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+    Home
+  </a>
+  <a href="daily.html" class="tab active">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    Daily
+  </a>
+  <a href="l137.html#request" class="tab tab-center">
+    <span class="fab" aria-label="Submit prayer request">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M8 6c1.5-2 6.5-2 8 0s-1 5-4 7c-3-2-5.5-5-4-7z"/></svg>
+    </span>
+    <span class="label">Prayer</span>
+  </a>
+  <a href="resources.html" class="tab">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h12l4 4v12a0 0 0 0 1 0 0H4z"/><path d="M16 4v4h4"/><path d="M8 13h8M8 17h6"/></svg>
+    Resources
+  </a>
+  <a href="#" class="tab" data-open-drawer>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+    More
+  </a>
+</nav>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="js/app.js"></script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

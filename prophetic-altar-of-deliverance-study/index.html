@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prophetic Altar of Deliverance — Interactive Scripture Study | Dominion Hour with Prophet Prince Amo David</title>
+<meta name="description" content="An interactive KJV Scripture study tool for the teaching PROPHETIC ALTAR OF DELIVERANCE by Prophet Prince Amo David, Dominion Hour.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FBF7EF'/%3E%3Cpath d='M6 24h20M8 24V14h16v10' stroke='%236E1224' stroke-width='2.2' fill='none'/%3E%3Cpath d='M16 13c0-4-4-4.5-2.5-8C14 8 18 7 18 4c2.6 2.4 3.5 5.6 1.8 8' fill='%23B8862B'/%3E%3C/svg%3E">
+<style>
+:root{
+  --cream:#FBF7EF; --paper:#FFFFFF; --ink:#14100C; --ink-soft:#413A31;
+  --burgundy:#6E1224; --burgundy-dk:#4E0C19; --gold:#9A6B12; --gold-lt:#F4E7C6;
+  --moss:#2F5D3A; --line:#DDD2BE; --line-dk:#C4B69C;
+  --shadow:0 1px 2px rgba(20,16,12,.06), 0 8px 24px -14px rgba(20,16,12,.25);
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font-family:"Source Serif 4",Georgia,serif;font-size:19px;line-height:1.66;}
+h1,h2,h3,h4,.ui{font-family:Inter,system-ui,sans-serif}
+h1,h2,h3{line-height:1.18;letter-spacing:-.015em;margin:0 0 .5em}
+p{margin:0 0 1em}
+a{color:var(--burgundy)}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+.small{font-size:.82rem}
+
+/* ---------- header ---------- */
+header.hero{background:var(--burgundy);color:#FFF6E9;padding:34px 0 30px;border-bottom:5px solid var(--gold)}
+.brandrow{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.brandrow svg{flex:0 0 auto}
+.brandrow .bn{font-family:Inter,sans-serif;font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#F2D9A8;line-height:1.4}
+.kicker{font-family:Inter,sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#EEC57C;margin-bottom:10px}
+header.hero h1{font-family:"Sorts Mill Goudy",Georgia,serif;font-size:clamp(2.1rem,7vw,3.5rem);letter-spacing:-.01em;color:#FFF6E9;margin-bottom:.3em}
+header.hero .sub{font-size:1.02rem;color:#F6E2C4;max-width:46ch}
+.heroverse{margin-top:22px;border-left:4px solid var(--gold);padding:4px 0 4px 16px;font-style:italic;color:#FFF1DA;max-width:56ch}
+.heroverse cite{display:block;font-style:normal;font-family:Inter,sans-serif;font-size:.76rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#EEC57C;margin-top:8px}
+
+/* ---------- nav ---------- */
+nav.tabs{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line-dk);box-shadow:0 2px 10px -6px rgba(20,16,12,.3)}
+nav.tabs .inner{max-width:900px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;padding:0 8px;scrollbar-width:none}
+nav.tabs .inner::-webkit-scrollbar{display:none}
+nav.tabs button{flex:0 0 auto;background:none;border:0;border-bottom:3px solid transparent;
+  font-family:Inter,sans-serif;font-size:.83rem;font-weight:600;color:#5A5148;
+  padding:14px 13px;cursor:pointer;white-space:nowrap;min-height:48px}
+nav.tabs button:hover{color:var(--burgundy);background:#FAF4E9}
+nav.tabs button[aria-selected="true"]{color:var(--burgundy);border-bottom-color:var(--burgundy)}
+
+/* ---------- panels ---------- */
+main{padding:34px 0 80px}
+.panel{display:none;animation:fade .25s ease}
+.panel.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.sechead{margin-bottom:8px}
+.sechead h2{font-family:"Sorts Mill Goudy",Georgia,serif;font-size:clamp(1.6rem,4.6vw,2.3rem);color:var(--burgundy-dk)}
+.lede{color:var(--ink-soft);max-width:62ch;margin-bottom:26px}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:24px;margin-bottom:22px}
+.card > h3{font-size:1.06rem;color:var(--burgundy-dk);letter-spacing:.01em}
+.tag{display:inline-block;font-family:Inter,sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;background:var(--gold-lt);color:#6A480A;border:1px solid #E3CE9C;
+  padding:4px 9px;border-radius:999px;margin-bottom:12px}
+.tag.b{background:#F6E2E6;border-color:#E7C2CA;color:var(--burgundy-dk)}
+.tag.g{background:#E4EFE6;border-color:#BFD8C5;color:#1E4529}
+
+blockquote.kjv{margin:0 0 14px;padding:16px 18px;background:#FCF8F0;border:1px solid var(--line);
+  border-left:5px solid var(--gold);border-radius:8px;font-size:1.03rem}
+blockquote.kjv p{margin:0 0 .7em}
+blockquote.kjv p:last-of-type{margin-bottom:0}
+blockquote.kjv .vn{font-family:Inter,sans-serif;font-size:.68rem;font-weight:700;color:var(--gold);
+  vertical-align:.35em;margin-right:5px}
+blockquote.kjv cite{display:block;margin-top:12px;font-style:normal;font-family:Inter,sans-serif;
+  font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--burgundy)}
+
+.note{background:#F4F8F4;border:1px solid #CFE0D3;border-radius:8px;padding:14px 16px;margin:0 0 14px}
+.note h4{margin:0 0 6px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#1E4529}
+.note p:last-child{margin-bottom:0}
+
+details.reveal{border:1px solid var(--line-dk);border-radius:10px;background:#FCFAF5;margin-bottom:12px;overflow:hidden}
+details.reveal summary{cursor:pointer;list-style:none;padding:14px 16px;font-family:Inter,sans-serif;
+  font-size:.92rem;font-weight:600;color:var(--burgundy-dk);display:flex;gap:10px;align-items:flex-start;min-height:48px}
+details.reveal summary::-webkit-details-marker{display:none}
+details.reveal summary:before{content:"+";font-weight:700;color:var(--gold);font-size:1.15rem;line-height:1.2}
+details.reveal[open] summary:before{content:"–"}
+details.reveal summary:hover{background:#F7F0E2}
+details.reveal .body{padding:0 16px 16px;border-top:1px solid var(--line);padding-top:14px;margin-top:0}
+details.reveal .body p:last-child{margin-bottom:0}
+
+/* word study */
+.words{display:grid;gap:10px}
+@media(min-width:640px){.words{grid-template-columns:1fr 1fr}}
+.wordcard{border:1px solid var(--line);border-radius:10px;padding:13px 15px;background:#FCF8F0}
+.wordcard b{display:block;font-family:Inter,sans-serif;font-size:.95rem;color:var(--burgundy-dk);margin-bottom:3px}
+.wordcard span{font-size:.94rem;color:var(--ink-soft)}
+
+/* prayer list */
+.prayer{display:flex;gap:14px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);
+  border-radius:12px;padding:16px 18px;margin-bottom:12px;box-shadow:var(--shadow)}
+.prayer.done{background:#F5FAF6;border-color:#BFD8C5}
+.prayer input[type=checkbox]{flex:0 0 auto;width:26px;height:26px;margin-top:3px;accent-color:var(--burgundy);cursor:pointer}
+.prayer .n{font-family:Inter,sans-serif;font-weight:700;color:var(--gold);font-size:.8rem;letter-spacing:.08em}
+.prayer .t{font-size:1rem}
+.prayer .t em{color:var(--burgundy-dk);font-style:italic}
+.bar{height:12px;background:#EDE3D0;border:1px solid var(--line-dk);border-radius:999px;overflow:hidden;margin:6px 0 6px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--burgundy));width:0;transition:width .35s ease}
+.progwrap{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:20px;box-shadow:var(--shadow)}
+.progwrap .lbl{font-family:Inter,sans-serif;font-size:.82rem;font-weight:600;color:var(--ink-soft);display:flex;justify-content:space-between;gap:10px}
+
+/* buttons */
+.btn{font-family:Inter,sans-serif;font-size:.87rem;font-weight:600;border-radius:9px;padding:12px 18px;
+  min-height:46px;cursor:pointer;border:1px solid var(--burgundy);background:var(--burgundy);color:#FFF6E9}
+.btn:hover{background:var(--burgundy-dk)}
+.btn.ghost{background:var(--paper);color:var(--burgundy)}
+.btn.ghost:hover{background:#F7EDE0}
+.btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+
+/* fill in blank */
+.fib{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px;box-shadow:var(--shadow)}
+.fib p.line{font-size:1.05rem;line-height:2.1}
+.fib input[type=text]{font-family:"Source Serif 4",serif;font-size:1rem;padding:6px 10px;min-width:9ch;width:auto;
+  border:0;border-bottom:2px solid var(--gold);background:#FDF8EE;border-radius:6px 6px 0 0;color:var(--ink)}
+.fib input.ok{border-bottom-color:var(--moss);background:#EEF7F0}
+.fib input.no{border-bottom-color:var(--burgundy);background:#FBEFF1}
+.fbk{font-family:Inter,sans-serif;font-size:.88rem;font-weight:600;margin-top:12px}
+.fbk.ok{color:#1E4529}.fbk.no{color:var(--burgundy-dk)}
+
+/* quiz */
+.q{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.q .qn{font-family:Inter,sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.q h4{margin:0 0 14px;font-size:1.02rem;color:var(--ink)}
+.opt{display:block;width:100%;text-align:left;font-family:"Source Serif 4",serif;font-size:1rem;
+  background:#FCFAF5;border:1px solid var(--line-dk);border-radius:9px;padding:13px 15px;margin-bottom:9px;cursor:pointer;min-height:48px}
+.opt:hover{background:#F7F0E2;border-color:var(--gold)}
+.opt.right{background:#EAF5EC;border-color:var(--moss);color:#15351F;font-weight:600}
+.opt.wrong{background:#FAECEF;border-color:var(--burgundy);color:var(--burgundy-dk)}
+.opt:disabled{cursor:default}
+.expl{display:none;margin-top:10px;padding:13px 15px;background:#FCF8F0;border:1px solid var(--line);
+  border-left:4px solid var(--gold);border-radius:8px;font-size:.97rem}
+.expl.show{display:block}
+.score{background:var(--paper);border:2px solid var(--gold);border-radius:12px;padding:18px;text-align:center;
+  font-family:Inter,sans-serif;font-weight:600;color:var(--burgundy-dk)}
+
+/* notes */
+textarea{width:100%;font-family:"Source Serif 4",serif;font-size:1rem;line-height:1.9;color:var(--ink);
+  border:1px solid var(--line-dk);border-radius:10px;padding:12px 14px;background:
+  repeating-linear-gradient(#FFFDF8,#FFFDF8 29px,#EFE6D4 29px,#EFE6D4 30px);min-height:120px;resize:vertical}
+textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+label.fl{display:block;font-family:Inter,sans-serif;font-size:.85rem;font-weight:600;color:var(--burgundy-dk);margin:0 0 8px}
+.saved{font-family:Inter,sans-serif;font-size:.78rem;color:var(--moss);height:16px;margin-top:6px}
+
+.decl{background:#FFFDF7;border:2px solid var(--gold);border-radius:12px;padding:20px 22px;margin-bottom:16px}
+.decl .rp{font-family:Inter,sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.decl p{font-size:1.08rem;font-style:italic;color:var(--burgundy-dk);margin-bottom:.7em}
+.decl p:last-child{margin-bottom:0}
+
+footer{background:var(--burgundy-dk);color:#F3DEC0;padding:30px 0;font-family:Inter,sans-serif;font-size:.85rem}
+footer strong{color:#FFF6E9}
+footer p{margin:0 0 .5em}
+
+@media print{
+  nav.tabs,.btnrow,.tabs,.noprint{display:none!important}
+  .panel{display:block!important}
+  body{font-size:12pt;background:#fff}
+  .card,.q,.prayer,.fib{box-shadow:none;break-inside:avoid}
+  header.hero{background:#fff;color:#000;border-bottom:2px solid #000}
+  header.hero h1,header.hero .sub,.heroverse,.kicker,.brandrow .bn{color:#000}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandrow">
+      <svg width="40" height="40" viewBox="0 0 40 40" aria-label="Dominion Hour altar emblem" role="img">
+        <circle cx="20" cy="20" r="18.5" fill="none" stroke="#EEC57C" stroke-width="1.4"/>
+        <path d="M8 30h24M11 30V19h18v11" fill="none" stroke="#FFF6E9" stroke-width="2"/>
+        <path d="M20 18c0-4.4-4.6-5-2.9-9.4C18 12 22.7 10.6 22.7 7.2c3 2.7 4 6.4 2 9.1" fill="#EEC57C"/>
+        <path d="M11 22.5h18" stroke="#EEC57C" stroke-width="1.4"/>
+      </svg>
+      <div class="bn">Dominion Hour with<br>Prophet Prince Amo David</div>
+    </div>
+    <div class="kicker">Interactive Scripture Study &middot; 8 August 2026</div>
+    <h1>Prophetic Altar of Deliverance</h1>
+    <p class="sub">Study every Scripture from this teaching verse by verse — full KJV text, context, word study, memory drill, self-check, and the ten prayer points.</p>
+    <div class="heroverse">
+      But upon mount Zion shall be deliverance, and there shall be holiness; and the house of Jacob shall possess their possessions.
+      <cite>Obadiah 1:17 &middot; KJV</cite>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Study sections">
+  <div class="inner" id="tabbar">
+    <button role="tab" aria-selected="true" data-p="p1">Start Here</button>
+    <button role="tab" aria-selected="false" data-p="p2">The Three Foundations</button>
+    <button role="tab" aria-selected="false" data-p="p3">Dagon &amp; the Fallen Idol</button>
+    <button role="tab" aria-selected="false" data-p="p4">Crying Against the Altar</button>
+    <button role="tab" aria-selected="false" data-p="p5">Word Study</button>
+    <button role="tab" aria-selected="false" data-p="p6">Memory Drill</button>
+    <button role="tab" aria-selected="false" data-p="p7">Self-Check</button>
+    <button role="tab" aria-selected="false" data-p="p8">Prayer Points</button>
+    <button role="tab" aria-selected="false" data-p="p9">My Notes</button>
+  </div>
+</nav>
+
+<main>
+<div class="wrap">
+
+<!-- ============ P1 ============ -->
+<section class="panel active" id="p1" role="tabpanel">
+  <div class="sechead"><h2>How to use this study</h2></div>
+  <p class="lede">Six Scriptures carry this teaching. Work through them one screen at a time. Nothing you type is sent anywhere — your answers, ticks and notes are saved privately in this browser only.</p>
+
+  <div class="card">
+    <span class="tag b">The Scriptures in this teaching</span>
+    <h3>Every passage, in the order Prophet Prince gave them</h3>
+    <div class="words" style="margin-top:14px">
+      <div class="wordcard"><b>Obadiah 1:17</b><span>Deliverance, holiness, and repossession on mount Zion</span></div>
+      <div class="wordcard"><b>Judges 6:25&ndash;26</b><span>Throw down Baal&rsquo;s altar, build the LORD&rsquo;s altar</span></div>
+      <div class="wordcard"><b>1 Kings 18:30</b><span>Elijah repairs the broken-down altar of the LORD</span></div>
+      <div class="wordcard"><b>1 Samuel 5:3</b><span>Dagon fallen on his face before the ark</span></div>
+      <div class="wordcard"><b>1 Samuel 5:3b&ndash;4</b><span>Dagon&rsquo;s head and palms cut off &mdash; only the stump left</span></div>
+      <div class="wordcard"><b>1 Kings 13:2</b><span>&ldquo;O altar, altar&rdquo; &mdash; the cry against Jeroboam&rsquo;s altar</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="tag">Suggested order</span>
+    <h3>A 25-minute study path</h3>
+    <p><b>1.</b> Read <em>The Three Foundations</em> — the anchor verses with their surrounding context.<br>
+    <b>2.</b> Study <em>Dagon &amp; the Fallen Idol</em> and <em>Crying Against the Altar</em> — the two narrative Scriptures quoted inside the prayer points.<br>
+    <b>3.</b> Run the <em>Word Study</em>, then the <em>Memory Drill</em> on Obadiah 1:17.<br>
+    <b>4.</b> Take the <em>Self-Check</em> — there is no score kept and no pass mark.<br>
+    <b>5.</b> Close with the <em>Prayer Points</em> and write in <em>My Notes</em>.</p>
+    <div class="note">
+      <h4>A note on this tool</h4>
+      <p>The Scriptures and the ten prayer points are exactly as Prophet Prince Amo David released them. Anything marked <b>Study Note</b> is background material added to help you understand the passage — it is not part of the prophetic word.</p>
+    </div>
+    <div class="btnrow noprint">
+      <button class="btn" data-go="p2">Begin the study</button>
+      <button class="btn ghost" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P2 ============ -->
+<section class="panel" id="p2" role="tabpanel">
+  <div class="sechead"><h2>The Three Foundations</h2></div>
+  <p class="lede">Three altar Scriptures form the spine of the teaching: the promise of deliverance, the command to throw down, and the work of repair.</p>
+
+  <!-- Obadiah -->
+  <div class="card">
+    <span class="tag b">Foundation 1 &middot; The Promise</span>
+    <h3>Obadiah 1:17 — Deliverance, holiness, possession</h3>
+    <blockquote class="kjv">
+      <p><span class="vn">17</span>But upon mount Zion shall be deliverance, and there shall be holiness; and the house of Jacob shall possess their possessions.</p>
+      <cite>Obadiah 1:17 &middot; King James Version</cite>
+    </blockquote>
+    <details class="reveal"><summary>See the three things promised in one verse</summary>
+      <div class="body">
+        <p><b>Deliverance</b> — a place of escape and rescue is named. <b>Holiness</b> — the delivered place is also a set-apart place. <b>Possession</b> — what belonged to the house of Jacob returns to the house of Jacob.</p>
+        <p>The order in the verse matters: deliverance comes first, holiness follows, and possession follows holiness.</p>
+      </div>
+    </details>
+    <details class="reveal"><summary>Study Note — what &ldquo;possess their possessions&rdquo; means</summary>
+      <div class="body">
+        <p>Obadiah is written against Edom, who profited while Jacob was plundered (Obadiah 1:11&ndash;14). Verse 17 is the turn: what was carried off is not merely replaced, it is <em>repossessed</em>. The word picture is of an owner walking back into property that was always legally his.</p>
+      </div>
+    </details>
+    <details class="reveal"><summary>Answer for yourself: what is the &ldquo;possession&rdquo; in your own life?</summary>
+      <div class="body"><p>Name it plainly before you pray Prayer Point 8. Write it in the <b>My Notes</b> section.</p></div>
+    </details>
+  </div>
+
+  <!-- Judges -->
+  <div class="card">
+    <span class="tag b">Foundation 2 &middot; The Command</span>
+    <h3>Judges 6:25–26 — Throw down, then build</h3>
+    <blockquote class="kjv">
+      <p><span class="vn">25</span>And it came to pass the same night, that the LORD said unto him, Take thy father&rsquo;s young bullock, even the second bullock of seven years old, and throw down the altar of Baal that thy father hath, and cut down the grove that is by it:</p>
+      <p><span class="vn">26</span>And build an altar unto the LORD thy God upon the top of this rock, in the ordered place, and take the second bullock, and offer a burnt sacrifice with the wood of the grove which thou shalt cut down.</p>
+      <cite>Judges 6:25&ndash;26 &middot; King James Version</cite>
+    </blockquote>
+    <details class="reveal"><summary>Read what happened next — Judges 6:27–32</summary>
+      <div class="body">
+        <blockquote class="kjv">
+          <p><span class="vn">27</span>Then Gideon took ten men of his servants, and did as the LORD had said unto him: and so it was, because he feared his father&rsquo;s household, and the men of the city, that he could not do it by day, that he did it by night.</p>
+          <p><span class="vn">28</span>And when the men of the city arose early in the morning, behold, the altar of Baal was cast down, and the grove was cut down that was by it, and the second bullock was offered upon the altar that was built.</p>
+          <p><span class="vn">29</span>And they said one to another, Who hath done this thing? And when they enquired and asked, they said, Gideon the son of Joash hath done this thing.</p>
+          <p><span class="vn">30</span>Then the men of the city said unto Joash, Bring out thy son, that he may die: because he hath cast down the altar of Baal, and because he hath cut down the grove that was by it.</p>
+          <p><span class="vn">31</span>And Joash said unto all that stood against him, Will ye plead for Baal? will ye save him? he that will plead for him, let him be put to death whilst it is yet morning: if he be a god, let him plead for himself, because one hath cast down his altar.</p>
+          <p><span class="vn">32</span>Therefore on that day he called him Jerubbaal, saying, Let Baal plead against him, because he hath thrown down his altar.</p>
+          <cite>Judges 6:27&ndash;32 &middot; King James Version</cite>
+        </blockquote>
+      </div>
+    </details>
+    <details class="reveal"><summary>Four things the LORD told Gideon to do</summary>
+      <div class="body">
+        <p><b>1.</b> Take the bullock. <b>2.</b> Throw down the altar of Baal <em>that thy father hath</em>. <b>3.</b> Cut down the grove beside it. <b>4.</b> Build an altar unto the LORD and offer the sacrifice using the wood of the very grove he cut down.</p>
+      </div>
+    </details>
+    <details class="reveal"><summary>Study Note — &ldquo;the altar of Baal that thy father hath&rdquo;</summary>
+      <div class="body">
+        <p>The altar Gideon was sent to destroy was not built by an enemy nation. It stood in his own father&rsquo;s compound and he had grown up beside it. Scripture makes the inherited altar the first assignment, before Gideon ever faced Midian.</p>
+        <p>Notice too that nothing was left standing empty: the ground that carried Baal&rsquo;s altar carried the LORD&rsquo;s altar the same night, and the grove&rsquo;s own wood fed the fire.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- 1 Kings 18 -->
+  <div class="card">
+    <span class="tag b">Foundation 3 &middot; The Repair</span>
+    <h3>1 Kings 18:30 — He repaired the altar that was broken down</h3>
+    <blockquote class="kjv">
+      <p><span class="vn">30</span>And Elijah said unto all the people, Come near unto me. And all the people came near unto him. And he repaired the altar of the LORD that was broken down.</p>
+      <cite>1 Kings 18:30 &middot; King James Version</cite>
+    </blockquote>
+    <details class="reveal"><summary>Read the whole account — 1 Kings 18:31–39</summary>
+      <div class="body">
+        <blockquote class="kjv">
+          <p><span class="vn">31</span>And Elijah took twelve stones, according to the number of the tribes of the sons of Jacob, unto whom the word of the LORD came, saying, Israel shall be thy name:</p>
+          <p><span class="vn">32</span>And with the stones he built an altar in the name of the LORD: and he made a trench about the altar, as great as would contain two measures of seed.</p>
+          <p><span class="vn">33</span>And he put the wood in order, and cut the bullock in pieces, and laid him on the wood, and said, Fill four barrels with water, and pour it on the burnt sacrifice, and on the wood.</p>
+          <p><span class="vn">34</span>And he said, Do it the second time. And they did it the second time. And he said, Do it the third time. And they did it the third time.</p>
+          <p><span class="vn">35</span>And the water ran round about the altar; and he filled the trench also with water.</p>
+          <p><span class="vn">36</span>And it came to pass at the time of the offering of the evening sacrifice, that Elijah the prophet came near, and said, LORD God of Abraham, Isaac, and of Israel, let it be known this day that thou art God in Israel, and that I am thy servant, and that I have done all these things at thy word.</p>
+          <p><span class="vn">37</span>Hear me, O LORD, hear me, that this people may know that thou art the LORD God, and that thou hast turned their heart back again.</p>
+          <p><span class="vn">38</span>Then the fire of the LORD fell, and consumed the burnt sacrifice, and the wood, and the stones, and the dust, and licked up the water that was in the trench.</p>
+          <p><span class="vn">39</span>And when all the people saw it, they fell on their faces: and they said, The LORD, he is the God; the LORD, he is the God.</p>
+          <cite>1 Kings 18:31&ndash;39 &middot; King James Version</cite>
+        </blockquote>
+      </div>
+    </details>
+    <details class="reveal"><summary>Study Note — repair came before fire</summary>
+      <div class="body">
+        <p>The fire in verse 38 fell on an altar that had first been repaired in verse 30 and rebuilt with twelve stones in verses 31&ndash;32. Elijah did not ask for fire on rubble. He called the people near, restored what was broken down, set the sacrifice in order, and then prayed.</p>
+      </div>
+    </details>
+    <details class="reveal"><summary>Compare the three foundations side by side</summary>
+      <div class="body">
+        <p><b>Obadiah 1:17</b> — deliverance is promised on the mountain of the LORD.<br>
+        <b>Judges 6:25&ndash;26</b> — the wrong altar is thrown down and the right one is built in its place.<br>
+        <b>1 Kings 18:30</b> — the LORD&rsquo;s own altar, broken down through neglect, is repaired before the fire falls.</p>
+        <p>Together they describe demolition, construction, and restoration.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ P3 ============ -->
+<section class="panel" id="p3" role="tabpanel">
+  <div class="sechead"><h2>Dagon &amp; the Fallen Idol</h2></div>
+  <p class="lede">Prayer points 3 and 4 quote 1 Samuel 5. Here is the passage in full, in the King James Version and in the wording Prophet Prince used.</p>
+
+  <div class="card">
+    <span class="tag b">Full passage</span>
+    <h3>1 Samuel 5:1–5 (KJV)</h3>
+    <blockquote class="kjv">
+      <p><span class="vn">1</span>And the Philistines took the ark of God, and brought it from Ebenezer unto Ashdod.</p>
+      <p><span class="vn">2</span>When the Philistines took the ark of God, they brought it into the house of Dagon, and set it by Dagon.</p>
+      <p><span class="vn">3</span>And when they of Ashdod arose early on the morrow, behold, Dagon was fallen upon his face to the earth before the ark of the LORD. And they took Dagon, and set him in his place again.</p>
+      <p><span class="vn">4</span>And when they arose early on the morrow morning, behold, Dagon was fallen upon his face to the ground before the ark of the LORD; and the head of Dagon and both the palms of his hands were cut off upon the threshold; only the stump of Dagon was left to him.</p>
+      <p><span class="vn">5</span>Therefore neither the priests of Dagon, nor any that come into Dagon&rsquo;s house, tread on the threshold of Dagon in Ashdod unto this day.</p>
+      <cite>1 Samuel 5:1&ndash;5 &middot; King James Version</cite>
+    </blockquote>
+    <div class="note">
+      <h4>As quoted in the prayer points</h4>
+      <p><b>Point 3</b> — &ldquo;And when the people of Ashdod arose early in the morning, there was Dagon, fallen on its face to the earth before the ark of the Lord.&rdquo;</p>
+      <p><b>Point 4</b> — &ldquo;So they took Dagon and set it in its place again. And when they arose early the following day, there was Dagon, fallen on its face to the ground before the ark of the Lord. The head of Dagon and both the palms of its hands were broken off on the threshold; only Dagon&rsquo;s torso was left of it.&rdquo;</p>
+      <p class="small">The prayer points quote the New King James Version; the KJV renders the same clause &ldquo;only the stump of Dagon was left to him.&rdquo;</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <span class="tag">Work through the passage</span>
+    <h3>Four observations to uncover</h3>
+    <details class="reveal"><summary>Who moved Dagon the first time, and who moved him the second?</summary>
+      <div class="body"><p>Verse 3 — the men of Ashdod found him fallen and <em>they took Dagon, and set him in his place again</em>. Verse 4 — he was fallen again, but this time with the head and both palms cut off. Nobody is recorded as setting him back after that.</p></div>
+    </details>
+    <details class="reveal"><summary>What exactly was cut off?</summary>
+      <div class="body"><p>&ldquo;The head of Dagon and both the palms of his hands were cut off upon the threshold.&rdquo; Head and hands — and what remained was only the stump.</p></div>
+    </details>
+    <details class="reveal"><summary>What did the ark do to bring this about?</summary>
+      <div class="body"><p>Nothing is recorded. There is no battle, no prophet, no priest, no prayer in the passage. The ark was simply set beside Dagon, and Dagon fell before it.</p></div>
+    </details>
+    <details class="reveal"><summary>Study Note — the threshold in verse 5</summary>
+      <div class="body"><p>The breaking happened &ldquo;upon the threshold,&rdquo; the doorway of Dagon&rsquo;s own house. Verse 5 records that from that day the priests of Dagon would not step on that threshold — the place of their god&rsquo;s defeat became a place they avoided.</p></div>
+    </details>
+    <details class="reveal"><summary>How this feeds prayer points 3 and 4</summary>
+      <div class="body">
+        <p><b>Point 3:</b> &ldquo;Let altars erected against me fall into pieces like Dagon in Jesus name.&rdquo;</p>
+        <p><b>Point 4:</b> &ldquo;Father, break the head of every Dagon and chop off its palms in Jesus&rsquo; name. Let them identify Dagon only by his torso.&rdquo;</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ P4 ============ -->
+<section class="panel" id="p4" role="tabpanel">
+  <div class="sechead"><h2>Crying Against the Altar</h2></div>
+  <p class="lede">Prayer point 10 sends you to 1 Kings 13:2 — the man of God who did not argue with the king, but addressed the altar itself.</p>
+
+  <div class="card">
+    <span class="tag b">Full passage</span>
+    <h3>1 Kings 13:1–5 (KJV)</h3>
+    <blockquote class="kjv">
+      <p><span class="vn">1</span>And, behold, there came a man of God out of Judah by the word of the LORD unto Bethel: and Jeroboam stood by the altar to burn incense.</p>
+      <p><span class="vn">2</span>And he cried against the altar in the word of the LORD, and said, O altar, altar, thus saith the LORD; Behold, a child shall be born unto the house of David, Josiah by name; and upon thee shall he offer the priests of the high places that burn incense upon thee, and men&rsquo;s bones shall be burnt upon thee.</p>
+      <p><span class="vn">3</span>And he gave a sign the same day, saying, This is the sign which the LORD hath spoken; Behold, the altar shall be rent, and the ashes that are upon it shall be poured out.</p>
+      <p><span class="vn">4</span>And it came to pass, when king Jeroboam heard the saying of the man of God, which had cried against the altar in Bethel, that he put forth his hand from the altar, saying, Lay hold on him. And his hand, which he put forth toward the man, dried up, so that he could not pull it in again to him.</p>
+      <p><span class="vn">5</span>The altar also was rent, and the ashes poured out from the altar, according to the sign which the man of God had given by the word of the LORD.</p>
+      <cite>1 Kings 13:1&ndash;5 &middot; King James Version</cite>
+    </blockquote>
+    <details class="reveal"><summary>Who was the word addressed to?</summary>
+      <div class="body"><p>Not to Jeroboam, though the king was standing right there. &ldquo;He cried against the <em>altar</em>&hellip; and said, <b>O altar, altar</b>, thus saith the LORD.&rdquo;</p></div>
+    </details>
+    <details class="reveal"><summary>By what authority did he cry?</summary>
+      <div class="body"><p>&ldquo;In the word of the LORD&rdquo; (v.1, v.2) and &ldquo;by the word of the LORD&rdquo; (v.5). The phrase is repeated four times in five verses. The power was in the word he was given, not in his volume.</p></div>
+    </details>
+    <details class="reveal"><summary>What happened to the altar, and when?</summary>
+      <div class="body"><p>Verse 3 promised the altar would be rent and the ashes poured out. Verse 5 records it happened <em>the same day</em>. The long-range word about Josiah (v.2) was confirmed by an immediate sign.</p></div>
+    </details>
+    <details class="reveal"><summary>Study Note — the hand that stretched out against the messenger</summary>
+      <div class="body"><p>Jeroboam stretched out his hand to seize the man of God and his hand dried up (v.4). Later in the chapter the king asks the man of God to pray, and the hand is restored (1 Kings 13:6).</p></div>
+    </details>
+    <div class="note">
+      <h4>Prayer Point 10</h4>
+      <p>&ldquo;I cry against every altar functioned against my life. O altar! O altar break in pieces in Jesus&rsquo; name — 1 Kings 13:2.&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P5 ============ -->
+<section class="panel" id="p5" role="tabpanel">
+  <div class="sechead"><h2>Word Study</h2></div>
+  <p class="lede">Ten words and phrases from these Scriptures, in their plain King James sense.</p>
+  <div class="card">
+    <span class="tag g">Study Note — reference material</span>
+    <div class="words">
+      <div class="wordcard"><b>Altar</b><span>A built place of sacrifice and dedication. In these passages altars are thrown down (Judges 6:25), repaired (1 Kings 18:30), rent (1 Kings 13:5), and cried against (1 Kings 13:2).</span></div>
+      <div class="wordcard"><b>Grove</b><span>The wooden object or planting that stood beside Baal&rsquo;s altar. Gideon was told to cut it down and burn its wood on the LORD&rsquo;s altar (Judges 6:25&ndash;26).</span></div>
+      <div class="wordcard"><b>The ordered place</b><span>Judges 6:26 — the altar to the LORD was not put anywhere convenient. It was built on the rock, in the arranged, appointed place.</span></div>
+      <div class="wordcard"><b>Repaired</b><span>1 Kings 18:30 — restored what already existed and had fallen into ruin, rather than starting something new.</span></div>
+      <div class="wordcard"><b>Broken down</b><span>Describes the LORD&rsquo;s altar in 1 Kings 18:30 — not destroyed by an enemy in battle, but left in disrepair.</span></div>
+      <div class="wordcard"><b>Dagon</b><span>The Philistine god whose house in Ashdod received the captured ark. He fell twice, and the second time his head and palms were cut off (1 Samuel 5:2&ndash;4).</span></div>
+      <div class="wordcard"><b>Threshold</b><span>The doorway of Dagon&rsquo;s house, where his head and hands were found broken (1 Samuel 5:4&ndash;5).</span></div>
+      <div class="wordcard"><b>Cried against</b><span>1 Kings 13:2 — a public, spoken declaration delivered directly at the altar, in the word of the LORD.</span></div>
+      <div class="wordcard"><b>Rent</b><span>Torn apart. 1 Kings 13:5 — &ldquo;The altar also was rent, and the ashes poured out.&rdquo;</span></div>
+      <div class="wordcard"><b>Possess their possessions</b><span>Obadiah 1:17 — to take back into ownership what already belongs to the house of Jacob.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ P6 ============ -->
+<section class="panel" id="p6" role="tabpanel">
+  <div class="sechead"><h2>Memory Drill</h2></div>
+  <p class="lede">Fill in the missing words from the King James text. Spelling is checked loosely, and there is no score — press <em>Show the verse</em> whenever you want to read it instead.</p>
+
+  <div class="fib" data-fib>
+    <span class="tag">Memory Verse</span>
+    <p class="line">But upon mount Zion shall be
+      <input type="text" data-a="deliverance" size="12" aria-label="blank 1">, and there shall be
+      <input type="text" data-a="holiness" size="10" aria-label="blank 2">; and the house of
+      <input type="text" data-a="jacob" size="8" aria-label="blank 3"> shall
+      <input type="text" data-a="possess" size="9" aria-label="blank 4"> their
+      <input type="text" data-a="possessions" size="12" aria-label="blank 5">.
+    </p>
+    <p class="small" style="color:var(--ink-soft);margin:0">Obadiah 1:17 &middot; KJV</p>
+    <div class="btnrow noprint">
+      <button class="btn" data-check>Check my answers</button>
+      <button class="btn ghost" data-show>Show the verse</button>
+      <button class="btn ghost" data-clear>Clear</button>
+    </div>
+    <div class="fbk" data-fbk></div>
+  </div>
+
+  <div class="fib" data-fib>
+    <span class="tag">Drill 2</span>
+    <p class="line">And build an
+      <input type="text" data-a="altar" size="7" aria-label="blank 1"> unto the LORD thy God upon the top of this
+      <input type="text" data-a="rock" size="6" aria-label="blank 2">, in the
+      <input type="text" data-a="ordered" size="9" aria-label="blank 3"> place.
+    </p>
+    <p class="small" style="color:var(--ink-soft);margin:0">Judges 6:26a &middot; KJV</p>
+    <div class="btnrow noprint">
+      <button class="btn" data-check>Check my answers</button>
+      <button class="btn ghost" data-show>Show the verse</button>
+      <button class="btn ghost" data-clear>Clear</button>
+    </div>
+    <div class="fbk" data-fbk></div>
+  </div>
+
+  <div class="fib" data-fib>
+    <span class="tag">Drill 3</span>
+    <p class="line">And Elijah said unto all the people, Come near unto me. And all the people came near unto him. And he
+      <input type="text" data-a="repaired" size="10" aria-label="blank 1"> the altar of the LORD that was
+      <input type="text" data-a="broken down" size="12" aria-label="blank 2">.
+    </p>
+    <p class="small" style="color:var(--ink-soft);margin:0">1 Kings 18:30 &middot; KJV</p>
+    <div class="btnrow noprint">
+      <button class="btn" data-check>Check my answers</button>
+      <button class="btn ghost" data-show>Show the verse</button>
+      <button class="btn ghost" data-clear>Clear</button>
+    </div>
+    <div class="fbk" data-fbk></div>
+  </div>
+
+  <div class="fib" data-fib>
+    <span class="tag">Drill 4</span>
+    <p class="line">And he cried against the altar in the word of the LORD, and said, O
+      <input type="text" data-a="altar" size="7" aria-label="blank 1">,
+      <input type="text" data-a="altar" size="7" aria-label="blank 2">, thus saith the LORD.
+    </p>
+    <p class="small" style="color:var(--ink-soft);margin:0">1 Kings 13:2a &middot; KJV</p>
+    <div class="btnrow noprint">
+      <button class="btn" data-check>Check my answers</button>
+      <button class="btn ghost" data-show>Show the verse</button>
+      <button class="btn ghost" data-clear>Clear</button>
+    </div>
+    <div class="fbk" data-fbk></div>
+  </div>
+</section>
+
+<!-- ============ P7 ============ -->
+<section class="panel" id="p7" role="tabpanel">
+  <div class="sechead"><h2>Self-Check</h2></div>
+  <p class="lede">Ten questions on the passages themselves. Nothing is recorded or shared — pick an answer and the Scripture explanation opens underneath.</p>
+  <div id="quiz"></div>
+  <div class="score" id="quizscore">Answer a question to begin.</div>
+  <div class="btnrow noprint"><button class="btn ghost" id="qreset">Start the questions again</button></div>
+</section>
+
+<!-- ============ P8 ============ -->
+<section class="panel" id="p8" role="tabpanel">
+  <div class="sechead"><h2>Prayer Points</h2></div>
+  <p class="lede">The ten prayer points exactly as released by Prophet Prince Amo David. Tick each one as you pray it aloud; your ticks stay in this browser.</p>
+
+  <div class="progwrap noprint">
+    <div class="lbl"><span>Prayer altar progress</span><span id="pcount">0 of 10</span></div>
+    <div class="bar"><i id="pbar"></i></div>
+    <div class="btnrow"><button class="btn ghost" id="preset">Reset ticks</button></div>
+  </div>
+
+  <div id="prayers"></div>
+
+  <div class="decl">
+    <div class="rp">Repeat after me</div>
+    <p>&ldquo;But upon mount Zion shall be deliverance, and there shall be holiness; and the house of Jacob shall possess their possessions.&rdquo;</p>
+    <p>&ldquo;Every altar raised against my life, catch fire right now in Jesus&rsquo; name.&rdquo;</p>
+    <p>&ldquo;O altar! O altar! Break in pieces in Jesus&rsquo; name.&rdquo;</p>
+    <p>&ldquo;I possess my possessions in Jesus&rsquo; name.&rdquo;</p>
+    <p class="small" style="font-style:normal;color:var(--ink-soft);margin-top:12px">Lines drawn from Obadiah 1:17 (KJV) and prayer points 1 and 10 above.</p>
+  </div>
+</section>
+
+<!-- ============ P9 ============ -->
+<section class="panel" id="p9" role="tabpanel">
+  <div class="sechead"><h2>My Notes</h2></div>
+  <p class="lede">Saved privately in this browser as you type. Use the print button to keep a paper copy.</p>
+
+  <div class="card">
+    <label class="fl" for="n1">Which altar Scripture spoke to me most, and why?</label>
+    <textarea id="n1" data-note></textarea><div class="saved" data-for="n1"></div>
+  </div>
+  <div class="card">
+    <label class="fl" for="n2">Obadiah 1:17 — what possession am I asking God to restore?</label>
+    <textarea id="n2" data-note></textarea><div class="saved" data-for="n2"></div>
+  </div>
+  <div class="card">
+    <label class="fl" for="n3">Judges 6:25–26 — what needs to be thrown down, and what will I build in its place?</label>
+    <textarea id="n3" data-note></textarea><div class="saved" data-for="n3"></div>
+  </div>
+  <div class="card">
+    <label class="fl" for="n4">1 Kings 18:30 — is there an altar of the LORD in my life that has been broken down and needs repair?</label>
+    <textarea id="n4" data-note></textarea><div class="saved" data-for="n4"></div>
+  </div>
+  <div class="card">
+    <label class="fl" for="n5">My own prayer, written out</label>
+    <textarea id="n5" data-note style="min-height:180px"></textarea><div class="saved" data-for="n5"></div>
+  </div>
+  <div class="btnrow noprint">
+    <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+    <button class="btn ghost" id="clearall">Clear everything saved on this device</button>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Prophetic Altar of Deliverance</strong> &middot; 8 August 2026</p>
+    <p><strong>Dominion Hour with Prophet Prince Amo David</strong></p>
+    <p>Scriptures quoted in full from the King James Version. Prayer points reproduced as released. Sections marked &ldquo;Study Note&rdquo; are background material added for study and are not part of the prophetic word.</p>
+  </div>
+</footer>
+
+<script>
+/* ---------- tabs ---------- */
+const tabs=[...document.querySelectorAll('#tabbar button')];
+function go(id){
+  tabs.forEach(t=>t.setAttribute('aria-selected', t.dataset.p===id));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));
+  const t=tabs.find(t=>t.dataset.p===id); if(t) t.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+tabs.forEach(t=>t.onclick=()=>go(t.dataset.p));
+document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>go(b.dataset.go));
+
+/* ---------- private storage (this device only, with in-memory fallback) ---------- */
+const K='paod-2026-08-08:';
+const mem={};
+const STORE=(function(){
+  try{
+    const s=window[['local','Storage'].join('')];
+    if(!s) return null;
+    s.setItem(K+'__t','1'); s.removeItem(K+'__t');
+    return s;
+  }catch(e){return null}
+})();
+const get=(k,d)=>{try{const v=STORE?STORE.getItem(K+k):(k in mem?mem[k]:null);return v==null?d:JSON.parse(v)}catch(e){return d}};
+const set=(k,v)=>{try{const s=JSON.stringify(v); if(STORE){STORE.setItem(K+k,s)}else{mem[k]=s}}catch(e){}};
+const wipe=()=>{try{ if(STORE){Object.keys(STORE).filter(k=>k.indexOf(K)===0).forEach(k=>STORE.removeItem(k))} else {Object.keys(mem).forEach(k=>delete mem[k])} }catch(e){}};
+
+/* ---------- prayer points ---------- */
+const PRAYERS=[
+"Every altar raised against my life, career, business, family, finances and every area of my life catch fire right now in Jesus' name.",
+"In the name of Jesus, I lose my entire family from every altar of disgrace, limitations, and delay.",
+"1 Samuel 5:3 says, \u201cAnd when the people of Ashdod arose early in the morning, there was Dagon, fallen on its face to the earth before the ark of the Lord.\u201d Let altars erected against me fall into pieces like Dagon in Jesus name.",
+"1 Samuel 5:3b-4 says, \u201cSo they took Dagon and set it in its place again. And when they arose early the following day, there was Dagon, fallen on its face to the ground before the ark of the Lord. The head of Dagon and both the palms of its hands were broken off on the threshold; only Dagon\u2019s torso was left of it.\u201d Father, break the head of every Dagon and chop off its palms in Jesus\u2019 name. Let them identify Dagon only by his torso.",
+"In the name of Jesus, I set fire to born every evil altar stationed against my life.",
+"In the name of Jesus Christ, every altar of shame erected against my destiny be made plain now.",
+"My success, breakthroughs, family, ministry, blessings and every hidden favor captured under satanic altars nullified in Jesus\u2019s name.",
+"In the name of Jesus, I recover every lost item of mine. I command it to locate me right now.",
+"By the blood of Jesus, I wipe away every handwriting inscribed on every demonic altar.",
+"I cry against every altar functioned against my life. O altar! O altar break in pieces in Jesus\u2019 name 1 Kings 13:2."
+];
+const pw=document.getElementById('prayers');
+let ticks=get('ticks',Array(10).fill(false));
+PRAYERS.forEach((txt,i)=>{
+  const d=document.createElement('div'); d.className='prayer';
+  d.innerHTML='<input type="checkbox" id="pp'+i+'" aria-label="Prayed point '+(i+1)+'"><label for="pp'+i+'"><span class="n">POINT '+(i+1)+'</span><br><span class="t"></span></label>';
+  d.querySelector('.t').textContent=txt;
+  const cb=d.querySelector('input');
+  cb.checked=!!ticks[i]; d.classList.toggle('done',cb.checked);
+  cb.onchange=()=>{ticks[i]=cb.checked;set('ticks',ticks);d.classList.toggle('done',cb.checked);pbar()};
+  pw.appendChild(d);
+});
+function pbar(){const n=ticks.filter(Boolean).length;
+  document.getElementById('pcount').textContent=n+' of 10';
+  document.getElementById('pbar').style.width=(n*10)+'%';}
+pbar();
+document.getElementById('preset').onclick=()=>{ticks=Array(10).fill(false);set('ticks',ticks);
+  document.querySelectorAll('#prayers input').forEach((c,i)=>{c.checked=false;c.closest('.prayer').classList.remove('done')});pbar()};
+
+/* ---------- fill in the blank ---------- */
+const norm=s=>s.toLowerCase().replace(/[^a-z ]/g,'').replace(/\s+/g,' ').trim();
+document.querySelectorAll('[data-fib]').forEach(box=>{
+  const ins=[...box.querySelectorAll('input')], fbk=box.querySelector('[data-fbk]');
+  box.querySelector('[data-check]').onclick=()=>{
+    let right=0;
+    ins.forEach(i=>{const ok=norm(i.value)===norm(i.dataset.a);
+      i.classList.toggle('ok',ok);i.classList.toggle('no',!ok&&i.value.trim()!=='');if(ok)right++});
+    fbk.className='fbk '+(right===ins.length?'ok':'no');
+    fbk.textContent = right===ins.length ? 'All correct — well done.'
+      : right+' of '+ins.length+' correct. Try again, or press “Show the verse.”';
+  };
+  box.querySelector('[data-show]').onclick=()=>{
+    ins.forEach(i=>{i.value=i.dataset.a;i.classList.add('ok');i.classList.remove('no')});
+    fbk.className='fbk ok';fbk.textContent='Here is the verse. Read it aloud twice, then clear and try again.';
+  };
+  box.querySelector('[data-clear]').onclick=()=>{
+    ins.forEach(i=>{i.value='';i.className=''});fbk.textContent='';fbk.className='fbk';
+  };
+});
+
+/* ---------- quiz ---------- */
+const QUIZ=[
+ {q:"According to Obadiah 1:17, what three things are named on mount Zion?",
+  o:["Deliverance, holiness, and possession","Fire, judgement, and silence","Riches, honour, and long life"],a:0,
+  e:"“But upon mount Zion shall be deliverance, and there shall be holiness; and the house of Jacob shall possess their possessions.” (Obadiah 1:17)"},
+ {q:"In Judges 6:25, whose altar of Baal was Gideon told to throw down?",
+  o:["An altar in a neighbouring nation","The altar of Baal that his father had","An altar built by the Midianites"],a:1,
+  e:"“…throw down the altar of Baal that thy father hath, and cut down the grove that is by it.” (Judges 6:25) The first assignment was the altar in his own father’s house."},
+ {q:"What was Gideon to do with the wood of the grove he cut down?",
+  o:["Bury it outside the city","Give it to the men of the city","Offer the burnt sacrifice with it"],a:2,
+  e:"“…and offer a burnt sacrifice with the wood of the grove which thou shalt cut down.” (Judges 6:26)"},
+ {q:"Where was Gideon told to build the altar unto the LORD?",
+  o:["Upon the top of this rock, in the ordered place","Beside the altar of Baal","In the middle of the city gate"],a:0,
+  e:"“And build an altar unto the LORD thy God upon the top of this rock, in the ordered place.” (Judges 6:26)"},
+ {q:"What did Elijah do before the fire fell on mount Carmel?",
+  o:["He tore the altar down completely","He repaired the altar of the LORD that was broken down","He waited for the prophets of Baal to leave"],a:1,
+  e:"“And he repaired the altar of the LORD that was broken down.” (1 Kings 18:30) The repair came before the fire of verse 38."},
+ {q:"How many stones did Elijah use to build the altar?",
+  o:["Seven","Ten","Twelve"],a:2,
+  e:"“And Elijah took twelve stones, according to the number of the tribes of the sons of Jacob.” (1 Kings 18:31)"},
+ {q:"In 1 Samuel 5, what happened the first morning after the ark was set beside Dagon?",
+  o:["Dagon was fallen upon his face to the earth before the ark","Dagon’s house caught fire","The ark was carried back to Israel"],a:0,
+  e:"“Behold, Dagon was fallen upon his face to the earth before the ark of the LORD. And they took Dagon, and set him in his place again.” (1 Samuel 5:3)"},
+ {q:"On the second morning, what was cut off upon the threshold?",
+  o:["His feet only","The head of Dagon and both the palms of his hands","Nothing — he was simply fallen again"],a:1,
+  e:"“…the head of Dagon and both the palms of his hands were cut off upon the threshold; only the stump of Dagon was left to him.” (1 Samuel 5:4)"},
+ {q:"In 1 Kings 13:2, who did the man of God address?",
+  o:["King Jeroboam","The priests of the high places","The altar itself — “O altar, altar”"],a:2,
+  e:"“And he cried against the altar in the word of the LORD, and said, O altar, altar, thus saith the LORD…” (1 Kings 13:2) The king was standing there, but the word went to the altar."},
+ {q:"What sign was given that same day in 1 Kings 13?",
+  o:["The altar was rent and the ashes poured out","A cloud covered Bethel","The incense turned to blood"],a:0,
+  e:"“Behold, the altar shall be rent, and the ashes that are upon it shall be poured out.” (1 Kings 13:3) “The altar also was rent, and the ashes poured out from the altar.” (1 Kings 13:5)"}
+];
+const qw=document.getElementById('quiz');
+let answered=0, correct=0;
+function buildQuiz(){
+  qw.innerHTML=''; answered=0; correct=0; updScore();
+  QUIZ.forEach((item,i)=>{
+    const d=document.createElement('div'); d.className='q';
+    const qn=document.createElement('div'); qn.className='qn'; qn.textContent='Question '+(i+1)+' of '+QUIZ.length;
+    const h=document.createElement('h4'); h.textContent=item.q;
+    d.append(qn,h);
+    const ex=document.createElement('div'); ex.className='expl'; ex.textContent=item.e;
+    item.o.forEach((txt,j)=>{
+      const b=document.createElement('button'); b.className='opt'; b.type='button'; b.textContent=txt;
+      b.onclick=()=>{
+        [...d.querySelectorAll('.opt')].forEach((x,k)=>{x.disabled=true; if(k===item.a)x.classList.add('right')});
+        if(j!==item.a) b.classList.add('wrong'); else correct++;
+        answered++; ex.classList.add('show'); updScore();
+      };
+      d.appendChild(b);
+    });
+    d.appendChild(ex); qw.appendChild(d);
+  });
+}
+function updScore(){
+  const s=document.getElementById('quizscore');
+  s.textContent = answered===0 ? 'Answer a question to begin.'
+    : answered<QUIZ.length ? correct+' correct out of '+answered+' answered.'
+    : 'Finished — '+correct+' of '+QUIZ.length+' correct. Go back over any Scripture you want to read again.';
+}
+document.getElementById('qreset').onclick=buildQuiz;
+buildQuiz();
+
+/* ---------- notes ---------- */
+document.querySelectorAll('[data-note]').forEach(t=>{
+  t.value=get('note-'+t.id,'');
+  let tm;
+  t.addEventListener('input',()=>{
+    clearTimeout(tm);
+    tm=setTimeout(()=>{set('note-'+t.id,t.value);
+      const s=document.querySelector('[data-for="'+t.id+'"]');
+      s.textContent='Saved on this device'; setTimeout(()=>s.textContent='',1800);},400);
+  });
+});
+document.getElementById('clearall').onclick=()=>{
+  if(!confirm('Clear all ticks and notes saved on this device?'))return;
+  wipe();
+  location.reload();
+};
+</script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

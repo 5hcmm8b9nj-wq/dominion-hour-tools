@@ -1,0 +1,611 @@
+{
+  "pastors": [
+    {
+      "name": "Pastor Kiky Ocansey",
+      "ministry": "L137 Deliverance Ministry International",
+      "service": "10+ years in deliverance ministry · 6+ years on Clubhouse"
+    },
+    {
+      "name": "Prophet Prince Amo David",
+      "ministry": "Dominion Hour with Prophet Prince Amo David",
+      "service": "20+ years in ministry · 2+ years on Clubhouse"
+    }
+  ],
+  "categories": [
+    {
+      "id": "protection",
+      "title": "Divine Protection",
+      "icon": "🛡️",
+      "summary": "Protection from every weapon, snare, ambush, and hidden strategy of the enemy.",
+      "verses": [
+        { "ref": "Isaiah 54:17", "text": "No weapon that is formed against thee shall prosper; and every tongue that shall rise against thee in judgment thou shalt condemn. This is the heritage of the servants of the LORD, and their righteousness is of me, saith the LORD." },
+        { "ref": "Psalm 91:1-4", "text": "He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty. I will say of the LORD, He is my refuge and my fortress: my God; in him will I trust. Surely he shall deliver thee from the snare of the fowler, and from the noisome pestilence. He shall cover thee with his feathers, and under his wings shalt thou trust: his truth shall be thy shield and buckler." },
+        { "ref": "Psalm 34:7", "text": "The angel of the LORD encampeth round about them that fear him, and delivereth them." }
+      ],
+      "prayer": "Heavenly Father, in the name of Jesus Christ, cover Pastor Kiky Ocansey and Prophet Prince Amo David with the blood of Jesus. Surround them with Your fire round about. Assign warring angels to their front, their back, their left, and their right. Deliver them from the snare of the fowler, from every hidden trap, from every ambush, and from every strategy of darkness set against their lives, families, and ministries. Let every weapon formed against them fail, let every tongue that rises against them in judgment be condemned, and let every arrow of the wicked return upon the sender in Jesus name. Amen.",
+      "declarations": [
+        "I declare Pastor Kiky and Prophet Prince are covered by the blood of Jesus.",
+        "No weapon formed against them shall prosper.",
+        "Every hidden trap set for them is exposed and destroyed.",
+        "The angel of the Lord encamps round about them and delivers them.",
+        "They dwell in the secret place of the Most High."
+      ]
+    },
+    {
+      "id": "strength",
+      "title": "Renewed Strength",
+      "icon": "🦅",
+      "summary": "Fresh strength, stamina, and endurance for every ministry assignment.",
+      "verses": [
+        { "ref": "Isaiah 40:31", "text": "But they that wait upon the LORD shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." },
+        { "ref": "Nehemiah 8:10", "text": "Then he said unto them, Go your way, eat the fat, and drink the sweet, and send portions unto them for whom nothing is prepared: for this day is holy unto our Lord: neither be ye sorry; for the joy of the LORD is your strength." },
+        { "ref": "Philippians 4:13", "text": "I can do all things through Christ which strengtheneth me." }
+      ],
+      "prayer": "Father, renew the strength of Pastor Kiky and Prophet Prince like the eagle's. Where ministry has drained them, restore them. Where they have poured out into others, pour back into them. Give them spiritual, emotional, mental, and physical rest. Let the joy of the Lord be their strength. May they run their assigned race without becoming weary, and walk faithfully without fainting, in Jesus name. Amen.",
+      "declarations": [
+        "The strength of Pastor Kiky and Prophet Prince is renewed like the eagle's.",
+        "They shall run and not be weary; they shall walk and not faint.",
+        "The joy of the Lord is their strength.",
+        "They can do all things through Christ who strengthens them."
+      ]
+    },
+    {
+      "id": "wisdom",
+      "title": "Wisdom & Discernment",
+      "icon": "💎",
+      "summary": "Divine wisdom, revelation, and sharpened spiritual discernment.",
+      "verses": [
+        { "ref": "James 1:5", "text": "If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him." },
+        { "ref": "Proverbs 2:6", "text": "For the LORD giveth wisdom: out of his mouth cometh knowledge and understanding." },
+        { "ref": "Ephesians 1:17", "text": "That the God of our Lord Jesus Christ, the Father of glory, may give unto you the spirit of wisdom and revelation in the knowledge of him." }
+      ],
+      "prayer": "Father, grant Pastor Kiky and Prophet Prince the spirit of wisdom and revelation in the knowledge of You. Sharpen their discernment. Help them rightly divide the Word of truth. Give them clarity concerning every person, opportunity, partnership, and ministry decision. Let them recognize Your voice and distinguish truth from deception, in Jesus name. Amen.",
+      "declarations": [
+        "Pastor Kiky and Prophet Prince walk in the spirit of wisdom and revelation.",
+        "Their discernment is sharp; they recognize the voice of God.",
+        "They rightly divide the Word of truth.",
+        "Every counterfeit connection is exposed before them."
+      ]
+    },
+    {
+      "id": "provision",
+      "title": "Divine Provision",
+      "icon": "🌾",
+      "summary": "Full supply of every personal, family, and ministry need.",
+      "verses": [
+        { "ref": "Philippians 4:19", "text": "But my God shall supply all your need according to his riches in glory by Christ Jesus." },
+        { "ref": "Psalm 23:1", "text": "The LORD is my shepherd; I shall not want." },
+        { "ref": "2 Corinthians 9:8", "text": "And God is able to make all grace abound toward you; that ye, always having all sufficiency in all things, may abound to every good work." }
+      ],
+      "prayer": "Father, provide everything Pastor Kiky and Prophet Prince need to fulfill their assignments. Supply finances, resources, trustworthy helpers, faithful intercessors, skilled workers, and supportive ministry partners. Let them never lack. Make all grace abound toward them, that having all sufficiency in all things, they may abound to every good work, in Jesus name. Amen.",
+      "declarations": [
+        "The Lord is their shepherd; they shall not want.",
+        "God supplies all their need according to His riches in glory by Christ Jesus.",
+        "All grace abounds toward them; they have all sufficiency in all things.",
+        "Their private sacrifices are rewarded openly according to God's will."
+      ]
+    },
+    {
+      "id": "anointing",
+      "title": "Fresh Anointing",
+      "icon": "🕊️",
+      "summary": "Fresh oil, deeper intimacy with God, and Spirit-governed ministry.",
+      "verses": [
+        { "ref": "Psalm 92:10", "text": "But my horn shalt thou exalt like the horn of an unicorn: I shall be anointed with fresh oil." },
+        { "ref": "Isaiah 10:27", "text": "And it shall come to pass in that day, that his burden shall be taken away from off thy shoulder, and his yoke from off thy neck, and the yoke shall be destroyed because of the anointing." },
+        { "ref": "1 John 2:27", "text": "But the anointing which ye have received of him abideth in you, and ye need not that any man teach you: but as the same anointing teacheth you of all things, and is truth, and is no lie, and even as it hath taught you, it shall teach you." }
+      ],
+      "prayer": "Father, anoint Pastor Kiky and Prophet Prince with fresh oil. Increase their spiritual capacity, deepen their intimacy with You, and cause their ministries to bear lasting fruit. Let every message, prayer, and teaching be governed by the Holy Spirit and firmly established in Your written Word. Every yoke on their shoulders is destroyed because of the anointing, in Jesus name. Amen.",
+      "declarations": [
+        "Pastor Kiky and Prophet Prince are anointed with fresh oil.",
+        "The yoke is destroyed because of the anointing upon them.",
+        "The anointing on them is heavy, current, and Spirit-governed.",
+        "Their ministries bear lasting fruit."
+      ]
+    },
+    {
+      "id": "family",
+      "title": "Their Families",
+      "icon": "🏡",
+      "summary": "Peace, protection, unity, and joy over their households.",
+      "verses": [
+        { "ref": "Psalm 128:1-2", "text": "Blessed is every one that feareth the LORD; that walketh in his ways. For thou shalt eat the labour of thine hands: happy shalt thou be, and it shall be well with thee." },
+        { "ref": "Acts 16:31", "text": "And they said, Believe on the Lord Jesus Christ, and thou shalt be saved, and thy house." },
+        { "ref": "Joshua 24:15", "text": "And if it seem evil unto you to serve the LORD, choose you this day whom ye will serve; whether the gods which your fathers served that were on the other side of the flood, or the gods of the Amorites, in whose land ye dwell: but as for me and my house, we will serve the LORD." }
+      ],
+      "prayer": "Father, remember the families of Pastor Kiky and Prophet Prince and everyone connected to them. Establish peace in their homes, protect their loved ones, and do not allow ministry demands to rob their families of unity, health, or joy. Let their households enjoy the godly fruit of their labor. As for them and their houses, they shall serve the Lord, in Jesus name. Amen.",
+      "declarations": [
+        "It is well with Pastor Kiky, Prophet Prince, and their households.",
+        "Their families are protected, strengthened, and blessed.",
+        "Their homes enjoy peace, unity, and the presence of God.",
+        "As for them and their houses, they serve the Lord."
+      ]
+    },
+    {
+      "id": "health",
+      "title": "Health & Healing",
+      "icon": "❤️‍🩹",
+      "summary": "Divine health, healing, and preservation of body, mind, and soul.",
+      "verses": [
+        { "ref": "3 John 1:2", "text": "Beloved, I wish above all things that thou mayest prosper and be in health, even as thy soul prospereth." },
+        { "ref": "Isaiah 53:5", "text": "But he was wounded for our transgressions, he was bruised for our iniquities: the chastisement of our peace was upon him; and with his stripes we are healed." },
+        { "ref": "Psalm 103:2-3", "text": "Bless the LORD, O my soul, and forget not all his benefits: Who forgiveth all thine iniquities; who healeth all thy diseases." }
+      ],
+      "prayer": "Father, preserve the health of Pastor Kiky and Prophet Prince. Strengthen every organ, every bone, every cell. Heal every hidden infirmity. Let their minds remain sound and their hearts remain encouraged. By the stripes of Jesus they are healed. Let them prosper and be in health, even as their souls prosper, in Jesus name. Amen.",
+      "declarations": [
+        "By the stripes of Jesus, Pastor Kiky and Prophet Prince are healed.",
+        "The Lord heals all their diseases.",
+        "Their health is preserved, their minds are sound.",
+        "They prosper and are in health as their souls prosper."
+      ]
+    },
+    {
+      "id": "finances",
+      "title": "Financial Blessing",
+      "icon": "💰",
+      "summary": "Overflow, abundance, and honorable financial provision.",
+      "verses": [
+        { "ref": "Deuteronomy 8:18", "text": "But thou shalt remember the LORD thy God: for it is he that giveth thee power to get wealth, that he may establish his covenant which he sware unto thy fathers, as it is this day." },
+        { "ref": "Proverbs 10:22", "text": "The blessing of the LORD, it maketh rich, and he addeth no sorrow with it." },
+        { "ref": "Malachi 3:10", "text": "Bring ye all the tithes into the storehouse, that there may be meat in mine house, and prove me now herewith, saith the LORD of hosts, if I will not open you the windows of heaven, and pour you out a blessing, that there shall not be room enough to receive it." }
+      ],
+      "prayer": "Father, open the windows of heaven over Pastor Kiky and Prophet Prince. Pour out blessing until there is not room enough to receive it. Give them power to get wealth to establish Your covenant. Let the blessing of the Lord make them rich and add no sorrow with it, in Jesus name. Amen.",
+      "declarations": [
+        "The windows of heaven are open over Pastor Kiky and Prophet Prince.",
+        "The blessing of the Lord makes them rich and adds no sorrow.",
+        "They have power to get wealth to establish God's covenant.",
+        "Every financial siege is broken by the hand of the Lord."
+      ]
+    },
+    {
+      "id": "marriage",
+      "title": "Marriage & Covenant",
+      "icon": "💍",
+      "summary": "Strong, joyful, God-centered marriage covenants.",
+      "verses": [
+        { "ref": "Ecclesiastes 4:12", "text": "And if one prevail against him, two shall withstand him; and a threefold cord is not quickly broken." },
+        { "ref": "Proverbs 18:22", "text": "Whoso findeth a wife findeth a good thing, and obtaineth favour of the LORD." },
+        { "ref": "Ephesians 5:31", "text": "For this cause shall a man leave his father and mother, and shall be joined unto his wife, and they two shall be one flesh." }
+      ],
+      "prayer": "Father, strengthen the marriage covenant of Pastor Kiky and Prophet Prince. Let their marriages be threefold cords with You at the center — not quickly broken. Guard against every wedge, every strain, every attack of the enemy against the union You have joined. Renew love, tenderness, communication, and joy between them and their spouses, in Jesus name. Amen.",
+      "declarations": [
+        "Their marriages are threefold cords with God at the center.",
+        "No weapon formed against their unions shall prosper.",
+        "Love, tenderness, and joy are renewed in their homes.",
+        "What God has joined together, no man puts asunder."
+      ]
+    },
+    {
+      "id": "ministry-growth",
+      "title": "Ministry Growth",
+      "icon": "🌱",
+      "summary": "Expansion, increase, and lasting Kingdom fruit.",
+      "verses": [
+        { "ref": "1 Corinthians 3:6-7", "text": "I have planted, Apollos watered; but God gave the increase. So then neither is he that planteth any thing, neither he that watereth; but God that giveth the increase." },
+        { "ref": "Isaiah 54:2-3", "text": "Enlarge the place of thy tent, and let them stretch forth the curtains of thine habitations: spare not, lengthen thy cords, and strengthen thy stakes; For thou shalt break forth on the right hand and on the left; and thy seed shall inherit the Gentiles, and make the desolate cities to be inhabited." },
+        { "ref": "Acts 2:47", "text": "Praising God, and having favour with all the people. And the Lord added to the church daily such as should be saved." }
+      ],
+      "prayer": "Father, enlarge the tents of Pastor Kiky and Prophet Prince. Lengthen their cords and strengthen their stakes. Let them break forth on the right hand and on the left. Add daily to their ministries such as should be saved. Give the increase, in Jesus name. Amen.",
+      "declarations": [
+        "Their tents are enlarged and their cords are lengthened.",
+        "God gives the increase over Pastor Kiky and Prophet Prince.",
+        "The Lord adds daily to their ministries.",
+        "They break forth on the right hand and on the left."
+      ]
+    },
+    {
+      "id": "warfare",
+      "title": "Spiritual Warfare",
+      "icon": "⚔️",
+      "summary": "Authority, victory, and covering in every battle.",
+      "verses": [
+        { "ref": "Luke 10:19", "text": "Behold, I give unto you power to tread on serpents and scorpions, and over all the power of the enemy: and nothing shall by any means hurt you." },
+        { "ref": "2 Corinthians 10:4-5", "text": "For the weapons of our warfare are not carnal, but mighty through God to the pulling down of strong holds; Casting down imaginations, and every high thing that exalteth itself against the knowledge of God, and bringing into captivity every thought to the obedience of Christ." },
+        { "ref": "Ephesians 6:11-12", "text": "Put on the whole armour of God, that ye may be able to stand against the wiles of the devil. For we wrestle not against flesh and blood, but against principalities, against powers, against the rulers of the darkness of this world, against spiritual wickedness in high places." }
+      ],
+      "prayer": "Father, clothe Pastor Kiky and Prophet Prince with the whole armour of God. Give them authority to tread on serpents and scorpions and over all the power of the enemy. Let no weapon of the enemy hurt them. Pull down every stronghold set against their assignments, in Jesus name. Amen.",
+      "declarations": [
+        "Pastor Kiky and Prophet Prince walk in the authority of Jesus.",
+        "They tread on serpents and scorpions; nothing shall hurt them.",
+        "The weapons of their warfare are mighty through God to the pulling down of strongholds.",
+        "Every principality assigned against them is defeated."
+      ]
+    },
+    {
+      "id": "rest",
+      "title": "Rest & Peace",
+      "icon": "🌿",
+      "summary": "The peace of God that passes understanding.",
+      "verses": [
+        { "ref": "Matthew 11:28-29", "text": "Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls." },
+        { "ref": "Philippians 4:6-7", "text": "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus." },
+        { "ref": "Psalm 4:8", "text": "I will both lay me down in peace, and sleep: for thou, LORD, only makest me dwell in safety." }
+      ],
+      "prayer": "Father, give Pastor Kiky and Prophet Prince true rest for their souls. Let the peace of God, which passes all understanding, keep their hearts and minds through Christ Jesus. Let them lie down in peace and sleep, for You alone make them dwell in safety, in Jesus name. Amen.",
+      "declarations": [
+        "The peace of God guards the hearts and minds of Pastor Kiky and Prophet Prince.",
+        "They lay down in peace and sleep in safety.",
+        "The yoke of Jesus is easy and His burden is light upon them.",
+        "They find rest for their souls in Christ."
+      ]
+    },
+    {
+      "id": "travel",
+      "title": "Travel & Journey Mercies",
+      "icon": "✈️",
+      "summary": "Safety on every journey by land, sea, and air.",
+      "verses": [
+        { "ref": "Psalm 121:7-8", "text": "The LORD shall preserve thee from all evil: he shall preserve thy soul. The LORD shall preserve thy going out and thy coming in from this time forth, and even for evermore." },
+        { "ref": "Proverbs 3:23", "text": "Then shalt thou walk in thy way safely, and thy foot shall not stumble." },
+        { "ref": "Exodus 23:20", "text": "Behold, I send an Angel before thee, to keep thee in the way, and to bring thee into the place which I have prepared." }
+      ],
+      "prayer": "Father, preserve the going out and the coming in of Pastor Kiky and Prophet Prince. Send Your angel before them on every journey — by land, by sea, by air. Let their feet not stumble. Bring them safely to every place You have prepared for them, and back home in peace, in Jesus name. Amen.",
+      "declarations": [
+        "The Lord preserves their going out and coming in.",
+        "Angels of God go before them on every journey.",
+        "Their feet shall not stumble.",
+        "They travel and return in safety and peace."
+      ]
+    },
+    {
+      "id": "helpers",
+      "title": "Faithful Helpers",
+      "icon": "🤝",
+      "summary": "Trustworthy, mature, God-sent people surrounding them.",
+      "verses": [
+        { "ref": "Exodus 18:21", "text": "Moreover thou shalt provide out of all the people able men, such as fear God, men of truth, hating covetousness; and place such over them, to be rulers of thousands, and rulers of hundreds, rulers of fifties, and rulers of tens." },
+        { "ref": "Ecclesiastes 4:9-10", "text": "Two are better than one; because they have a good reward for their labour. For if they fall, the one will lift up his fellow: but woe to him that is alone when he falleth; for he hath not another to help him up." },
+        { "ref": "Psalm 121:1-2", "text": "I will lift up mine eyes unto the hills, from whence cometh my help. My help cometh from the LORD, which made heaven and earth." }
+      ],
+      "prayer": "Father, surround Pastor Kiky and Prophet Prince with faithful, mature, God-fearing helpers — men and women of truth, hating covetousness. Remove every Judas, every Absalom, every Delilah from their inner circle. Send them their Aarons and Hurs to hold up their hands, in Jesus name. Amen.",
+      "declarations": [
+        "God surrounds them with faithful and trustworthy helpers.",
+        "Every Judas, Absalom, and Delilah is exposed and removed.",
+        "Their Aarons and Hurs are in place to hold up their hands.",
+        "They will not be isolated, manipulated, or exploited."
+      ]
+    },
+    {
+      "id": "children",
+      "title": "Children & Generations",
+      "icon": "👨‍👩‍👧‍👦",
+      "summary": "Blessing, salvation, and destiny over their descendants.",
+      "verses": [
+        { "ref": "Isaiah 54:13", "text": "And all thy children shall be taught of the LORD; and great shall be the peace of thy children." },
+        { "ref": "Isaiah 59:21", "text": "As for me, this is my covenant with them, saith the LORD; My spirit that is upon thee, and my words which I have put in thy mouth, shall not depart out of thy mouth, nor out of the mouth of thy seed, nor out of the mouth of thy seed's seed, saith the LORD, from henceforth and for ever." },
+        { "ref": "Psalm 112:1-2", "text": "Praise ye the LORD. Blessed is the man that feareth the LORD, that delighteth greatly in his commandments. His seed shall be mighty upon earth: the generation of the upright shall be blessed." }
+      ],
+      "prayer": "Father, teach the children and grandchildren of Pastor Kiky and Prophet Prince. Let great be their peace. Let Your Spirit and Your Word never depart from their mouths, nor from the mouths of their seed, nor from the mouths of their seed's seed. Let their generations be mighty upon the earth, in Jesus name. Amen.",
+      "declarations": [
+        "Their children are taught of the Lord; great is their peace.",
+        "God's Spirit and Word never depart from their generations.",
+        "Their seed is mighty upon the earth.",
+        "The generation of the upright is blessed."
+      ]
+    },
+    {
+      "id": "vindication",
+      "title": "Vindication",
+      "icon": "⚖️",
+      "summary": "God defending their name against every false accusation.",
+      "verses": [
+        { "ref": "Psalm 37:5-6", "text": "Commit thy way unto the LORD; trust also in him; and he shall bring it to pass. And he shall bring forth thy righteousness as the light, and thy judgment as the noonday." },
+        { "ref": "Isaiah 50:8-9", "text": "He is near that justifieth me; who will contend with me? let us stand together: who is mine adversary? let him come near to me. Behold, the Lord GOD will help me; who is he that shall condemn me?" },
+        { "ref": "Romans 8:33", "text": "Who shall lay any thing to the charge of God's elect? It is God that justifieth." }
+      ],
+      "prayer": "Father, be the defender and vindicator of Pastor Kiky and Prophet Prince. Bring forth their righteousness as the light and their judgment as the noonday. Silence every accuser. It is God who justifies — who is he that shall condemn? Let every false accusation fall to the ground, in Jesus name. Amen.",
+      "declarations": [
+        "God is the defender and vindicator of Pastor Kiky and Prophet Prince.",
+        "Their righteousness shines as the light and their judgment as the noonday.",
+        "It is God who justifies them; no one can lay any charge to their account.",
+        "Every false accusation falls to the ground."
+      ]
+    },
+    {
+      "id": "favor",
+      "title": "Divine Favor",
+      "icon": "🌟",
+      "summary": "Favor with God and with men in every room.",
+      "verses": [
+        { "ref": "Psalm 5:12", "text": "For thou, LORD, wilt bless the righteous; with favour wilt thou compass him as with a shield." },
+        { "ref": "Proverbs 3:3-4", "text": "Let not mercy and truth forsake thee: bind them about thy neck; write them upon the table of thine heart: So shalt thou find favour and good understanding in the sight of God and man." },
+        { "ref": "Luke 2:52", "text": "And Jesus increased in wisdom and stature, and in favour with God and man." }
+      ],
+      "prayer": "Father, compass Pastor Kiky and Prophet Prince with favor as with a shield. Grant them favor and good understanding in the sight of God and man. Let doors open before them that no man can shut. Let every room, table, and gate honor the calling upon their lives, in Jesus name. Amen.",
+      "declarations": [
+        "Favor compasses Pastor Kiky and Prophet Prince as a shield.",
+        "They find favor with God and man.",
+        "Doors open before them that no man can shut.",
+        "The favor of the Lord is upon them all their days."
+      ]
+    },
+    {
+      "id": "connections",
+      "title": "Divine Connections",
+      "icon": "🔗",
+      "summary": "God-appointed relationships, partners, and Kingdom alliances.",
+      "verses": [
+        { "ref": "1 Samuel 18:1", "text": "And it came to pass, when he had made an end of speaking unto Saul, that the soul of Jonathan was knit with the soul of David, and Jonathan loved him as his own soul." },
+        { "ref": "Amos 3:3", "text": "Can two walk together, except they be agreed?" },
+        { "ref": "Proverbs 27:17", "text": "Iron sharpeneth iron; so a man sharpeneth the countenance of his friend." }
+      ],
+      "prayer": "Father, knit the souls of Pastor Kiky and Prophet Prince to the right people. Bring them iron-sharpening friends and covenant partners in the Spirit. Sever every ungodly tie, every counterfeit connection, every draining relationship. Only what You have joined shall remain, in Jesus name. Amen.",
+      "declarations": [
+        "God knits their souls with the right people.",
+        "Iron sharpens iron in their relationships.",
+        "Every ungodly tie and counterfeit connection is severed.",
+        "Only God-appointed alliances remain in their lives."
+      ]
+    },
+    {
+      "id": "legal-protection",
+      "title": "Legal & Courtroom Protection",
+      "icon": "📜",
+      "summary": "Protection from every legal snare and courtroom of the enemy.",
+      "verses": [
+        { "ref": "Isaiah 54:17", "text": "No weapon that is formed against thee shall prosper; and every tongue that shall rise against thee in judgment thou shalt condemn. This is the heritage of the servants of the LORD, and their righteousness is of me, saith the LORD." },
+        { "ref": "Revelation 12:10-11", "text": "And I heard a loud voice saying in heaven, Now is come salvation, and strength, and the kingdom of our God, and the power of his Christ: for the accuser of our brethren is cast down, which accused them before our God day and night. And they overcame him by the blood of the Lamb, and by the word of their testimony; and they loved not their lives unto the death." },
+        { "ref": "Isaiah 8:10", "text": "Take counsel together, and it shall come to nought; speak the word, and it shall not stand: for God is with us." }
+      ],
+      "prayer": "Father, in the mighty name of Jesus, we bring Pastor Kiky and Prophet Prince before Your Courtroom. The accuser of the brethren is cast down. Let every legal document, every case, every hidden filing, every ungodly petition against them be nullified by the blood of Jesus. Let every counsel taken against them come to nought, in Jesus name. Amen.",
+      "declarations": [
+        "The accuser of the brethren is cast down concerning them.",
+        "They overcome by the blood of the Lamb and the word of their testimony.",
+        "Every counsel taken against them comes to nought.",
+        "Every legal snare of the enemy is nullified by the blood of Jesus."
+      ]
+    },
+    {
+      "id": "long-life",
+      "title": "Long Life & Longevity",
+      "icon": "🌳",
+      "summary": "Long, fruitful, satisfied days in the earth.",
+      "verses": [
+        { "ref": "Psalm 91:16", "text": "With long life will I satisfy him, and shew him my salvation." },
+        { "ref": "Deuteronomy 34:7", "text": "And Moses was an hundred and twenty years old when he died: his eye was not dim, nor his natural force abated." },
+        { "ref": "Proverbs 3:1-2", "text": "My son, forget not my law; but let thine heart keep my commandments: For length of days, and long life, and peace, shall they add to thee." }
+      ],
+      "prayer": "Father, satisfy Pastor Kiky and Prophet Prince with long life. Let their eyes not grow dim nor their natural force abated. Add to them length of days, long life, and peace. Show them Your salvation in the land of the living, in Jesus name. Amen.",
+      "declarations": [
+        "The Lord satisfies them with long life.",
+        "Their eyes shall not grow dim; their strength shall not abate.",
+        "Length of days, long life, and peace are added to them.",
+        "They shall see their children's children and the salvation of the Lord."
+      ]
+    },
+    {
+      "id": "discernment",
+      "title": "Sharp Discernment",
+      "icon": "👁️",
+      "summary": "Spiritual eyes to see beyond the natural.",
+      "verses": [
+        { "ref": "Hebrews 5:14", "text": "But strong meat belongeth to them that are of full age, even those who by reason of use have their senses exercised to discern both good and evil." },
+        { "ref": "1 Corinthians 12:10", "text": "To another the working of miracles; to another prophecy; to another discerning of spirits; to another divers kinds of tongues; to another the interpretation of tongues." },
+        { "ref": "2 Kings 6:17", "text": "And Elisha prayed, and said, LORD, I pray thee, open his eyes, that he may see. And the LORD opened the eyes of the young man; and he saw: and, behold, the mountain was full of horses and chariots of fire round about Elisha." }
+      ],
+      "prayer": "Father, exercise the spiritual senses of Pastor Kiky and Prophet Prince to discern both good and evil. Grant them the gift of discerning of spirits. Open their eyes like Elisha's servant to see the horses and chariots of fire round about them, in Jesus name. Amen.",
+      "declarations": [
+        "Their spiritual senses are exercised to discern good and evil.",
+        "The gift of discerning of spirits operates in their lives.",
+        "Their eyes are opened to see in the spirit.",
+        "No counterfeit escapes their discernment."
+      ]
+    },
+    {
+      "id": "humility",
+      "title": "Humility of Heart",
+      "icon": "🙇",
+      "summary": "Kept humble, clean-handed, and pure in motive.",
+      "verses": [
+        { "ref": "James 4:6", "text": "But he giveth more grace. Wherefore he saith, God resisteth the proud, but giveth grace unto the humble." },
+        { "ref": "1 Peter 5:5-6", "text": "Likewise, ye younger, submit yourselves unto the elder. Yea, all of you be subject one to another, and be clothed with humility: for God resisteth the proud, and giveth grace to the humble. Humble yourselves therefore under the mighty hand of God, that he may exalt you in due time." },
+        { "ref": "Micah 6:8", "text": "He hath shewed thee, O man, what is good; and what doth the LORD require of thee, but to do justly, and to love mercy, and to walk humbly with thy God?" }
+      ],
+      "prayer": "Father, keep the hearts of Pastor Kiky and Prophet Prince humble under Your mighty hand. Clothe them with humility. Keep their hands clean, their hearts pure, and their motives right. Guard them from pride, self-promotion, and hidden ambition, in Jesus name. Amen.",
+      "declarations": [
+        "Pastor Kiky and Prophet Prince walk humbly with their God.",
+        "God gives them grace because they are clothed with humility.",
+        "Their hands remain clean and their hearts remain pure.",
+        "God exalts them in due time by His own hand."
+      ]
+    },
+    {
+      "id": "purity",
+      "title": "Purity & Holiness",
+      "icon": "🤍",
+      "summary": "A sanctified life, walking in purity of heart and conduct.",
+      "verses": [
+        { "ref": "Psalm 51:10", "text": "Create in me a clean heart, O God; and renew a right spirit within me." },
+        { "ref": "Matthew 5:8", "text": "Blessed are the pure in heart: for they shall see God." },
+        { "ref": "1 Thessalonians 4:7", "text": "For God hath not called us unto uncleanness, but unto holiness." }
+      ],
+      "prayer": "Father, create in Pastor Kiky and Prophet Prince clean hearts, and renew a right spirit within them. Keep them holy in body, soul, and spirit. Deliver them from every hidden defilement, every soul tie, every unclean influence, in Jesus name. Amen.",
+      "declarations": [
+        "God creates in them a clean heart and renews a right spirit within them.",
+        "They are pure in heart; they shall see God.",
+        "They are called unto holiness, not uncleanness.",
+        "Every hidden defilement is washed away by the blood of Jesus."
+      ]
+    },
+    {
+      "id": "joy",
+      "title": "Joy Restored",
+      "icon": "😊",
+      "summary": "Fresh joy, gladness, and delight in the Lord.",
+      "verses": [
+        { "ref": "Psalm 16:11", "text": "Thou wilt shew me the path of life: in thy presence is fulness of joy; at thy right hand there are pleasures for evermore." },
+        { "ref": "Nehemiah 8:10", "text": "Then he said unto them, Go your way, eat the fat, and drink the sweet, and send portions unto them for whom nothing is prepared: for this day is holy unto our Lord: neither be ye sorry; for the joy of the LORD is your strength." },
+        { "ref": "Psalm 30:5", "text": "For his anger endureth but a moment; in his favour is life: weeping may endure for a night, but joy cometh in the morning." }
+      ],
+      "prayer": "Father, restore the joy of Your salvation to Pastor Kiky and Prophet Prince. Fill them with the fullness of joy in Your presence. Turn every night of weeping into a morning of joy. Let the joy of the Lord be their unshakeable strength, in Jesus name. Amen.",
+      "declarations": [
+        "In God's presence is fulness of joy for Pastor Kiky and Prophet Prince.",
+        "The joy of the Lord is their strength.",
+        "Every night of weeping becomes a morning of joy.",
+        "Their gladness overflows to those they serve."
+      ]
+    },
+    {
+      "id": "emotional-healing",
+      "title": "Emotional Healing",
+      "icon": "🌷",
+      "summary": "Healing of the heart, mind, and every wounded place.",
+      "verses": [
+        { "ref": "Psalm 147:3", "text": "He healeth the broken in heart, and bindeth up their wounds." },
+        { "ref": "Isaiah 61:1-3", "text": "The Spirit of the Lord GOD is upon me; because the LORD hath anointed me to preach good tidings unto the meek; he hath sent me to bind up the brokenhearted, to proclaim liberty to the captives, and the opening of the prison to them that are bound; To proclaim the acceptable year of the LORD, and the day of vengeance of our God; to comfort all that mourn; To appoint unto them that mourn in Zion, to give unto them beauty for ashes, the oil of joy for mourning, the garment of praise for the spirit of heaviness; that they might be called trees of righteousness, the planting of the LORD, that he might be glorified." },
+        { "ref": "2 Corinthians 1:3-4", "text": "Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort; Who comforteth us in all our tribulation, that we may be able to comfort them which are in any trouble, by the comfort wherewith we ourselves are comforted of God." }
+      ],
+      "prayer": "Father, heal every broken place in Pastor Kiky and Prophet Prince. Bind up every wound. Give them beauty for ashes, the oil of joy for mourning, the garment of praise for the spirit of heaviness. Comfort them in every tribulation, in Jesus name. Amen.",
+      "declarations": [
+        "The Lord heals their broken hearts and binds up their wounds.",
+        "They receive beauty for ashes and oil of joy for mourning.",
+        "The garment of praise replaces every spirit of heaviness.",
+        "They are trees of righteousness, the planting of the Lord."
+      ]
+    },
+    {
+      "id": "prophetic-accuracy",
+      "title": "Prophetic Accuracy",
+      "icon": "📖",
+      "summary": "Sharp, clear, biblically-anchored prophetic ministry.",
+      "verses": [
+        { "ref": "2 Peter 1:19-21", "text": "We have also a more sure word of prophecy; whereunto ye do well that ye take heed, as unto a light that shineth in a dark place, until the day dawn, and the day star arise in your hearts: Knowing this first, that no prophecy of the scripture is of any private interpretation. For the prophecy came not in old time by the will of man: but holy men of God spake as they were moved by the Holy Ghost." },
+        { "ref": "1 Corinthians 14:3", "text": "But he that prophesieth speaketh unto men to edification, and exhortation, and comfort." },
+        { "ref": "Amos 3:7", "text": "Surely the Lord GOD will do nothing, but he revealeth his secret unto his servants the prophets." }
+      ],
+      "prayer": "Father, sharpen the prophetic accuracy of Pastor Kiky and Prophet Prince. Let every word they speak be moved by the Holy Ghost, anchored in Scripture, and full of edification, exhortation, and comfort. Reveal Your secrets to Your servants, in Jesus name. Amen.",
+      "declarations": [
+        "Their prophetic ministry is sharp, accurate, and biblically anchored.",
+        "They speak as moved by the Holy Ghost.",
+        "God reveals His secrets to His servants.",
+        "Every word they release brings edification, exhortation, and comfort."
+      ]
+    },
+    {
+      "id": "tongue",
+      "title": "Guarded Tongue",
+      "icon": "🗣️",
+      "summary": "Speech seasoned with grace, salt, and Kingdom authority.",
+      "verses": [
+        { "ref": "Psalm 141:3", "text": "Set a watch, O LORD, before my mouth; keep the door of my lips." },
+        { "ref": "Colossians 4:6", "text": "Let your speech be alway with grace, seasoned with salt, that ye may know how ye ought to answer every man." },
+        { "ref": "Proverbs 18:21", "text": "Death and life are in the power of the tongue: and they that love it shall eat the fruit thereof." }
+      ],
+      "prayer": "Father, set a watch before the mouths of Pastor Kiky and Prophet Prince. Keep the door of their lips. Let their speech be always with grace, seasoned with salt. Let no idle word proceed from their mouths — only life, only truth, only edification, in Jesus name. Amen.",
+      "declarations": [
+        "The Lord keeps the door of their lips.",
+        "Their speech is with grace, seasoned with salt.",
+        "They speak life, not death.",
+        "Every word they release carries Kingdom authority."
+      ]
+    },
+    {
+      "id": "ministry-finances",
+      "title": "Ministry Finances",
+      "icon": "🏛️",
+      "summary": "Full funding for every ministry mandate and mission.",
+      "verses": [
+        { "ref": "Haggai 2:8", "text": "The silver is mine, and the gold is mine, saith the LORD of hosts." },
+        { "ref": "Luke 6:38", "text": "Give, and it shall be given unto you; good measure, pressed down, and shaken together, and running over, shall men give into your bosom. For with the same measure that ye mete withal it shall be measured to you again." },
+        { "ref": "2 Corinthians 9:10-11", "text": "Now he that ministereth seed to the sower both minister bread for your food, and multiply your seed sown, and increase the fruits of your righteousness; Being enriched in every thing to all bountifulness, which causeth through us thanksgiving to God." }
+      ],
+      "prayer": "Father, release the silver and the gold — for they are Yours — into the ministries of Pastor Kiky and Prophet Prince. Minister seed to the sower. Multiply what they sow. Enrich them in everything to all bountifulness, causing thanksgiving to overflow to God, in Jesus name. Amen.",
+      "declarations": [
+        "The silver and gold of the Lord are released to their ministries.",
+        "Good measure, pressed down, shaken together, and running over is given to them.",
+        "God multiplies their seed and increases the fruits of their righteousness.",
+        "They are enriched in every thing to all bountifulness."
+      ]
+    },
+    {
+      "id": "congregation",
+      "title": "Their Congregation & Standees",
+      "icon": "🌾",
+      "summary": "Blessing, protection, and multiplication over those they lead.",
+      "verses": [
+        { "ref": "Ezekiel 34:11-12", "text": "For thus saith the Lord GOD; Behold, I, even I, will both search my sheep, and seek them out. As a shepherd seeketh out his flock in the day that he is among his sheep that are scattered; so will I seek out my sheep, and will deliver them out of all places where they have been scattered in the cloudy and dark day." },
+        { "ref": "John 10:27-28", "text": "My sheep hear my voice, and I know them, and they follow me: And I give unto them eternal life; and they shall never perish, neither shall any man pluck them out of my hand." },
+        { "ref": "Jeremiah 3:15", "text": "And I will give you pastors according to mine heart, which shall feed you with knowledge and understanding." }
+      ],
+      "prayer": "Father, bless the Standees and every soul under the ministries of Pastor Kiky and Prophet Prince. Feed them with knowledge and understanding. Gather every scattered sheep. Let no one be plucked from Your hand. Multiply their flock and grant them the joy of shepherding, in Jesus name. Amen.",
+      "declarations": [
+        "The sheep hear the voice of the Shepherd through Pastor Kiky and Prophet Prince.",
+        "God feeds their congregations with knowledge and understanding.",
+        "No soul shall be plucked from the hand of God.",
+        "Their flocks are multiplied and their ministries are fruitful."
+      ]
+    },
+    {
+      "id": "enemies-exposed",
+      "title": "Enemies Exposed",
+      "icon": "🔦",
+      "summary": "Every hidden enemy uncovered by the light of God.",
+      "verses": [
+        { "ref": "Luke 8:17", "text": "For nothing is secret, that shall not be made manifest; neither any thing hid, that shall not be known and come abroad." },
+        { "ref": "Job 12:22", "text": "He discovereth deep things out of darkness, and bringeth out to light the shadow of death." },
+        { "ref": "Psalm 27:2", "text": "When the wicked, even mine enemies and my foes, came upon me to eat up my flesh, they stumbled and fell." }
+      ],
+      "prayer": "Father, expose every hidden enemy around Pastor Kiky and Prophet Prince. Discover the deep things out of darkness. Let every mask fall. Let every wolf be uncovered. Let those who rise up against them stumble and fall, in Jesus name. Amen.",
+      "declarations": [
+        "Nothing hidden against them shall remain hidden.",
+        "Every enemy that came to devour them stumbles and falls.",
+        "God discovers deep things out of darkness on their behalf.",
+        "Every mask is stripped from every hidden enemy."
+      ]
+    },
+    {
+      "id": "fruitfulness",
+      "title": "Lasting Fruitfulness",
+      "icon": "🍇",
+      "summary": "Every seed sown produces enduring Kingdom harvest.",
+      "verses": [
+        { "ref": "John 15:16", "text": "Ye have not chosen me, but I have chosen you, and ordained you, that ye should go and bring forth fruit, and that your fruit should remain: that whatsoever ye shall ask of the Father in my name, he may give it you." },
+        { "ref": "Psalm 1:3", "text": "And he shall be like a tree planted by the rivers of water, that bringeth forth his fruit in his season; his leaf also shall not wither; and whatsoever he doeth shall prosper." },
+        { "ref": "Galatians 6:9", "text": "And let us not be weary in well doing: for in due season we shall reap, if we faint not." }
+      ],
+      "prayer": "Father, let the fruit of Pastor Kiky and Prophet Prince remain. Plant them like trees by the rivers of water that bring forth fruit in season. Let their leaves never wither. Whatever they do, let it prosper. Let their seed produce harvest — thirtyfold, sixtyfold, hundredfold, in Jesus name. Amen.",
+      "declarations": [
+        "Their fruit remains.",
+        "They are like trees planted by rivers of water; their leaves never wither.",
+        "Whatever they do prospers.",
+        "Every seed sown returns thirtyfold, sixtyfold, hundredfold."
+      ]
+    },
+    {
+      "id": "finish-strong",
+      "title": "Finish Strong",
+      "icon": "🏁",
+      "summary": "Grace to finish their divine assignments faithfully.",
+      "verses": [
+        { "ref": "2 Timothy 4:7-8", "text": "I have fought a good fight, I have finished my course, I have kept the faith: Henceforth there is laid up for me a crown of righteousness, which the Lord, the righteous judge, shall give me at that day: and not to me only, but unto all them that love his appearing." },
+        { "ref": "Philippians 1:6", "text": "Being confident of this very thing, that he which hath begun a good work in you will perform it until the day of Jesus Christ." },
+        { "ref": "Acts 20:24", "text": "But none of these things move me, neither count I my life dear unto myself, so that I might finish my course with joy, and the ministry, which I have received of the Lord Jesus, to keep the fight the good fight of faith." }
+      ],
+      "prayer": "Father, grant Pastor Kiky and Prophet Prince the grace to finish strong. Let them fight the good fight, finish the course, and keep the faith. Complete the good work You began in them. Let them not be removed from their place of purpose before Your appointed time, in Jesus name. Amen.",
+      "declarations": [
+        "Pastor Kiky and Prophet Prince will finish their assignments faithfully.",
+        "They will fight the good fight, finish the course, and keep the faith.",
+        "The good work God began in them, He completes.",
+        "A crown of righteousness is laid up for them."
+      ]
+    },
+    {
+      "id": "blessing",
+      "title": "The Final Blessing",
+      "icon": "✨",
+      "summary": "The Aaronic blessing spoken over their lives.",
+      "verses": [
+        { "ref": "Numbers 6:24-26", "text": "The LORD bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace." },
+        { "ref": "Ephesians 3:20-21", "text": "Now unto him that is able to do exceeding abundantly above all that we ask or think, according to the power that worketh in us, Unto him be glory in the church by Christ Jesus throughout all ages, world without end. Amen." },
+        { "ref": "Jude 1:24-25", "text": "Now unto him that is able to keep you from falling, and to present you faultless before the presence of his glory with exceeding joy, To the only wise God our Saviour, be glory and majesty, dominion and power, both now and ever. Amen." }
+      ],
+      "prayer": "The Lord bless Pastor Kiky and Prophet Prince, and keep them. The Lord make His face shine upon them, and be gracious unto them. The Lord lift up His countenance upon them, and give them peace. He is able to keep them from falling and to present them faultless before the presence of His glory with exceeding joy. In Jesus name. Amen.",
+      "declarations": [
+        "The Lord blesses and keeps Pastor Kiky and Prophet Prince.",
+        "The Lord makes His face to shine upon them and is gracious unto them.",
+        "The Lord lifts up His countenance upon them and gives them peace.",
+        "He keeps them from falling and presents them faultless with exceeding joy."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dominion Hour | Taking Back Your Stolen Glory</title>
+  <meta name="description" content="Dominion Hour workbook page for Taking Back Your Stolen Glory, featuring scripture list, journaling prompts, and student Q&A sections." />
+  <meta property="og:title" content="Dominion Hour | Taking Back Your Stolen Glory" />
+  <meta property="og:description" content="A ministry workbook page with scriptures, declarations, journaling prompts, and student Q&A." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500,700&display=swap" rel="stylesheet" />
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --color-bg: #f7f6f2; --color-surface: #f9f8f5; --color-surface-2: #fbfbf9; --color-surface-offset: #f3f0ec; --color-border: #d4d1ca; --color-divider: #dcd9d5;
+      --color-text: #28251d; --color-text-muted: #6f6d68; --color-text-faint: #989691; --color-text-inverse: #f9f8f4;
+      --color-primary: #01696f; --color-primary-hover: #0c4e54; --color-gold: #b37c00; --color-success: #437a22;
+      --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem; --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px rgba(40,37,29,.06); --shadow-md: 0 8px 20px rgba(40,37,29,.08);
+      --font-display: 'Boska', Georgia, serif; --font-body: 'Satoshi', 'Helvetica Neue', sans-serif;
+      --content-default: 980px; --content-wide: 1180px;
+    }
+    [data-theme="dark"] {
+      --color-bg: #171614; --color-surface: #1c1b19; --color-surface-2: #201f1d; --color-surface-offset: #23211f; --color-border: #393836; --color-divider: #2a2927;
+      --color-text: #d8d5cf; --color-text-muted: #a39f98; --color-text-faint: #77746f; --color-text-inverse: #171614;
+      --color-primary: #4f98a3; --color-primary-hover: #67acb6; --color-gold: #e0b14f; --color-success: #82b75d;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.24); --shadow-md: 0 12px 32px rgba(0,0,0,.28);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:none;text-size-adjust:none;scroll-behavior:smooth;scroll-padding-top:5rem}
+    body{min-height:100dvh;line-height:1.65;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg)}
+    img,svg{display:block;max-width:100%;height:auto}
+    h1,h2,h3{line-height:1.12;text-wrap:balance}
+    p,li{max-width:72ch;text-wrap:pretty}
+    a{color:inherit}
+    button{font:inherit;cursor:pointer;border:none;background:none}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    .skip-link{position:absolute;left:-9999px;top:auto}.skip-link:focus{left:1rem;top:1rem;background:var(--color-surface);padding:.75rem 1rem;z-index:999;border:1px solid var(--color-border)}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(247,246,242,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-divider)}
+    [data-theme="dark"] .site-header{background:rgba(23,22,20,.88)}
+    .header-inner,.container{width:min(100% - 2rem,var(--content-default));margin-inline:auto}
+    .wide{width:min(100% - 2rem,var(--content-wide));margin-inline:auto}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:.9rem 0}
+    .brand{display:flex;align-items:center;gap:.9rem;text-decoration:none}
+    .brand-mark{width:2.6rem;height:2.6rem;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--color-primary),var(--color-primary-hover));color:var(--color-text-inverse);box-shadow:var(--shadow-sm)}
+    .brand-copy small{display:block;color:var(--color-text-muted);font-size:var(--text-xs);letter-spacing:.08em;text-transform:uppercase}
+    .brand-copy strong{display:block;font-size:var(--text-sm);font-weight:700}
+    .theme-toggle{min-width:44px;min-height:44px;display:grid;place-items:center;border:1px solid var(--color-border);border-radius:var(--radius-full);background:var(--color-surface)}
+    .hero{padding:clamp(4rem,10vw,7rem) 0 var(--space-16);border-bottom:1px solid var(--color-divider);background:
+      radial-gradient(circle at top right, rgba(1,105,111,.09), transparent 28%),
+      radial-gradient(circle at left 20%, rgba(179,124,0,.08), transparent 26%),
+      var(--color-bg)}
+    .eyebrow{display:inline-flex;gap:.5rem;align-items:center;padding:.45rem .8rem;border:1px solid var(--color-border);border-radius:var(--radius-full);background:var(--color-surface);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted)}
+    .hero-grid{display:grid;gap:var(--space-12);align-items:end;margin-top:var(--space-8)}
+    .hero h1{font-family:var(--font-display);font-size:var(--text-2xl);margin-top:var(--space-4);max-width:12ch}
+    .hero p.lead{margin-top:var(--space-4);font-size:var(--text-base);color:var(--color-text-muted);max-width:62ch}
+    .hero-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-md)}
+    .hero-card h2{font-size:var(--text-lg);margin-bottom:var(--space-3)}
+    .hero-card p,.hero-card li{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .hero-card ul{list-style:none;display:grid;gap:.65rem}
+    .actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:var(--space-6)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.85rem 1.1rem;border-radius:var(--radius-full);text-decoration:none;font-size:var(--text-sm);font-weight:700}
+    .btn-primary{background:var(--color-primary);color:var(--color-text-inverse)}
+    .btn-secondary{background:var(--color-surface);border:1px solid var(--color-border)}
+    main section{padding:clamp(3rem,7vw,5.5rem) 0;border-bottom:1px solid var(--color-divider)}
+    .section-head{display:grid;gap:var(--space-3);margin-bottom:var(--space-8)}
+    .section-head h2{font-family:var(--font-display);font-size:var(--text-xl)}
+    .section-head p{color:var(--color-text-muted)}
+    .scripture-grid,.workbook-grid{display:grid;gap:var(--space-4)}
+    .card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5);box-shadow:var(--shadow-sm)}
+    .card h3{font-size:var(--text-lg);margin-bottom:.55rem}
+    .card p{color:var(--color-text-muted)}
+    .verse-list{list-style:none;display:grid;gap:.7rem}
+    .verse-list li{padding-bottom:.7rem;border-bottom:1px solid var(--color-divider)}
+    .verse-list li:last-child{padding-bottom:0;border-bottom:none}
+    .tag{display:inline-flex;align-items:center;padding:.35rem .6rem;border-radius:var(--radius-full);background:rgba(1,105,111,.1);color:var(--color-primary);font-size:var(--text-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.8rem}
+    .module{display:grid;gap:var(--space-5)}
+    .module .declaration{padding:var(--space-4);border-left:3px solid var(--color-primary);background:var(--color-surface-offset);border-radius:0 var(--radius-md) var(--radius-md) 0}
+    .module ul{padding-left:1.15rem;display:grid;gap:.75rem}
+    .module li::marker{color:var(--color-primary)}
+    .workspace{margin-top:var(--space-4);padding:var(--space-4);min-height:140px;border:1px dashed var(--color-border);border-radius:var(--radius-md);background:var(--color-surface-2)}
+    .qa-item{padding:var(--space-4);border:1px solid var(--color-border);border-radius:var(--radius-md);background:var(--color-surface-2)}
+    .qa-item + .qa-item{margin-top:var(--space-3)}
+    .qa-item strong{display:block;margin-bottom:.5rem}
+    .note-panel{display:grid;gap:var(--space-4);padding:var(--space-6);background:var(--color-surface-offset);border:1px solid var(--color-border);border-radius:var(--radius-xl)}
+    .footer{padding:var(--space-10) 0;color:var(--color-text-muted)}
+    .footer-inner{display:flex;flex-direction:column;gap:var(--space-4)}
+    @media (min-width: 860px){
+      .hero-grid{grid-template-columns:1.4fr .9fr}
+      .scripture-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .workbook-grid{grid-template-columns:1.05fr .95fr}
+      .footer-inner{flex-direction:row;justify-content:space-between;align-items:center}
+    }
+    @media print{
+      .site-header,.actions,.theme-toggle{display:none!important}
+      body{background:#fff;color:#000}
+      .card,.hero-card,.note-panel,.qa-item,.workspace{box-shadow:none}
+      main section{break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Dominion Hour workbook home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 6L34 16V28C34 35 29.5 40 24 42C18.5 40 14 35 14 28V16L24 6Z" stroke="currentColor" stroke-width="2.5"/>
+            <path d="M24 14V32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M18 22H30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <small>Dominion Hour</small>
+          <strong>Workbook Page</strong>
+        </span>
+      </a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="wide hero-grid">
+      <div>
+        <span class="eyebrow">Clubhouse · July 2, 2026</span>
+        <h1>Taking Back Your Stolen Glory</h1>
+        <p class="lead">A complete Dominion Hour workbook page for prayer, Scripture meditation, journaling, and student follow-up. This page is ready to publish directly to a ministry website or open locally in any browser.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#journaling">Open journaling section</a>
+          <a class="btn btn-secondary" href="#students">Open student Q&amp;A</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Anchor scripture and session details">
+        <h2>Anchor Scripture</h2>
+        <p><strong>Psalm 3:3 (KJV)</strong><br />“But thou, O LORD, art a shield for me; my glory, and the lifter up of mine head.”</p>
+        <ul style="margin-top:1rem">
+          <li><strong>Session:</strong> Dominion Hour with Prophet Prince Amo David</li>
+          <li><strong>Theme:</strong> Restoration, recovery, and glory retrieval</li>
+          <li><strong>Use:</strong> Website page, prayer guide, or printable study handout</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <main id="content">
+    <section id="scriptures">
+      <div class="container">
+        <div class="section-head">
+          <h2>Scripture Guide</h2>
+          <p>This first section gathers the Scripture passages used during prayer so the page can serve as both a live session guide and a teaching archive.</p>
+        </div>
+        <div class="scripture-grid">
+          <article class="card">
+            <span class="tag">Praise & Thanksgiving</span>
+            <ul class="verse-list">
+              <li>Psalm 103:1–2</li>
+              <li>Psalm 103:3–4</li>
+              <li>Psalm 103:5–6</li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="tag">Confession & Cleansing</span>
+            <ul class="verse-list">
+              <li>1 John 1:8–9</li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="tag">The Holy Spirit Helps Us Pray</span>
+            <ul class="verse-list">
+              <li>Romans 8:26 (NIV)</li>
+              <li>Romans 8:27 (NIV)</li>
+              <li>Romans 8:26 (NLT)</li>
+              <li>Romans 8:27 (NLT)</li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="tag">Restoration & Recovery</span>
+            <ul class="verse-list">
+              <li>Isaiah 61:1–9</li>
+              <li>Jeremiah 30:17</li>
+              <li>Deuteronomy 34:7 (KJV / NLT)</li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="tag">The Glory Departed</span>
+            <ul class="verse-list">
+              <li>1 Samuel 4:12–22</li>
+              <li>Psalm 3:1–3</li>
+              <li>Psalm 3:3</li>
+            </ul>
+          </article>
+          <article class="card">
+            <span class="tag">Manifested Glory</span>
+            <ul class="verse-list">
+              <li>Psalm 8:4–6</li>
+              <li>John 2:8–11</li>
+              <li>Acts 9:3</li>
+              <li>Luke 1:13, 19–20</li>
+              <li>Genesis 1:1–4</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="journaling">
+      <div class="container">
+        <div class="section-head">
+          <h2>Journaling Workbook</h2>
+          <p>These prompts are arranged for personal prayer, reflection, and ministry follow-through, with writing space built directly into each module.</p>
+        </div>
+        <div class="workbook-grid">
+          <div class="module">
+            <div class="card">
+              <h3>1. The Lord My Shield and Glory</h3>
+              <p><strong>Scriptures:</strong> Psalm 3:1–3</p>
+              <div class="declaration">Lord, You are my shield, my glory, and the lifter of my head. I refuse shame, defeat, and demotion. I arise into the glory You ordained for me.</div>
+              <ul>
+                <li>Describe one area of life where your head has been bowed by shame, delay, defeat, or reproach.</li>
+                <li>Rewrite Psalm 3:3 in your own words as a personal confession.</li>
+                <li>Record what it means for the Lord to be both your shield and your glory.</li>
+              </ul>
+              <div class="workspace" aria-label="Writing space for section 1"></div>
+            </div>
+            <div class="card">
+              <h3>2. Praise That Restores Glory</h3>
+              <p><strong>Scriptures:</strong> Psalm 103:1–6</p>
+              <div class="declaration">My soul blesses the Lord. He forgives, heals, redeems, and crowns my life with mercy. My glory is being restored.</div>
+              <ul>
+                <li>List five benefits of the Lord you can identify in this present season.</li>
+                <li>Write a thanksgiving paragraph beginning, “Lord, I bless You because…”</li>
+                <li>Reflect on how praise shifts your focus from loss to redemption.</li>
+              </ul>
+              <div class="workspace" aria-label="Writing space for section 2"></div>
+            </div>
+            <div class="card">
+              <h3>3. Cleansing Before Glory</h3>
+              <p><strong>Scripture:</strong> 1 John 1:8–9</p>
+              <div class="declaration">I confess my sins before the Lord and receive cleansing from all unrighteousness. Every accusation against my destiny is silenced by the blood of Jesus.</div>
+              <ul>
+                <li>Write down any area where the Holy Spirit is calling you to repentance.</li>
+                <li>Note how guilt, fear, or condemnation has affected your confidence.</li>
+                <li>Complete this sentence: “Lord, I receive Your cleansing in the area of…”</li>
+              </ul>
+              <div class="workspace" aria-label="Writing space for section 3"></div>
+            </div>
+            <div class="card">
+              <h3>4. The Holy Spirit Helps Us Pray</h3>
+              <p><strong>Scriptures:</strong> Romans 8:26–27</p>
+              <div class="declaration">Holy Spirit, help my weakness in prayer and intercede for me according to the will of God concerning my stolen glory.</div>
+              <ul>
+                <li>Describe a situation where you do not know how to pray as you should.</li>
+                <li>Write a surrender prayer yielding that burden to the Holy Spirit.</li>
+                <li>Record any insight, impression, or burden that comes while waiting quietly before God.</li>
+              </ul>
+              <div class="workspace" aria-label="Writing space for section 4"></div>
+            </div>
+          </div>
+          <div class="module">
+            <div class="card">
+              <h3>5. Double Honor and Restoration</h3>
+              <p><strong>Scriptures:</strong> Isaiah 61:1–9; Jeremiah 30:17</p>
+              <div class="declaration">For every shame I have endured, the Lord gives double honor. He restores my health, heals my wounds, and recovers what was stolen.</div>
+              <ul>
+                <li>Identify the areas where shame or loss has touched your life.</li>
+                <li>Describe what “double” restoration would look like in those same areas.</li>
+                <li>Write a decree beginning, “In place of shame, the Lord will give…”</li>
+              </ul>
+              <div class="workspace" aria-label="Writing space for section 5"></div>
+            </div>
+            <div class="card">
+              <h3>6. Reversing Ichabod</h3>
+              <p><strong>Scripture:</strong> 1 Samuel 4:12–22</p>
+              <div class="declaration">Every Ichabod over my life, household, and assignment is reversed. The glory of God will not depart from me.</div>
+              <ul>
+                <li>Reflect on any season where God’s presence felt distant or your fire felt low.</li>
+                <li>Write what must be restored on your altar of prayer, obedience, and consecration.</li>
+                <li>Complete: “Lord, I choose to value Your presence above…”</li>
+              </ul>
+              <div class="workspace" aria-label="Writing space for section 6"></div>
+            </div>
+            <div class="card">
+              <h3>7. Crowned with Glory and Dominion</h3>
+              <p><strong>Scripture:</strong> Psalm 8:4–6</p>
+              <div class="declaration">In Christ, I am crowned with glory and honor. I reject defeat and walk in dominion over every force resisting my destiny.</div>
+              <ul>
+                <li>In your own words, describe how God sees you according to Psalm 8.</li>
+                <li>Where have you been living below the level of dominion assigned to you?</li>
+                <li>Write one practical action step that reflects spiritual dominion this week.</li>
+              </ul>
+              <div class="workspace" aria-label="Writing space for section 7"></div>
+            </div>
+            <div class="card">
+              <h3>8. Manifested Glory and Light</h3>
+              <p><strong>Scriptures:</strong> John 2:8–11; Acts 9:3; Genesis 1:1–4</p>
+              <div class="declaration">The glory of Jesus will be manifested in my life. Let there be light in every place where my glory has been hidden or covered.</div>
+              <ul>
+                <li>Describe any hidden season of preparation you have walked through.</li>
+                <li>Name the areas where you need divine light, clarity, and open manifestation.</li>
+                <li>Write a prayer beginning, “Lord, manifest Your glory in my life through…”</li>
+              </ul>
+              <div class="workspace" aria-label="Writing space for section 8"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="students">
+      <div class="container">
+        <div class="section-head">
+          <h2>Student Q&amp;A Workbook</h2>
+          <p>This section is prepared for teaching, class review, or follow-up after the Clubhouse session, using direct questions tied to the same Scripture flow.</p>
+        </div>
+        <div class="card">
+          <div class="qa-item"><strong>1. Psalm 3:3 — My Shield and Glory</strong>What does it mean for God to be your shield, your glory, and the lifter of your head? In what specific area do you need this promise today?</div>
+          <div class="qa-item"><strong>2. Psalm 103:1–6 — Praise and Benefits</strong>List the benefits of the Lord mentioned in this passage. Which one most speaks to the restoration of your glory, and why?</div>
+          <div class="qa-item"><strong>3. 1 John 1:8–9 — Confession and Cleansing</strong>What happens when we confess our sins? Why is cleansing necessary when dealing with destiny, restoration, and glory retrieval?</div>
+          <div class="qa-item"><strong>4. Romans 8:26–27 — The Holy Spirit Helps Us Pray</strong>How does the Holy Spirit help us in weakness? Describe a real situation where you need His intercession now.</div>
+          <div class="qa-item"><strong>5. Isaiah 61 and Jeremiah 30:17 — Double Honor and Healing</strong>What does God promise in place of shame? What does restoration of wounds look like in practical life and ministry?</div>
+          <div class="qa-item"><strong>6. 1 Samuel 4:12–22 — Ichabod</strong>What does Ichabod represent in this passage? How can a believer guard and honor the presence of God?</div>
+          <div class="qa-item"><strong>7. Psalm 8:4–6 — Crowned with Glory</strong>How has God honored humanity in this text? Where should you begin to live in greater dominion?</div>
+          <div class="qa-item"><strong>8. John 2:11 and Acts 9:3 — Manifested Glory and Divine Encounter</strong>How did Jesus manifest His glory? How can a divine encounter redirect a life and uncover hidden purpose?</div>
+          <div class="qa-item"><strong>9. Deuteronomy 34:7 and Luke 1:13, 19–20 — Strength and Answered Prayer</strong>What do these passages teach about endurance and delayed prayer? How do they encourage you personally?</div>
+          <div class="qa-item"><strong>10. Genesis 1:1–4 — Let There Be Light</strong>Name one area of darkness, confusion, or delay where you are praying for God to speak light, and explain what you are expecting Him to do.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="closing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Ministry Use Notes</h2>
+          <p>This page is designed to work as a direct website resource, a live teaching companion, and a printable ministry handout.</p>
+        </div>
+        <div class="note-panel">
+          <p><strong>Best uses:</strong> publish this as a Dominion Hour archive page, link it in Clubhouse room details, send the page URL in WhatsApp, or print it directly from the browser.</p>
+          <p><strong>Built-in support:</strong> the page includes mobile-friendly layout, dark mode, print styling, anchored sections, and a clean structure for future Dominion Hour workbook pages.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>Dominion Hour Workbook Page · Taking Back Your Stolen Glory</p>
+      <p>Prepared for direct web publishing and browser opening.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const button = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      const renderIcon = () => {
+        button.setAttribute('aria-label', 'Switch to ' + (theme === 'dark' ? 'light' : 'dark') + ' mode');
+        button.innerHTML = theme === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      };
+      renderIcon();
+      button.addEventListener('click', function(){
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        renderIcon();
+      });
+    })();
+  </script>
+</body>
+</html>

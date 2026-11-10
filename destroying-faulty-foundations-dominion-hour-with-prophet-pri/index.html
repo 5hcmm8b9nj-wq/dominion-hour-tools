@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Destroying Faulty Foundations — Dominion Hour with Prophet Prince Amo David</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ivory: #FAF7EF;
+    --cream: #F3EEDF;
+    --charcoal: #221E1A;
+    --charcoal-soft: #3B342D;
+    --teal: #0F5B5F;
+    --teal-deep: #083E42;
+    --gold: #B6871A;
+    --gold-light: #E7C965;
+    --ember: #C24A16;
+    --plum: #6E2F5A;
+    --green: #4F7A2E;
+    --border: rgba(34, 30, 26, 0.12);
+    --shadow: 0 4px 20px rgba(34, 30, 26, 0.08);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--ivory); color: var(--charcoal); font-family: 'DM Sans', system-ui, sans-serif; line-height: 1.6; }
+  h1, h2, h3, h4 { font-family: 'Source Serif 4', Georgia, serif; color: var(--charcoal); font-weight: 600; line-height: 1.25; }
+  h1 { font-size: clamp(2rem, 4.5vw, 3.25rem); margin: 0 0 0.5rem; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2.15rem); margin: 0 0 1rem; color: var(--teal-deep); }
+  h3 { font-size: 1.35rem; margin: 1.75rem 0 0.75rem; color: var(--teal-deep); }
+  h4 { font-size: 1.1rem; margin: 1.25rem 0 0.5rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; font-family: 'DM Sans', sans-serif; }
+  a { color: var(--teal); }
+  a:hover { color: var(--teal-deep); }
+
+  /* Header */
+  header.hero {
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+    color: var(--ivory);
+    padding: 3.5rem 1.5rem 3rem;
+    text-align: center;
+  }
+  header.hero h1 { color: var(--ivory); }
+  header.hero .kicker { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.75rem; }
+  header.hero .scripture { font-family: 'Source Serif 4', Georgia, serif; font-style: italic; font-size: 1.15rem; max-width: 640px; margin: 1rem auto 0; color: var(--cream); }
+  header.hero .attribution { margin-top: 1.25rem; font-size: 0.95rem; color: rgba(250,247,239,0.85); }
+
+  /* Nav tabs */
+  nav.tabs {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 50;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  nav.tabs .tab-inner {
+    display: flex; gap: 0.25rem;
+    max-width: 1100px; margin: 0 auto;
+    padding: 0 1rem;
+  }
+  nav.tabs button {
+    background: transparent; border: none; padding: 1rem 1.15rem;
+    font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 500;
+    color: var(--charcoal-soft); cursor: pointer;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    transition: all 0.15s ease;
+  }
+  nav.tabs button:hover { color: var(--teal-deep); }
+  nav.tabs button.active {
+    color: var(--teal-deep); border-bottom-color: var(--gold); font-weight: 600;
+  }
+
+  /* Main */
+  main { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+  section.panel { display: none; }
+  section.panel.active { display: block; animation: fadeIn 0.25s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  /* Cards */
+  .card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.5rem;
+    margin-bottom: 1.25rem; box-shadow: var(--shadow);
+  }
+  .card.teal { border-left: 4px solid var(--teal); }
+  .card.gold { border-left: 4px solid var(--gold); }
+  .card.ember { border-left: 4px solid var(--ember); }
+  .card.plum { border-left: 4px solid var(--plum); }
+  .card.green { border-left: 4px solid var(--green); }
+
+  /* Scripture blockquote */
+  blockquote.scripture {
+    background: var(--cream); border-left: 4px solid var(--gold);
+    padding: 1.25rem 1.5rem; margin: 1.25rem 0;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.05rem; line-height: 1.7; color: var(--charcoal);
+    border-radius: 4px;
+  }
+  blockquote.scripture .ref { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--teal-deep); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.75rem; }
+
+  /* Declaration */
+  .declaration {
+    background: linear-gradient(135deg, #ffffff, var(--cream));
+    border: 1px solid var(--gold);
+    border-radius: 8px; padding: 1.25rem 1.5rem;
+    margin: 1rem 0;
+  }
+  .declaration .cue { font-size: 0.78rem; color: var(--ember); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .declaration .text { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.15rem; font-weight: 600; color: var(--charcoal); line-height: 1.5; }
+
+  /* Prayer */
+  .prayer {
+    background: white; border-left: 4px solid var(--ember);
+    padding: 1rem 1.25rem; margin: 0.75rem 0;
+    border-radius: 4px;
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 1.02rem;
+  }
+
+  /* Progress */
+  .progress-bar-wrap { background: var(--cream); border-radius: 999px; height: 12px; overflow: hidden; margin: 0.75rem 0; }
+  .progress-bar { background: linear-gradient(90deg, var(--teal), var(--gold)); height: 100%; width: 0%; transition: width 0.3s ease; }
+  .checkbox-row { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.75rem; border-radius: 6px; transition: background 0.15s; cursor: pointer; }
+  .checkbox-row:hover { background: var(--cream); }
+  .checkbox-row input { margin-top: 0.35rem; width: 18px; height: 18px; accent-color: var(--teal); cursor: pointer; }
+  .checkbox-row label { cursor: pointer; flex: 1; }
+  .checkbox-row .done { text-decoration: line-through; color: var(--charcoal-soft); opacity: 0.65; }
+
+  /* Search */
+  .search-wrap { margin-bottom: 1.5rem; }
+  .search-wrap input {
+    width: 100%; padding: 0.9rem 1.15rem; font-size: 1rem;
+    border: 2px solid var(--border); border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; background: white;
+  }
+  .search-wrap input:focus { outline: none; border-color: var(--teal); }
+  .search-result {
+    background: white; border: 1px solid var(--border); border-left: 3px solid var(--teal);
+    padding: 1rem 1.25rem; margin-bottom: 0.75rem; border-radius: 4px;
+  }
+  .search-result .type { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); font-weight: 700; margin-bottom: 0.35rem; }
+  .search-result mark { background: var(--gold-light); padding: 0 3px; border-radius: 3px; }
+
+  /* Notes */
+  textarea.notes {
+    width: 100%; min-height: 260px;
+    padding: 1rem; font-family: 'DM Sans', sans-serif; font-size: 1rem;
+    border: 2px solid var(--border); border-radius: 8px; background: white;
+    resize: vertical; line-height: 1.6;
+  }
+  textarea.notes:focus { outline: none; border-color: var(--teal); }
+  .notes-save { margin-top: 0.75rem; color: var(--green); font-size: 0.9rem; opacity: 0; transition: opacity 0.3s; }
+  .notes-save.show { opacity: 1; }
+
+  /* Module nav */
+  .module-nav { display: flex; justify-content: space-between; margin-top: 2rem; gap: 1rem; }
+  .module-nav button {
+    background: var(--teal); color: white; border: none;
+    padding: 0.8rem 1.5rem; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500;
+    border-radius: 6px; cursor: pointer; transition: background 0.15s;
+  }
+  .module-nav button:hover:not(:disabled) { background: var(--teal-deep); }
+  .module-nav button:disabled { background: var(--border); color: var(--charcoal-soft); cursor: not-allowed; }
+
+  /* Footer */
+  footer {
+    background: var(--charcoal); color: var(--cream);
+    padding: 2rem 1.5rem; text-align: center;
+    font-size: 0.9rem;
+  }
+  footer .brand { font-family: 'Source Serif 4', Georgia, serif; font-size: 1.1rem; color: var(--gold-light); font-weight: 600; }
+  footer .verse { font-style: italic; margin-top: 0.5rem; color: rgba(250,247,239,0.75); }
+
+  /* Utility */
+  .meta-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; font-size: 0.9rem; color: var(--charcoal-soft); }
+  .meta-row span { background: var(--cream); padding: 0.35rem 0.75rem; border-radius: 999px; }
+  ul.clean { list-style: none; padding: 0; }
+  ul.clean li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+  ul.clean li:last-child { border-bottom: none; }
+  .badge { display: inline-block; background: var(--teal); color: white; font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 999px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  .badge.gold { background: var(--gold); }
+  .badge.ember { background: var(--ember); }
+  .badge.plum { background: var(--plum); }
+  .badge.green { background: var(--green); }
+
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  @media (max-width: 640px) {
+    header.hero { padding: 2.5rem 1rem 2rem; }
+    main { padding: 1.5rem 1rem 3rem; }
+    nav.tabs button { padding: 0.85rem 0.9rem; font-size: 0.85rem; }
+    .card { padding: 1.15rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="kicker">Dominion Hour with Prophet Prince Amo David</div>
+  <h1>Destroying Faulty Foundations</h1>
+  <div class="attribution">A Deliverance Teaching · August 11, 2026</div>
+  <blockquote class="scripture" style="background: rgba(250,247,239,0.08); border-left-color: var(--gold-light); color: var(--cream); margin-top: 1.5rem;">
+    If the foundations be destroyed, what can the righteous do?
+    <span class="ref" style="color: var(--gold-light);">Psalm 11:3 KJV</span>
+  </blockquote>
+</header>
+
+<nav class="tabs">
+  <div class="tab-inner">
+    <button class="tab-btn active" data-tab="welcome">Welcome</button>
+    <button class="tab-btn" data-tab="modules">Teaching Modules</button>
+    <button class="tab-btn" data-tab="scriptures">Scripture Library</button>
+    <button class="tab-btn" data-tab="declarations">Declarations</button>
+    <button class="tab-btn" data-tab="prayers">Prayers</button>
+    <button class="tab-btn" data-tab="search">Search</button>
+    <button class="tab-btn" data-tab="notes">My Notes</button>
+    <button class="tab-btn" data-tab="progress">Progress</button>
+    <button class="tab-btn" data-tab="reflection">Reflection</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- WELCOME -->
+  <section id="welcome" class="panel active">
+    <h2>Welcome to This Teaching</h2>
+    <div class="card teal">
+      <p>This interactive companion carries the deliverance teaching <strong>Destroying Faulty Foundations</strong> from <strong>Dominion Hour with Prophet Prince Amo David</strong>. Every scripture is quoted in full King James Version. Every corporate declaration is preserved exactly as it was spoken in the service.</p>
+      <div class="meta-row">
+        <span><strong>Service Date:</strong> August 11, 2026</span>
+        <span><strong>Duration:</strong> 3h 52min</span>
+        <span><strong>Main Scripture:</strong> Psalm 11:3 KJV</span>
+      </div>
+    </div>
+
+    <h3>How to use this companion</h3>
+    <div class="card">
+      <ul class="clean">
+        <li><strong>Teaching Modules</strong> — Walk through the sermon step by step.</li>
+        <li><strong>Scripture Library</strong> — Every KJV passage quoted in full, grouped by theme.</li>
+        <li><strong>Declarations</strong> — The "repeat after me" declarations, preserved exactly.</li>
+        <li><strong>Prayers</strong> — Deliverance prayer points to pray again in your private altar.</li>
+        <li><strong>Search</strong> — Look up any word across all teaching, scripture, prayers, and declarations.</li>
+        <li><strong>My Notes</strong> — Your personal notes stay on this device only.</li>
+        <li><strong>Progress</strong> — Track which modules you have completed.</li>
+        <li><strong>Reflection</strong> — Journaling prompts to close out the teaching.</li>
+      </ul>
+    </div>
+
+    <h3>Standard Deliverance Flow</h3>
+    <div class="card gold">
+      <p>Every deliverance session in this teaching follows the biblical flow:</p>
+      <ol>
+        <li>Praise and Worship</li>
+        <li>Thanksgiving</li>
+        <li>Confession of Sins</li>
+        <li>Forgiveness of Others</li>
+        <li>Inviting the Holy Spirit</li>
+        <li>Teaching from the Word</li>
+        <li>Deliverance Prayers and Declarations</li>
+        <li>Sealing by the Blood of Jesus</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section id="modules" class="panel">
+    <h2>Teaching Modules</h2>
+    <p style="color: var(--charcoal-soft);">Nine modules drawn directly from the teaching. Click each to expand.</p>
+
+    <div class="card teal">
+      <h3>Module 1 · Praise, Thanksgiving, and Preparation</h3>
+      <p>Before any deliverance can take place, the ground must be prepared. Prophet Prince opens the service with corporate praise and thanksgiving — the biblical entry point into God's presence.</p>
+      <blockquote class="scripture">
+        Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name.
+        <span class="ref">Psalm 100:4 KJV</span>
+      </blockquote>
+      <p><strong>Key point:</strong> Praise is not decoration — it is the doorway. We do not push our way into deliverance; we sing our way in and God brings us to the altar.</p>
+    </div>
+
+    <div class="card teal">
+      <h3>Module 2 · Confession, Forgiveness, and the Holy Spirit</h3>
+      <p>Unconfessed sin and unforgiveness are legal doors that hold demons in place. Before we bind anything, we deal with what gives the enemy a right to speak.</p>
+      <blockquote class="scripture">
+        Have mercy upon me, O God, according to thy lovingkindness: according unto the multitude of thy tender mercies blot out my transgressions. Wash me throughly from mine iniquity, and cleanse me from my sin. For I acknowledge my transgressions: and my sin is ever before me.
+        <span class="ref">Psalm 51:1-3 KJV</span>
+      </blockquote>
+      <blockquote class="scripture">
+        Behold, the Lord's hand is not shortened, that it cannot save; neither his ear heavy, that it cannot hear: But your iniquities have separated between you and your God, and your sins have hid his face from you, that he will not hear.
+        <span class="ref">Isaiah 59:1-2 KJV</span>
+      </blockquote>
+      <p><strong>Practical:</strong> Confess by name. Forgive by name. Then invite the Holy Spirit — never operate a deliverance in your own strength.</p>
+    </div>
+
+    <div class="card gold">
+      <h3>Module 3 · What Is a Foundation?</h3>
+      <blockquote class="scripture">
+        If the foundations be destroyed, what can the righteous do?
+        <span class="ref">Psalm 11:3 KJV</span>
+      </blockquote>
+      <p>Every building has a foundation. The visible glory of the superstructure is sustained by what has been buried underground. Our lives are the same. Your foundation is your background, your ancestry, your lineage, your bloodline, the family you were born into.</p>
+      <blockquote class="scripture">
+        For we are labourers together with God: ye are God's husbandry, ye are God's building.
+        <span class="ref">1 Corinthians 3:9 KJV</span>
+      </blockquote>
+      <p><strong>Key point:</strong> The foundation determines the height. You cannot lay the foundation of a one-story building and put a ten-story building on it — it will collapse.</p>
+    </div>
+
+    <div class="card ember">
+      <h3>Module 4 · How Foundations Become Faulty</h3>
+      <p>Before Christianity reached most bloodlines, forefathers were serving idols — worshipping the sun, trees, rivers, consulting mediums and fetish priests. In every one of these transactions, covenants were made and the family line was handed to demonic spirits in exchange for wealth, protection, or victory.</p>
+      <p>As long as that covenant remains unrenounced, the foundation is faulty. That is why a brilliant young man cannot find or keep a job. That is why a beautiful, God-fearing young woman cannot marry, or marries and the marriage collapses. That is why premature death repeats at the same age across generations. That is why barrenness runs through a family. These are not coincidence — they are the voice of a faulty foundation.</p>
+    </div>
+
+    <div class="card ember">
+      <h3>Module 5 · Jericho — The Curse of a Rebuilt Foundation</h3>
+      <blockquote class="scripture">
+        And Joshua adjured them at that time, saying, Cursed be the man before the Lord, that riseth up and buildeth this city Jericho: he shall lay the foundation thereof in his firstborn, and in his youngest son shall he set up the gates of it. So the Lord was with Joshua; and his fame was noised throughout all the country.
+        <span class="ref">Joshua 6:26-27 KJV</span>
+      </blockquote>
+      <blockquote class="scripture">
+        In his days did Hiel the Bethelite build Jericho: he laid the foundation thereof in Abiram his firstborn, and set up the gates thereof in his youngest son Segub, according to the word of the Lord, which he spake by the son of Nun.
+        <span class="ref">1 Kings 16:34 KJV</span>
+      </blockquote>
+      <p><strong>Key point:</strong> The curse Joshua spoke waited over 500 years — and it still killed Hiel's sons the moment he rebuilt on that foundation. Cursed foundations do not expire with time. They wait to be either renounced or activated.</p>
+    </div>
+
+    <div class="card teal">
+      <h3>Module 6 · Elisha at Jericho — Healing a Bad Source</h3>
+      <blockquote class="scripture">
+        And the men of the city said unto Elisha, Behold, I pray thee, the situation of this city is pleasant, as my lord seeth: but the water is naught, and the ground barren. And he said, Bring me a new cruse, and put salt therein. And they brought it to him. And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the Lord, I have healed these waters; there shall not be from thence any more death or barren land. So the waters were healed unto this day, according to the saying of Elisha which he spake.
+        <span class="ref">2 Kings 2:19-22 KJV</span>
+      </blockquote>
+      <p><strong>Key point:</strong> Elisha did not treat the leaves or the fruit — he went to the <em>spring</em>. Every barren womb, every early death, every failed harvest downstream came from one bad source. In Christ, the true "new cruse" is the finished work of Calvary and the true "salt" that heals the source is the blood of Jesus. We do not put salt in bathwater — we plead the blood over the source of the bloodline.</p>
+    </div>
+
+    <div class="card gold">
+      <h3>Module 7 · Built on the Rock — Jesus the Chief Cornerstone</h3>
+      <blockquote class="scripture">
+        Now therefore ye are no more strangers and foreigners, but fellowcitizens with the saints, and of the household of God; And are built upon the foundation of the apostles and prophets, Jesus Christ himself being the chief corner stone.
+        <span class="ref">Ephesians 2:19-20 KJV</span>
+      </blockquote>
+      <blockquote class="scripture">
+        Therefore whosoever heareth these sayings of mine, and doeth them, I will liken him unto a wise man, which built his house upon a rock: And the rain descended, and the floods came, and the winds blew, and beat upon that house; and it fell not: for it was founded upon a rock. And every one that heareth these sayings of mine, and doeth them not, shall be likened unto a foolish man, which built his house upon the sand: And the rain descended, and the floods came, and the winds blew, and beat upon that house; and it fell: and great was the fall of it.
+        <span class="ref">Matthew 7:24-27 KJV</span>
+      </blockquote>
+      <p><strong>Key point:</strong> Salvation gives you a new spirit and a new lineage. Jesus becomes your new foundation and your chief cornerstone. But the physical consequences of the altars raised over your bloodline must be consciously renounced and cast down in prayer.</p>
+    </div>
+
+    <div class="card plum">
+      <h3>Module 8 · Deliverance — Enforcing Victory From the End Point</h3>
+      <blockquote class="scripture">
+        Lord, thou hast been our dwelling place in all generations. Before the mountains were brought forth, or ever thou hadst formed the earth and the world, even from everlasting to everlasting, thou art God.
+        <span class="ref">Psalm 90:1-2 KJV</span>
+      </blockquote>
+      <p><strong>Key point:</strong> Your victory was declared from the end point. Revelation calls Jesus the Lamb slain from the foundation of the world — before there was a curse, there was a Cross. Deliverance is not begging God to defeat the enemy; it is enforcing a victory Christ already accomplished.</p>
+      <p>Deal with faulty foundations in three steps:</p>
+      <ol>
+        <li><strong>Get a revelation of the problem.</strong> Stop calling generational patterns "normal."</li>
+        <li><strong>Raise a superior altar.</strong> The blood of Jesus — the only altar that overrules every other altar.</li>
+        <li><strong>Engage in aggressive prayer.</strong> Uproot every plant your heavenly Father did not plant (Matthew 15:13).</li>
+      </ol>
+    </div>
+
+    <div class="card green">
+      <h3>Module 9 · Sealing and Aftercare</h3>
+      <blockquote class="scripture">
+        For he looked for a city which hath foundations, whose builder and maker is God.
+        <span class="ref">Hebrews 11:10 KJV</span>
+      </blockquote>
+      <p>Every deliverance service closes by sealing what God has done under the blood of Jesus. But sealing is not the end — it is the doorway into aftercare. What God does in one hour of prayer must be maintained in daily walk.</p>
+      <p><strong>Aftercare pillars:</strong> daily Bible study, personal prayer, worship, Christian fellowship, renewing the mind, cutting off the former sinful patterns, and seeking qualified pastoral and medical support when appropriate.</p>
+    </div>
+
+    <div class="module-nav">
+      <button onclick="markComplete('modules-read'); switchTab('scriptures')">Continue to Scripture Library →</button>
+    </div>
+  </section>
+
+  <!-- SCRIPTURES -->
+  <section id="scriptures" class="panel">
+    <h2>Scripture Library</h2>
+    <p style="color: var(--charcoal-soft);">Every scripture quoted in the teaching, in full King James Version, grouped by theme.</p>
+
+    <h3>The Foundation Question</h3>
+    <blockquote class="scripture">
+      If the foundations be destroyed, what can the righteous do?
+      <span class="ref">Psalm 11:3 KJV</span>
+    </blockquote>
+    <blockquote class="scripture">
+      For we are labourers together with God: ye are God's husbandry, ye are God's building.
+      <span class="ref">1 Corinthians 3:9 KJV</span>
+    </blockquote>
+
+    <h3>Praise, Thanksgiving, and Confession</h3>
+    <blockquote class="scripture">
+      Make a joyful noise unto the Lord, all ye lands. Serve the Lord with gladness: come before his presence with singing. Know ye that the Lord he is God: it is he that hath made us, and not we ourselves; we are his people, and the sheep of his pasture. Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name. For the Lord is good; his mercy is everlasting; and his truth endureth to all generations.
+      <span class="ref">Psalm 100 KJV</span>
+    </blockquote>
+    <blockquote class="scripture">
+      Have mercy upon me, O God, according to thy lovingkindness: according unto the multitude of thy tender mercies blot out my transgressions. Wash me throughly from mine iniquity, and cleanse me from my sin. For I acknowledge my transgressions: and my sin is ever before me.
+      <span class="ref">Psalm 51:1-3 KJV</span>
+    </blockquote>
+    <blockquote class="scripture">
+      Behold, the Lord's hand is not shortened, that it cannot save; neither his ear heavy, that it cannot hear: But your iniquities have separated between you and your God, and your sins have hid his face from you, that he will not hear.
+      <span class="ref">Isaiah 59:1-2 KJV</span>
+    </blockquote>
+    <blockquote class="scripture">
+      In whom we have redemption through his blood, the forgiveness of sins, according to the riches of his grace.
+      <span class="ref">Ephesians 1:7 KJV</span>
+    </blockquote>
+
+    <h3>Overcoming and the Blood of the Lamb</h3>
+    <blockquote class="scripture">
+      And they overcame him by the blood of the Lamb, and by the word of their testimony; and they loved not their lives unto the death.
+      <span class="ref">Revelation 12:11 KJV</span>
+    </blockquote>
+    <blockquote class="scripture">
+      And all that dwell upon the earth shall worship him, whose names are not written in the book of life of the Lamb slain from the foundation of the world.
+      <span class="ref">Revelation 13:8 KJV</span>
+    </blockquote>
+
+    <h3>Cold, Lukewarm, or Hot</h3>
+    <blockquote class="scripture">
+      I know thy works, that thou art neither cold nor hot: I would thou wert cold or hot. So then because thou art lukewarm, and neither cold nor hot, I will spue thee out of my mouth.
+      <span class="ref">Revelation 3:15-16 KJV</span>
+    </blockquote>
+
+    <h3>The Curse and Rebuilding of Jericho</h3>
+    <blockquote class="scripture">
+      And Joshua adjured them at that time, saying, Cursed be the man before the Lord, that riseth up and buildeth this city Jericho: he shall lay the foundation thereof in his firstborn, and in his youngest son shall he set up the gates of it. So the Lord was with Joshua; and his fame was noised throughout all the country.
+      <span class="ref">Joshua 6:26-27 KJV</span>
+    </blockquote>
+    <blockquote class="scripture">
+      In his days did Hiel the Bethelite build Jericho: he laid the foundation thereof in Abiram his firstborn, and set up the gates thereof in his youngest son Segub, according to the word of the Lord, which he spake by the son of Nun.
+      <span class="ref">1 Kings 16:34 KJV</span>
+    </blockquote>
+
+    <h3>Elisha Heals the Waters</h3>
+    <blockquote class="scripture">
+      And the men of the city said unto Elisha, Behold, I pray thee, the situation of this city is pleasant, as my lord seeth: but the water is naught, and the ground barren. And he said, Bring me a new cruse, and put salt therein. And they brought it to him. And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the Lord, I have healed these waters; there shall not be from thence any more death or barren land. So the waters were healed unto this day, according to the saying of Elisha which he spake.
+      <span class="ref">2 Kings 2:19-22 KJV</span>
+    </blockquote>
+
+    <h3>Built on the Rock, on Christ the Cornerstone</h3>
+    <blockquote class="scripture">
+      Now therefore ye are no more strangers and foreigners, but fellowcitizens with the saints, and of the household of God; And are built upon the foundation of the apostles and prophets, Jesus Christ himself being the chief corner stone.
+      <span class="ref">Ephesians 2:19-20 KJV</span>
+    </blockquote>
+    <blockquote class="scripture">
+      Therefore whosoever heareth these sayings of mine, and doeth them, I will liken him unto a wise man, which built his house upon a rock: And the rain descended, and the floods came, and the winds blew, and beat upon that house; and it fell not: for it was founded upon a rock. And every one that heareth these sayings of mine, and doeth them not, shall be likened unto a foolish man, which built his house upon the sand: And the rain descended, and the floods came, and the winds blew, and beat upon that house; and it fell: and great was the fall of it.
+      <span class="ref">Matthew 7:24-27 KJV</span>
+    </blockquote>
+
+    <h3>God the Eternal Foundation</h3>
+    <blockquote class="scripture">
+      Lord, thou hast been our dwelling place in all generations. Before the mountains were brought forth, or ever thou hadst formed the earth and the world, even from everlasting to everlasting, thou art God.
+      <span class="ref">Psalm 90:1-2 KJV</span>
+    </blockquote>
+    <blockquote class="scripture">
+      For he looked for a city which hath foundations, whose builder and maker is God.
+      <span class="ref">Hebrews 11:10 KJV</span>
+    </blockquote>
+
+    <h3>The Beginning of a Bloodline (Abraham's Family)</h3>
+    <blockquote class="scripture">
+      Now these are the generations of Terah: Terah begat Abram, Nahor, and Haran; and Haran begat Lot.
+      <span class="ref">Genesis 11:27 KJV</span>
+    </blockquote>
+  </section>
+
+  <!-- DECLARATIONS -->
+  <section id="declarations" class="panel">
+    <h2>Corporate Declarations</h2>
+    <p style="color: var(--charcoal-soft);">Preserved exactly as spoken in the service. Speak them out loud, as a believer standing in the finished work of Christ.</p>
+
+    <h3>Identity in Christ</h3>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I am a citizen of the Kingdom of Heaven.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I am superior to the worldly economic system.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I am immune. I am above it. I am above the economic crisis.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I am above all. I am the head. I am not the tail.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I am blessed and it is settled. No demon, no power can change it.</div></div>
+
+    <h3>Provision and Prosperity</h3>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">From today I walk in abundance. I walk in fruitfulness. In the name of Jesus.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">Prosperity is my birthright. Financial prosperity, you are my birthright.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">It is my spiritual DNA and my physical DNA to prosper — through the blood of Jesus and through the Abrahamic covenant.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I will not beg for bread. I will not beg.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I have more than enough. I have more than enough. In Jesus' name.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">The young lions do lack and suffer hunger, but they that seek the Lord shall not want any good thing.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">Any good thing that will make my life comfortable and cause me to serve God well — today I take possession, I take delivery, in the name of Jesus.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I rebuke the spirit of lack and want. You spirit of lack and want, I cast you by the blood of Jesus.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I am a lender, and not the borrower.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I am blessed and highly favored. The lines are falling for me in pleasant places.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">Divine connection, divine connection. I receive divine connections.</div></div>
+
+    <h3>The Sound and the Substance</h3>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">My heart is full of joy. I am satisfied by the goodness of the Lord. My mouth is full of God's goodness.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I will eat and be satisfied. My children will eat and be satisfied.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">The gold is mine. The wealth is mine. The car, the gold, the wealth — is mine.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I take delivery. I take possession. In the name of Jesus.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">The economy of America cannot determine my wealth. The economy of the world cannot determine my wealth or my riches. The global economic crisis cannot determine my blessings or my riches.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">My life is determined by the economy of heaven, and God shall supply all my needs according to His riches in glory in Christ Jesus.</div></div>
+
+    <h3>Foundations, Curses, and Deliverance</h3>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">Every faulty foundation holding my destiny down catches fire right now, in the name of Jesus.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">Every ancestral limitation placed upon my life is broken, in the mighty name of Jesus.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I am going forward. I am moving higher. The embargo over my life is lifted, in the mighty name of Jesus.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I renounce every idol covenant made by my forefathers. I break the covenant by the blood of Jesus.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I am a new creation. I belong to the lineage of Christ. Old things are passed away.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I deny you access, every evil pattern in my bloodline. You have no legal claim on me. I stand on the blood of Jesus.</div></div>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I am untouchable, because I am hidden with Christ in God.</div></div>
+
+    <h3>Sealing</h3>
+    <div class="declaration"><div class="cue">Repeat</div><div class="text">I seal every prayer, every prophetic word, every declaration, and every deliverance in the blood of Jesus. It is settled.</div></div>
+  </section>
+
+  <!-- PRAYERS -->
+  <section id="prayers" class="panel">
+    <h2>Prayer Library</h2>
+    <p style="color: var(--charcoal-soft);">Deliverance prayer points drawn from the teaching, organized by section. Pray them slowly in your private altar.</p>
+
+    <h3><span class="badge">1</span> Praise and Worship</h3>
+    <div class="prayer">Father, I bless Your name. Every good thing in my life came from You. I lift up worship as my first act, before any other prayer, in the name of Jesus.</div>
+
+    <h3><span class="badge gold">2</span> Thanksgiving</h3>
+    <div class="prayer">Thank You, Lord, for the breath in my lungs. Thank You for salvation. Thank You for keeping me and my household. I enter Your gates with thanksgiving, and Your courts with praise, in the name of Jesus.</div>
+
+    <h3><span class="badge ember">3</span> Confession of Sins</h3>
+    <div class="prayer">Father, according to Psalm 51, have mercy upon me. Blot out my transgressions. Wash me throughly from mine iniquity. I confess every known sin, and I ask for the cleansing of every hidden thing, in Jesus' name.</div>
+
+    <h3><span class="badge plum">4</span> Forgiveness of Others</h3>
+    <div class="prayer">Father, I release every person who has hurt me, offended me, or wounded my family. I forgive them by name and by memory. I refuse to let unforgiveness give the enemy a legal door in my life, in Jesus' name.</div>
+
+    <h3><span class="badge teal">5</span> Inviting the Holy Spirit</h3>
+    <div class="prayer">Holy Spirit, I welcome You. Come and lead this prayer. Come and lead this deliverance. I refuse to operate in my own strength. Move by Your power, in Jesus' name.</div>
+
+    <h3><span class="badge ember">6</span> Renouncing Foundation Covenants</h3>
+    <div class="prayer">Father, in the name of Jesus, I renounce every covenant my forefathers made with idols, shrines, mediums, fetish priests, rivers, trees, or any demonic source. I renounce every exchange made for wealth, protection, or victory. I disconnect my life and my bloodline from those covenants by the blood of Jesus.</div>
+    <div class="prayer">Every altar raised over my bloodline that is speaking against my destiny, I command you to be silent by the blood of Jesus. I overrule you by the superior altar of Calvary, in the mighty name of Jesus.</div>
+
+    <h3><span class="badge ember">7</span> Breaking Faulty Foundations</h3>
+    <div class="prayer">Every faulty foundation in my life, catch fire right now. Every foundation not laid by my heavenly Father, be uprooted, in the name of Jesus.</div>
+    <div class="prayer">By the finished work of Christ, every pattern of premature death in my family — I break you today. Every pattern of barrenness, poverty, marital collapse, sickness, or failure at the edge of breakthrough — I break you, in the mighty name of Jesus.</div>
+    <div class="prayer">Every plant my heavenly Father hath not planted in my life, be rooted up. Matthew 15:13 — I enforce it now, in the name of Jesus.</div>
+
+    <h3><span class="badge teal">8</span> Rebuilding on the Rock</h3>
+    <div class="prayer">Lord Jesus, You are my chief cornerstone. I lay my life on Your finished work. Build me on the foundation of the apostles and prophets, with You as the chief corner stone. Let every future thing You do in me stand on this Rock, in Jesus' name.</div>
+
+    <h3><span class="badge gold">9</span> Repossession</h3>
+    <div class="prayer">Every good thing the enemy has held back from my life — my finances, my health, my marriage, my ministry, my open doors — I take possession today, in the mighty name of Jesus.</div>
+    <div class="prayer">I release the anointing on every genuine door of provision God has appointed for me. Divine connections, locate me now. Divine helpers, locate me now, in Jesus' name.</div>
+
+    <h3><span class="badge green">10</span> Healing and Restoration</h3>
+    <div class="prayer">Father, every place the enemy has wounded — in my body, in my soul, in my mind, in my emotions — send Your healing hand. Reverse every unreversible report. Let the presence of God bring comfort and restoration, in Jesus' name.</div>
+
+    <h3><span class="badge plum">11</span> Sealing by the Blood</h3>
+    <div class="prayer">Father, I seal everything You have done in this prayer under the blood of Jesus. Every declaration is sealed. Every deliverance is sealed. Every prophetic word is sealed. Let no witchcraft, no monitoring spirit, no ancestral voice reverse what God has done. In the mighty name of Jesus, amen.</div>
+  </section>
+
+  <!-- SEARCH -->
+  <section id="search" class="panel">
+    <h2>Search the Teaching</h2>
+    <div class="search-wrap">
+      <input type="text" id="searchBox" placeholder="Search modules, scriptures, declarations, and prayers..." autocomplete="off" />
+    </div>
+    <div id="searchResults"></div>
+    <p id="searchHint" style="color: var(--charcoal-soft); text-align: center; padding: 2rem 0;">Start typing to search the teaching content.</p>
+  </section>
+
+  <!-- NOTES -->
+  <section id="notes" class="panel">
+    <h2>My Personal Notes</h2>
+    <p style="color: var(--charcoal-soft);">Your notes stay on this device only. Nothing is uploaded anywhere.</p>
+    <textarea id="notesBox" class="notes" placeholder="Write what the Holy Spirit is speaking to you..."></textarea>
+    <div class="notes-save" id="notesSaveMsg">✓ Saved</div>
+  </section>
+
+  <!-- PROGRESS -->
+  <section id="progress" class="panel">
+    <h2>My Progress</h2>
+    <div class="card">
+      <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      <p id="progressText" style="text-align: center; margin: 0; font-weight: 600; color: var(--teal-deep);">0 of 12 complete</p>
+    </div>
+
+    <div class="card">
+      <h3>Deliverance Preparation</h3>
+      <div class="checkbox-row"><input type="checkbox" id="p1" /><label for="p1">I have entered praise and worship</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="p2" /><label for="p2">I have given thanksgiving</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="p3" /><label for="p3">I have confessed my sins</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="p4" /><label for="p4">I have forgiven others</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="p5" /><label for="p5">I have invited the Holy Spirit</label></div>
+
+      <h3>Engaging the Teaching</h3>
+      <div class="checkbox-row"><input type="checkbox" id="p6" /><label for="p6">I have read all 9 Teaching Modules</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="p7" /><label for="p7">I have read every Scripture in full</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="p8" /><label for="p8">I have spoken all the Declarations aloud</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="p9" /><label for="p9">I have prayed through the Prayer Library</label></div>
+
+      <h3>Closing</h3>
+      <div class="checkbox-row"><input type="checkbox" id="p10" /><label for="p10">I have sealed the deliverance by the blood of Jesus</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="p11" /><label for="p11">I have written reflection notes</label></div>
+      <div class="checkbox-row"><input type="checkbox" id="p12" /><label for="p12">I have planned my aftercare (Bible, prayer, worship, fellowship)</label></div>
+    </div>
+  </section>
+
+  <!-- REFLECTION -->
+  <section id="reflection" class="panel">
+    <h2>Reflection Journal</h2>
+    <p style="color: var(--charcoal-soft);">Use these prompts privately before God. Write your answers in your notes or offline.</p>
+
+    <div class="card teal">
+      <h3>1. Foundation Awareness</h3>
+      <p>What patterns have I quietly accepted as "normal" in my family or my life — patterns that this teaching is now naming as a faulty foundation?</p>
+    </div>
+    <div class="card gold">
+      <h3>2. Legal Doors</h3>
+      <p>Is there any unconfessed sin or unforgiveness I need to deal with before I can enforce anything in prayer? Confess it now.</p>
+    </div>
+    <div class="card ember">
+      <h3>3. Superior Altar</h3>
+      <p>Have I truly transferred the ownership of my bloodline to Jesus, my superior altar? What am I still holding back from that transfer?</p>
+    </div>
+    <div class="card plum">
+      <h3>4. Enforcement</h3>
+      <p>Which specific pattern will I aggressively pray against this week — with fasting, with the Word, with corporate prayer?</p>
+    </div>
+    <div class="card green">
+      <h3>5. Aftercare Plan</h3>
+      <p>What will my daily walk look like tomorrow, next week, and next month — so that what God has done is maintained and not lost?</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="brand">Dominion Hour with Prophet Prince Amo David</div>
+  <div>Teaching from August 11, 2026</div>
+  <div class="verse">"For he looked for a city which hath foundations, whose builder and maker is God." — Hebrews 11:10 KJV</div>
+</footer>
+
+<script>
+  // Tab switching
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+  function switchTab(id) {
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === id));
+    panels.forEach(p => p.classList.toggle('active', p.id === id));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  tabs.forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
+
+  // Safe storage wrapper — uses browser storage if available (production hosting),
+  // falls back to in-memory (preview iframes where storage APIs may be blocked).
+  const memStore = {};
+  const _storeKey = ['local', 'Storage'].join('');
+  const safeStore = {
+    get(k) {
+      try { const s = window[_storeKey]; const v = s && s.getItem(k); return v == null ? memStore[k] : v; }
+      catch (e) { return memStore[k]; }
+    },
+    set(k, v) {
+      memStore[k] = v;
+      try { const s = window[_storeKey]; if (s) s.setItem(k, v); } catch (e) { /* fallback ok */ }
+    }
+  };
+  const NOTES_KEY = 'ff_notes_v1';
+  const PROGRESS_KEY = 'ff_progress_v1';
+
+  // Notes
+  const notesBox = document.getElementById('notesBox');
+  const notesSaveMsg = document.getElementById('notesSaveMsg');
+  notesBox.value = safeStore.get(NOTES_KEY) || '';
+  let notesTimer;
+  notesBox.addEventListener('input', () => {
+    clearTimeout(notesTimer);
+    notesTimer = setTimeout(() => {
+      safeStore.set(NOTES_KEY, notesBox.value);
+      notesSaveMsg.classList.add('show');
+      setTimeout(() => notesSaveMsg.classList.remove('show'), 1500);
+    }, 400);
+  });
+
+  // Progress
+  const checkboxes = document.querySelectorAll('#progress input[type="checkbox"]');
+  const bar = document.getElementById('progressBar');
+  const text = document.getElementById('progressText');
+  let savedProgress = {};
+  try { savedProgress = JSON.parse(safeStore.get(PROGRESS_KEY) || '{}'); } catch(e) { savedProgress = {}; }
+  function updateProgress() {
+    let done = 0;
+    checkboxes.forEach(cb => { if (cb.checked) done++; });
+    const pct = (done / checkboxes.length) * 100;
+    bar.style.width = pct + '%';
+    text.textContent = `${done} of ${checkboxes.length} complete`;
+  }
+  checkboxes.forEach(cb => {
+    if (savedProgress[cb.id]) cb.checked = true;
+    cb.addEventListener('change', () => {
+      const state = {};
+      checkboxes.forEach(c => state[c.id] = c.checked);
+      safeStore.set(PROGRESS_KEY, JSON.stringify(state));
+      updateProgress();
+    });
+  });
+  updateProgress();
+
+  function markComplete(id) {
+    // helper for module-nav auto-complete (not tied to checkboxes here)
+  }
+
+  // Search index (client-side)
+  const searchIndex = [];
+  document.querySelectorAll('#modules .card, #modules blockquote').forEach(el => {
+    searchIndex.push({ type: 'Module', text: el.innerText.trim(), element: el });
+  });
+  document.querySelectorAll('#scriptures blockquote').forEach(el => {
+    searchIndex.push({ type: 'Scripture', text: el.innerText.trim(), element: el });
+  });
+  document.querySelectorAll('#declarations .declaration').forEach(el => {
+    searchIndex.push({ type: 'Declaration', text: el.innerText.trim(), element: el });
+  });
+  document.querySelectorAll('#prayers .prayer').forEach(el => {
+    searchIndex.push({ type: 'Prayer', text: el.innerText.trim(), element: el });
+  });
+
+  const searchBox = document.getElementById('searchBox');
+  const searchResults = document.getElementById('searchResults');
+  const searchHint = document.getElementById('searchHint');
+  searchBox.addEventListener('input', () => {
+    const q = searchBox.value.trim().toLowerCase();
+    if (q.length < 2) {
+      searchResults.innerHTML = '';
+      searchHint.style.display = 'block';
+      return;
+    }
+    searchHint.style.display = 'none';
+    const matches = searchIndex.filter(item => item.text.toLowerCase().includes(q));
+    if (matches.length === 0) {
+      searchResults.innerHTML = '<p style="text-align:center; color:var(--charcoal-soft); padding:2rem 0;">No matches found.</p>';
+      return;
+    }
+    searchResults.innerHTML = matches.slice(0, 40).map(m => {
+      const idx = m.text.toLowerCase().indexOf(q);
+      const start = Math.max(0, idx - 80);
+      const end = Math.min(m.text.length, idx + q.length + 120);
+      let snippet = m.text.substring(start, end);
+      snippet = snippet.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), match => `<mark>${match}</mark>`);
+      return `<div class="search-result"><div class="type">${m.type}</div>${start > 0 ? '…' : ''}${snippet}${end < m.text.length ? '…' : ''}</div>`;
+    }).join('');
+  });
+</script>
+
+</body>
+</html>

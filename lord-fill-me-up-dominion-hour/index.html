@@ -1,0 +1,964 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LORD, FILL ME UP — Interactive Study | Dominion Hour</title>
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --paper:#fbf7ef;
+    --gold:#b8862a;
+    --deep-gold:#8a6317;
+    --scripture:#0b3d2e;      /* deep green */
+    --scripture-bg:#e6f2e9;
+    --teaching:#1b3a6b;        /* deep blue */
+    --teaching-bg:#e6ecf5;
+    --prayer:#6b1b3a;          /* deep burgundy */
+    --prayer-bg:#f5e6ec;
+    --declaration:#8a3b00;     /* fire orange */
+    --declaration-bg:#fcecd9;
+    --prophecy:#4b1b6b;        /* royal purple */
+    --prophecy-bg:#efe6f5;
+    --reflection:#3a3a1b;      /* olive */
+    --reflection-bg:#f2efd9;
+    --repeat:#6b3a1b;
+    --repeat-bg:#f5ead9;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Iowan Old Style","Times New Roman",serif;line-height:1.6}
+  header{background:linear-gradient(135deg,#0b3d2e 0%,#4b1b6b 100%);color:#fdf6e3;padding:34px 20px 26px;text-align:center;border-bottom:6px solid var(--gold)}
+  header .eyebrow{letter-spacing:.22em;font-size:12px;text-transform:uppercase;opacity:.85}
+  header h1{margin:.35em 0 .1em;font-size:34px;letter-spacing:.02em}
+  header h2{margin:.2em 0 .1em;font-size:18px;font-weight:normal;opacity:.9}
+  header .meta{font-size:13px;opacity:.8;margin-top:10px}
+  nav.legend{max-width:960px;margin:18px auto 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:0 16px}
+  nav.legend .chip{font-size:12px;padding:6px 12px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#fff}
+  main{max-width:860px;margin:0 auto;padding:28px 20px 80px}
+  section.block{border-left:6px solid var(--ink);padding:18px 20px;margin:22px 0;border-radius:8px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+  section.block h3{margin:0 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink)}
+  section.block h4{margin:2px 0 12px;font-size:22px}
+  section.block p{margin:.6em 0}
+
+  /* color families */
+  .scripture{border-color:var(--scripture);background:var(--scripture-bg)}
+  .scripture h3,.scripture h4{color:var(--scripture)}
+  .teaching{border-color:var(--teaching);background:var(--teaching-bg)}
+  .teaching h3,.teaching h4{color:var(--teaching)}
+  .prayer{border-color:var(--prayer);background:var(--prayer-bg)}
+  .prayer h3,.prayer h4{color:var(--prayer)}
+  .declaration{border-color:var(--declaration);background:var(--declaration-bg)}
+  .declaration h3,.declaration h4{color:var(--declaration)}
+  .prophecy{border-color:var(--prophecy);background:var(--prophecy-bg)}
+  .prophecy h3,.prophecy h4{color:var(--prophecy)}
+  .reflection{border-color:var(--reflection);background:var(--reflection-bg)}
+  .reflection h3,.reflection h4{color:var(--reflection)}
+  .repeat{border-color:var(--repeat);background:var(--repeat-bg)}
+  .repeat h3,.repeat h4{color:var(--repeat)}
+
+  .verse{font-style:italic;padding:10px 14px;border-left:3px solid var(--scripture);background:#fff;border-radius:4px;margin:10px 0}
+  .ref{font-style:normal;font-weight:bold;color:var(--scripture);font-size:13px;letter-spacing:.05em}
+  .rep-line{display:block;padding:8px 12px;margin:6px 0;background:#fff;border-left:3px solid var(--repeat);border-radius:4px;font-weight:600}
+  .decl-line{display:block;padding:10px 14px;margin:8px 0;background:#fff;border-left:4px solid var(--declaration);border-radius:4px;font-weight:700;font-size:16px}
+
+  /* Quiz */
+  .quiz{background:#fff;border:2px solid var(--gold);border-radius:10px;padding:20px;margin:28px 0}
+  .quiz h3{margin-top:0;color:var(--deep-gold);letter-spacing:.14em;font-size:14px;text-transform:uppercase}
+  .q{margin:16px 0;padding:14px;background:#fdfaf1;border-radius:8px}
+  .q p.stem{font-weight:600;margin:0 0 8px}
+  .q label{display:block;padding:8px 10px;border-radius:6px;cursor:pointer;margin:4px 0;border:1px solid #eee}
+  .q label:hover{background:#faf3e3}
+  .q label.correct{background:#e6f2e9;border-color:var(--scripture)}
+  .q label.incorrect{background:#f5e6ec;border-color:var(--prayer)}
+  .q .fb{margin-top:8px;font-size:14px;font-style:italic;color:var(--deep-gold);display:none}
+  .q .fb.show{display:block}
+
+  /* Recall */
+  .recall{background:#fff;border:2px dashed var(--teaching);border-radius:10px;padding:18px;margin:18px 0}
+  .recall textarea{width:100%;min-height:80px;padding:8px;border-radius:6px;border:1px solid #ccc;font-family:inherit;font-size:15px}
+  .recall button, .quiz button, .toggle-btn{background:var(--deep-gold);color:#fff;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;margin-top:8px}
+  .recall button:hover, .quiz button:hover, .toggle-btn:hover{background:var(--gold)}
+  .recall .model{margin-top:10px;padding:10px;background:var(--scripture-bg);border-radius:6px;display:none;font-size:14px}
+  .recall .model.show{display:block}
+
+  /* Declaration checklist */
+  .checklist label{display:flex;gap:10px;align-items:flex-start;padding:8px 6px;border-bottom:1px dashed #ddd;cursor:pointer;font-size:15px}
+  .checklist input{margin-top:5px}
+  .checklist input:checked + span{text-decoration:line-through;opacity:.55}
+
+  /* Progress */
+  .progress{position:sticky;top:0;background:var(--paper);padding:10px 0;z-index:5;border-bottom:1px solid #eee}
+  .progress .bar{height:6px;background:#eee;border-radius:999px;overflow:hidden;max-width:860px;margin:0 auto}
+  .progress .fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--scripture));width:0%;transition:width .3s}
+
+  footer{text-align:center;padding:30px 20px;color:#666;font-size:13px;border-top:1px solid #eee;background:#fff}
+  footer .brand{font-weight:bold;color:var(--scripture)}
+
+  .toc{background:#fff;border:1px solid #eee;border-radius:8px;padding:16px 20px;margin:0 0 22px}
+  .toc h3{margin:0 0 8px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep-gold)}
+  .toc ol{margin:0;padding-left:20px}
+  .toc a{color:var(--teaching);text-decoration:none}
+  .toc a:hover{text-decoration:underline}
+
+  @media print{
+    header{background:#fff !important;color:#000 !important}
+    .progress,.quiz,.recall{display:none}
+    section.block{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Dominion Hour Ministries International</div>
+  <h1>LORD, FILL ME UP</h1>
+  <h2>Prophet Prince Amo David</h2>
+  <div class="meta">Message delivered August 20, 2026 &middot; Interactive Study Companion</div>
+</header>
+
+<div class="progress"><div class="bar"><div class="fill" id="progFill"></div></div></div>
+
+<nav class="legend" aria-label="Section color key">
+  <span class="chip" style="background:var(--scripture-bg);color:var(--scripture)">Scripture</span>
+  <span class="chip" style="background:var(--teaching-bg);color:var(--teaching)">Teaching</span>
+  <span class="chip" style="background:var(--prayer-bg);color:var(--prayer)">Prayer</span>
+  <span class="chip" style="background:var(--repeat-bg);color:var(--repeat)">Repeat After Me</span>
+  <span class="chip" style="background:var(--declaration-bg);color:var(--declaration)">Declaration</span>
+  <span class="chip" style="background:var(--prophecy-bg);color:var(--prophecy)">Prophetic Word</span>
+  <span class="chip" style="background:var(--reflection-bg);color:var(--reflection)">Reflection</span>
+</nav>
+
+<main>
+
+<div class="toc">
+  <h3>What you will study today</h3>
+  <ol>
+    <li><a href="#s1">The Call to Be Filled</a></li>
+    <li><a href="#s2">Empty the Vessel First — Consecration</a></li>
+    <li><a href="#s3">The Widow's Empty Vessels (2 Kings 4)</a></li>
+    <li><a href="#s4">Rivers of Living Water (John 7)</a></li>
+    <li><a href="#s5">Baptized With the Holy Ghost and Fire</a></li>
+    <li><a href="#s6">Present Your Bodies — Total Surrender</a></li>
+    <li><a href="#s7">Anointing That Announces You</a></li>
+    <li><a href="#s8">Release Bitterness — The Joseph Test</a></li>
+    <li><a href="#s9">Full of the Holy Ghost — The Jesus Pattern</a></li>
+    <li><a href="#s10">Abigail, Esther, Ruth — The Vessel God Fills</a></li>
+    <li><a href="#s11">Repeat-After-Me Warfare Prayers</a></li>
+    <li><a href="#s12">The Rod of the Wicked Broken</a></li>
+    <li><a href="#s13">Overflow Prophetic Assignment (Cup and Water)</a></li>
+    <li><a href="#s14">Prophetic Blessings Over the Altar</a></li>
+    <li><a href="#s15">The Same Spirit That Raised Christ</a></li>
+    <li><a href="#s16">Guarding Your Atmosphere and Your Energy</a></li>
+    <li><a href="#s17">Fasting, Giving, and the Orphanage Assignment</a></li>
+    <li><a href="#s18">Dreams, Visions, and Divine Visitation</a></li>
+    <li><a href="#s19">Closing Grace and Benediction</a></li>
+    <li><a href="#quiz">Recall Quiz &amp; Reflection</a></li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<section class="block scripture" id="s1">
+  <h3>Scripture &middot; Opening</h3>
+  <h4>1. The Call to Be Filled</h4>
+  <p><em>Prophet Prince opens with worship and welcomes the altar: “Open the floodgates of heaven. Let it rain. Let it rain.” He reminds us there are levels in God, and the tormented soul must be brought back to the secret place.</em></p>
+
+  <div class="verse"><span class="ref">Psalm 23:1–5 (KJV)</span><br>
+  The LORD is my shepherd; I shall not want. He maketh me to lie down in green pastures: he leadeth me beside the still waters. He restoreth my soul: he leadeth me in the paths of righteousness for his name's sake. Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me. Thou preparest a table before me in the presence of mine enemies: thou anointest my head with oil; my cup runneth over.</div>
+
+  <p><strong>The prophet declares:</strong> “There are challenges that God will not take you out, but rather He will empower you, fill you with the anointing and the power to go through it and come out with a testimony.”</p>
+</section>
+
+<section class="block teaching" id="s2">
+  <h3>Teaching</h3>
+  <h4>2. Empty the Vessel First — Consecration</h4>
+  <p>“Before God can fill you, you must consecrate, you must purify yourself, you must prepare the vessel in the name of Jesus.”</p>
+  <p>The Lord told Moses, <em>Tell my people to consecrate themselves for three days and let them come to that mount. I will speak to them. I will reveal my glory to them</em> (see <span class="ref">Exodus 19:10–11</span>). The people could not stand because they were full of the flesh, full of themselves, full of worldly things. Moses could stand, receive, and distribute — because he consecrated himself, he purged himself, he cleaned the vessel.</p>
+  <p><strong>New wine needs new wineskin.</strong> If you pour the new into the old, it bursts. Prepare yourself.</p>
+</section>
+
+<section class="block scripture" id="s3">
+  <h3>Scripture &middot; Teaching Text</h3>
+  <h4>3. The Widow's Empty Vessels</h4>
+  <div class="verse"><span class="ref">2 Kings 4:1–4 (KJV)</span><br>
+  Now there cried a certain woman of the wives of the sons of the prophets unto Elisha, saying, Thy servant my husband is dead; and thou knowest that thy servant did fear the LORD: and the creditor is come to take unto him my two sons to be bondmen. And Elisha said unto her, What shall I do for thee? tell me, what hast thou in the house? And she said, Thine handmaid hath not any thing in the house, save a pot of oil. Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few. And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.</div>
+
+  <p>The debtors have come. They are ready to take something precious. The enemy is demanding your marital peace, your marital blessing, your children, your glory, your health. <strong>But there is an anointing, and this anointing is going to pay back.</strong></p>
+  <p>God always gives seed to the sower. He said to Isaac, “You don't need to go and look for help. The help of man is but a little.” Look for what can help you sow, what God can multiply.</p>
+  <p><strong>Ask yourself:</strong> Are you coming with an empty vessel, or a heart full of negativity and bitterness? Empty your heart. Empty your life. Say, “Lord, take over.”</p>
+</section>
+
+<section class="block scripture" id="s4">
+  <h3>Scripture</h3>
+  <h4>4. Rivers of Living Water</h4>
+  <div class="verse"><span class="ref">John 7:37–39 (KJV)</span><br>
+  In the last day, that great day of the feast, Jesus stood and cried, saying, If any man thirst, let him come unto me, and drink. He that believeth on me, as the scripture hath said, out of his belly shall flow rivers of living water. (But this spake he of the Spirit, which they that believe on him should receive: for the Holy Ghost was not yet given; because that Jesus was not yet glorified.)</div>
+  <p>“The word ‘glorified’ means Jesus was not yet dead. He hadn't gone to the cross. So the Bible said that those who would believe in Him, He will release this Holy Ghost, Holy Spirit upon them. He will fill them, and when they are filled with the Holy Ghost, nothing can stop them.”</p>
+</section>
+
+<section class="block scripture" id="s5">
+  <h3>Scripture</h3>
+  <h4>5. Baptized With the Holy Ghost and Fire</h4>
+  <div class="verse"><span class="ref">Luke 3:16 (KJV)</span><br>
+  John answered, saying unto them all, I indeed baptize you with water; but one mightier than I cometh, the latchet of whose shoes I am not worthy to unloose: he shall baptize you with the Holy Ghost and with fire.</div>
+  <p>“You need the Holy Ghost. You are fighting a lot of battles — unseen battles, inherited battles, generational battles. When the Holy Ghost is not upon you, you lose the battle. When the Lord fills you up, the deliverance, the breakthrough, will take effect.”</p>
+</section>
+
+<section class="block teaching" id="s6">
+  <h3>Teaching</h3>
+  <h4>6. Present Your Bodies — Total Surrender</h4>
+  <p>“Human effort, status, and worldly pursuit leave an inner dry place that only God can satisfy.” The only One who can satisfy your inner man is God — the joy of the Lord, joy unspeakable, the renewer of your mind, the strength of the spirit.</p>
+  <p>Surrender the places where you need help: unforgiveness, quick temper, lust, disobedience, anger, self-control. <strong>God fills hearts that are fully yielded.</strong></p>
+
+  <div class="verse"><span class="ref">Romans 12:1–8 (KJV)</span><br>
+  I beseech you therefore, brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service. And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God. For I say, through the grace given unto me, to every man that is among you, not to think of himself more highly than he ought to think; but to think soberly, according as God hath dealt to every man the measure of faith. For as we have many members in one body, and all members have not the same office: so we, being many, are one body in Christ, and every one members one of another. Having then gifts differing according to the grace that is given to us, whether prophecy, let us prophesy according to the proportion of faith; or ministry, let us wait on our ministering: or he that teacheth, on teaching; or he that exhorteth, on exhortation: he that giveth, let him do it with simplicity; he that ruleth, with diligence; he that sheweth mercy, with cheerfulness.</div>
+
+  <div class="verse"><span class="ref">Romans 15:13 (KJV)</span><br>
+  Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.</div>
+
+  <p>“A lot of us — we don't have patience. We don't allow the Potter to build us, to mould us. You are like a mango fruit that is not ripe. You want it on the silver platter. You want it fast. Come to a place of building. Come to a place where I can build myself in you, and you become like a warrior, a mighty man — like David in the wilderness, empowered by God. No Goliath can stand against you.”</p>
+</section>
+
+<section class="block prophecy" id="s7">
+  <h3>Prophetic Word</h3>
+  <h4>7. Anointing That Announces You</h4>
+  <p>“When the Lord comes through, He <em>announces</em> you. When Jesus stepped into the river, heavens opened, and a voice came out of heaven and said, <em>This is my beloved son, in whom I am well pleased</em> (<span class="ref">Matthew 3:17</span>).”</p>
+  <p>“Until the Lord announces you, you cannot do it on your own. Until the Lord reveals who you are to your partner, they will not love you to the fullness. Until the Lord announces your breakthrough, that hand holding your open door will not release it.”</p>
+
+  <div class="verse"><span class="ref">Esther 6:1 (KJV)</span><br>
+  On that night could not the king sleep, and he commanded to bring the book of records of the chronicles; and they were read before the king.</div>
+
+  <p>“Wherever your helpers are, wherever your breakthroughs are, wherever your deliverance is — may that place become restless. Let the gatekeepers of your family that have shut the gates be crushed. Let the Lord announce you to the demons in your father's house, to the demons in your mother's house, declaring that you are anointed. <em>Touch not mine anointed, and do my prophets no harm</em> (<span class="ref">1 Chronicles 16:22</span>). The Lord will shake the roof for your sake. The Lord will break protocols for your sake.”</p>
+</section>
+
+<section class="block teaching" id="s8">
+  <h3>Teaching</h3>
+  <h4>8. Release Bitterness — The Joseph Test</h4>
+  <p>“Joseph was embittered. He was full of bitterness — the treatment his brothers took him through, the dream that led him into the house of Potiphar. God said, ‘Until you break away from the realm of bitterness and begin to become an intercessor, a giver, a helper, a covenant walker, you can never ascend into your realm of glory. You can never ascend into the seat of prime minister. You continue to become a prisoner.’”</p>
+
+  <div class="verse"><span class="ref">Job 19:25 (KJV)</span><br>
+  For I know that my redeemer liveth, and that he shall stand at the latter day upon the earth.</div>
+
+  <p>Job said, <em>Though he slay me, yet will I trust in him</em> (<span class="ref">Job 13:15</span>). And when Job prayed for his friends, God restored him double of what he had lost.</p>
+  <p><strong>The prophet's testimony:</strong> “My own friend pastors, my own friends stood up against me. Said all sorts of things because I was making headway — out of jealousy, out of envy. I said, ‘I will never forgive them.’ I was in forty days of fasting and prayer. The Lord said, ‘Begin to release them. Call them and ask of them. Call them and bless them.’ I started weeping. And when I released them, that was the beginning of my breakthrough.”</p>
+</section>
+
+<section class="block scripture" id="s9">
+  <h3>Scripture &middot; Teaching</h3>
+  <h4>9. Full of the Holy Ghost — The Jesus Pattern</h4>
+  <div class="verse"><span class="ref">Luke 4:1–4 (KJV)</span><br>
+  And Jesus being full of the Holy Ghost returned from Jordan, and was led by the Spirit into the wilderness, being forty days tempted of the devil. And in those days he did eat nothing: and when they were ended, he afterward hungered. And the devil said unto him, If thou be the Son of God, command this stone that it be made bread. And Jesus answered him, saying, It is written, That man shall not live by bread alone, but by every word of God.</div>
+
+  <p>“May you get to a realm where you will just quote the Word of God. You will not quote your problem, because your problem is small. You will quote the magnificent power, the Word of God. You will quote the Word. You will quote your faith. You speak faith.”</p>
+  <p>“When the enemy comes in like a flood, the Spirit of God shall take that Word in your spirit and raise a standard against the devil (see <span class="ref">Isaiah 59:19</span>).”</p>
+</section>
+
+<section class="block teaching" id="s10">
+  <h3>Teaching</h3>
+  <h4>10. Abigail, Esther, Ruth — The Vessel God Fills</h4>
+  <p>“Esther did not only win the heart of the king by her beauty, but by the way this woman talked to the king. Ruth — when Boaz saw Ruth, it wasn't only her beauty. It was the way she treated Naomi, the mother-in-law. When you do that, I tell you, you will have the kingdom, the whole kingdom, not even the half of it.”</p>
+  <p><strong>Abigail</strong> (<span class="ref">1 Samuel 25</span>) — the woman who knew how to talk, who feared God, who kept her hope in God. She married a foolish man, Nabal, a very wealthy but foolish man. She was able to manage him, was able to stay with him until this man died. And David said, “I have to marry this woman.”</p>
+  <p><strong>The exhortation:</strong> “Let everybody say you are full. Let everybody insult you. Continue in the service of God, continue in the fear of God, continue in the love of God. Don't raise yourself above anyone; humble yourself, because God elevates the humble hearts.”</p>
+</section>
+
+<section class="block repeat" id="s11">
+  <h3>Repeat After Me &middot; Warfare Prayer Section</h3>
+  <h4>11. Repeat-After-Me Warfare Prayers</h4>
+  <p><em>The prophet leads the altar in a chain of repeat-after-me declarations. Say them out loud.</em></p>
+
+  <span class="rep-line">My Father, my Father!</span>
+  <span class="rep-line">In the name of Jesus.</span>
+  <span class="rep-line">I command the wind of change to begin to blow.</span>
+  <span class="rep-line">Cause a divine shift in my life. Let there be a divine alignment in the name of Jesus.</span>
+  <span class="rep-line">In this season, I demand a change of level.</span>
+  <span class="rep-line">I demand a change of story.</span>
+  <span class="rep-line">Every power, every source of darkness that resists my change, that blocks my open door, my testimony — by the power of the Holy Ghost, I destroy you. I crush you in the name of Jesus.</span>
+  <span class="rep-line">I am filled up by the power of the Holy Ghost.</span>
+  <span class="rep-line">I am full of the Holy Ghost, and I am anointed of the Holy Ghost.</span>
+  <span class="rep-line">I am unbreakable.</span>
+  <span class="rep-line">I am unstoppable.</span>
+  <span class="rep-line">End the temptation. End the temptation.</span>
+  <span class="rep-line">Anything standing in my way that will help me cross to the other side — I will pass this temptation and receive my testimony.</span>
+  <span class="rep-line">Without test, there is no testimony.</span>
+  <span class="rep-line">Even as Jesus was tempted by Satan and overcame him, so I overcome.</span>
+  <span class="rep-line">I will not fall for the temptation of Satan.</span>
+  <span class="rep-line">I will not lose my glory to the temptation of Satan. I will not lose my anointing.</span>
+  <span class="rep-line">I will not lose my dominion mandate.</span>
+  <span class="rep-line">I will not lose my Garden of Eden. I will not lose my marriage. I will not lose my career.</span>
+  <span class="rep-line">I will not lose my blessing. I will not lose my finances.</span>
+  <span class="rep-line">I overcome by the power of the Holy Ghost. I overcome by the word of God.</span>
+  <span class="rep-line">I override every temptation in the name of Jesus.</span>
+  <span class="rep-line">Let the bow and the arrow be broken in the name of Jesus.</span>
+  <span class="rep-line">I am a warrior. I am a king of warriors. I roar from a place of victory.</span>
+  <span class="rep-line">Demonic attacks, demonic presence, negativity — I evict you now by the power of the Holy Ghost. You are out of my life. You are out of my destiny.</span>
+  <span class="rep-line">There is no destructive covenant in my father's house. There is no evil covenant in my father's house.</span>
+  <span class="rep-line">I have overcome. My children have overcome. My loved ones have overcome.</span>
+  <span class="rep-line">Through the power of the Holy Ghost, I defeat them. I conquer them. I break them in the name of Jesus.</span>
+</section>
+
+<section class="block scripture" id="s12">
+  <h3>Scripture &middot; Prayer</h3>
+  <h4>12. The Rod of the Wicked Broken</h4>
+  <div class="verse"><span class="ref">Psalm 125:3 (KJV)</span><br>
+  For the rod of the wicked shall not rest upon the lot of the righteous; lest the righteous put forth their hands unto iniquity.</div>
+
+  <p>“Any waster, any destroyer, in my father's house, in my mother's house — today your time has come. I overcome you in the name of Jesus. Any altar that stands as a destroyer cannot destroy me, cannot destroy my children, my grandchildren, by the blood of Jesus and by the power of the Holy Ghost.”</p>
+
+  <div class="verse"><span class="ref">Isaiah 54:17 (KJV)</span><br>
+  No weapon that is formed against thee shall prosper; and every tongue that shall rise against thee in judgment thou shalt condemn. This is the heritage of the servants of the LORD, and their righteousness is of me, saith the LORD.</div>
+
+  <span class="rep-line">The Lord rebuke you, you dark demon, you dark principality.</span>
+  <span class="rep-line">By the blood of my covenant, the judgment of God is against you from today.</span>
+  <span class="rep-line">I am His anointed one.</span>
+  <span class="rep-line">May the Lord rebuke you. May the Lord reprove you for my sake.</span>
+  <span class="rep-line">By the power of the Holy Ghost, I shake their kingdom. I scatter them by fire.</span>
+
+  <p><strong>The intercession continues:</strong> “Holy Ghost, loose my chains. Loose my cords. Loose me of my infirmity. Loose me of my burden. Loose me of my sickness. Loose me of my yoke. Holy Ghost, gather for me — gather my career, my job, my finances. Gather my life. Bring me back into my former state. Bring me back into the fullness of God in Christ Jesus. Bring me back into the secret place.”</p>
+  <p>“Holy Ghost, work on my mind. As I receive the mind of Christ, let the eyes of my understanding be enlightened (see <span class="ref">Ephesians 1:18</span>). May I walk in light — no more darkness.”</p>
+</section>
+
+<section class="block prophecy" id="s13">
+  <h3>Prophetic Assignment</h3>
+  <h4>13. Overflow Prophetic Assignment — The Cup and Water</h4>
+  <p>“I am giving you this prophetic assignment. When you are free after we finish praying, take a cup and pray over the empty cup and say, <em>Father, this is me.</em> Then take a bottle of water and begin to pour the water into the cup. Pour it until it is full and overflowing. While you are pouring, say:”</p>
+
+  <span class="decl-line">From today, this is my life.</span>
+  <span class="decl-line">From today, this is my account.</span>
+  <span class="decl-line">From today, this is my ministry.</span>
+  <span class="decl-line">From today, this is my destiny.</span>
+  <span class="decl-line">As I pour, I am pouring into my destiny basket whatever I need to have.</span>
+  <span class="decl-line">I am calling it in — in Jesus' name.</span>
+
+  <p><strong>Prophetic revelation about the wine and the marriage feast:</strong> “What Jesus did at Cana was a profound prophetic act (<span class="ref">John 2:1–11</span>). Through marriage, Adam and Eve lost the dominion mandate. So when Jesus came, His first miracle was to restore the marriage — to restore the glory, the blessing. When the mother came and said, ‘Do something about it,’ Jesus said, ‘Fill the pots.’ It is not going to be just water — it is going to be wine.”</p>
+  <p>“So Jesus poured back into you and me, those who believe in His name, the Holy Ghost — the wine of the Spirit. Wine is for celebration. Wine is for joy. So when we talk about wine, we are talking about the joy, the peace, the comfort of the Spirit that was wasted in the marriage — and Jesus said, ‘I have restored it back.’”</p>
+</section>
+
+<section class="block prophecy" id="s14">
+  <h3>Prophetic Blessing</h3>
+  <h4>14. Prophetic Blessings Over the Altar</h4>
+  <p><em>The prophet ministers over congregants at the altar. The following blessings are proclaimed corporately, with personal names anonymized as “Beloved.”</em></p>
+
+  <span class="decl-line">Beloved, receive back your star. Receive back your fortunes. Receive back your testimonies. Receive back your healing, your deliverance in the name of Jesus.</span>
+  <span class="decl-line">Every evil hand that took from you today, that hand is broken. Any demonic power that took your joy, your greatness — today the Lord has destroyed that power.</span>
+  <span class="decl-line">May the Holy Ghost restore you now. May the Holy Ghost restore your courage. May the Holy Ghost restore your favor. May the Holy Ghost restore your blessings. May the Holy Ghost restore your health. May the Holy Ghost restore your beauty. May the Holy Ghost restore your joy and your peace now.</span>
+  <span class="decl-line">I create a future full of testimonies, full of the glory of God, full of power and authority in the Holy Ghost.</span>
+  <span class="decl-line">Let the letter be released. Receive your new appointment. May you be employed as a new employee in that office — receive it right now.</span>
+  <span class="decl-line">May the Lord take away every obstacle, every hindrance, every unseen barrier out of your way.</span>
+  <span class="decl-line">May the protection of God be upon you and your children. May the Lord bless your food, bless your waters — let everything that enters your belly become a healing, become a deliverance.</span>
+  <span class="decl-line">May you overcome every battle, every challenge, every situation in this forty days of fasting and prayer.</span>
+  <span class="decl-line">May the Lord wipe away your tears and fill you with joy. May God open unto you His good treasures (<span class="ref">Deuteronomy 28:12</span>).</span>
+  <span class="decl-line">May the Lord set a table before you in the presence of your enemies. May God silence every voice speaking against you. May the favor of God locate you.</span>
+</section>
+
+<section class="block scripture" id="s15">
+  <h3>Scripture &middot; Impartation</h3>
+  <h4>15. The Same Spirit That Raised Christ</h4>
+  <div class="verse"><span class="ref">Romans 8:11 (KJV)</span><br>
+  But if the Spirit of him that raised up Jesus from the dead dwell in you, he that raised up Christ from the dead shall also quicken your mortal bodies by his Spirit that dwelleth in you.</div>
+
+  <p>“In the same Spirit come upon you. In the same Spirit dwell in you. It means everything that is dead in your life, your relationship, your marriage — I speak life to it. I have seen people that lost everything, but through the Holy Ghost, they got it back, even in abundance.”</p>
+  <p>“Jesus would have remained in the grave, but the Holy Ghost entered into the grave as a come-back-er. The Spirit quickens. The Spirit brings to life. The Spirit resurrects. The Spirit changes. It transforms. The Spirit imparts. The Spirit connects. The Spirit establishes — it can establish you, and you become immovable.”</p>
+
+  <span class="rep-line">Holy Ghost, fill me to the brim!</span>
+  <span class="rep-line">Cause me to run over — overflow, overflow!</span>
+  <span class="rep-line">Let L137 Deliverance Ministry receive an overflow anointing from today.</span>
+  <span class="rep-line">Let Dominion Hour receive the overflow anointing from today.</span>
+  <span class="rep-line">Anointing that brings breakthroughs and testimonies — in the mighty name of Jesus.</span>
+</section>
+
+<section class="block teaching" id="s16">
+  <h3>Teaching</h3>
+  <h4>16. Guarding Your Atmosphere and Your Energy</h4>
+  <p>“Sometimes even your own son, your own daughter, your husband, your wife can come close to you and something is wrong somewhere. As we lift up prayer, that thing will just go. The devil sows confusion by sending negative energy, and that energy will divide the two of you. This especially affects those with spiritual marriages, spiritual husbands, spiritual wives, or evil presences.”</p>
+  <p><strong>The prophet's practice:</strong> “Where I've gotten to, it is very difficult for me to dwell in an environment of negativity, of doubt, of gossip. I determine what should come to my territory. Anytime my spirit is down, I just enter into worship. I worship, and then I begin to pray, and the Holy Ghost will send that sweet fragrance, sweet presence.”</p>
+
+  <p><strong>Practical instruction — the anointing oil with garlic:</strong></p>
+  <ul>
+    <li>Take anointing oil. Add crushed garlic. Let it sit three days (or crush finely for immediate use).</li>
+    <li>Pray over it. Bathe with it and apply it.</li>
+    <li>This resets contaminated energy from evil contact.</li>
+  </ul>
+  <p><strong>How to keep the atmosphere clean:</strong> Draw away from gossipers. Approach offenses in a gentle, godly way. Let the love of God fill your heart. Be ready to help. Be ready to encourage. When you make somebody smile, you are creating divine energy.</p>
+</section>
+
+<section class="block teaching" id="s17">
+  <h3>Teaching &middot; Assignment</h3>
+  <h4>17. Fasting, Giving, and the Orphanage Assignment</h4>
+  <p>“Eighty percent of fasting and prayer brings empowerment and strength. Twenty percent opens the door. The rest is to align you with God — divine alignment.”</p>
+  <p>“Fasting goes with giving; you open up. You let something leave your life. I have given most of my dresses, my shoes, and stuff to three or four people. The more I do it, the more God opens the door for me to get money and buy new ones — because somebody needs what you have today.”</p>
+  <p><strong>Prophetic vision of the orphanage:</strong> “I went to the mountains to pray. The Lord opened my eyes and I saw myself in a house of an orphanage woman, and they were praying for me. The Lord said, ‘When you get down, go there. Bless them. When you bless them and they pray for you, what we were praying for has been granted.’”</p>
+  <p>“In the course of this fasting, we are going to gather an offering and represent everyone at the orphanage home. Next Monday, write down seven prayer topics that after this fasting and prayer we will handle. We will pray over them week by week for maybe two weeks.”</p>
+</section>
+
+<section class="block prophecy" id="s18">
+  <h3>Prophetic Response</h3>
+  <h4>18. Dreams, Visions, and Divine Visitation</h4>
+  <p>A congregant shares a vision of birds — different colors on a shed, then blackbirds between a house and trees, then a big bird flying like an eagle over three separate nights.</p>
+  <p><strong>Prophet's discernment:</strong> “It is a visitation. When you see things in the clouds or in the sky, it is a sign of visitation. The Holy Ghost descended upon Jesus in the bodily form of a dove (<span class="ref">Matthew 3:16</span>). Some of these birds are ministering spirits sent by God — sometimes to protect your atmosphere, your environment. It is not always the other side. Your own is divine.”</p>
+  <div class="verse"><span class="ref">1 Kings 17:6 (KJV)</span><br>
+  And the ravens brought him bread and flesh in the morning, and bread and flesh in the evening; and he drank of the brook.</div>
+  <p>“When the prophet Elijah was in crisis, the Lord sent ravens to feed him. May God send visitations, send angels, send divine protection over your realm in Jesus' name.”</p>
+  <p><strong>A second sister shares a dream</strong> of a large hotel and meeting a person from Jamaica years ago. The prophet responds: “If it is not of God, we cancel it and destroy it by the blood of Jesus. Let the Lord protect you and protect whatever He has prepared for you in Jesus' name.”</p>
+</section>
+
+<section class="block prayer" id="s19">
+  <h3>Benediction</h3>
+  <h4>19. Closing Grace and Benediction</h4>
+  <p><em>Prophet Prince closes the altar:</em></p>
+
+  <div class="verse"><span class="ref">2 Corinthians 13:14 (KJV)</span><br>
+  The grace of the Lord Jesus Christ, and the love of God, and the communion of the Holy Ghost, be with you all. Amen.</div>
+
+  <div class="verse"><span class="ref">Psalm 23:6 (KJV)</span><br>
+  Surely goodness and mercy shall follow me all the days of my life: and I will dwell in the house of the LORD for ever.</div>
+
+  <p>“We will continue our fasting. We want to be more close to the Lord, full of the Holy Ghost. So walk around and declare that you are blessed, you are full of the Holy Ghost, you cannot be defeated, you cannot be weak, you cannot be disadvantaged. You walk in glory. The Lord bless you. See you tomorrow.”</p>
+</section>
+
+<!-- ============================================================ -->
+<section class="block reflection" id="quiz">
+  <h3>Study &middot; Recall &middot; Apply</h3>
+  <h4>Interactive Recall Quiz</h4>
+  <p>Answer each question. Correct answers turn green.</p>
+
+  <div class="quiz">
+    <h3>Section A &mdash; What Was Taught?</h3>
+
+    <div class="q" data-answer="c">
+      <p class="stem">1. According to Prophet Prince, what must you do <em>before</em> God can fill you?</p>
+      <label><input type="radio" name="q1" value="a"> a) Give a large offering</label>
+      <label><input type="radio" name="q1" value="b"> b) Recite Psalm 23 seven times</label>
+      <label><input type="radio" name="q1" value="c"> c) Consecrate, purify, and prepare the vessel</label>
+      <label><input type="radio" name="q1" value="d"> d) Wait for a prophet to lay hands on you</label>
+      <p class="fb">Correct. “Before God can fill you, you must consecrate, you must purify yourself, you must prepare the vessel.” Moses could stand before God because he purged himself; the people could not because they were full of the flesh.</p>
+    </div>
+
+    <div class="q" data-answer="b">
+      <p class="stem">2. In the message, what did Elisha ask the widow (2 Kings 4)?</p>
+      <label><input type="radio" name="q2" value="a"> a) “How much do you owe?”</label>
+      <label><input type="radio" name="q2" value="b"> b) “What hast thou in the house?”</label>
+      <label><input type="radio" name="q2" value="c"> c) “Where is your husband buried?”</label>
+      <label><input type="radio" name="q2" value="d"> d) “Have you fasted seven days?”</label>
+      <p class="fb">Correct. God always begins with what is already in your hand. God gives seed to the sower.</p>
+    </div>
+
+    <div class="q" data-answer="d">
+      <p class="stem">3. What percentage of fasting and prayer, according to the prophet, brings empowerment and strength?</p>
+      <label><input type="radio" name="q3" value="a"> a) 20%</label>
+      <label><input type="radio" name="q3" value="b"> b) 40%</label>
+      <label><input type="radio" name="q3" value="c"> c) 60%</label>
+      <label><input type="radio" name="q3" value="d"> d) 80%</label>
+      <p class="fb">Correct. “Eighty percent of fasting and prayer brings empowerment and strength. Twenty percent opens the door. The rest is to align you with God.”</p>
+    </div>
+
+    <div class="q" data-answer="c">
+      <p class="stem">4. Why did Jesus turn water into wine at Cana as His first miracle?</p>
+      <label><input type="radio" name="q4" value="a"> a) To bless the priest</label>
+      <label><input type="radio" name="q4" value="b"> b) To prove He was Messiah</label>
+      <label><input type="radio" name="q4" value="c"> c) Because through marriage the dominion mandate was lost — He restored the joy, blessing, and glory of marriage</label>
+      <label><input type="radio" name="q4" value="d"> d) Because Mary was thirsty</label>
+      <p class="fb">Correct. Through marriage Adam and Eve lost the dominion mandate; Jesus' first miracle was to restore what was lost in the marriage — the wine of the Spirit, celebration, joy, and peace.</p>
+    </div>
+
+    <div class="q" data-answer="b">
+      <p class="stem">5. What was the beginning of Prophet Prince's personal breakthrough during his forty days of fasting?</p>
+      <label><input type="radio" name="q5" value="a"> a) Buying new prayer oil</label>
+      <label><input type="radio" name="q5" value="b"> b) Calling his offenders, releasing them, and blessing them</label>
+      <label><input type="radio" name="q5" value="c"> c) Preaching to a stadium</label>
+      <label><input type="radio" name="q5" value="d"> d) Traveling to the mountain</label>
+      <p class="fb">Correct. Like Job, when he prayed for his friends, God restored him double. The prophet's breakthrough began when he released bitterness and blessed those who spoke against him.</p>
+    </div>
+
+    <div class="q" data-answer="a">
+      <p class="stem">6. Which Scripture did the prophet quote as “No weapon formed against me shall prosper”?</p>
+      <label><input type="radio" name="q6" value="a"> a) Isaiah 54:17</label>
+      <label><input type="radio" name="q6" value="b"> b) Psalm 91:1</label>
+      <label><input type="radio" name="q6" value="c"> c) Romans 8:28</label>
+      <label><input type="radio" name="q6" value="d"> d) John 3:16</label>
+      <p class="fb">Correct. Isaiah 54:17 — the heritage of the servants of the LORD.</p>
+    </div>
+
+    <div class="q" data-answer="c">
+      <p class="stem">7. What prophetic assignment did the prophet give with the cup and water?</p>
+      <label><input type="radio" name="q7" value="a"> a) Drink the water before sunrise</label>
+      <label><input type="radio" name="q7" value="b"> b) Pour water on the doorpost</label>
+      <label><input type="radio" name="q7" value="c"> c) Pour water into an empty cup until it overflows, declaring what you are calling back into your life, account, ministry, and destiny</label>
+      <label><input type="radio" name="q7" value="d"> d) Save the water for seven days</label>
+      <p class="fb">Correct. “As I pour, I am pouring into my destiny basket whatever I need to have. I am calling it in — in Jesus' name.”</p>
+    </div>
+
+    <div class="q" data-answer="b">
+      <p class="stem">8. Which four women did the prophet lift up as vessels God filled and used?</p>
+      <label><input type="radio" name="q8" value="a"> a) Sarah, Hannah, Rachel, Leah</label>
+      <label><input type="radio" name="q8" value="b"> b) Esther, Ruth, Abigail, and the widow at Zarephath / Samaria</label>
+      <label><input type="radio" name="q8" value="c"> c) Miriam, Deborah, Jael, Rahab</label>
+      <label><input type="radio" name="q8" value="d"> d) Mary, Martha, Elizabeth, Anna</label>
+      <p class="fb">Correct. Esther for her speech to the king, Ruth for her kindness to Naomi, Abigail for her wisdom with Nabal, and the Samaritan woman who became a savior/deliverer for her city.</p>
+    </div>
+
+    <button onclick="gradeQuiz()">Check My Answers</button>
+    <p id="quizScore" style="font-weight:bold;margin-top:12px"></p>
+  </div>
+
+  <!-- Recall -->
+  <div class="recall">
+    <h3 style="margin-top:0;color:var(--teaching);letter-spacing:.14em;font-size:14px;text-transform:uppercase">Recall &middot; Say It In Your Own Words</h3>
+    <p><strong>Q1.</strong> In your own words, explain why Prophet Prince says you must come to God with an <em>empty</em> vessel, not a full one.</p>
+    <textarea id="r1"></textarea>
+    <button onclick="showModel('m1')">Show a Model Answer</button>
+    <div class="model" id="m1">You come empty so God can fill you. If your heart is already full — of bitterness, negativity, self, worldly things, or the old wineskin — the new wine cannot enter. Like Moses on the mountain who was clean and could receive, or the widow whose empty vessels became full of oil, emptiness is the invitation for God's overflow.</div>
+
+    <p style="margin-top:16px"><strong>Q2.</strong> The prophet said Joseph could not ascend to the palace until he broke away from a certain realm. Name it and explain how release brought his elevation.</p>
+    <textarea id="r2"></textarea>
+    <button onclick="showModel('m2')">Show a Model Answer</button>
+    <div class="model" id="m2">Joseph had to break away from the <strong>realm of bitterness</strong>. Until he became an intercessor, a giver, a helper, and a covenant walker — until he chose not to take revenge on his brothers — he would have remained a prisoner. Bitterness would have killed the prophecy given to Abraham. Release brings elevation; prison becomes palace only after the heart is free.</p></div>
+
+    <p style="margin-top:16px"><strong>Q3.</strong> How does giving (dresses, shoes, offerings, orphanage visits) connect to breaking yokes in this teaching?</p>
+    <textarea id="r3"></textarea>
+    <button onclick="showModel('m3')">Show a Model Answer</button>
+    <div class="model" id="m3">Fasting goes with giving. Giving lets something leave your life so something new can enter. It is not prayer alone that breaks yokes — sowing what you already have (clothes, food, cash, kindness) becomes a seed God can bless and multiply. The prophet's testimony: the more he gave away his own dresses and shoes, the more God opened doors for supply.</div>
+  </div>
+
+  <!-- Declaration checklist -->
+  <div class="quiz">
+    <h3>Daily Declaration Checklist &mdash; Say These Out Loud</h3>
+    <p>Check each declaration you have made today. The prophet said: “If every day you wake up and declare that you are full of the Holy Ghost, things will change for you.”</p>
+    <div class="checklist">
+      <label><input type="checkbox" /> <span>I am full of the Holy Ghost.</span></label>
+      <label><input type="checkbox" /> <span>I am filled up by the power of the Holy Ghost.</span></label>
+      <label><input type="checkbox" /> <span>I am unbreakable. I am unstoppable.</span></label>
+      <label><input type="checkbox" /> <span>My cup runneth over.</span></label>
+      <label><input type="checkbox" /> <span>No weapon formed against me shall prosper (Isaiah 54:17).</span></label>
+      <label><input type="checkbox" /> <span>The rod of the wicked shall not rest upon my lot (Psalm 125:3).</span></label>
+      <label><input type="checkbox" /> <span>I overcome by the word of God and by the power of the Holy Ghost.</span></label>
+      <label><input type="checkbox" /> <span>I have released every bitterness and every offence in Jesus' name.</span></label>
+      <label><input type="checkbox" /> <span>My marriage, my career, my finances, my ministry are gathered in the name of Jesus.</span></label>
+      <label><input type="checkbox" /> <span>I walk in light. No more darkness.</span></label>
+      <label><input type="checkbox" /> <span>I will see angels, I will see divine encounters, I will see Jesus in my dreams.</span></label>
+      <label><input type="checkbox" /> <span>I am a walking fire in the name of Jesus.</span></label>
+    </div>
+  </div>
+
+  <!-- Application -->
+  <div class="quiz">
+    <h3>Reflection &middot; Apply the Word This Week</h3>
+    <div class="q">
+      <p class="stem">1. Where is <em>your</em> empty vessel today? Name one specific area of your life where you need the Holy Ghost to overflow — marriage, finances, career, dreams, health, or ministry.</p>
+      <textarea style="width:100%;min-height:60px;border-radius:6px;padding:8px;border:1px solid #ccc;font-family:inherit;font-size:15px"></textarea>
+    </div>
+    <div class="q">
+      <p class="stem">2. Name one person you must release this week (like Prophet Prince released his friend pastors). What will you say when you call them or pray for them?</p>
+      <textarea style="width:100%;min-height:60px;border-radius:6px;padding:8px;border:1px solid #ccc;font-family:inherit;font-size:15px"></textarea>
+    </div>
+    <div class="q">
+      <p class="stem">3. What is one thing you already have (a dress, a skill, an hour of time, some money) that God can use as your “pot of oil”? What will you sow this week?</p>
+      <textarea style="width:100%;min-height:60px;border-radius:6px;padding:8px;border:1px solid #ccc;font-family:inherit;font-size:15px"></textarea>
+    </div>
+    <div class="q">
+      <p class="stem">4. Write your seven prayer topics for the remaining days of the forty-day fast.</p>
+      <textarea style="width:100%;min-height:120px;border-radius:6px;padding:8px;border:1px solid #ccc;font-family:inherit;font-size:15px" placeholder="1.&#10;2.&#10;3.&#10;4.&#10;5.&#10;6.&#10;7."></textarea>
+    </div>
+  </div>
+
+  <!-- The Cup Exercise -->
+  <div class="quiz" style="border-color:var(--prophecy)">
+    <h3 style="color:var(--prophecy)">Prophetic Assignment &middot; The Cup and the Water</h3>
+    <ol>
+      <li>Take an empty cup. Hold it and pray: <em>Father, this is me.</em></li>
+      <li>Take a bottle of water. Slowly pour into the cup until it overflows.</li>
+      <li>While pouring, declare aloud:
+        <div style="margin-top:8px;padding:10px;background:#fff;border-left:4px solid var(--prophecy);border-radius:4px">
+          From today, this is my life. From today, this is my account. From today, this is my ministry. From today, this is my destiny. As I pour, I am pouring into my destiny basket whatever I need to have. I am calling it in — in Jesus' name.
+        </div>
+      </li>
+      <li>Let the cup overflow onto a plate. Say: <em>My cup runneth over.</em></li>
+      <li>Anoint yourself with oil. If using the garlic-in-oil practice, prepare a fresh portion (crushed garlic in anointing oil, three days) and use it during your bath as instructed.</li>
+    </ol>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="brand">Dominion Hour Ministries International</div>
+  <div>Prophet Prince Amo David &middot; “LORD, FILL ME UP” &middot; August 20, 2026</div>
+  <div style="margin-top:8px;font-size:12px;opacity:.7">Interactive study companion &middot; Original teaching preserved</div>
+</footer>
+
+<script>
+  // Progress bar based on scroll
+  const fill = document.getElementById('progFill');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    fill.style.width = pct + '%';
+  });
+
+  // Quiz grading
+  function gradeQuiz(){
+    const qs = document.querySelectorAll('.quiz .q');
+    let correct = 0, total = 0;
+    qs.forEach(q => {
+      const ans = q.dataset.answer;
+      if(!ans) return;
+      total++;
+      const selected = q.querySelector('input:checked');
+      const labels = q.querySelectorAll('label');
+      labels.forEach(l => l.classList.remove('correct','incorrect'));
+      if(selected){
+        const chosenLabel = selected.parentElement;
+        if(selected.value === ans){
+          chosenLabel.classList.add('correct');
+          correct++;
+        } else {
+          chosenLabel.classList.add('incorrect');
+          // also highlight the right one
+          q.querySelectorAll('input').forEach(inp => {
+            if(inp.value === ans) inp.parentElement.classList.add('correct');
+          });
+        }
+      } else {
+        // show correct one anyway
+        q.querySelectorAll('input').forEach(inp => {
+          if(inp.value === ans) inp.parentElement.classList.add('correct');
+        });
+      }
+      q.querySelector('.fb').classList.add('show');
+    });
+    const el = document.getElementById('quizScore');
+    el.textContent = `You scored ${correct} of ${total}. ` + (correct === total ? "The Word is dwelling richly in you!" : "Keep meditating — go back to the highlighted answers.");
+  }
+
+  function showModel(id){
+    document.getElementById(id).classList.add('show');
+  }
+</script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Sure Mercies of God — Interactive Prayer Tool</title>
+<meta name="description" content="An interactive prayer altar built on Isaiah 55:3, Psalm 89:2 and Romans 9:16 with 12 prayer points on the sure mercies of God." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231b2140'/%3E%3Cpath d='M16 6l3 6 6 1-4.5 4.4 1.1 6.1L16 20.6 10.4 23.5l1.1-6.1L7 13l6-1z' fill='%23c9a24a'/%3E%3C/svg%3E" />
+<style>
+:root{
+  --text-xs: clamp(0.75rem,0.7rem + 0.25vw,0.875rem);
+  --text-sm: clamp(0.875rem,0.8rem + 0.35vw,1rem);
+  --text-base: clamp(1rem,0.95rem + 0.25vw,1.125rem);
+  --text-lg: clamp(1.125rem,1rem + 0.75vw,1.5rem);
+  --text-xl: clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+  --text-2xl: clamp(2rem,1.2rem + 2.5vw,3.5rem);
+  --space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-5:1.25rem;
+  --space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;--space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;
+  --radius:14px;
+  --maxw:74rem;
+}
+:root,[data-theme="light"]{
+  --bg:#f7f3ea;
+  --surface:#fffdf8;
+  --surface-2:#f2ece0;
+  --border:#e0d7c5;
+  --divider:#e9e1d2;
+  --text:#231f1a;
+  --muted:#6d6659;
+  --faint:#a49b8a;
+  --primary:#1b2140;
+  --primary-soft:#eceef6;
+  --gold:#9a7420;
+  --gold-strong:#b98d2a;
+  --success:#2f6b46;
+  --shadow:0 1px 2px rgba(35,31,26,.05),0 12px 32px -18px rgba(35,31,26,.22);
+}
+[data-theme="dark"]{
+  --bg:#12141f;
+  --surface:#1a1d2b;
+  --surface-2:#212536;
+  --border:#2f3448;
+  --divider:#282d3e;
+  --text:#f0ece2;
+  --muted:#a7a496;
+  --faint:#6e6c62;
+  --primary:#c9d0ea;
+  --primary-soft:#232840;
+  --gold:#d8b45c;
+  --gold-strong:#e6c877;
+  --success:#7fc39b;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 18px 40px -20px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:"Inter",system-ui,sans-serif;font-size:var(--text-base);line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.serif{font-family:"Newsreader",Georgia,serif;font-weight:500;line-height:1.2}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--space-5)}
+.eyebrow{font-size:var(--text-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+/* header */
+header.site{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--divider)}
+.hrow{display:flex;align-items:center;gap:var(--space-4);padding-block:var(--space-3)}
+.brand{display:flex;align-items:center;gap:var(--space-3);min-width:0}
+.brand svg{flex:none;color:var(--primary)}
+.brand b{font-family:"Newsreader",serif;font-weight:600;font-size:var(--text-sm);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand span{display:block;font-size:var(--text-xs);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hactions{margin-left:auto;display:flex;align-items:center;gap:var(--space-2)}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.icon-btn{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--border);border-radius:10px;background:var(--surface);transition:background .2s,border-color .2s}
+.icon-btn:hover{background:var(--surface-2)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);font-size:var(--text-sm);font-weight:600;padding:var(--space-3) var(--space-5);border-radius:10px;border:1px solid transparent;transition:transform .15s,background .2s,border-color .2s}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--primary);color:var(--bg)}
+[data-theme="dark"] .btn-primary{color:#12141f}
+.btn-primary:hover{background:color-mix(in srgb,var(--primary) 88%,var(--gold))}
+.btn-ghost{border-color:var(--border);background:var(--surface)}
+.btn-ghost:hover{background:var(--surface-2)}
+
+/* hero */
+.hero{padding-block:var(--space-16) var(--space-12);position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-40% 40% 40% -20%;background:radial-gradient(circle at 30% 40%,color-mix(in srgb,var(--gold) 22%,transparent),transparent 62%);pointer-events:none}
+.hero-inner{position:relative;max-width:52rem}
+.hero h1{font-size:var(--text-2xl);margin:var(--space-4) 0 var(--space-4)}
+.hero p.lede{font-size:var(--text-base);color:var(--muted);max-width:40rem;margin:0}
+.hero .rule{width:64px;height:2px;background:var(--gold);margin-top:var(--space-6)}
+
+/* scripture */
+section{padding-block:var(--space-12)}
+.sec-head{display:flex;align-items:baseline;gap:var(--space-4);flex-wrap:wrap;margin-bottom:var(--space-8);border-bottom:1px solid var(--divider);padding-bottom:var(--space-3)}
+.sec-head h2{font-size:var(--text-lg);margin:0}
+.sec-head .count{font-size:var(--text-xs);color:var(--muted);margin-left:auto}
+.verses{display:grid;gap:var(--space-4);grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.verse{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--radius);padding:var(--space-6);box-shadow:var(--shadow)}
+.verse blockquote{margin:0;font-family:"Newsreader",serif;font-size:var(--text-base);line-height:1.55}
+.verse cite{display:block;margin-top:var(--space-4);font-style:normal;font-size:var(--text-xs);letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+/* altar / progress */
+.altar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-8);display:flex;gap:var(--space-8);align-items:center;flex-wrap:wrap;box-shadow:var(--shadow)}
+.ring{position:relative;flex:none;width:132px;height:132px}
+.ring svg{transform:rotate(-90deg)}
+.ring .t{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ring .t b{font-family:"Newsreader",serif;font-size:var(--text-lg);display:block;line-height:1}
+.ring .t small{font-size:var(--text-xs);color:var(--muted)}
+.altar-copy{flex:1 1 16rem;min-width:0}
+.altar-copy h3{margin:0 0 var(--space-2);font-size:var(--text-lg)}
+.altar-copy p{margin:0 0 var(--space-5);color:var(--muted);font-size:var(--text-sm)}
+.altar-btns{display:flex;gap:var(--space-3);flex-wrap:wrap}
+
+/* points */
+.points{display:grid;gap:var(--space-3)}
+.point{display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-4);align-items:start;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-5);transition:border-color .2s,background .2s}
+.point:hover{border-color:color-mix(in srgb,var(--gold) 55%,var(--border))}
+.point .num{font-family:"Newsreader",serif;font-size:var(--text-sm);font-weight:600;color:var(--gold);width:2rem;height:2rem;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--gold) 40%,var(--border));border-radius:50%;flex:none}
+.point .txt{font-size:var(--text-base);margin:0}
+.point .jesus{color:var(--muted)}
+.mark{display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);font-weight:600;color:var(--muted);border:1px solid var(--border);background:var(--bg);padding:var(--space-2) var(--space-3);border-radius:999px;white-space:nowrap}
+.mark:hover{border-color:var(--success);color:var(--success)}
+.mark .box{width:14px;height:14px;border:1.5px solid currentColor;border-radius:4px;display:grid;place-items:center}
+.mark .box svg{opacity:0;width:10px;height:10px}
+.point.done{background:color-mix(in srgb,var(--success) 8%,var(--surface));border-color:color-mix(in srgb,var(--success) 35%,var(--border))}
+.point.done .mark{color:var(--success);border-color:color-mix(in srgb,var(--success) 45%,var(--border))}
+.point.done .mark .box svg{opacity:1}
+.point.done .num{color:var(--success);border-color:color-mix(in srgb,var(--success) 40%,var(--border))}
+
+/* focus mode */
+.overlay{position:fixed;inset:0;z-index:60;background:color-mix(in srgb,var(--bg) 94%,#000);display:none;flex-direction:column}
+.overlay.open{display:flex}
+.ov-top{display:flex;align-items:center;gap:var(--space-4);padding:var(--space-4) var(--space-5);border-bottom:1px solid var(--divider)}
+.ov-top .step{font-size:var(--text-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.ov-top .timer{margin-left:auto;font-variant-numeric:tabular-nums;font-size:var(--text-sm);color:var(--muted)}
+.bar{height:3px;background:var(--surface-2)}
+.bar i{display:block;height:100%;background:var(--gold);transition:width .3s}
+.ov-body{flex:1;display:grid;place-items:center;padding:var(--space-8) var(--space-5);overflow-y:auto}
+.ov-card{max-width:44rem;text-align:center}
+.ov-card .n{font-family:"Newsreader",serif;font-size:var(--text-lg);color:var(--gold);margin-bottom:var(--space-6)}
+.ov-card .body{font-family:"Newsreader",serif;font-size:var(--text-xl);line-height:1.35;margin:0}
+.ov-card .scrip{margin-top:var(--space-8);font-size:var(--text-sm);color:var(--muted);border-top:1px solid var(--divider);padding-top:var(--space-5)}
+.ov-foot{display:flex;gap:var(--space-3);justify-content:center;align-items:center;padding:var(--space-5);border-top:1px solid var(--divider);flex-wrap:wrap}
+
+/* finish */
+.finish{display:none;background:var(--surface);border:1px solid color-mix(in srgb,var(--gold) 45%,var(--border));border-radius:var(--radius);padding:var(--space-8);text-align:center;box-shadow:var(--shadow)}
+.finish.show{display:block}
+.finish h3{font-size:var(--text-lg);margin:0 0 var(--space-3)}
+.finish p{color:var(--muted);margin:0 auto var(--space-5);max-width:34rem;font-size:var(--text-sm)}
+.finish .amen{font-family:"Newsreader",serif;font-size:var(--text-xl);color:var(--gold)}
+
+footer.site{border-top:1px solid var(--divider);padding-block:var(--space-8);margin-top:var(--space-12)}
+footer.site p{font-size:var(--text-xs);color:var(--muted);margin:0 0 var(--space-2)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:560px){
+  .point{grid-template-columns:auto 1fr;}
+  .point .mark{grid-column:2;justify-self:start;margin-top:var(--space-2)}
+}
+@media print{
+  header.site,.hactions,.altar-btns,.overlay,.icon-btn,.mark,footer.site button{display:none!important}
+  body{background:#fff;color:#000}
+  .point,.verse,.altar{box-shadow:none;border-color:#bbb}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap hrow">
+    <div class="brand">
+      <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-label="Dominion Hour mercy seal" role="img">
+        <circle cx="16" cy="16" r="14.5" stroke="currentColor" stroke-width="1.2"/>
+        <path d="M16 5.5c3.6 3.2 5.4 6.4 5.4 9.6 0 3.4-2.4 6-5.4 8.9-3-2.9-5.4-5.5-5.4-8.9 0-3.2 1.8-6.4 5.4-9.6Z" stroke="#c9a24a" stroke-width="1.4"/>
+        <path d="M11 26.5h10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <b>The Sure Mercies of God</b>
+        <span>Dominion Hour · Prophet Prince Amo David</span>
+      </div>
+    </div>
+    <div class="hactions">
+      <button class="icon-btn" id="printBtn" title="Print this prayer tool" aria-label="Print">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 9V3h12v6M6 18H4v-6h16v6h-2M8 14h8v7H8z"/></svg>
+      </button>
+      <button class="icon-btn" id="themeBtn" title="Switch light or dark" aria-label="Toggle theme">
+        <svg id="iconSun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg>
+        <svg id="iconMoon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" style="display:none"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Interactive Prayer Altar</p>
+      <h1>The Sure Mercies of God</h1>
+      <p class="lede">Three Scriptures and twelve prayer points, kept exactly as given. Pray them one by one in Focus Mode, or work down the list at your own pace and mark each point as you pray it.</p>
+      <div class="rule"></div>
+    </div>
+  </div>
+
+  <section id="scripture">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Foundation Scriptures</p>
+        <h2>Read the Word first</h2>
+        <span class="count">King James Version</span>
+      </div>
+      <div class="verses">
+        <div class="verse">
+          <blockquote>Incline your ear, and come unto me: hear, and your soul shall live; and I will make an everlasting covenant with you, even the sure mercies of David.</blockquote>
+          <cite>Isaiah 55:3</cite>
+        </div>
+        <div class="verse">
+          <blockquote>I have said, Mercy shall be built up for ever: thy faithfulness shalt thou establish in the very heavens.</blockquote>
+          <cite>Psalm 89:2</cite>
+        </div>
+        <div class="verse">
+          <blockquote>So then it is not of him that willeth, nor of him that runneth, but of God that sheweth mercy.</blockquote>
+          <cite>Romans 9:16</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="altar" style="padding-top:0">
+    <div class="wrap">
+      <div class="altar">
+        <div class="ring">
+          <svg width="132" height="132" viewBox="0 0 132 132" aria-hidden="true">
+            <circle cx="66" cy="66" r="58" fill="none" stroke="var(--surface-2)" stroke-width="10"/>
+            <circle id="ringFg" cx="66" cy="66" r="58" fill="none" stroke="var(--gold)" stroke-width="10" stroke-linecap="round" stroke-dasharray="364.4" stroke-dashoffset="364.4" style="transition:stroke-dashoffset .4s"/>
+          </svg>
+          <div class="t"><b id="ringNum">0/12</b><small>prayed</small></div>
+        </div>
+        <div class="altar-copy">
+          <h3>Enter the prayer session</h3>
+          <p>Focus Mode shows one prayer point at a time in large text with a running timer — good for personal altar time, family prayer, or leading a group out loud.</p>
+          <div class="altar-btns">
+            <button class="btn btn-primary" id="startBtn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              Begin Focus Mode
+            </button>
+            <button class="btn btn-ghost" id="resetBtn">Reset progress</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="points" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Prayer Points</p>
+        <h2>Pray and mark each one</h2>
+        <span class="count" id="listCount">0 of 12 marked</span>
+      </div>
+      <div class="points" id="pointList"></div>
+
+      <div class="finish" id="finishCard" style="margin-top:var(--space-8)">
+        <p class="eyebrow">Session complete</p>
+        <h3>All twelve prayer points have been prayed</h3>
+        <p>Return thanks for the mercy of God, and record what He does. Mercy shall be built up for ever.</p>
+        <p class="amen">Amen.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p><strong>The Sure Mercies of God</strong> — Scriptures and the twelve prayer points are reproduced exactly as supplied by Prophet Prince Amo David, Dominion Hour. Focus Mode, tracking, and layout are presentation aids only; no wording has been added to or removed from the prayer points.</p>
+    <p>Scripture quotations from the King James Version. For Dominion Hour ministry use.</p>
+  </div>
+</footer>
+
+<!-- FOCUS MODE -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Focus prayer mode">
+  <div class="ov-top">
+    <span class="step" id="ovStep">Prayer point 1 of 12</span>
+    <span class="timer" id="ovTimer">00:00</span>
+    <button class="icon-btn" id="closeOv" aria-label="Close focus mode" style="margin-left:var(--space-4)">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+  </div>
+  <div class="bar"><i id="ovBar" style="width:8%"></i></div>
+  <div class="ov-body">
+    <div class="ov-card">
+      <div class="n" id="ovNum">1</div>
+      <p class="body" id="ovText"></p>
+      <p class="scrip" id="ovScrip"></p>
+    </div>
+  </div>
+  <div class="ov-foot">
+    <button class="btn btn-ghost" id="ovPrev">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg> Previous
+    </button>
+    <button class="btn btn-primary" id="ovNext">Prayed — next point
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+const POINTS = [
+  "Oh Lord of mercy: By your mercy hearken to my voice and give me testimonies, in the name of Jesus.",
+  "Oh Lord, by your mercy, my ladder of greatness shall not break, in the name of Jesus.",
+  "Anything planted in my life scaring my helpers away: Be destroyed by fire, in the name of Jesus.",
+  "My prayer altar receive fresh fire, in the name of Jesus.",
+  "Every evil cage that has refused to let me go: be destroyed by fire, in the name Jesus.",
+  "Every satanic violence set up against the mercy of God: Scatter by fire, in the name of Jesus.",
+  "Every power robbing me of the mercy and favor of God: Your time is over release me and die, in the name of Jesus.",
+  "By the mercy of God: I decree that the hand of the enemy shall not prevail over my life, in the name of Jesus.",
+  "You wicked power delaying the manifestation of my divine mercy and breakthrough: be destroyed in the name of Jesus.",
+  "Every enemy of my progress within and without: I've obtained the mercy of God therefore, die in shame in the name of Jesus.",
+  "By the mercy of God: I receive supernatural breakthroughs, in the name of Jesus.",
+  "Any wicked power delegated to waste my destiny, be wasted by fire, in the name of Jesus. Amen."
+];
+const SCRIPS = [
+  "Incline your ear, and come unto me: hear, and your soul shall live; and I will make an everlasting covenant with you, even the sure mercies of David. — Isaiah 55:3",
+  "I have said, Mercy shall be built up for ever: thy faithfulness shalt thou establish in the very heavens. — Psalm 89:2",
+  "So then it is not of him that willeth, nor of him that runneth, but of God that sheweth mercy. — Romans 9:16"
+];
+
+const done = new Array(POINTS.length).fill(false);
+let idx = 0, seconds = 0, tick = null;
+
+const CIRC = 2 * Math.PI * 58;
+const $ = id => document.getElementById(id);
+
+/* build list */
+const list = $('pointList');
+POINTS.forEach((t, i) => {
+  const row = document.createElement('article');
+  row.className = 'point';
+  row.id = 'pt' + i;
+  row.innerHTML =
+    '<div class="num">' + (i + 1) + '</div>' +
+    '<p class="txt"></p>' +
+    '<button class="mark" data-i="' + i + '"><span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M4 12.5 9 17.5 20 6.5"/></svg></span><span class="lbl">Mark prayed</span></button>';
+  row.querySelector('.txt').textContent = t;
+  list.appendChild(row);
+});
+
+list.addEventListener('click', e => {
+  const b = e.target.closest('.mark');
+  if (!b) return;
+  const i = +b.dataset.i;
+  done[i] = !done[i];
+  render();
+});
+
+function render() {
+  const n = done.filter(Boolean).length;
+  POINTS.forEach((_, i) => {
+    const el = $('pt' + i);
+    el.classList.toggle('done', done[i]);
+    el.querySelector('.lbl').textContent = done[i] ? 'Prayed' : 'Mark prayed';
+    el.querySelector('.mark').setAttribute('aria-pressed', done[i]);
+  });
+  $('ringNum').textContent = n + '/12';
+  $('ringFg').setAttribute('stroke-dashoffset', String(CIRC * (1 - n / POINTS.length)));
+  $('listCount').textContent = n + ' of 12 marked';
+  $('finishCard').classList.toggle('show', n === POINTS.length);
+  save();
+}
+
+/* focus mode */
+function openOv(start) {
+  idx = typeof start === 'number' ? start : Math.max(0, done.findIndex(v => !v));
+  if (idx < 0) idx = 0;
+  $('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  seconds = 0; clearInterval(tick);
+  tick = setInterval(() => {
+    seconds++;
+    const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+    const s = String(seconds % 60).padStart(2, '0');
+    $('ovTimer').textContent = m + ':' + s;
+  }, 1000);
+  $('ovTimer').textContent = '00:00';
+  paint();
+}
+function closeOv() {
+  $('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+  clearInterval(tick);
+}
+function paint() {
+  $('ovNum').textContent = 'Prayer point ' + (idx + 1);
+  $('ovStep').textContent = 'Prayer point ' + (idx + 1) + ' of ' + POINTS.length;
+  $('ovText').textContent = POINTS[idx];
+  $('ovScrip').textContent = SCRIPS[idx % SCRIPS.length];
+  $('ovBar').style.width = ((idx + 1) / POINTS.length * 100) + '%';
+  $('ovPrev').disabled = idx === 0;
+  $('ovPrev').style.opacity = idx === 0 ? .45 : 1;
+  $('ovNext').firstChild.textContent = idx === POINTS.length - 1 ? 'Prayed — finish ' : 'Prayed — next point ';
+}
+$('startBtn').onclick = () => openOv();
+$('closeOv').onclick = closeOv;
+$('ovPrev').onclick = () => { if (idx > 0) { idx--; paint(); } };
+$('ovNext').onclick = () => {
+  done[idx] = true; render();
+  if (idx < POINTS.length - 1) { idx++; paint(); }
+  else { closeOv(); $('points').scrollIntoView({ behavior: 'smooth' }); }
+};
+document.addEventListener('keydown', e => {
+  if (!$('overlay').classList.contains('open')) return;
+  if (e.key === 'Escape') closeOv();
+  if (e.key === 'ArrowRight') $('ovNext').click();
+  if (e.key === 'ArrowLeft') $('ovPrev').click();
+});
+
+$('resetBtn').onclick = () => { done.fill(false); render(); };
+$('printBtn').onclick = () => window.print();
+
+/* theme */
+const root = document.documentElement;
+function setTheme(t) {
+  root.setAttribute('data-theme', t);
+  $('iconSun').style.display = t === 'dark' ? 'none' : 'block';
+  $('iconMoon').style.display = t === 'dark' ? 'block' : 'none';
+}
+setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+$('themeBtn').onclick = () => setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+
+function save() { /* session-only progress */ }
+render();
+</script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

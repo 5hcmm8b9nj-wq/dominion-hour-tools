@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orphanage Fundraising Plan — L137 &amp; Dominion Hour</title>
+<style>
+  :root{
+    --navy:#1c2b45;
+    --gold:#a9782f;
+    --cream:#faf7f0;
+    --ink:#26262a;
+    --line:#e2dccd;
+    --green:#2f6b4f;
+    --red:#8c2f2f;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:Georgia,'Times New Roman',serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px 60px;}
+  header.hero{
+    background:var(--navy);
+    color:#fff;
+    padding:40px 20px 32px;
+    text-align:center;
+  }
+  header.hero h1{
+    font-size:1.6rem;
+    margin:0 0 8px;
+    line-height:1.3;
+  }
+  header.hero p.sub{
+    color:#cdd6e3;
+    font-size:0.95rem;
+    margin:0;
+    font-family:Helvetica,Arial,sans-serif;
+  }
+  .scripture{
+    background:#fff;
+    border-left:4px solid var(--gold);
+    padding:16px 18px;
+    margin:24px 0;
+    font-style:italic;
+    border-radius:2px;
+  }
+  .scripture cite{
+    display:block;
+    font-style:normal;
+    font-family:Helvetica,Arial,sans-serif;
+    font-size:0.82rem;
+    color:var(--gold);
+    margin-top:6px;
+  }
+  h2{
+    font-family:Helvetica,Arial,sans-serif;
+    color:var(--navy);
+    font-size:1.25rem;
+    border-bottom:2px solid var(--line);
+    padding-bottom:8px;
+    margin-top:42px;
+  }
+  h3{
+    font-family:Helvetica,Arial,sans-serif;
+    color:var(--navy);
+    font-size:1.05rem;
+    margin-top:26px;
+  }
+  p, li{font-size:1rem;}
+  a{color:var(--green);text-decoration:underline;}
+  .toc{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:16px 18px;
+    margin:24px 0;
+    font-family:Helvetica,Arial,sans-serif;
+    font-size:0.92rem;
+  }
+  .toc strong{color:var(--navy);}
+  .toc ol{margin:10px 0 0;padding-left:22px;}
+  .toc li{margin-bottom:5px;}
+  .card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:16px 18px;
+    margin:14px 0;
+  }
+  .card.works{border-left:5px solid var(--green);}
+  .card.avoid{border-left:5px solid var(--red);}
+  .card h4{
+    margin:0 0 6px;
+    font-family:Helvetica,Arial,sans-serif;
+    font-size:1rem;
+  }
+  .card.works h4{color:var(--green);}
+  .card.avoid h4{color:var(--red);}
+  .card p{margin:0 0 6px;}
+  .card .src{font-size:0.82rem;color:#6b6b6b;font-family:Helvetica,Arial,sans-serif;}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:16px 0;
+    font-family:Helvetica,Arial,sans-serif;
+    font-size:0.9rem;
+  }
+  th,td{
+    border:1px solid var(--line);
+    padding:9px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{background:var(--navy);color:#fff;}
+  tr:nth-child(even) td{background:#fbf9f3;}
+  .phase{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:16px 18px;
+    margin:14px 0;
+    position:relative;
+  }
+  .phase .tag{
+    display:inline-block;
+    background:var(--gold);
+    color:#fff;
+    font-family:Helvetica,Arial,sans-serif;
+    font-size:0.78rem;
+    padding:3px 10px;
+    border-radius:12px;
+    margin-bottom:8px;
+  }
+  .checklist{list-style:none;padding-left:0;}
+  .checklist li{
+    padding:8px 0 8px 30px;
+    position:relative;
+    border-bottom:1px solid var(--line);
+  }
+  .checklist li::before{
+    content:"☐";
+    position:absolute;
+    left:0;
+    color:var(--gold);
+    font-size:1.1rem;
+  }
+  .note{
+    background:#fdf6e8;
+    border:1px solid #ecd9a8;
+    border-radius:8px;
+    padding:14px 16px;
+    margin:16px 0;
+    font-size:0.94rem;
+  }
+  .note strong{color:var(--gold);}
+  .template{
+    background:#f4f6f2;
+    border:1px dashed #9fb39a;
+    border-radius:8px;
+    padding:14px 16px;
+    margin:14px 0;
+    font-family:Helvetica,Arial,sans-serif;
+    font-size:0.92rem;
+    white-space:pre-wrap;
+  }
+  footer{
+    margin-top:50px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    font-family:Helvetica,Arial,sans-serif;
+    font-size:0.8rem;
+    color:#7a7a7a;
+  }
+  footer a{color:#7a7a7a;}
+  .src-list{font-size:0.85rem;font-family:Helvetica,Arial,sans-serif;}
+  .src-list li{margin-bottom:6px;}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>Raising Money for the Orphanage<br>A Trust-First Plan for L137 &amp; Dominion Hour</h1>
+  <p class="sub">Prepared for review by Pastor Kiki Ocansey and Prophet Prince Amo David</p>
+</header>
+
+<div class="wrap">
+
+  <div class="scripture">
+    "Avoiding this, that no man should blame us in this abundance which is administered by us: Providing for honest things, not only in the sight of the Lord, but also in the sight of men."
+    <cite>2 Corinthians 8:20&ndash;21, KJV</cite>
+  </div>
+  <div class="scripture">
+    "Pure religion and undefiled before God and the Father is this, To visit the fatherless and widows in their affliction, and to keep himself unspotted from the world."
+    <cite>James 1:27, KJV</cite>
+  </div>
+
+  <div class="toc">
+    <strong>What is in this plan</strong>
+    <ol>
+      <li>The real problem (it is not lack of love — it is lack of proof)</li>
+      <li>Foundation work that must happen before any campaign</li>
+      <li>What actually works, with sources</li>
+      <li>What does not work — and what to stop doing immediately</li>
+      <li>Platforms to use (with real fee comparisons)</li>
+      <li>Protecting the children in every photo and story</li>
+      <li>A four-phase roadmap</li>
+      <li>Sample messaging you can adapt</li>
+      <li>Quick-start checklist</li>
+    </ol>
+  </div>
+
+  <h2 id="problem">1. The Real Problem</h2>
+  <p>The obstacle is not that American donors do not care about orphans. It is that American donors have been burned. Charity and disaster fraud is common enough that the FBI and the FTC both maintain public warning pages about fake pastors and fake charities collecting money that never reaches the people it claims to help (<a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-frauds-and-scams/charity-and-disaster-fraud" target="_blank">FBI</a>, <a href="https://consumer.ftc.gov/features/pass-it-on/charity-fraud" target="_blank">FTC</a>). The default posture of a cautious donor is not "no," it is "prove it."</p>
+  <p>Right now, from the outside, both ministries currently ask for giving mostly in the context of Kingdom offerings and service support — not a specific, itemized, verifiable orphanage need. That combination (spiritual language + no itemized proof) is exactly the pattern donors have learned to associate with scams, even when the ministry is completely legitimate. The fix is not to talk about the Kingdom less. It is to give the orphanage its own separate, transparent, provable identity that stands on its own two feet next to the ministry — not folded inside it.</p>
+
+  <h2 id="foundation">2. Foundation Work Before Any Campaign</h2>
+  <p>Skipping this step is the single biggest reason well-meaning ministry fundraisers fail to convert American donors. Do these four things first, even before a single flyer or video goes out.</p>
+
+  <h3>A. Separate the orphanage financially from general ministry offerings</h3>
+  <p>Money given "to the orphanage" should never sit in the same account as tithes, offerings, or service donations. Open a dedicated bank account (or dedicated sub-fund inside the church's account) used only for orphan care, and say so publicly. This single change removes the most common fraud red flag donors are trained to look for.</p>
+
+  <h3>B. Confirm legal registration in both countries</h3>
+  <table>
+    <tr><th>Ghana (Prophet Prince)</th><th>UK (Pastor Kiki)</th></tr>
+    <tr>
+      <td>Any residential home for children must be licensed with the Department of Social Welfare as an Approved Residential Home, and the organization itself registers as an NPO with the Registrar of Companies (<a href="https://npos.mogcsp.gov.gh/registration-and-licensing/" target="_blank">Ghana NPO registration</a>, <a href="https://www.mogcsp.gov.gh/?mdocs-file=2755" target="_blank">Ghana DSW licensing SOPs</a>).</td>
+      <td>A UK charity must register with the Charity Commission and get HMRC recognition to legally claim Gift Aid (worth an automatic 25% top-up on every UK donor's gift) (<a href="https://www.gov.uk/setting-up-charity" target="_blank">GOV.UK: Set up a charity</a>, <a href="https://www.gov.uk/charity-recognition-hmrc" target="_blank">GOV.UK: HMRC charity recognition</a>).</td>
+    </tr>
+  </table>
+  <p>For American donors specifically, gifts are not tax-deductible unless the money passes through a US 501(c)(3) or a fiscal sponsor. A fiscal sponsorship arrangement lets an established US nonprofit legally receive tax-deductible gifts on behalf of an international ministry project, which removes a real barrier for donors who want the tax receipt as proof the transaction was legitimate (<a href="https://www.infocusministries.org/resources/fiscal-sponsorship-guide" target="_blank">InFocus Ministries fiscal sponsorship guide</a>, <a href="https://www.irs.gov/newsroom/charitable-contributions" target="_blank">IRS on charitable contributions</a>).</p>
+
+  <h3>C. Add one independent set of eyes on the money</h3>
+  <p>A treasurer or small oversight committee — even just two or three trusted people who are not the pastor and do not live in the pastor's household — who review and can speak to how orphan-designated funds were spent. This is the single practice donor-trust research points to most consistently (<a href="https://www.mmbb.org/resources/e-newsletter/2025/october/10-proven-tips-for-church-financial-transparency-that-build-trust" target="_blank">MMBB: Church Financial Transparency</a>).</p>
+
+  <h3>D. Decide your care model and be honest about it</h3>
+  <div class="note">
+    <strong>Worth discussing with both pastors directly:</strong> global child-welfare research over the last two decades has shifted strongly away from large residential orphanages and toward family-based or foster-style care, because children raised in institutions show measurably worse outcomes than children in family settings (<a href="https://bettercarenetwork.org/sites/default/files/Families%20Not%20Orphanages_0.pdf" target="_blank">Better Care Network, "Families, Not Orphanages"</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10566118/" target="_blank">NIH: Global priority for the care of orphans</a>). This does not mean the current work is wrong — many church-run homes do excellent, loving work. It means that if the home can honestly describe itself as family-style care, kinship support, or transitional care rather than a large institutional dorm model, that language will land better with informed American donors and is also simply better for the children.
+  </div>
+
+  <h2 id="works">3. What Actually Works</h2>
+
+  <div class="card works">
+    <h4>Radical, specific financial transparency</h4>
+    <p>Publish simple, plain-language financial updates — not full audited statements necessarily, but a one-page "here is what came in, here is exactly what it bought" breakdown every quarter. Donors say financial transparency is the single strongest driver of trust in a charity (<a href="https://donationtransparency.org/guides/building-donor-trust/" target="_blank">Building Unshakeable Donor Trust</a>, <a href="https://www.bradymartz.com/financial-transparency-for-non-profits-best-practices-for-building-donor-trust/" target="_blank">Brady Martz: Financial Transparency for Nonprofits</a>).</p>
+    <p class="src">Also consider pursuing accreditation from the <a href="https://www.ecfa.org/content/standards" target="_blank">Evangelical Council for Financial Accountability (ECFA)</a> — a Christian-specific seal built on Seven Standards of Responsible Stewardship, drawn directly from Scripture, that American Christian donors specifically recognize and trust.</p>
+  </div>
+
+  <div class="card works">
+    <h4>Named, itemized needs instead of general appeals</h4>
+    <p>"Help the orphanage" raises little. "$45 covers school fees and lunch for one child for a full term" raises far more, because the donor can picture exactly where the money goes and measure the result. Break every ask into a real, priced line item (beds, a term of school fees, a month of food, a well repair, a mattress).</p>
+  </div>
+
+  <div class="card works">
+    <h4>Recurring monthly giving, not just one-time asks</h4>
+    <p>Recurring donors retain at more than double the rate of one-time donors, and roughly 79% of monthly donors continue giving year over year — meaning a small base of monthly givers eventually outperforms sporadic large asks (<a href="https://givebear.io/research/recurring-donation-statistics" target="_blank">Givebear: Recurring Donation Statistics</a>, <a href="https://betterworld.org/blog/nonprofits/recurring-donation-statistics-every-nonprofit-should-know-in-2026/" target="_blank">Betterworld: Recurring Donation Statistics 2026</a>).</p>
+  </div>
+
+  <div class="card works">
+    <h4>Proof-of-impact content, on a fixed schedule</h4>
+    <p>Short videos and photos (with children protected — see section 6) showing the actual use of funds: the new roof, the new mattresses, a meal being served. Consistency matters more than production quality — a donor who receives a short honest update every month trusts you more than one who receives one polished video per year.</p>
+  </div>
+
+  <div class="card works">
+    <h4>A trusted "anchor" or matching-gift launch</h4>
+    <p>Ask one known, credible individual or church partner to publicly match the first round of gifts dollar-for-dollar. Matching campaigns create urgency and borrow the anchor donor's credibility to reassure hesitant first-time givers.</p>
+  </div>
+
+  <div class="card works">
+    <h4>Dedicated giving platforms built for nonprofit transparency</h4>
+    <p>Use a platform that shows fee structure openly and issues automatic receipts, rather than a personal payment link. See the platform comparison in section 5.</p>
+  </div>
+
+  <div class="card works">
+    <h4>Let people visit or verify</h4>
+    <p>Even a simple statement — "any donor is welcome to schedule a video call with the home director" or "here is our registration number, you can verify it yourself" — signals confidence that a scam operation would never offer.</p>
+  </div>
+
+  <h2 id="avoid">4. What Does Not Work — Stop Doing This</h2>
+
+  <div class="card avoid">
+    <h4>Mixing "seed offering" language with the orphanage ask</h4>
+    <p>Prosperity-gospel-style seed offering appeals ("give this amount and receive this breakthrough") are exactly the pattern that has damaged trust in ministry giving broadly and is the language fraud-pastors are most associated with in public criticism. Keep the orphanage ask entirely separate from any "sow a seed for your miracle" framing — it should read like a nonprofit appeal, not a spiritual transaction.</p>
+  </div>
+
+  <div class="card avoid">
+    <h4>Vague, recurring, undocumented appeals</h4>
+    <p>Repeating "the orphanage needs help" service after service with no numbers, no photos, and no follow-up is the number one reason people stop giving — it reads as either disorganized or evasive, and donors cannot tell which.</p>
+  </div>
+
+  <div class="card avoid">
+    <h4>One person controlling all the money with no visible oversight</h4>
+    <p>Even if completely honest, a structure where only the senior pastor touches the funds is a structure that looks exactly like every fraud case in FBI and Secret Service charity-fraud warnings (<a href="https://www.secretservice.gov/sites/default/files/reports/2025-02/TLP-Clear-Alert-Tips-for-Avoiding-Charity-Scams-FINAL.pdf" target="_blank">US Secret Service: Tips for Avoiding Charity Scams</a>). This is the single easiest thing to fix and the single biggest trust unlock available.</p>
+  </div>
+
+  <div class="card avoid">
+    <h4>Cash-only or wire-transfer-only giving</h4>
+    <p>No receipt, no paper trail, no way to dispute or verify. Every legitimate charity fraud watchdog lists "insists on cash, gift cards, or wire transfer" as a top red flag (<a href="https://www.fbi.gov/how-we-can-help-you/scams-and-safety/common-frauds-and-scams/charity-and-disaster-fraud" target="_blank">FBI</a>). Use trackable digital giving platforms exclusively.</p>
+  </div>
+
+  <div class="card avoid">
+    <h4>Emotional, guilt-based, or pressure appeals</h4>
+    <p>"If you don't give, these children will suffer" framing pushes hesitant American donors further away rather than closer — it reads as manipulation, which is precisely the feeling scam victims report after being burned before.</p>
+  </div>
+
+  <div class="card avoid">
+    <h4>Using children's real names, faces close-up, or identifying details without consent</h4>
+    <p>Beyond the ethical and legal safeguarding problem (see section 6), this also damages credibility with informed donors who now recognize exploitative "poverty imagery" as a red flag rather than a trust signal (<a href="https://www.bond.org.uk/wp-content/uploads/2024/11/Digital_Ethical-Guidelines_FINAL.pdf" target="_blank">Bond: Ethical Guidelines for images of children</a>).</p>
+  </div>
+
+  <div class="card avoid">
+    <h4>Treating it as a one-time campaign instead of an ongoing program</h4>
+    <p>A single big push around Christmas that then goes quiet for eleven months signals instability. Donors who see nothing between asks assume the money already disappeared.</p>
+  </div>
+
+  <h2 id="platforms">5. Platforms to Use</h2>
+  <table>
+    <tr><th>Platform</th><th>Why it works here</th></tr>
+    <tr><td><a href="https://www.zeffy.com/" target="_blank">Zeffy</a></td><td>0% platform fee and 0% transaction fee for registered nonprofits — donors can optionally tip to cover costs, so 100% of the stated gift reaches the fund (<a href="https://www.zeffy.com/home/free-online-fundraising-platform" target="_blank">Zeffy pricing</a>). Strong choice once formally registered.</td></tr>
+    <tr><td><a href="https://givebutter.com/" target="_blank">Givebutter</a></td><td>Free core platform, transparent fee disclosure, built-in donation pages, receipts, and campaign progress bars that show real-time proof of what has come in.</td></tr>
+    <tr><td>PayPal Giving Fund</td><td>Routes donations through a registered charity account with automatic receipts; widely recognized and trusted by US donors.</td></tr>
+    <tr><td>Faith-specific platforms — <a href="https://www.hopegives.com/" target="_blank">HopeGives</a>, <a href="https://christiangiving.com/" target="_blank">ChristianGiving.com</a>, <a href="https://ergatas.org/learn/christian-crowdfunding" target="_blank">Ergatas</a></td><td>Built specifically for churches and missions, some free for missionaries, and already positioned as legitimate to a Christian donor base (<a href="https://sowfund.org/blogs/best-christian-fundraising-platforms-compared-2026" target="_blank">Sowfund: Christian Fundraising Platforms Compared</a>).</td></tr>
+    <tr><td>Personal GoFundMe page</td><td><strong>Avoid</strong> for the institutional orphanage ask. Personal crowdfunding pages read as informal and are the format most associated with one-off scams; use GoFundMe's verified charity/nonprofit product instead if used at all, never a personal page.</td></tr>
+  </table>
+
+  <h2 id="children">6. Protecting the Children in Every Story</h2>
+  <p>This section is as much about doing right by the children as it is about donor trust — the two happen to point in the same direction.</p>
+  <ul>
+    <li>Never publish a child's full real name alongside their photo and personal story together.</li>
+    <li>Get written or recorded parental/guardian or home-director consent before using any child's image, per UK fundraising code guidance that requires guardian permission to photograph and publish images of anyone under 16 (<a href="https://ciof.org.uk/library/resources/sharing-children-s-stories-in-fundraising-consent-safeguarding-and-best-practice/" target="_blank">Chartered Institute of Fundraising: Sharing Children's Stories</a>).</li>
+    <li>Avoid "poverty porn" imagery — close-ups of distress, hunger, or nakedness used to provoke pity rather than show dignity and progress (<a href="https://wwwfriise.cdn.triggerfish.cloud/uploads/2023/02/the-correct-image-of-me_a-guide-to-the-ethical-use-of-images-of-children-for-fundraising.pdf" target="_blank">"The Correct Image of Me": Ethical Use of Children's Images</a>).</li>
+    <li>Favor wide shots, group activities, and dignified everyday moments — a child studying, playing, eating a meal — over isolated, sorrowful close-ups.</li>
+  </ul>
+
+  <h2 id="roadmap">7. A Four-Phase Roadmap</h2>
+
+  <div class="phase">
+    <span class="tag">Phase 1 · Days 1–30 · Foundation</span>
+    <p>Open a dedicated bank account for orphan-care funds only. Confirm/complete Ghana DSW licensing and NPO registration; confirm/complete UK Charity Commission and HMRC Gift Aid registration. Identify two or three independent people willing to serve as an oversight/treasury committee. Write one simple document: mission, legal status, who is accountable, and how often financial updates will be published.</p>
+  </div>
+
+  <div class="phase">
+    <span class="tag">Phase 2 · Days 30–60 · Trust Infrastructure</span>
+    <p>Set up a giving page on a transparent platform (Zeffy or Givebutter to start), separate from the general ministry giving link. Publish the first transparency one-pager publicly. Take dignified, consent-cleared photos/video of the home and children's daily life. Draft an itemized needs list with real prices per item.</p>
+  </div>
+
+  <div class="phase">
+    <span class="tag">Phase 3 · Days 60–120 · Visibility Campaign</span>
+    <p>Launch with a matching-gift challenge from a known partner or donor. Release short, consistent update videos (monthly, not just at launch) on the ministries' existing YouTube/Clubhouse/social channels — as their own dedicated orphanage series, separate from sermon content. Invite the existing US congregation/diaspora network to be founding monthly sponsors.</p>
+  </div>
+
+  <div class="phase">
+    <span class="tag">Phase 4 · Ongoing · Sustaining Program</span>
+    <p>Publish a plain-language quarterly financial and photo update on a fixed schedule. Publish one simple annual report. Pursue ECFA or an equivalent accountability seal once financial history exists. Keep growing the monthly-sponsor base rather than relying on one-time appeals.</p>
+  </div>
+
+  <h2 id="templates">8. Sample Messaging You Can Adapt</h2>
+  <p>These are starting drafts to revise with each pastor's own voice — not scripted replacements for their words.</p>
+
+  <h3>Specific-need appeal (not a general ask)</h3>
+  <div class="template">This month, [Home Name] in [City] needs new mattresses for 12 children — $35 each, $420 total.
+
+Every dollar given here goes only to this home, tracked separately from our ministry offerings. You'll receive a receipt, and we'll show you exactly what was purchased once it's done.
+
+Give here: [link]
+Registration/reference: [Ghana NPO / UK charity number]</div>
+
+  <h3>Monthly update (send whether or not you raised much)</h3>
+  <div class="template">Orphanage Update — [Month]
+
+In: $[amount] from [number] givers
+Out: $[amount] on [specific items — school fees, food, repairs]
+Photo/video of the update: [link]
+
+Thank you for standing with these children. Next month's need: [item + price].</div>
+
+  <h3>Founding monthly sponsor invitation</h3>
+  <div class="template">We're inviting a small group of founding monthly partners for [Home Name].
+
+$25/month provides [specific, concrete outcome — e.g. one child's meals for a month].
+You'll get a short update every quarter showing exactly what your giving supported.
+
+No pressure, no "seed for a miracle" language — just an honest partnership in caring for these children.
+
+Become a founding partner: [link]</div>
+
+  <h2 id="checklist">9. Quick-Start Checklist</h2>
+  <ul class="checklist">
+    <li>Open a bank account/fund used only for orphan care, separate from tithes and offerings</li>
+    <li>Confirm Ghana DSW licensing and NPO registration are current</li>
+    <li>Confirm UK Charity Commission registration and HMRC Gift Aid recognition are current</li>
+    <li>Explore a US fiscal sponsor so American gifts are tax-deductible</li>
+    <li>Name two or three independent people to oversee and speak to how funds were spent</li>
+    <li>Set up a dedicated giving page (Zeffy or Givebutter) separate from the general ministry link</li>
+    <li>Write and publish a one-page transparency statement (mission, legal status, accountability, reporting schedule)</li>
+    <li>Get consent for every photo/video of a child before it is ever published</li>
+    <li>Build a priced, itemized needs list instead of a general ask</li>
+    <li>Launch with one matching-gift partner to anchor donor confidence</li>
+    <li>Commit to a fixed update schedule (at minimum, quarterly) and keep it even in quiet months</li>
+    <li>Revisit ECFA accreditation once a financial track record exists</li>
+  </ul>
+
+  <footer>
+    <p>Prepared as a working strategy document for internal ministry review. All Scripture quoted in full from the King James Version. Sources cited throughout with direct links; verify current registration requirements directly with Ghana's Department of Social Welfare and the UK Charity Commission before publishing, as regulations are updated periodically.</p>
+  </footer>
+
+</div>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en" data-theme="day">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Holy Spirit Anointing | Dominion Hour with Prophet Prince Amo David</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="rays" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><span class="mark">D</span><span><b>DOMINION HOUR</b><i>with Prophet Prince Amo David</i></span></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#teaching">Teaching</a><a href="#declare">Declare</a><a href="#study">Study</a><a href="#download">Download</a>
+    </nav>
+    <div class="prog" id="prog">
+      <button class="ring" id="progBtn" aria-expanded="false" aria-controls="progInfo" aria-label="Study progress. Show what counts">
+        <svg viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle class="rt" cx="22" cy="22" r="18"/><circle class="rf" id="ringFill" cx="22" cy="22" r="18"/></svg>
+        <span class="pct" id="progPct">0%</span>
+      </button>
+      <span class="ptext" id="progText">0 of 15 activities</span>
+      <button class="restart" id="restartBtn">Start Over</button>
+      <div class="prog-info" id="progInfo" hidden>
+        <b>What counts toward progress</b>
+        <p>15 study activities, saved on this device:</p>
+        <ul id="progList"></ul>
+        <p class="small">Listening and personal notes do not count toward progress.</p>
+      </div>
+    </div>
+    <button id="themeBtn" class="theme" aria-label="Switch to night">
+      <svg class="sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg>
+      <svg class="moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="currentColor"/></svg>
+      <span class="theme-label">Day</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-img"><img src="assets/img/hero.jpg" alt="Golden oil poured beneath rays of heavenly light"></div>
+    <div class="wrap hero-in">
+      <p class="eyebrow">A DOMINION HOUR TEACHING PACK</p>
+      <h1 class="display">THE HOLY SPIRIT<br>ANOINTING</h1>
+      <p class="sub" id="heroSub"></p>
+      <p class="by">A teaching from Dominion Hour with Prophet Prince Amo David<br><span id="heroDate"></span> · KJV throughout</p>
+      <p class="approval" id="heroApproval"></p>
+      <div class="cta">
+        <a class="btn gold" href="#teaching">Begin Reading</a>
+        <button class="btn ghost" data-play="welcome">▶ Listen <small>(automated reading)</small></button>
+        <a class="btn ghost" href="#download">Download PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap narrow sec">
+    <p class="kicker">HOW TO READ THIS TEACHING</p>
+    <h2>What Each Label Means</h2>
+    <div class="orn">❦</div>
+    <div class="labels" id="labels"></div>
+    <div class="callout note"><span class="chip ed">About the source</span><p id="sourceNote"></p><p id="audioNote"></p></div>
+    <p class="summary" id="summary"></p>
+  </section>
+
+  <section class="wrap narrow sec">
+    <p class="kicker">ANCHOR</p>
+    <h2>Anchor Scripture</h2>
+    <div class="orn">❦</div>
+    <div id="anchor"></div>
+    <p id="corporate"></p>
+  </section>
+
+  <section id="teaching" class="wrap sec">
+    <p class="kicker center">PART I</p>
+    <h2 class="center">The Teaching</h2>
+    <p class="center muted">Six chapters. Tap any chapter to open it.</p>
+    <div class="orn">❦</div>
+    <div id="chapters" class="chapters"></div>
+  </section>
+
+  <section id="declare" class="band">
+    <div class="wrap narrow sec">
+      <p class="kicker">PART II</p>
+      <h2>Declarations from the Service</h2>
+      <div class="orn">❦</div>
+      <p><span class="chip qt">❝ Quoted in the Service</span></p>
+      <p class="muted" id="declIntro"></p>
+      <div id="decls"></div>
+      <div class="row"><button class="btn gold" data-play="declarations">▶ Listen &amp; Declare</button><span class="muted small">Automated reading of the study notes</span></div>
+      <div id="phil"></div>
+      <div class="callout note"><span class="chip ed">✎ Editor’s Note</span><p id="declNote"></p></div>
+      <p><span class="chip mint">⚑ Ministry Interpretation</span></p>
+      <h3>Prayer Focus from the Service</h3>
+      <ol id="prayer" class="gold-list"></ol>
+    </div>
+  </section>
+
+  <section class="wrap narrow sec">
+    <p class="kicker">BIBLICAL MODELS</p>
+    <h2>Characters in This Teaching</h2>
+    <div class="orn">❦</div>
+    <div id="chars" class="chars"></div>
+  </section>
+
+  <section class="wrap narrow sec" id="week">
+    <p class="kicker"><span class="chip ed">✎ Editor’s Note</span></p>
+    <h2 id="planTitle">Suggested Seven-Day Study Plan</h2>
+    <div class="orn">❦</div>
+    <p id="planNote"></p>
+    <div class="row"><button class="btn ghost" data-play="next-steps">▶ Listen to the Next Steps</button><span class="muted small">Automated reading of the study notes</span></div>
+    <div id="days" class="days"></div>
+    <p class="muted small" id="dayCount"></p>
+  </section>
+
+  <section id="study" class="band">
+    <div class="wrap sec">
+      <p class="kicker center">PART III</p>
+      <h2 class="center">Study</h2>
+      <div class="orn">❦</div>
+      <p class="center muted small"><span class="chip ed">✎ Editor’s Note</span> Flashcards and quiz were prepared by the editor from the service record.</p>
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-tab="flash">Flashcards</button>
+        <button role="tab" aria-selected="false" data-tab="quiz">Quiz</button>
+        <button role="tab" aria-selected="false" data-tab="scripture">Scripture</button>
+        <button role="tab" aria-selected="false" data-tab="notes">Notes</button>
+      </div>
+      <div class="tabpanel" id="tab-flash">
+        <div class="flash" id="flashCard" tabindex="0" role="button" aria-label="Flip card"><div class="face front"></div><div class="face back"></div></div>
+        <div class="row center"><button class="btn ghost" id="fPrev">← Previous</button><span id="fCount" class="muted"></span><button class="btn ghost" id="fNext">Next →</button></div>
+        <p class="center muted small">Tap the card to see the answer.</p>
+      </div>
+      <div class="tabpanel" id="tab-quiz" hidden><div id="quiz"></div><div class="row center"><button class="btn gold" id="quizCheck">Check answers</button><button class="btn ghost" id="quizReset">Reset</button></div><p id="quizScore" class="center score"></p></div>
+      <div class="tabpanel" id="tab-scripture" hidden><div id="scrList"></div></div>
+      <div class="tabpanel" id="tab-notes" hidden><label for="notes" class="muted small">Your notes stay on this device. Start Over does not delete them.</label><textarea id="notes" rows="10"></textarea><div class="row"><button class="btn ghost" id="delNotes">Delete notes</button></div></div>
+    </div>
+  </section>
+
+  <section id="download" class="wrap narrow sec">
+    <p class="kicker">DOWNLOAD</p>
+    <h2>Download the Pack</h2>
+    <div class="orn">❦</div>
+    <div id="downloads" class="downloads"></div>
+  </section>
+
+  <section class="wrap narrow sec closing">
+    <p class="kicker">CLOSING CHARGE</p>
+    <h2>Draw From the Wells of Salvation</h2>
+    <div class="orn">❦</div>
+    <div id="anchor2"></div>
+    <div id="decls2"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="display">DOMINION HOUR WITH PROPHET PRINCE AMO DAVID</p>
+    <p id="footDate"></p>
+    <p class="approval" id="footApproval"></p>
+    <p>All Scripture in this teaching is quoted from the Authorized King James Version.</p>
+    <p class="small">Free personal, family, and small-group ministry use is welcomed. Nothing may be reproduced for commercial use without ministry consent.</p>
+  </div>
+</footer>
+
+<div class="player" id="player" hidden>
+  <div class="wrap player-in">
+    <div class="ptitle"><span class="kicker">NOW PLAYING · AUTOMATED READING, NOT THE SERVICE RECORDING</span><b id="pName"></b></div>
+    <div class="pctl">
+      <button id="pPlay" class="pbtn" aria-label="Play">▶</button>
+      <button id="pPause" class="pbtn" aria-label="Pause">❚❚</button>
+      <button id="pStop" class="pbtn" aria-label="Stop">■</button>
+    </div>
+    <div class="pbar"><input id="pSeek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek"><span id="pTime">0:00</span></div>
+  </div>
+</div>
+<div class="modal" id="confirmBox" hidden role="dialog" aria-modal="true" aria-labelledby="cTitle">
+  <div class="modal-card">
+    <h3 id="cTitle"></h3>
+    <p id="cBody"></p>
+    <div class="row"><button class="btn ghost" id="cCancel">Cancel</button><button class="btn gold" id="cOk"></button></div>
+  </div>
+</div>
+<audio id="audio" preload="none"></audio>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  const DEFAULT_LINE_HEIGHT = 16;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  const PICK_CAPABILITIES = ["pick"];
+  const PICK_CHAIN_LENGTH = 4;
+  const PICK_MAX_TEXT_CHARS = 120;
+  const PICK_MAX_HTML_CHARS = 300;
+
+  function truncate(value, maxChars) {
+    return value.length > maxChars ? value.slice(0, maxChars - 1) + "…" : value;
+  }
+
+  function isPickableElement(element) {
+    return (
+      element instanceof Element &&
+      element !== document.documentElement &&
+      element !== document.body
+    );
+  }
+
+  function resolvePickTarget(x, y) {
+    if (!Number.isFinite(x) || !Number.isFinite(y)) return null;
+    const element = document.elementFromPoint(x, y);
+    return isPickableElement(element) ? element.closest("svg") || element : null;
+  }
+
+  function pickLabel(element) {
+    if (element.id) return element.localName + "#" + element.id;
+    return [element.localName].concat(Array.from(element.classList).slice(0, 2)).join(".");
+  }
+
+  // Only attributes that help find the element in source. data-* values and URL
+  // query strings or fragments can carry tokens.
+  const PICK_ATTRIBUTES = new Set([
+    "id",
+    "class",
+    "name",
+    "type",
+    "role",
+    "alt",
+    "aria-label",
+    "href",
+    "src",
+  ]);
+
+  function pickAttributeValue(attribute) {
+    return attribute.name === "href" || attribute.name === "src"
+      ? attribute.value.split(/[?#]/)[0]
+      : attribute.value;
+  }
+
+  function describePickElement(element) {
+    const chain = [];
+    for (
+      let current = element;
+      isPickableElement(current) && chain.length < PICK_CHAIN_LENGTH;
+      current = current.parentElement
+    ) {
+      chain.unshift(current);
+    }
+    const attributes = Array.from(element.attributes)
+      .filter((attribute) => PICK_ATTRIBUTES.has(attribute.name))
+      .map((attribute) => ` ${attribute.name}="${pickAttributeValue(attribute).replace(/"/g, "&quot;")}"`)
+      .join("");
+    const text = (element.innerText || element.textContent || "").replace(/\s+/g, " ").trim();
+    return {
+      chain: chain.map(pickLabel),
+      html: truncate(`<${element.localName}${attributes}>`, PICK_MAX_HTML_CHARS),
+      text: text ? truncate(text, PICK_MAX_TEXT_CHARS) : undefined,
+    };
+  }
+
+  // Hover asks once per frame, and innerText on a large section forces layout,
+  // so only the rect is re-read while the pointer stays on the same element.
+  // Clicks ask for fresh details since the page may have changed the element.
+  let lastPick = null;
+
+  function describePickTarget(element, fresh) {
+    if (fresh || lastPick?.element !== element) {
+      lastPick = { element, details: describePickElement(element) };
+    }
+    const rect = element.getBoundingClientRect();
+    return {
+      rect: { x: rect.left, y: rect.top, width: rect.width, height: rect.height },
+      ...lastPick.details,
+    };
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+      capabilities: PICK_CAPABILITIES,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_PICK") {
+      const element = resolvePickTarget(event.data.x, event.data.y);
+      postToTrustedTop({
+        type: "INLINE_EDIT_PICK_RESULT",
+        seq: event.data.seq,
+        target: element ? describePickTarget(element, event.data.fresh === true) : null,
+      });
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_BY") {
+      const { deltaX, deltaY, deltaMode } = event.data;
+      if (!scrollForwarding || !Number.isFinite(deltaX) || !Number.isFinite(deltaY)) return;
+      if (deltaMode !== 0 && deltaMode !== 1 && deltaMode !== 2) return;
+      const lineHeight =
+        parseFloat(getComputedStyle(document.documentElement).lineHeight) || DEFAULT_LINE_HEIGHT;
+      const scaleX = deltaMode === 1 ? lineHeight : deltaMode === 2 ? window.innerWidth : 1;
+      const scaleY = deltaMode === 1 ? lineHeight : deltaMode === 2 ? window.innerHeight : 1;
+      // The selection overlay receives the wheel event instead of this iframe.
+      // Instant scrolling preserves trackpad deltas even on smooth-scroll sites.
+      window.scrollBy({ left: deltaX * scaleX, top: deltaY * scaleY, behavior: "instant" });
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

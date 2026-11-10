@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bewitchment Must Die — Dominion Hour</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1512;
+  --parchment:#faf6ed;
+  --cream:#f4ecd8;
+  --gold:#c19a2b;
+  --gold-light:#e7c965;
+  /* teaching color codes */
+  --c-scripture:#0f5b5f;      /* teal — SCRIPTURE */
+  --c-scripture-bg:#e6f0f0;
+  --c-teaching:#6e2f5a;       /* plum — TEACHING */
+  --c-teaching-bg:#f2e6ec;
+  --c-declaration:#c24a16;    /* ember — DECLARATION */
+  --c-declaration-bg:#fbe8dc;
+  --c-prayer:#4f7a2e;         /* green — PRAYER */
+  --c-prayer-bg:#e8f0dc;
+  --c-direction:#1e3a8a;      /* deep blue — PROPHETIC DIRECTION */
+  --c-direction-bg:#e0e7f5;
+  --c-warning:#8b1a1a;        /* crimson — ENEMY / BEWITCHMENT DEFINED */
+  --c-warning-bg:#f8e0e0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--parchment);color:var(--ink);line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:700;line-height:1.15}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1a1512 0%,#3d1f2f 50%,#6e2f5a 100%);color:#faf6ed;padding:80px 24px 60px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 40%,rgba(231,201,101,0.15),transparent 50%),radial-gradient(circle at 80% 70%,rgba(194,74,22,0.12),transparent 50%)}
+.hero-content{position:relative;text-align:center}
+.hero .kicker{display:inline-block;font-size:12px;letter-spacing:.35em;font-weight:700;text-transform:uppercase;color:var(--gold-light);padding:8px 20px;border:1px solid var(--gold);border-radius:24px;margin-bottom:24px}
+.hero h1{font-size:clamp(48px,8vw,88px);color:#fff;margin-bottom:16px;letter-spacing:-.02em}
+.hero .verse{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;max-width:640px;margin:0 auto 28px;color:#f4ecd8;line-height:1.5}
+.hero .attr{font-size:14px;color:#c19a2b;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
+.hero .date{font-size:13px;color:#a89680;margin-top:6px}
+.cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:36px}
+.btn{display:inline-block;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;letter-spacing:.05em;transition:transform .15s,box-shadow .15s;text-transform:uppercase}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.btn-primary{background:var(--gold);color:#1a1512}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+
+/* COLOR KEY */
+.color-key{background:#fff;padding:32px 24px;border-bottom:1px solid #e5dcc4}
+.key-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;max-width:1000px;margin:0 auto}
+.key-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;background:var(--parchment)}
+.key-dot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.key-label{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+
+/* MODULE NAV */
+.nav-tabs{position:sticky;top:0;background:var(--parchment);border-bottom:1px solid #e5dcc4;padding:16px 0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.nav-tabs-inner{display:flex;gap:8px;overflow-x:auto;padding:0 24px;max-width:1100px;margin:0 auto;scrollbar-width:thin}
+.nav-tab{white-space:nowrap;padding:8px 16px;border-radius:20px;background:#fff;border:1px solid #e5dcc4;cursor:pointer;font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;transition:all .2s}
+.nav-tab:hover{background:var(--cream)}
+.nav-tab.active{background:var(--ink);color:#faf6ed;border-color:var(--ink)}
+
+/* SECTIONS */
+section.module{padding:60px 24px;scroll-margin-top:80px}
+section.module:nth-of-type(even){background:#fff}
+.module-header{max-width:1000px;margin:0 auto 32px}
+.module-num{display:inline-block;font-size:11px;letter-spacing:.35em;font-weight:800;text-transform:uppercase;padding:6px 12px;border-radius:4px;color:#fff}
+.module-header h2{font-size:clamp(32px,5vw,52px);margin-top:16px;margin-bottom:8px}
+.module-header p{font-size:16px;color:#5a4d3f;max-width:640px}
+
+/* CARDS - color-coded content */
+.card{max-width:1000px;margin:0 auto 20px;padding:24px 28px;border-radius:12px;border-left:6px solid;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.card-label{font-size:10px;font-weight:800;letter-spacing:.25em;text-transform:uppercase;margin-bottom:10px}
+.card-body{font-size:16px;line-height:1.7}
+.card-body p+p{margin-top:14px}
+.card.scripture{border-color:var(--c-scripture);background:var(--c-scripture-bg)}
+.card.scripture .card-label{color:var(--c-scripture)}
+.card.scripture .card-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#0a3d40}
+.card.teaching{border-color:var(--c-teaching);background:var(--c-teaching-bg)}
+.card.teaching .card-label{color:var(--c-teaching)}
+.card.warning{border-color:var(--c-warning);background:var(--c-warning-bg)}
+.card.warning .card-label{color:var(--c-warning)}
+.card.direction{border-color:var(--c-direction);background:var(--c-direction-bg)}
+.card.direction .card-label{color:var(--c-direction)}
+
+/* HIGHLIGHT REFERENCE BADGE */
+.ref{display:inline-block;background:var(--c-scripture);color:#fff;padding:3px 10px;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:.05em}
+
+/* WHAT-IS diagram */
+.diagram{max-width:1000px;margin:32px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.diag-tile{padding:24px;border-radius:12px;text-align:center;color:#fff;position:relative;overflow:hidden}
+.diag-tile h4{font-size:20px;margin-bottom:8px;color:#fff}
+.diag-tile p{font-size:14px;opacity:.9}
+.diag-tile.t1{background:linear-gradient(135deg,#8b1a1a,#6e2f5a)}
+.diag-tile.t2{background:linear-gradient(135deg,#6e2f5a,#3d1f2f)}
+.diag-tile.t3{background:linear-gradient(135deg,#c24a16,#8b1a1a)}
+.diag-tile.t4{background:linear-gradient(135deg,#3d1f2f,#1a1512)}
+
+/* DECLARATION CARDS */
+.decl-grid{max-width:1000px;margin:0 auto;display:grid;gap:14px}
+.decl{background:#fff;border-left:6px solid var(--c-declaration);padding:20px 24px;border-radius:8px;position:relative;transition:transform .15s,box-shadow .15s;cursor:pointer}
+.decl:hover{transform:translateX(4px);box-shadow:0 4px 16px rgba(194,74,22,.15)}
+.decl-num{position:absolute;top:-10px;left:20px;background:var(--c-declaration);color:#fff;font-weight:800;font-size:12px;padding:4px 10px;border-radius:12px;letter-spacing:.05em}
+.decl-text{font-family:'Cormorant Garamond',serif;font-size:19px;line-height:1.5;color:var(--ink);padding-top:6px}
+.decl.done{opacity:.55}
+.decl.done .decl-text{text-decoration:line-through}
+.decl-check{position:absolute;top:20px;right:20px;width:24px;height:24px;border-radius:50%;border:2px solid var(--c-declaration);display:flex;align-items:center;justify-content:center;background:#fff;font-size:14px;color:transparent;font-weight:800}
+.decl.done .decl-check{background:var(--c-declaration);color:#fff}
+
+/* PRAYER TIMELINE */
+.timeline{max-width:1000px;margin:0 auto;position:relative;padding-left:32px}
+.timeline::before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--c-prayer)}
+.tl-step{position:relative;margin-bottom:24px;background:#fff;padding:20px 24px;border-radius:8px;border-left:4px solid var(--c-prayer)}
+.tl-step::before{content:"";position:absolute;left:-30px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--c-prayer);border:3px solid var(--parchment)}
+.tl-step h4{font-size:20px;margin-bottom:8px;color:var(--c-prayer)}
+.tl-step p{font-size:15px;color:#3d2f22}
+.tl-num{display:inline-block;font-size:11px;background:var(--c-prayer);color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;letter-spacing:.1em;margin-bottom:8px}
+
+/* KNOWLEDGE CHECK */
+.quiz{max-width:800px;margin:0 auto;background:#fff;padding:32px;border-radius:12px;border:2px solid var(--gold)}
+.quiz h3{font-size:24px;margin-bottom:20px}
+.q{margin-bottom:24px;padding-bottom:20px;border-bottom:1px dashed #e5dcc4}
+.q:last-child{border-bottom:none}
+.q-text{font-weight:600;margin-bottom:12px;font-size:16px}
+.q-opts{display:flex;flex-direction:column;gap:8px}
+.q-opt{padding:10px 14px;border:1.5px solid #e5dcc4;border-radius:6px;cursor:pointer;font-size:14px;transition:all .15s}
+.q-opt:hover{background:var(--cream)}
+.q-opt.selected{border-color:var(--gold);background:var(--cream)}
+.q-opt.correct{border-color:var(--c-prayer);background:var(--c-prayer-bg);font-weight:600}
+.q-opt.wrong{border-color:var(--c-warning);background:var(--c-warning-bg);opacity:.7}
+.q-explain{margin-top:10px;padding:12px 16px;background:var(--c-scripture-bg);border-left:3px solid var(--c-scripture);border-radius:4px;font-size:14px;display:none;font-style:italic}
+.q-explain.show{display:block}
+
+/* FLOW DIAGRAM (Prophetic Direction) */
+.flow{max-width:1000px;margin:32px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.flow-step{background:#fff;border:2px solid var(--c-direction);padding:20px;border-radius:12px;text-align:center;position:relative}
+.flow-step .fnum{background:var(--c-direction);color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;margin:0 auto 12px}
+.flow-step h5{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--c-direction);margin-bottom:8px}
+.flow-step p{font-size:13px;color:#3d2f22}
+
+/* PROGRESS DASH */
+.progress{position:fixed;bottom:20px;right:20px;background:#fff;padding:12px 16px;border-radius:24px;box-shadow:0 4px 16px rgba(0,0,0,.15);display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;z-index:200}
+.progress-bar{width:100px;height:8px;background:var(--cream);border-radius:4px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--c-declaration),var(--gold));width:0%;transition:width .3s}
+
+/* FOOTER */
+footer{background:#1a1512;color:#a89680;padding:48px 24px;text-align:center}
+footer h4{color:var(--gold);font-size:22px;margin-bottom:12px}
+footer p{font-size:14px;line-height:1.8}
+footer .verse-close{font-family:'Cormorant Garamond',serif;font-style:italic;color:#f4ecd8;font-size:18px;margin:20px auto;max-width:600px}
+
+/* PILL LEGEND */
+.pill{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+@media (max-width:640px){
+  .hero{padding:60px 20px 40px}
+  section.module{padding:40px 20px}
+  .card{padding:20px}
+  .decl-text{font-size:16px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content container">
+    <span class="kicker">Dominion Hour Interactive Study</span>
+    <h1>Bewitchment<br>Must Die</h1>
+    <p class="verse">"Surely there is no enchantment against Jacob, neither is there any divination against Israel: according to this time it shall be said of Jacob and of Israel, What hath God wrought!"<br><span style="color:var(--gold-light);font-style:normal;font-size:14px;letter-spacing:.1em">— NUMBERS 23:23 (KJV)</span></p>
+    <div class="attr">Prophet Prince Amo David</div>
+    <div class="date">Clubhouse Service · August 18, 2026</div>
+    <div class="cta-row">
+      <a href="#module-1" class="btn btn-primary">Begin the Study</a>
+      <a href="#directions" class="btn btn-ghost">Prophetic Direction</a>
+    </div>
+  </div>
+</header>
+
+<!-- COLOR KEY -->
+<section class="color-key">
+  <div class="container" style="text-align:center;margin-bottom:16px">
+    <h3 style="font-size:20px;color:var(--ink)">Color Key — Every Color Teaches Something Different</h3>
+  </div>
+  <div class="key-grid">
+    <div class="key-item"><span class="key-dot" style="background:var(--c-scripture)"></span><span class="key-label" style="color:var(--c-scripture)">Scripture (KJV)</span></div>
+    <div class="key-item"><span class="key-dot" style="background:var(--c-teaching)"></span><span class="key-label" style="color:var(--c-teaching)">Teaching</span></div>
+    <div class="key-item"><span class="key-dot" style="background:var(--c-warning)"></span><span class="key-label" style="color:var(--c-warning)">The Enemy</span></div>
+    <div class="key-item"><span class="key-dot" style="background:var(--c-declaration)"></span><span class="key-label" style="color:var(--c-declaration)">Declaration</span></div>
+    <div class="key-item"><span class="key-dot" style="background:var(--c-prayer)"></span><span class="key-label" style="color:var(--c-prayer)">Prayer Flow</span></div>
+    <div class="key-item"><span class="key-dot" style="background:var(--c-direction)"></span><span class="key-label" style="color:var(--c-direction)">Direction</span></div>
+  </div>
+</section>
+
+<!-- NAV -->
+<nav class="nav-tabs">
+  <div class="nav-tabs-inner">
+    <a href="#module-1" class="nav-tab">① Praise & Thanksgiving</a>
+    <a href="#module-2" class="nav-tab">② Confession & Cleansing</a>
+    <a href="#module-3" class="nav-tab">③ Holy Ghost Fire</a>
+    <a href="#module-4" class="nav-tab">④ What is Bewitchment</a>
+    <a href="#module-5" class="nav-tab">⑤ Scriptural Foundation</a>
+    <a href="#declarations" class="nav-tab">⑥ 29 Declarations</a>
+    <a href="#directions" class="nav-tab">⑦ Anointing Direction</a>
+    <a href="#quiz" class="nav-tab">⑧ Knowledge Check</a>
+  </div>
+</nav>
+
+<!-- MODULE 1 -->
+<section class="module" id="module-1">
+  <div class="module-header">
+    <span class="module-num" style="background:var(--c-prayer)">Module 01 · Praise & Thanksgiving</span>
+    <h2>Begin at His Gates</h2>
+    <p>Every deliverance service opens with worship. We do not rush to warfare — we first ascend His hill with thanksgiving.</p>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-label">📖 Scripture — Psalm 95:1–6 (KJV)</div>
+    <div class="card-body">
+      <p>"O come, let us sing unto the LORD: let us make a joyful noise to the rock of our salvation. Let us come before his presence with thanksgiving, and make a joyful noise unto him with psalms. For the LORD is a great God, and a great King above all gods. In his hand are the deep places of the earth: the strength of the hills is his also. The sea is his, and he made it: and his hands formed the dry land. O come, let us worship and bow down: let us kneel before the LORD our maker."</p>
+    </div>
+  </div>
+
+  <div class="card teaching">
+    <div class="card-label">✦ Teaching</div>
+    <div class="card-body">
+      <p>The Lord deserves our thanksgiving. He shares glory with no man. So we come to worship — the Almighty, the Immortal, the Invisible, the Ancient of Days, the Rock of Ages.</p>
+      <p><strong>Thank Him for:</strong> the gift of life, His protection, His provision, His preservation, watching over your steps, and His Word — <em>"Thy word is a lamp unto my feet, and a light unto my path."</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 2 -->
+<section class="module" id="module-2">
+  <div class="module-header">
+    <span class="module-num" style="background:var(--c-scripture)">Module 02 · Confession & Cleansing</span>
+    <h2>Silence the Accuser</h2>
+    <p>Before we command anything on the enemy's side, we plead the blood over our own hearts. The mouth of the accuser is closed by the blood.</p>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-label">📖 Scripture — Revelation 12:10–11 (KJV)</div>
+    <div class="card-body">
+      <p>"And I heard a loud voice saying in heaven, Now is come salvation, and strength, and the kingdom of our God, and the power of his Christ: for the accuser of our brethren is cast down, which accused them before our God day and night. And they overcame him by the blood of the Lamb, and by the word of their testimony; and they loved not their lives unto the death."</p>
+    </div>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-label">📖 Scripture — 1 John 1:8–9 (KJV)</div>
+    <div class="card-body">
+      <p>"If we say that we have no sin, we deceive ourselves, and the truth is not in us. If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness."</p>
+    </div>
+  </div>
+
+  <div class="card teaching">
+    <div class="card-label">✦ Practice</div>
+    <div class="card-body">
+      <p>Plead the blood. Ask the Lord to sanctify, wash, and make you whole again. Let the blood silence the voice of the accuser — the one that accuses day and night before the throne. Bind every negative presence, every negative energy that has entered your garden. Consume every spell through the fire.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 3 -->
+<section class="module" id="module-3">
+  <div class="module-header">
+    <span class="module-num" style="background:var(--c-declaration)">Module 03 · Invocation of the Holy Ghost</span>
+    <h2>Fire on the Altar</h2>
+    <p>Warfare against invisible power requires a superior invisible power. The Holy Ghost is not optional — He is the fire.</p>
+  </div>
+
+  <div class="card teaching">
+    <div class="card-label">✦ Prophet Prince Teaches</div>
+    <div class="card-body">
+      <p>"And they were all filled with the Holy Ghost." May the Spirit of God give us utterance. May the Holy Ghost empower us. May our prayer be backed by the fire of the Holy Ghost.</p>
+      <p>In your father's house, in your mother's house — <strong>we set them on fire</strong>, as we declare your permanent deliverance. May the Lord give you an upper-hand victory over witchcraft through the power of the Holy Spirit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 4 -->
+<section class="module" id="module-4">
+  <div class="module-header">
+    <span class="module-num" style="background:var(--c-warning)">Module 04 · What Is Bewitchment?</span>
+    <h2>Naming the Enemy</h2>
+    <p>You cannot destroy what you cannot define. Bewitchment operates because it stays hidden.</p>
+  </div>
+
+  <div class="diagram">
+    <div class="diag-tile t1">
+      <h4>Invisible</h4>
+      <p>Spiritual power operating out of view of the natural eye.</p>
+    </div>
+    <div class="diag-tile t2">
+      <h4>Manipulation</h4>
+      <p>You are being moved — but not by God, and not by your own will.</p>
+    </div>
+    <div class="diag-tile t3">
+      <h4>Deception</h4>
+      <p>To be misled — running after a lie away from God's truth.</p>
+    </div>
+    <div class="diag-tile t4">
+      <h4>Control</h4>
+      <p>Demonic control disguised as circumstance, opinion, or fate.</p>
+    </div>
+  </div>
+
+  <div class="card warning">
+    <div class="card-label">⚠ Scope of the Attack</div>
+    <div class="card-body">
+      <p>Witchcraft can destroy <strong>a family, a community, a nation</strong>. Through the witchcrafts of Jezebel, Israel entered famine — dryness over the land, no rain, national and economic crisis.</p>
+      <p>Some territories belong to witchcraft manipulation. Anything planted or established there struggles unless God has given an upper hand to break through the demonic atmosphere. Businesses and ministries fail to make headway because the people in that area have been bewitched with spells.</p>
+    </div>
+  </div>
+
+  <div class="card warning">
+    <div class="card-label">⚠ Simon the Sorcerer — Acts 8:9–11 (KJV)</div>
+    <div class="card-body" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#5a1010">
+      <p>"But there was a certain man, called Simon, which beforetime in the same city used sorcery, and bewitched the people of Samaria, giving out that himself was some great one: To whom they all gave heed, from the least to the greatest, saying, This man is the great power of God. And to him they had regard, because that of long time he had bewitched them with sorceries."</p>
+    </div>
+  </div>
+
+  <div class="card teaching">
+    <div class="card-label">✦ Why Cities Fall</div>
+    <div class="card-body">
+      <p>Sorcery is a <strong>higher form of witchcraft</strong>. Simon bewitched an entire city — young and old, from the least to the greatest. When bewitchment stays long enough, everyone starts calling the wrong power "the great power of God."</p>
+    </div>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-label">📖 The eyes must open — 2 Corinthians 4:4 (KJV)</div>
+    <div class="card-body">
+      <p>"In whom the god of this world hath blinded the minds of them which believe not, lest the light of the glorious gospel of Christ, who is the image of God, should shine unto them."</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 5 -->
+<section class="module" id="module-5">
+  <div class="module-header">
+    <span class="module-num" style="background:var(--c-scripture)">Module 05 · Scriptural Foundation</span>
+    <h2>What God Has Said About Enchantment</h2>
+    <p>Six scriptures form the wall of fire around every deliverance from bewitchment.</p>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-label">📖 Numbers 23:23–24 (KJV) — The Anchor Verse</div>
+    <div class="card-body">
+      <p>"Surely there is no enchantment against Jacob, neither is there any divination against Israel: according to this time it shall be said of Jacob and of Israel, What hath God wrought! Behold, the people shall rise up as a great lion, and lift up himself as a young lion: he shall not lie down until he eat of the prey, and drink the blood of the slain."</p>
+    </div>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-label">📖 Deuteronomy 18:10–11 (KJV) — God's Verdict on Witchcraft</div>
+    <div class="card-body">
+      <p>"There shall not be found among you any one that maketh his son or his daughter to pass through the fire, or that useth divination, or an observer of times, or an enchanter, or a witch, or a charmer, or a consulter with familiar spirits, or a wizard, or a necromancer."</p>
+    </div>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-label">📖 Job 5:12 (KJV) — He Frustrates the Crafty</div>
+    <div class="card-body">
+      <p>"He disappointeth the devices of the crafty, so that their hands cannot perform their enterprise."</p>
+    </div>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-label">📖 Proverbs 23:6 (KJV) — Do Not Eat Her Bread</div>
+    <div class="card-body">
+      <p>"Eat thou not the bread of him that hath an evil eye, neither desire thou his dainty meats."</p>
+    </div>
+  </div>
+
+  <div class="card scripture">
+    <div class="card-label">📖 Isaiah 6:1 (KJV) — Vision Above Every Throne</div>
+    <div class="card-body">
+      <p>"In the year that king Uzziah died I saw also the Lord sitting upon a throne, high and lifted up, and his train filled the temple."</p>
+    </div>
+  </div>
+
+  <div class="card teaching">
+    <div class="card-label">✦ Application</div>
+    <div class="card-body">
+      <p>Anyone sending curses on you or your marriage — <strong>the Lord will turn them into blessing</strong>. Anyone using enchantment, sorcery, spells, and bewitchment against your life and destiny — the blood of Jesus and the power of the Holy Ghost give <strong>total freedom</strong>.</p>
+      <p>Break 2026 with God-given <em>total deliverance</em> from witchcraft attacks and bewitchment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 6 - DECLARATIONS -->
+<section class="module" id="declarations">
+  <div class="module-header">
+    <span class="module-num" style="background:var(--c-declaration)">Module 06 · Repeat After Me</span>
+    <h2>29 Fiery Declarations</h2>
+    <p>Say each declaration aloud. Tap to mark it done. These are Prophet Prince's words spoken over the altar — say them exactly.</p>
+  </div>
+
+  <div class="decl-grid" id="decl-list">
+    <!-- populated by JS -->
+  </div>
+</section>
+
+<!-- MODULE 7 - PROPHETIC DIRECTION -->
+<section class="module" id="directions">
+  <div class="module-header">
+    <span class="module-num" style="background:var(--c-direction)">Module 07 · Prophetic Direction</span>
+    <h2>Anointing Oil with Garlic</h2>
+    <p>A prophetic instruction under the finished work of Christ — not ritual on its own. Faith in Jesus is what acts through it.</p>
+  </div>
+
+  <div class="card direction">
+    <div class="card-label">🕊 Why This Direction</div>
+    <div class="card-body">
+      <p>The Lord instructed Moses how to prepare anointing oil so that whatever is used will bring testimony and deliverance. Olive oil represents <strong>divine blessing and purity</strong>. Fresh garlic — added under the blood of Jesus — <strong>activates</strong> the oil against witchcraft attack. This is faith in Christ operating through obedience to prophetic instruction. It is not a ritual on its own.</p>
+    </div>
+  </div>
+
+  <h3 style="max-width:1000px;margin:24px auto 12px;font-size:24px;color:var(--c-direction)">Preparation</h3>
+  <div class="flow">
+    <div class="flow-step"><div class="fnum">1</div><h5>Pure olive oil</h5><p>Anointing oil — the base.</p></div>
+    <div class="flow-step"><div class="fnum">2</div><h5>Fresh garlic</h5><p>Not powdered. Crush if needed.</p></div>
+    <div class="flow-step"><div class="fnum">3</div><h5>Soak 3 days</h5><p>Let it steep until it is strong.</p></div>
+    <div class="flow-step"><div class="fnum">4</div><h5>Pray & consecrate</h5><p>Turn it into the blood of Jesus by faith.</p></div>
+  </div>
+
+  <h3 style="max-width:1000px;margin:32px auto 12px;font-size:24px;color:var(--c-direction)">Anointing — For the Body</h3>
+  <div class="flow">
+    <div class="flow-step"><div class="fnum">A</div><h5>Head</h5><p>Crown and forehead.</p></div>
+    <div class="flow-step"><div class="fnum">B</div><h5>Palms</h5><p>Both hands, then wrists.</p></div>
+    <div class="flow-step"><div class="fnum">C</div><h5>Feet</h5><p>Soles and ankles.</p></div>
+    <div class="flow-step"><div class="fnum">D</div><h5>Wedding ring</h5><p>If married — anoint band and finger.</p></div>
+  </div>
+  <p style="max-width:1000px;margin:12px auto;color:#5a4d3f;font-size:14px;text-align:center;font-style:italic">Anoint gently — do not overdo it.</p>
+
+  <h3 style="max-width:1000px;margin:32px auto 12px;font-size:24px;color:var(--c-direction)">The Cleansing Bath — 3 Evenings</h3>
+  <div class="card direction">
+    <div class="card-body">
+      <p><strong>1.</strong> In your bucket, add water and salt.<br>
+      <strong>2.</strong> Add some of the oil-garlic mixture.<br>
+      <strong>3.</strong> Pray as you bathe:</p>
+      <p style="padding:16px;background:#fff;border-radius:8px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;margin-top:12px">"Lord, I wash myself from every attack of witchcraft. Everything that has brought lack and want in my life, Lord, wash it away in the name of Jesus Christ."</p>
+      <p><strong>4.</strong> Repeat for three consecutive evenings — starting tonight.</p>
+    </div>
+  </div>
+
+  <div class="card direction">
+    <div class="card-label">🔥 The Prayer Over the Oil</div>
+    <div class="card-body" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:#1e3a8a">
+      "I turn it into the blood of Jesus. I bless it for you. Let it perform signs and wonders. Let it break every evil covenant in your life. Let this anointing break every chronic yoke, every unbreakable yoke, from today. The anointing breaks the yoke."
+    </div>
+  </div>
+</section>
+
+<!-- KNOWLEDGE CHECK -->
+<section class="module" id="quiz">
+  <div class="module-header">
+    <span class="module-num" style="background:var(--gold);color:var(--ink)">Module 08 · Knowledge Check</span>
+    <h2>Test the Teaching</h2>
+    <p>Six questions. Tap an answer — the correct one glows green.</p>
+  </div>
+  <div class="quiz" id="quiz-box">
+    <!-- populated by JS -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h4>Dominion Hour with Prophet Prince Amo David</h4>
+  <p>Bewitchment Must Die · Clubhouse Service · August 18, 2026</p>
+  <p class="verse-close">"Surely there is no enchantment against Jacob, neither is there any divination against Israel: according to this time it shall be said of Jacob and of Israel, What hath God wrought!" — Numbers 23:23 (KJV)</p>
+  <p style="color:#6a5847">All Scripture: King James Version. Interactive study — for personal and family devotion.</p>
+</footer>
+
+<!-- PROGRESS -->
+<div class="progress">
+  <span id="prog-count">0/29</span>
+  <div class="progress-bar"><div class="progress-fill" id="prog-fill"></div></div>
+</div>
+
+<script>
+// ==== DECLARATIONS ====
+const declarations = [
+  "My Father, my Father, my Father — let every problem in my life that originated from witchcraft receive divine instant solution in the name of Jesus.",
+  "In the name of Jesus, I command all the damages done to my life by witchcraft — let every blessing be released now.",
+  "Let all my blessings tied up by a witch and a wizard be released right now, in the name of Jesus Christ.",
+  "Let my destiny helpers be released right now. Let my glory be released — my glory is being revealed in the name of Jesus.",
+  "I release my partner, my children, my grandchildren, my finances — from every witchcraft attack, by the power of the Holy Ghost.",
+  "Any witchcraft attack against my mind and spirit to cause depression and confusion — I loose my mind. I loose myself. The peace of God fills my heart and mind, in the name of Jesus.",
+  "I am no more under the bondage of witchcraft. I loose my glory. I loose my star. Every witchcraft power assigned against my life, marriage, and finances — receive fire, thunder, and lightning of God mingled with the blood of Jesus. Be cut down now.",
+  "I loose myself from every power of witchcraft. Every camp of witchcraft, every covenant of witchcraft against my prosperity, advancement, breakthrough, finances, contacts and connections — fall down and die by fire.",
+  "Every coven of witchcraft gathering — may the angel of the Lord cut all of you now by fire, by thunder.",
+  "Every witchcraft plot in my father's house, in my mother's house, working against me — I bring the judgment of God against you now in the name of Jesus.",
+  "Every witchcraft pot used to manipulate my life — be destroyed. Every witchcraft pot using remote control against my health — catch fire. Witchcraft opposition, receive the fire of the Holy Ghost.",
+  "Let the spirit of witchcraft attack against my connections be destroyed now. I retrieve my blessings, my integrity, out of the hands of household witchcraft. I break the power of occult, familiar spirit, monitoring spirit — from my father's house and mother's house.",
+  "I break and loose myself from all evil curses. I loose my children, my partner from all evil curses, spells, and bewitchment.",
+  "Let the thunder of God locate and dismantle the throne of witchcraft in my household. Every seat, every seed, every altar of witchcraft in my household — be roasted by fire of the Holy Ghost.",
+  "Let the thunder of God scatter beyond redemption the foundation of witchcraft in my household. Every stronghold of refuge of my household witches — be destroyed. Every hiding place — be exposed by fire.",
+  "Let every local and international witchcraft network of my household be scattered. Let the communication system of my household witches be frustrated. Every agent ministering at the altar of witchcraft — bow down and die.",
+  "Let the thunder and fire of God locate the storehouses and strong rooms of my household witches — covering my blessings — be pulled down in the name of Jesus.",
+  "Let any witchcraft curse working against my marriage and my finances be revoked by the blood of Jesus. I overthrow every seat and every throne of witchcraft, every decision, foul, and covenant of household witchcraft affecting me — be nullified. I destroy with the fire of God every weapon of witchcraft used against me.",
+  "Any material taken from my body, now placed on any witchcraft altar and copied — be roasted by the fire of the Holy Ghost.",
+  "I reverse every witchcraft barrier performed as a ritual against me in a dream. Let it catch fire now. Every trap set for me by witches — begin to play out in the opposite direction.",
+  "Let the wisdom of my household witches be turned into foolishness. Let the wickedness of my household witches be overturned.",
+  "I deliver myself, my household, my soul, my family, and my loved ones from every witchcraft and bewitchment.",
+  "Flying for my sake — fall and die. Turn to ashes and be roasted in Jesus' name.",
+  "Any of my blessings traded out by household witches — be returned to me. Any of my blessings and testimonies swallowed by witches — let them vomit it. Let them be turned into hot coals of fire and be vomited in the name of Jesus.",
+  "I break myself, my husband, my wife, from every bondage of witchcraft covenant. Every chain, every yoke — break. Any of my blessings hidden — be roasted by the fire of God.",
+  "I recover back any of my virtues, my blessings shared out at the meetings of household witches. I take it back in the name of Jesus.",
+  "I reverse the evil of any witchcraft invocation. I release the evil effects of any witchcraft invocation or summoning of my spirit.",
+  "I loose my hands and my feet from any witchcraft, bewitchment, and bondage. Let the blood of Jesus wash away every witchcraft identification on me or on any of my properties.",
+  "I forbid every reunion, every re-gathering of household and village witches against my life. Let their body systems begin to run contrary until they have confessed their sins. Let everything that has worked for them begin to work against them. Let them not have a cloak to cover their shame."
+];
+
+const declList = document.getElementById('decl-list');
+const done = [];
+declarations.forEach((text,i)=>{
+  const el = document.createElement('div');
+  el.className = 'decl';
+  el.innerHTML = `<span class="decl-num">${String(i+1).padStart(2,'0')}</span><span class="decl-check">✓</span><div class="decl-text">${text}</div>`;
+  el.onclick = () => {
+    const idx = done.indexOf(i);
+    if (idx > -1) done.splice(idx,1);
+    else done.push(i);
+    el.classList.toggle('done');
+    updateProgress();
+  };
+  declList.appendChild(el);
+});
+
+function updateProgress(){
+  document.getElementById('prog-count').textContent = `${done.length}/29`;
+  document.getElementById('prog-fill').style.width = `${(done.length/29)*100}%`;
+}
+updateProgress();
+
+// ==== QUIZ ====
+const quizData = [
+  {q:"What is bewitchment, according to Prophet Prince?", opts:["A cultural superstition","Invisible spiritual power, manipulation, or demonic control","A dream you can't remember","A herbal remedy"], correct:1, why:"Bewitchment is invisible spiritual power, manipulation, or demonic control — you are being moved but not by God or your own will."},
+  {q:"Which scripture is the anchor verse for this teaching?", opts:["John 3:16","Numbers 23:23","Psalm 91:1","Isaiah 55:11"], correct:1, why:"Numbers 23:23 — 'Surely there is no enchantment against Jacob, neither is there any divination against Israel.'"},
+  {q:"Who bewitched the whole city of Samaria in Acts 8?", opts:["Balaam","Elymas","Simon the sorcerer","Jannes and Jambres"], correct:2, why:"Acts 8:9–11 — Simon used sorcery and bewitched Samaria, young and old, from the least to the greatest."},
+  {q:"Which national event did the witchcrafts of Jezebel cause in Israel?", opts:["Exile in Babylon","Famine, drought, no rain, national and economic crisis","Loss of the ark","Fall of Jerusalem's wall"], correct:1, why:"Prophet Prince taught that through Jezebel's witchcrafts, Israel entered a season of dryness — no rain, and economic and national crisis."},
+  {q:"Job 5:12 says God does what to the crafty?", opts:["Forgives them","Disappoints their devices","Blesses their plans","Ignores them"], correct:1, why:"'He disappointeth the devices of the crafty, so that their hands cannot perform their enterprise.' — Job 5:12"},
+  {q:"What does olive oil symbolize in the prophetic direction?", opts:["Wealth and success","Divine blessing and purity","Long life","Kingship only"], correct:1, why:"Olive oil represents divine blessing and purity — a symbol used under the finished work of Christ."}
+];
+
+const quizBox = document.getElementById('quiz-box');
+quizData.forEach((item,qi)=>{
+  const qDiv = document.createElement('div');
+  qDiv.className='q';
+  qDiv.innerHTML = `<div class="q-text">${qi+1}. ${item.q}</div><div class="q-opts"></div><div class="q-explain">${item.why}</div>`;
+  const opts = qDiv.querySelector('.q-opts');
+  item.opts.forEach((o,oi)=>{
+    const b = document.createElement('div');
+    b.className='q-opt';
+    b.textContent = o;
+    b.onclick = ()=>{
+      if(qDiv.dataset.answered) return;
+      qDiv.dataset.answered='true';
+      opts.querySelectorAll('.q-opt').forEach((el,idx)=>{
+        if(idx===item.correct) el.classList.add('correct');
+        else if(idx===oi) el.classList.add('wrong');
+      });
+      qDiv.querySelector('.q-explain').classList.add('show');
+    };
+    opts.appendChild(b);
+  });
+  quizBox.appendChild(qDiv);
+});
+
+// Nav active state
+const links = document.querySelectorAll('.nav-tab');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  document.querySelectorAll('section.module').forEach(s=>{
+    if(window.scrollY >= s.offsetTop - 120) cur = s.id;
+  });
+  links.forEach(l=>{
+    l.classList.toggle('active', l.getAttribute('href') === '#'+cur);
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Salt Bath Prophetic Act — Destroying Faulty Foundations · Dominion Hour</title>
+<meta name="description" content="Interactive prophetic-direction tool for destroying faulty evil foundations. Includes the Scripture flow Prophet Prince Amo David gave in service and the salt bath declarations. Dominion Hour with Prophet Prince Amo David." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ivory:#FAF7EF;
+    --cream:#F3EEDF;
+    --charcoal:#221E1A;
+    --charcoal-soft:#3a342e;
+    --teal:#0F5B5F;
+    --teal-deep:#083E42;
+    --gold:#B6871A;
+    --gold-light:#E7C965;
+    --ember:#C24A16;
+    --plum:#6E2F5A;
+    --green:#4F7A2E;
+    --line:rgba(34,30,26,.12);
+    --shadow:0 1px 2px rgba(34,30,26,.06),0 8px 24px rgba(34,30,26,.06);
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--ivory);color:var(--charcoal);font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:20px 18px 120px}
+  header.top{padding:18px 0 8px;border-bottom:1px solid var(--line);margin-bottom:22px}
+  .kicker{font-family:"DM Sans";text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--teal-deep);font-weight:600}
+  h1{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-size:clamp(28px,5.4vw,40px);line-height:1.12;margin:6px 0 6px;color:var(--charcoal)}
+  .sub{font-family:"Source Serif 4";font-style:italic;color:var(--charcoal-soft);font-size:17px;margin:0 0 8px}
+  .attr{font-size:13px;color:var(--charcoal-soft);margin:0}
+  .attr strong{color:var(--teal-deep)}
+
+  .scripture{background:var(--cream);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:var(--radius);padding:16px 18px;margin:18px 0 8px;box-shadow:var(--shadow)}
+  .scripture h3{margin:0 0 6px;font-family:"Source Serif 4";font-size:15px;letter-spacing:.02em;color:var(--teal-deep);text-transform:uppercase}
+  .scripture p{margin:6px 0 0;font-family:"Source Serif 4";font-size:17px;line-height:1.55}
+
+  .toolbar{position:sticky;top:0;background:rgba(250,247,239,.94);backdrop-filter:saturate(1.2) blur(8px);-webkit-backdrop-filter:saturate(1.2) blur(8px);z-index:20;display:flex;gap:8px;align-items:center;justify-content:space-between;padding:10px 0;margin:12px -18px 0;padding-left:18px;padding-right:18px;border-bottom:1px solid var(--line)}
+  .progress{flex:1;height:8px;background:rgba(34,30,26,.08);border-radius:99px;overflow:hidden;margin-right:10px}
+  .progress > span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .35s ease}
+  .progress-text{font-size:12px;color:var(--charcoal-soft);min-width:56px;text-align:right;font-variant-numeric:tabular-nums}
+  .btn{appearance:none;border:1px solid var(--line);background:#fff;color:var(--charcoal);border-radius:99px;padding:8px 12px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit}
+  .btn:hover{border-color:var(--teal)}
+  .btn.primary{background:var(--teal-deep);color:#fff;border-color:var(--teal-deep)}
+  .btn.primary:hover{background:var(--teal)}
+  .btn-row{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
+
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 8px;border-bottom:1px solid var(--line);padding-bottom:8px}
+  .tab{border:1px solid var(--line);background:#fff;color:var(--charcoal-soft);border-radius:99px;padding:8px 14px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600}
+  .tab.active{background:var(--teal-deep);color:#fff;border-color:var(--teal-deep)}
+  .panel{display:none}
+  .panel.active{display:block;animation:fade .28s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+  section.stage{margin:18px 0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .stage-head{display:flex;align-items:center;gap:12px;padding:14px 16px;background:linear-gradient(180deg,#fff, var(--cream));border-bottom:1px solid var(--line);cursor:pointer;user-select:none}
+  .stage-head .dot{width:34px;height:34px;border-radius:50%;background:var(--teal-deep);color:#fff;display:grid;place-items:center;font-weight:700;font-family:"Source Serif 4";font-size:15px;flex:0 0 34px}
+  .stage-head h2{margin:0;font-family:"Source Serif 4";font-size:19px;color:var(--charcoal);line-height:1.25}
+  .stage-head .meta{margin-left:auto;font-size:12px;color:var(--charcoal-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .stage-head .chev{margin-left:8px;transition:transform .25s ease;color:var(--charcoal-soft)}
+  section.stage.collapsed .stage-body{display:none}
+  section.stage.collapsed .stage-head .chev{transform:rotate(-90deg)}
+  .stage-body{padding:12px 8px 14px}
+  .intro{padding:6px 12px 6px;font-family:"Source Serif 4";font-style:italic;color:var(--charcoal-soft);font-size:15.5px}
+
+  ol.decs{list-style:none;margin:6px 0 0;padding:0}
+  ol.decs li{position:relative;padding:12px 12px 12px 54px;margin:6px 6px;border-radius:12px;border:1px solid transparent;transition:background .2s ease, border-color .2s ease}
+  ol.decs li:hover{background:var(--cream)}
+  ol.decs li .num{position:absolute;left:12px;top:12px;width:30px;height:30px;border-radius:50%;background:#fff;border:1.5px solid var(--gold);color:var(--gold);font-weight:700;display:grid;place-items:center;font-size:13px;font-family:"DM Sans";font-variant-numeric:tabular-nums;cursor:pointer}
+  ol.decs li.done{background:#f1f7ee;border-color:rgba(79,122,46,.35)}
+  ol.decs li.done .num{background:var(--green);color:#fff;border-color:var(--green)}
+  ol.decs li.done .text{color:var(--charcoal-soft)}
+  ol.decs li .text{font-family:"Source Serif 4";font-size:17px;line-height:1.5;color:var(--charcoal)}
+  ol.decs li .text em{font-style:italic}
+  ol.decs li .text .ref{font-family:"DM Sans";font-size:12px;color:var(--teal-deep);text-transform:uppercase;letter-spacing:.08em;display:inline-block;margin-left:4px}
+
+  .prayer-block{background:var(--cream);border:1px dashed var(--line);border-radius:12px;padding:14px 14px;margin:8px 12px 4px;font-family:"Source Serif 4";font-style:italic;color:var(--charcoal)}
+  .decl-line{background:#fff8e5;border:1px solid rgba(182,135,26,.35);border-left:4px solid var(--gold);border-radius:10px;padding:10px 14px;margin:8px 12px;font-family:"Source Serif 4";color:var(--charcoal);font-size:16px}
+  .decl-line strong{color:var(--teal-deep);font-weight:700;font-style:normal;font-family:"DM Sans";font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:4px}
+
+  /* Scripture flow (Bible verses posted during service) */
+  .verse-block{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 14px 12px;margin:10px 12px;box-shadow:var(--shadow)}
+  .verse-block .ref-head{font-family:"DM Sans";font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal-deep);margin:0 0 6px}
+  .verse-block .verse-body{font-family:"Source Serif 4";font-size:17px;line-height:1.55;margin:0}
+  .verse-block.note{background:var(--cream);border-style:dashed}
+  .verse-block .kjv-tag{display:inline-block;font-family:"DM Sans";font-size:10.5px;font-weight:700;color:#fff;background:var(--green);padding:1px 8px;border-radius:99px;margin-left:6px;letter-spacing:.06em}
+
+  footer{margin-top:28px;padding:18px 0 8px;border-top:1px solid var(--line);color:var(--charcoal-soft);font-size:12.5px;text-align:center}
+  footer .tag{font-family:"Source Serif 4";font-style:italic;color:var(--teal-deep)}
+  .privacy{margin:8px 0 0;font-size:11.5px}
+
+  .banner{display:none;position:sticky;bottom:8px;margin:16px 0 0;background:linear-gradient(90deg,var(--teal-deep),var(--teal));color:#fff;border-radius:14px;padding:14px 16px;box-shadow:var(--shadow);text-align:center;font-family:"Source Serif 4";font-size:17px}
+  .banner.show{display:block;animation:pop .4s ease}
+  @keyframes pop{from{transform:translateY(6px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+  @media print{
+    body{background:#fff}
+    .toolbar,.btn-row,.banner,.tabs{display:none !important}
+    .panel{display:block !important}
+    section.stage,.verse-block{box-shadow:none;break-inside:avoid}
+    section.stage.collapsed .stage-body{display:block !important}
+    .wrap{padding:0 12px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="kicker">Prophetic Direction · Dominion Hour with Prophet Prince Amo David</div>
+    <h1>Salt Bath — Destroying Faulty Evil Foundations</h1>
+    <p class="sub">A prophetic act grounded in Psalm 11:3 and 2 Kings 2:20–22.</p>
+    <p class="attr">From <strong>Dominion Hour with Prophet Prince Amo David</strong></p>
+  </header>
+
+  <div class="scripture">
+    <h3>Psalm 11:3 (KJV)</h3>
+    <p>If the foundations be destroyed, what can the righteous do?</p>
+  </div>
+
+  <div class="scripture">
+    <h3>2 Kings 2:20–22 (KJV)</h3>
+    <p>And he said, Bring me a new cruse, and put salt therein. And they brought it to him. And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land. So the waters were healed unto this day, according to the saying of Elisha which he spake.</p>
+  </div>
+
+  <div class="toolbar" role="region" aria-label="Progress">
+    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+    <div class="progress-text"><span id="pct">0%</span></div>
+    <button class="btn" id="resetBtn" title="Reset progress">Reset</button>
+    <button class="btn primary" id="printBtn" title="Print or save as PDF">Print</button>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button class="tab active" data-tab="flow">Service Scripture Flow</button>
+    <button class="tab" data-tab="salt">Declarations</button>
+  </div>
+
+  <!-- =========================================================
+       PANEL 1 — SERVICE SCRIPTURE FLOW
+       Order: Thanksgiving → Confessing Sins → Inviting Holy Spirit → Foundations teaching
+       ========================================================= -->
+  <div class="panel active" id="panel-flow">
+
+    <p class="intro" style="padding:8px 0 0">Pray through these Scriptures in order — as Prophet Prince gave them in service. All verses in KJV.</p>
+
+    <!-- Stage A: Thanksgiving -->
+    <section class="stage" id="a-thanksgiving">
+      <div class="stage-head">
+        <div class="dot">1</div>
+        <h2>Thanksgiving</h2>
+        <div class="meta"><span class="stage-count">0 / 0</span></div>
+        <div class="chev">▾</div>
+      </div>
+      <div class="stage-body">
+        <div class="verse-block">
+          <p class="ref-head">Psalm 100:1–2 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Make a joyful noise unto the LORD, all ye lands. Serve the LORD with gladness: come before his presence with singing.</p>
+        </div>
+        <div class="verse-block">
+          <p class="ref-head">Psalm 100:3 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Know ye that the LORD he is God: it is he that hath made us, and not we ourselves; we are his people, and the sheep of his pasture.</p>
+        </div>
+        <div class="verse-block">
+          <p class="ref-head">Psalm 100:4 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name.</p>
+        </div>
+        <div class="verse-block">
+          <p class="ref-head">Psalm 100:5 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">For the LORD is good; his mercy is everlasting; and his truth endureth to all generations.</p>
+        </div>
+        <div class="prayer-block">
+          Father, I make a joyful noise unto You. I enter Your gates with thanksgiving and Your courts with praise. I thank You that You are good, Your mercy is everlasting, and Your truth endures to all generations, in Jesus name.
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage B: Confessing Sins -->
+    <section class="stage" id="b-confession">
+      <div class="stage-head">
+        <div class="dot">2</div>
+        <h2>Confessing Sins</h2>
+        <div class="meta"><span class="stage-count">0 / 0</span></div>
+        <div class="chev">▾</div>
+      </div>
+      <div class="stage-body">
+        <div class="verse-block">
+          <p class="ref-head">Psalm 51:1 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Have mercy upon me, O God, according to thy lovingkindness: according unto the multitude of thy tender mercies blot out my transgressions.</p>
+        </div>
+        <div class="verse-block">
+          <p class="ref-head">Psalm 51:2–3 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Wash me throughly from mine iniquity, and cleanse me from my sin. For I acknowledge my transgressions: and my sin is ever before me.</p>
+        </div>
+        <div class="verse-block">
+          <p class="ref-head">Isaiah 59:1–2 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Behold, the LORD'S hand is not shortened, that it cannot save; neither his ear heavy, that it cannot hear: But your iniquities have separated between you and your God, and your sins have hid his face from you, that he will not hear.</p>
+        </div>
+        <div class="verse-block">
+          <p class="ref-head">Ephesians 1:7 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">In whom we have redemption through his blood, the forgiveness of sins, according to the riches of his grace;</p>
+        </div>
+        <div class="verse-block">
+          <p class="ref-head">Revelation 3:15–16 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">I know thy works, that thou art neither cold nor hot: I would thou wert cold or hot. So then because thou art lukewarm, and neither cold nor hot, I will spue thee out of my mouth.</p>
+        </div>
+        <div class="prayer-block">
+          Father, have mercy upon me according to Your lovingkindness. Wash me throughly from mine iniquity and cleanse me from my sin. I confess I have been lukewarm; set me on fire again. Through the blood of Jesus I receive redemption and the forgiveness of sins, in Jesus name.
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage C: Inviting the Holy Spirit -->
+    <section class="stage" id="c-holy-spirit">
+      <div class="stage-head">
+        <div class="dot">3</div>
+        <h2>Inviting the Holy Spirit</h2>
+        <div class="meta"><span class="stage-count">0 / 0</span></div>
+        <div class="chev">▾</div>
+      </div>
+      <div class="stage-body">
+        <div class="verse-block">
+          <p class="ref-head">Romans 8:26 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Likewise the Spirit also helpeth our infirmities: for we know not what we should pray for as we ought: but the Spirit itself maketh intercession for us with groanings which cannot be uttered.</p>
+        </div>
+        <div class="verse-block">
+          <p class="ref-head">John 14:16–17 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">And I will pray the Father, and he shall give you another Comforter, that he may abide with you for ever; Even the Spirit of truth; whom the world cannot receive, because it seeth him not, neither knoweth him: but ye know him; for he dwelleth with you, and shall be in you.</p>
+        </div>
+        <div class="prayer-block">
+          Holy Spirit, I welcome You into this prophetic act tonight. Come and teach me, lead me, comfort me, and pray through me. Be the fire on the altar of my heart. Take full charge of this bath, of this water, and of every declaration I speak, in Jesus name.
+        </div>
+      </div>
+    </section>
+
+    <!-- Stage D: Foundations Teaching (other verses) -->
+    <section class="stage" id="d-foundations">
+      <div class="stage-head">
+        <div class="dot">4</div>
+        <h2>Foundations Teaching — The Other Verses</h2>
+        <div class="meta"><span class="stage-count">0 / 0</span></div>
+        <div class="chev">▾</div>
+      </div>
+      <div class="stage-body">
+        <p class="intro">The Scripture arc Prophet Prince walked the room through — from foundations that must be destroyed, to the sure foundation of Christ.</p>
+
+        <div class="verse-block">
+          <p class="ref-head">Psalm 11:3 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">If the foundations be destroyed, what can the righteous do?</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">Genesis 11:27–28 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Now these are the generations of Terah: Terah begat Abram, Nahor, and Haran; and Haran begat Lot. And Haran died before his father Terah in the land of his nativity, in Ur of the Chaldees.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">Joshua 6:26 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">And Joshua adjured them at that time, saying, Cursed be the man before the LORD, that riseth up and buildeth this city Jericho: he shall lay the foundation thereof in his firstborn, and in his youngest son shall he set up the gates of it.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">1 Kings 16:34 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">In his days did Hiel the Beth–elite build Jericho: he laid the foundation thereof in Abiram his firstborn, and set up the gates thereof in his youngest son Segub, according to the word of the LORD, which he spake by Joshua the son of Nun.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">2 Kings 2:19 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">And the men of the city said unto Elisha, Behold, I pray thee, the situation of this city is pleasant, as my lord seeth: but the water is naught, and the ground barren.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">2 Kings 2:20–22 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">And he said, Bring me a new cruse, and put salt therein. And they brought it to him. And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land. So the waters were healed unto this day, according to the saying of Elisha which he spake.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">Ephesians 2:19–20 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Now therefore ye are no more strangers and foreigners, but fellowcitizens with the saints, and of the household of God; And are built upon the foundation of the apostles and prophets, Jesus Christ himself being the chief corner stone;</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">Ephesians 2:21–22 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">In whom all the building fitly framed together groweth unto an holy temple in the Lord: In whom ye also are builded together for an habitation of God through the Spirit.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">Matthew 7:24–25 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Therefore whosoever heareth these sayings of mine, and doeth them, I will liken him unto a wise man, which built his house upon a rock: And the rain descended, and the floods came, and the winds blew, and beat upon that house; and it fell not: for it was founded upon a rock.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">Matthew 7:26–27 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">And every one that heareth these sayings of mine, and doeth them not, shall be likened unto a foolish man, which built his house upon the sand: And the rain descended, and the floods came, and the winds blew, and beat upon that house; and it fell: and great was the fall of it.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">Revelation 13:8 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">And all that dwell upon the earth shall worship him, whose names are not written in the book of life of the Lamb slain from the foundation of the world.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">Psalm 90:1–2 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Lord, thou hast been our dwelling place in all generations. Before the mountains were brought forth, or ever thou hadst formed the earth and the world, even from everlasting to everlasting, thou art God.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">Psalm 90:3–4 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">Thou turnest man to destruction; and sayest, Return, ye children of men. For a thousand years in thy sight are but as yesterday when it is past, and as a watch in the night.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">Revelation 1:8 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">I am Alpha and Omega, the beginning and the ending, saith the Lord, which is, and which was, and which is to come, the Almighty.</p>
+        </div>
+
+        <div class="verse-block">
+          <p class="ref-head">Hebrews 11:10 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">For he looked for a city which hath foundations, whose builder and maker is God.</p>
+        </div>
+
+        <div class="decl-line">
+          <strong>Corporate Declaration (from the room)</strong>
+          Father, let the blood correct my foundations. Father, let the blood correct my foundation, in the mighty name of Jesus Christ. Amen.
+        </div>
+      </div>
+    </section>
+
+    <div class="btn-row">
+      <button class="btn primary" data-goto-tab="salt">Continue to the Declarations →</button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       PANEL 2 — DECLARATIONS (single flowing list)
+       ========================================================= -->
+  <div class="panel" id="panel-salt">
+
+    <p class="intro" style="padding:8px 0 0">Pray the preparation prayer, then speak the declarations out loud in order. Tap each number as you finish it. All declarations sealed by the blood of Jesus.</p>
+
+    <!-- Preparation Prayer -->
+    <section class="stage" id="s0" data-stage="0">
+      <div class="stage-head">
+        <div class="dot">✦</div>
+        <h2>Preparation Prayer</h2>
+        <div class="meta"></div>
+        <div class="chev">▾</div>
+      </div>
+      <div class="stage-body">
+        <div class="prayer-block">
+          Father, in the name of Jesus, I thank You for this prophetic direction. I come tonight not trusting in salt, not trusting in water, but trusting in the finished work of Jesus Christ on the cross and in the word of the LORD. I ask You, LORD, as You healed the waters of Jericho through Elisha, heal every water assigned to my life tonight. I cover this act, this water, and myself with the blood of Jesus. Amen.
+        </div>
+      </div>
+    </section>
+
+    <!-- Anchor verses -->
+    <section class="stage" id="s-verses">
+      <div class="stage-head">
+        <div class="dot">📖</div>
+        <h2>Anchor Verses (KJV)</h2>
+        <div class="meta"></div>
+        <div class="chev">▾</div>
+      </div>
+      <div class="stage-body">
+        <div class="verse-block">
+          <p class="ref-head">Joshua 6:20 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">So the people shouted when the priests blew with the trumpets: and it came to pass, when the people heard the sound of the trumpet, and the people shouted with a great shout, that the wall fell down flat, so that the people went up into the city, every man straight before him, and they took the city.</p>
+        </div>
+        <div class="verse-block">
+          <p class="ref-head">Psalm 11:3 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">If the foundations be destroyed, what can the righteous do?</p>
+        </div>
+        <div class="verse-block">
+          <p class="ref-head">2 Kings 2:20–22 <span class="kjv-tag">KJV</span></p>
+          <p class="verse-body">And he said, Bring me a new cruse, and put salt therein. And they brought it to him. And he went forth unto the spring of the waters, and cast the salt in there, and said, Thus saith the LORD, I have healed these waters; there shall not be from thence any more death or barren land. So the waters were healed unto this day, according to the saying of Elisha which he spake.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Single flowing declarations list -->
+    <section class="stage" id="s-decs">
+      <div class="stage-head">
+        <div class="dot">🔥</div>
+        <h2>Declarations — Speak Aloud in Order</h2>
+        <div class="meta"><span class="stage-count">0 / 0</span></div>
+        <div class="chev">▾</div>
+      </div>
+      <div class="stage-body">
+        <ol class="decs">
+
+          <li><span class="num">1</span><span class="text">Father, as You caused the walls of Jericho to fall down flat at the shout of Your people, so I decree every wall of the enemy standing against my life falls down flat this night, in Jesus name. <span class="ref">Joshua 6:20</span></span></li>
+
+          <li><span class="num">2</span><span class="text">Every wall of witchcraft, every wall of the strongman, every wall of demonic resistance built around my destiny, fall down flat by the shout of the LORD, in Jesus name.</span></li>
+
+          <li><span class="num">3</span><span class="text">Every wall of Jericho hiding my inheritance, my breakthrough, my healing, my finances, my spouse, my children, my ministry, my divine helpers — fall down flat now, in Jesus name.</span></li>
+
+          <li><span class="num">4</span><span class="text">Every hidden wall built around me while I was ignorant, be exposed and fall down flat by the word of the LORD, in Jesus name.</span></li>
+
+          <li><span class="num">5</span><span class="text">Thus saith the LORD: <em>“I have healed these waters; there shall not be from thence any more death or barren land.”</em> I receive this word over every water of my life tonight, in Jesus name. <span class="ref">2 Kings 2:21</span></span></li>
+
+          <li><span class="num">6</span><span class="text">As Elisha cast the salt into the spring at Jericho and death and barrenness departed, so I declare that death and barrenness depart from every foundation of my life, in Jesus name.</span></li>
+
+          <li><span class="num">7</span><span class="text">Every faulty, evil foundation laid in my life — by ancestors, by covenants, by curses, by ignorance, by my own sin — I declare you destroyed by the word of the LORD, in Jesus name.</span></li>
+
+          <li><span class="num">8</span><span class="text">According to Psalm 11:3, I refuse to stand on destroyed foundations. I declare that Jesus Christ, the Rock, is the sure foundation of my life. <span class="ref">Isaiah 28:16 · 1 Cor 3:11</span></span></li>
+
+          <li><span class="num">9</span><span class="text">Every evil covenant contained in the waters of my life is dissolved by the blood of Jesus, in Jesus name. <span class="ref">Colossians 2:14–15</span></span></li>
+
+          <li><span class="num">10</span><span class="text">Every evil deposit in my body, in my bloodline, in my foundation — come out and be washed away by the blood of Jesus, in Jesus name.</span></li>
+
+          <li><span class="num">11</span><span class="text">Every spring of death flowing from my father’s house, dry up now, in Jesus name.</span></li>
+
+          <li><span class="num">12</span><span class="text">Every spring of death flowing from my mother’s house, dry up now, in Jesus name.</span></li>
+
+          <li><span class="num">13</span><span class="text">Every faulty foundation of sickness, disease, and infirmity in my body — chronic pain, cancer, diabetes, blood pressure, mental illness, autoimmune disease, hereditary conditions — be destroyed by the word of the LORD, in Jesus name.</span></li>
+
+          <li><span class="num">14</span><span class="text">Every faulty foundation of poverty, lack, debt, financial stagnation, and closed doors of provision, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">15</span><span class="text">Every faulty foundation of career stagnation, job loss, buried promotions, and unfruitful labour, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">16</span><span class="text">Every faulty foundation of barrenness — barrenness of womb, of finances, of ministry, of relationships, of destiny — be healed by the word of the LORD tonight, in Jesus name.</span></li>
+
+          <li><span class="num">17</span><span class="text">Every faulty foundation of miscarriage, delayed conception, and reproductive assault, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">18</span><span class="text">Every faulty foundation of singleness beyond God’s season, marital delay, broken engagements, and unlawful marriages, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">19</span><span class="text">Every faulty foundation of marital crisis, unfaithfulness, strife, divorce, and separation, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">20</span><span class="text">Every faulty foundation working against my children — rebellion, waywardness, addiction, spiritual attack, academic failure, delayed destiny — be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">21</span><span class="text">Every faulty foundation of fear, anxiety, torment, panic, depression, and shame in my mind, be destroyed by the blood of Jesus, in Jesus name.</span></li>
+
+          <li><span class="num">22</span><span class="text">Every faulty foundation of rejection, abandonment, self-hatred, and identity confusion, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">23</span><span class="text">Every faulty foundation of failure at the edge of breakthrough, near-success syndrome, and unfinished victories, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">24</span><span class="text">Every faulty foundation of untimely death, sudden death, and cutting short of days in my bloodline, be destroyed, in Jesus name. <span class="ref">Psalm 91:16</span></span></li>
+
+          <li><span class="num">25</span><span class="text">Every faulty foundation of accidents, sudden calamity, and destruction that wasteth at noonday, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">26</span><span class="text">Every faulty foundation of legal battles, court cases, and false accusations, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">27</span><span class="text">Every faulty foundation of immigration delay, visa denial, and closed doors of relocation, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">28</span><span class="text">Every faulty foundation of spiritual dryness, prayerlessness, backsliding, and lukewarmness in my walk with God, be destroyed, in Jesus name. <span class="ref">Revelation 3:15–16</span></span></li>
+
+          <li><span class="num">29</span><span class="text">Every faulty foundation of demonic dreams, night attacks, spirit spouses, marine covenants, and serpentine oppression, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">30</span><span class="text">Every faulty foundation of generational curse, ancestral covenant, family idol, and household witchcraft, be destroyed, in Jesus name.</span></li>
+
+          <li><span class="num">31</span><span class="text">Every altar that spoke against my foundation is silenced by the blood that speaks better things, in Jesus name. <span class="ref">Hebrews 12:24</span></span></li>
+
+          <li><span class="num">32</span><span class="text">Every priest ministering at an evil altar over my life, your ministry is terminated by the blood of Jesus, in Jesus name.</span></li>
+
+          <li><span class="num">33</span><span class="text">Father, let the blood of Jesus correct every foundation in my life, in my marriage, in my children, in my finances, in my body, in my calling, in Jesus name.</span></li>
+
+          <li><span class="num">34</span><span class="text">I decree death has no more legal ground in my foundation, in Jesus name.</span></li>
+
+          <li><span class="num">35</span><span class="text">I decree barrenness has no more legal ground in my foundation, in Jesus name.</span></li>
+
+          <li><span class="num">36</span><span class="text">As the waters of Jericho were healed unto this day, so the waters of my life are healed unto this day and forever, in Jesus name.</span></li>
+
+          <li><span class="num">37</span><span class="text">I declare that from tonight, a new foundation — the foundation of Christ Jesus, the chief corner stone — is established in my life, in my home, in my bloodline, in Jesus name. <span class="ref">Ephesians 2:20</span></span></li>
+
+          <li><span class="num">38</span><span class="text">Like the wise man who built his house upon the rock, my house shall stand though the rain descend, the floods come, and the winds blow, in Jesus name. <span class="ref">Matthew 7:24–25</span></span></li>
+
+          <li><span class="num">39</span><span class="text">I look for the city which hath foundations, whose builder and maker is God — and I declare that my life is being built by God Himself, in Jesus name. <span class="ref">Hebrews 11:10</span></span></li>
+
+          <li><span class="num">40</span><span class="text">Father, I thank You for healing the waters of my life tonight.</span></li>
+
+          <li><span class="num">41</span><span class="text">I seal this prophetic act with the blood of Jesus Christ.</span></li>
+
+          <li><span class="num">42</span><span class="text">I decree it is done, in Jesus name. Amen.</span></li>
+
+        </ol>
+      </div>
+    </section>
+
+    <div class="banner" id="doneBanner">All 42 declarations spoken. It is sealed by the blood of Jesus. Amen.</div>
+  </div>
+
+  <footer>
+    <div class="tag">L137 · Luke 1:37 — For with God nothing shall be impossible.</div>
+    <div>Dominion Hour with Prophet Prince Amo David</div>
+    <p class="privacy">Private tool. Progress resets when you close or reload this page.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const stages = document.querySelectorAll("section.stage");
+  const bar = document.getElementById("bar");
+  const pct = document.getElementById("pct");
+  const banner = document.getElementById("doneBanner");
+  let state = {};
+
+  function updateProgress(){
+    const all = document.querySelectorAll("#panel-salt ol.decs li");
+    const done = document.querySelectorAll("#panel-salt ol.decs li.done");
+    const p = all.length ? Math.round((done.length/all.length)*100) : 0;
+    bar.style.width = p + "%";
+    pct.textContent = p + "%";
+    stages.forEach(sec => {
+      const items = sec.querySelectorAll("ol.decs li");
+      const d = sec.querySelectorAll("ol.decs li.done");
+      const el = sec.querySelector(".stage-count");
+      if (el && items.length > 0) el.textContent = d.length + " / " + items.length;
+      else if (el) el.textContent = "";
+    });
+    if (done.length === all.length && all.length > 0){
+      banner.classList.add("show");
+    } else {
+      banner.classList.remove("show");
+    }
+  }
+
+  // Wire up declarations
+  document.querySelectorAll("ol.decs li").forEach((li, idx) => {
+    const id = "d" + idx;
+    if (state[id]) li.classList.add("done");
+    function toggle(){
+      li.classList.toggle("done");
+      state[id] = li.classList.contains("done");
+      updateProgress();
+    }
+    li.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") return;
+      toggle();
+    });
+    const num = li.querySelector(".num");
+    if (num){
+      num.setAttribute("tabindex","0");
+      num.setAttribute("role","checkbox");
+      num.addEventListener("keydown", (e) => {
+        if (e.key === " " || e.key === "Enter"){ e.preventDefault(); toggle(); }
+      });
+    }
+  });
+
+  // Collapse stage headers
+  stages.forEach(sec => {
+    const head = sec.querySelector(".stage-head");
+    head.addEventListener("click", () => sec.classList.toggle("collapsed"));
+  });
+
+  // Jump buttons
+  document.querySelectorAll("[data-jump]").forEach(b => {
+    b.addEventListener("click", () => {
+      const el = document.getElementById(b.getAttribute("data-jump"));
+      if (!el) return;
+      el.classList.remove("collapsed");
+      el.scrollIntoView({behavior:"smooth", block:"start"});
+    });
+  });
+
+  // Tabs
+  const tabs = document.querySelectorAll(".tab");
+  const panels = document.querySelectorAll(".panel");
+  function activateTab(name){
+    tabs.forEach(t => t.classList.toggle("active", t.getAttribute("data-tab") === name));
+    panels.forEach(p => p.classList.toggle("active", p.id === "panel-" + name));
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+  tabs.forEach(t => t.addEventListener("click", () => activateTab(t.getAttribute("data-tab"))));
+  document.querySelectorAll("[data-goto-tab]").forEach(b => {
+    b.addEventListener("click", () => activateTab(b.getAttribute("data-goto-tab")));
+  });
+
+  // Reset
+  document.getElementById("resetBtn").addEventListener("click", () => {
+    if (!confirm("Reset progress?")) return;
+    state = {};
+    document.querySelectorAll("ol.decs li.done").forEach(li => li.classList.remove("done"));
+    updateProgress();
+  });
+
+  // Print
+  document.getElementById("printBtn").addEventListener("click", () => {
+    stages.forEach(s => s.classList.remove("collapsed"));
+    setTimeout(() => window.print(), 200);
+  });
+
+  updateProgress();
+})();
+</script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

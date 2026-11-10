@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mantles Extraction — Dominion Hour, 31 August 2026</title>
+<meta name="description" content="Interactive, accessible companion for the 12 mantles released on 31 August 2026 — Dominion Hour with Prophet Prince Amo David." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Instrument+Serif:ital@0;1&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body data-mode="read" data-font="lexend" data-size="med">
+
+<!-- ============ TOP BAR ============ -->
+<header class="topbar" role="banner">
+  <div class="topbar-inner">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 22 L18 28 L28 14" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="brand-text">
+        <div class="brand-title">Mantles Extraction</div>
+        <div class="brand-sub">Dominion Hour · 31 August 2026</div>
+      </div>
+    </div>
+
+    <nav class="tabs" role="tablist" aria-label="Sections">
+      <button class="tab is-active" data-tab="mantles" role="tab" aria-selected="true">Mantles</button>
+      <button class="tab" data-tab="blueprint" role="tab" aria-selected="false">Blueprint</button>
+      <button class="tab" data-tab="progress" role="tab" aria-selected="false">Progress</button>
+    </nav>
+
+    <button class="settings-btn" id="settingsBtn" aria-label="Open reading settings" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 15.5A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5m7.43-2.53c.04-.32.07-.65.07-.97s-.03-.66-.07-1l2.11-1.63a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1a7.03 7.03 0 0 0-1.69-.98l-.38-2.65A.5.5 0 0 0 14 2h-4a.5.5 0 0 0-.49.42l-.38 2.65a7.03 7.03 0 0 0-1.69.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.5.5 0 0 0 .12.64l2.11 1.63c-.04.34-.07.68-.07 1s.03.65.07.97L2.46 14.6a.5.5 0 0 0-.12.64l2 3.46a.5.5 0 0 0 .61.22l2.49-1c.5.4 1.08.72 1.69.98l.38 2.65c.05.24.26.42.49.42h4c.24 0 .44-.18.49-.42l.38-2.65a7.03 7.03 0 0 0 1.69-.98l2.49 1c.23.08.49-.01.61-.22l2-3.46a.5.5 0 0 0-.12-.64Z"/></svg>
+      Settings
+    </button>
+  </div>
+
+  <!-- Settings panel -->
+  <div class="settings-panel" id="settingsPanel" hidden>
+    <div class="settings-group">
+      <div class="settings-label">Text size</div>
+      <div class="btn-row" role="group" aria-label="Text size">
+        <button class="chip" data-action="size" data-value="sm">Small</button>
+        <button class="chip is-active" data-action="size" data-value="med">Medium</button>
+        <button class="chip" data-action="size" data-value="lg">Large</button>
+        <button class="chip" data-action="size" data-value="xl">Extra Large</button>
+      </div>
+    </div>
+    <div class="settings-group">
+      <div class="settings-label">Font style</div>
+      <div class="btn-row" role="group" aria-label="Font style">
+        <button class="chip is-active" data-action="font" data-value="lexend">Lexend<span class="chip-note">easy reading</span></button>
+        <button class="chip" data-action="font" data-value="atkinson">Atkinson<span class="chip-note">dyslexia-friendly</span></button>
+        <button class="chip" data-action="font" data-value="serif">Serif<span class="chip-note">classic</span></button>
+      </div>
+    </div>
+    <div class="settings-group">
+      <div class="settings-label">Voice speed</div>
+      <div class="btn-row" role="group" aria-label="Voice speed">
+        <button class="chip" data-action="rate" data-value="0.8">Slow</button>
+        <button class="chip is-active" data-action="rate" data-value="1.0">Normal</button>
+        <button class="chip" data-action="rate" data-value="1.15">Fast</button>
+      </div>
+    </div>
+    <div class="settings-group">
+      <div class="settings-label">Contrast</div>
+      <div class="btn-row" role="group" aria-label="Contrast">
+        <button class="chip is-active" data-action="theme" data-value="warm">Warm</button>
+        <button class="chip" data-action="theme" data-value="high">High contrast</button>
+        <button class="chip" data-action="theme" data-value="calm">Calm</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MANTLES VIEW ============ -->
+<div id="view-mantles" class="view is-active">
+
+<!-- ============ HERO ============ -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Dominion Hour · Prophet Prince Amo David</div>
+    <h1 id="hero-title">Twelve mantles released on 31 August 2026.</h1>
+    <p class="hero-lede">Pick a mantle. Listen to it, read it, or see it with pictures. Then say the "Repeat after me" out loud. Every scripture is in full King James Version.</p>
+
+    <div class="mode-switcher" role="tablist" aria-label="Choose how you want to learn">
+      <button class="mode-btn is-active" role="tab" data-mode="read" aria-selected="true">
+        <span class="mode-icon" aria-hidden="true">📖</span>
+        <span class="mode-label">Read</span>
+        <span class="mode-desc">Full text</span>
+      </button>
+      <button class="mode-btn" role="tab" data-mode="listen" aria-selected="false">
+        <span class="mode-icon" aria-hidden="true">🎧</span>
+        <span class="mode-label">Listen</span>
+        <span class="mode-desc">Tap to hear</span>
+      </button>
+      <button class="mode-btn" role="tab" data-mode="watch" aria-selected="false">
+        <span class="mode-icon" aria-hidden="true">✨</span>
+        <span class="mode-label">Watch</span>
+        <span class="mode-desc">Pictures &amp; symbols</span>
+      </button>
+      <button class="mode-btn" role="tab" data-mode="simple" aria-selected="false">
+        <span class="mode-icon" aria-hidden="true">🌱</span>
+        <span class="mode-label">Simple</span>
+        <span class="mode-desc">Short words</span>
+      </button>
+    </div>
+
+    <div class="hero-hint" aria-live="polite" id="modeHint">Read mode: full teaching, scriptures and prayers.</div>
+  </div>
+</section>
+
+<!-- ============ MANTLE GRID ============ -->
+<main id="grid" class="grid" aria-label="12 mantles"></main>
+
+<!-- ============ DETAIL DIALOG ============ -->
+<dialog id="mantleDialog" class="dialog" aria-labelledby="dialogTitle">
+  <div class="dialog-inner">
+    <div class="dialog-topbar">
+      <div class="dialog-kicker" id="dialogKicker"></div>
+      <button class="close-btn" id="closeDialog" aria-label="Close">✕</button>
+    </div>
+    <h2 class="dialog-title" id="dialogTitle"></h2>
+    <p class="dialog-sub" id="dialogSub"></p>
+
+    <div class="listen-bar">
+      <button class="listen-all" id="listenAll">
+        <span class="ico" aria-hidden="true">▶</span>
+        <span class="listen-label">Read the whole page to me</span>
+      </button>
+      <button class="stop-btn" id="stopAll" hidden>Stop</button>
+    </div>
+
+    <div id="dialogBody" class="dialog-body"></div>
+  </div>
+</dialog>
+
+<!-- ============ SEALING SECTION ============ -->
+<section class="sealing" id="sealing">
+  <div class="sealing-inner">
+    <div class="sealing-eyebrow">✦ Sealing prayer</div>
+    <h2>Job 33 · Receive all 12 mantles together</h2>
+    <p class="sealing-lede">The hidden classroom in the dream matches Job 33 — God sealed His instruction while you rested. Now that you are awake, receive it in full.</p>
+    <blockquote class="sealing-scripture">
+      <div class="ref">1 Corinthians 2:12 · King James Version</div>
+      <p>Now we have received, not the spirit of the world, but the spirit which is of God; that we might know the things that are freely given to us of God.</p>
+    </blockquote>
+    <div class="sealing-declaration">
+      <div class="decl-label">DECLARATION — Repeat after me</div>
+      <p id="sealingDecl">Father, in the name of Jesus, I thank You for the instruction You sealed in me during rest on 31 August 2026. According to 1 Corinthians 2:12, I have received the Spirit which is of God, that I might know the things freely given to me. I pick up every mantle released through Your servant this morning — the prophetic voice, dry-bones prophesying, dominion, consecration, blossoming, silencing the accuser, favor as currency, instant faith, Shunammite discernment, Moses-on-the-mountain intercession, breaking dream altars, and covenant sacrifice. I refuse to let one word fall to the ground. In the name of Jesus. Amen.</p>
+      <button class="listen-inline" data-listen="#sealingDecl">
+        <span aria-hidden="true">🔊</span> Hear it out loud
+      </button>
+    </div>
+  </div>
+</section>
+
+</div><!-- /view-mantles -->
+
+<!-- ============ BLUEPRINT VIEW ============ -->
+<div id="view-blueprint" class="view">
+  <section class="hero" aria-labelledby="bp-title">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Ember Months · September – December 2026</div>
+      <h1 id="bp-title">Prophetic Blueprint</h1>
+      <p class="hero-lede">A simple weekly rhythm that carries all 12 mantles through the four Ember months. Same 7-day pattern every week — different mantle each week. Follow it on your phone, in your Bible, or with your group.</p>
+
+      <div class="rhythm-strip" aria-label="Daily rhythm">
+        <div class="rhythm-title">The 7-day rhythm — every week</div>
+        <div class="rhythm-days" id="rhythmDays"></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="blueprint" id="blueprintList" aria-label="Weekly plan"></main>
+
+  <section class="printbar">
+    <div class="printbar-inner">
+      <p>Prefer a printable copy for your phone or notebook?</p>
+      <a class="listen-all" href="blueprint.pdf" target="_blank" rel="noopener"><span aria-hidden="true">⬇</span> Download PDF blueprint</a>
+    </div>
+  </section>
+</div><!-- /view-blueprint -->
+
+<!-- ============ PROGRESS VIEW ============ -->
+<div id="view-progress" class="view">
+  <section class="progress-hero">
+    <div class="hero-eyebrow">Your journey with the 12 mantles</div>
+    <h1 style="font-family:var(--font-serif); font-size:2.2rem; color:var(--accent); margin:0.4rem 0 0.6rem;">Progress</h1>
+    <p style="max-width:600px; margin:0 auto 1.5rem; color:var(--ink-soft); line-height:1.5;">Each mantle is marked complete when you have read the teaching, answered the quiz, and worked through the scenario. Your progress is saved on this device only.</p>
+
+    <div class="progress-ring-wrap">
+      <div class="progress-ring" id="progressRing">
+        <svg width="180" height="180" viewBox="0 0 180 180">
+          <circle class="track" cx="90" cy="90" r="78"></circle>
+          <circle class="bar" cx="90" cy="90" r="78" stroke-dasharray="490" stroke-dashoffset="490"></circle>
+        </svg>
+        <div class="center">
+          <div class="pct-value" id="pctValue">0</div>
+          <div class="pct-label">of 12 mantles</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-summary">
+      <div class="stat-card"><div class="n" id="statMantles">0</div><div class="l">Mantles done</div></div>
+      <div class="stat-card"><div class="n" id="statQuiz">0</div><div class="l">Quiz answers correct</div></div>
+      <div class="stat-card"><div class="n" id="statFlash">0</div><div class="l">Flashcards flipped</div></div>
+      <div class="stat-card"><div class="n" id="statScenario">0</div><div class="l">Scenarios worked</div></div>
+    </div>
+
+    <button class="reset-btn" id="resetProgress">Reset progress</button>
+  </section>
+
+  <div class="mastery-grid" id="masteryGrid"></div>
+
+  <div class="master-it" id="masterIt" hidden>
+    <div class="master-it-card">
+      <h2>🏆 You have received all 12 mantles</h2>
+      <p>You have engaged with every mantle released on 31 August 2026 — reading, testing, and applying. Now walk them out through the Ember Months rhythm.</p>
+      <div class="final-decl">
+        <span class="lbl">Final declaration — repeat after me</span>
+        Father, in the name of Jesus, I confess that I have received all twelve mantles released through Your servant. I carry the prophetic voice, dry-bones prophesying, dominion, consecration, blossoming, silencing the accuser, favor, instant faith, Shunammite discernment, mountain-top intercession, dream-altar authority, and covenant sacrifice. I will walk them out — Monday through Sunday, September through December — until the new year meets me already carrying what You have given. In Jesus’ name. Amen.
+      </div>
+      <button class="listen-inline" data-listen=".final-decl" style="margin-top:1rem"><span aria-hidden="true">🔊</span> Hear it out loud</button>
+    </div>
+  </div>
+</div><!-- /view-progress -->
+
+<footer class="footer">
+  <p>Companion resource for Dominion Hour with Prophet Prince Amo David · Private study use.</p>
+  <p class="footer-fine">The master transcript remains private per ministry policy; only approved derivative resources are shared.</p>
+</footer>
+
+<script src="mantles.js"></script>
+<script src="blueprint.js"></script>
+<script src="learning.js"></script>
+<script src="app.js"></script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

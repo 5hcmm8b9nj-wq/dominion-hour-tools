@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Divine Breakthrough · Dominion Hour with Prophet Prince Amo David</title>
+<meta name="description" content="Interactive study companion for Prophet Prince Amo David's Divine Breakthrough teaching — anchored in Luke 5 and 2 Samuel 5. KJV full text, Repeat-After-Me declarations, quiz, recall, and prophetic instruction." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0b1e42;
+    --navy-2:#122a5b;
+    --navy-3:#1c3a78;
+    --gold:#d4a24c;
+    --gold-2:#b58836;
+    --cream:#f6efe0;
+    --cream-2:#fbf6e9;
+    --ink:#0e1a35;
+    --muted:#5d6b8a;
+    --line:rgba(212,162,76,0.35);
+    --shadow:0 12px 40px rgba(11,30,66,0.16);
+    --radius:14px;
+    --serif:"Cormorant Garamond", Georgia, serif;
+    --sans:"Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:linear-gradient(180deg,var(--cream-2) 0%,#fff 60%,var(--cream-2) 100%);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--navy-3);text-decoration:underline;text-underline-offset:2px}
+  h1,h2,h3,h4{font-family:var(--serif);color:var(--navy);letter-spacing:.2px;margin:0 0 .5em}
+  h1{font-size:clamp(1.9rem,4.6vw,3rem);line-height:1.15}
+  h2{font-size:clamp(1.4rem,3.3vw,2rem);line-height:1.2}
+  h3{font-size:clamp(1.15rem,2.4vw,1.4rem);line-height:1.25;color:var(--navy-2)}
+  h4{font-size:1.05rem;color:var(--gold-2);text-transform:uppercase;letter-spacing:.14em;font-family:var(--sans);font-weight:700}
+  p{margin:0 0 1em}
+  .container{max-width:900px;margin:0 auto;padding:0 20px}
+  /* ---- Header ---- */
+  header.top{
+    background:linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 60%,var(--navy-3) 100%);
+    color:var(--cream);
+    padding:56px 20px 90px;
+    position:relative;
+    overflow:hidden;
+    text-align:center;
+  }
+  header.top::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 20% 10%, rgba(212,162,76,.18), transparent 55%),
+               radial-gradient(ellipse at 85% 90%, rgba(212,162,76,.14), transparent 55%);
+    pointer-events:none;
+  }
+  .brand{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--sans);font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+    padding:8px 16px;border:1px solid rgba(212,162,76,.55);border-radius:999px;background:rgba(11,30,66,.35);
+  }
+  .brand svg{width:16px;height:16px}
+  header.top h1{color:#fff;margin-top:22px}
+  header.top .anchor{
+    font-family:var(--serif);font-style:italic;color:var(--gold);
+    font-size:1.15rem;margin-top:6px;
+  }
+  header.top .meta{
+    color:rgba(246,239,224,.72);font-size:.85rem;margin-top:14px;letter-spacing:.1em;text-transform:uppercase;
+  }
+  .tagline{
+    margin:22px auto 0;max-width:640px;color:rgba(246,239,224,.9);font-family:var(--serif);
+    font-size:1.15rem;line-height:1.5;
+  }
+  /* ---- Progress bar ---- */
+  .progress-wrap{
+    position:sticky;top:0;z-index:20;
+    background:rgba(255,255,255,.94);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .progress-inner{max-width:900px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px}
+  .progress-track{flex:1;height:6px;background:#e6dcc0;border-radius:999px;overflow:hidden}
+  .progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold-2));transition:width .3s ease}
+  .progress-label{font-size:.78rem;color:var(--muted);letter-spacing:.06em;white-space:nowrap}
+  /* ---- Nav pills ---- */
+  nav.pills{
+    max-width:900px;margin:-56px auto 0;padding:14px 16px;background:#fff;border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-wrap:wrap;gap:8px;position:relative;z-index:2
+  }
+  nav.pills a{
+    text-decoration:none;font-size:.82rem;padding:8px 12px;border-radius:999px;
+    color:var(--navy-2);background:var(--cream);border:1px solid transparent;
+  }
+  nav.pills a:hover{background:var(--gold);color:#fff}
+  /* ---- Section cards ---- */
+  main{padding:48px 0 60px}
+  section.card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px 24px;margin:20px 0;box-shadow:var(--shadow);
+  }
+  section.card .kicker{
+    display:inline-block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold-2);font-weight:700;margin-bottom:10px;
+  }
+  ul,ol{margin:0 0 1em;padding-left:1.25em}
+  li{margin:.35em 0}
+  blockquote{
+    margin:0 0 1em;padding:14px 18px;border-left:4px solid var(--gold);
+    background:var(--cream);border-radius:0 10px 10px 0;font-family:var(--serif);font-size:1.1rem;color:var(--navy-2)
+  }
+  .scripture{
+    background:linear-gradient(180deg,#fff 0%,var(--cream-2) 100%);
+    border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0;
+  }
+  .scripture h4{color:var(--navy);font-family:var(--serif);font-size:1.05rem;text-transform:none;letter-spacing:0;margin-bottom:8px}
+  .scripture .verse{display:block;margin:.35em 0;font-family:var(--serif);font-size:1.05rem;color:#1a2645}
+  .scripture .v{color:var(--gold-2);font-weight:700;font-family:var(--sans);font-size:.75rem;vertical-align:top;margin-right:4px}
+
+  /* ---- Repeat after me ---- */
+  .decl-block{
+    background:linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 100%);
+    color:var(--cream);border-radius:12px;padding:22px 22px;margin:14px 0;
+    position:relative;overflow:hidden;
+  }
+  .decl-block::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(circle at 90% 10%, rgba(212,162,76,.18), transparent 50%);
+  }
+  .decl-block h4{color:var(--gold);margin-bottom:14px}
+  .decl-list{list-style:none;padding:0;margin:0}
+  .decl-list li{
+    padding:10px 12px 10px 40px;position:relative;font-family:var(--serif);font-size:1.12rem;line-height:1.45;
+    border-bottom:1px dashed rgba(212,162,76,.25);
+  }
+  .decl-list li:last-child{border-bottom:0}
+  .decl-list li::before{
+    content:"✦";position:absolute;left:14px;top:10px;color:var(--gold);font-size:1rem
+  }
+
+  /* ---- Interactive: checkbox declarations ---- */
+  .check-list{list-style:none;padding:0;margin:0}
+  .check-list li{
+    display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed var(--line);
+    cursor:pointer;
+  }
+  .check-list li:last-child{border-bottom:0}
+  .check-list input[type=checkbox]{
+    appearance:none;-webkit-appearance:none;min-width:22px;height:22px;border:2px solid var(--gold);
+    border-radius:6px;background:#fff;display:inline-block;position:relative;cursor:pointer;margin-top:2px;
+  }
+  .check-list input[type=checkbox]:checked{background:var(--gold);border-color:var(--gold-2)}
+  .check-list input[type=checkbox]:checked::after{
+    content:"✓";color:#fff;font-weight:700;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px
+  }
+  .check-list span{flex:1}
+  .check-list li.done span{color:var(--muted);text-decoration:line-through}
+
+  /* ---- Quiz ---- */
+  .quiz-q{border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;background:var(--cream-2)}
+  .quiz-q h4{color:var(--navy);text-transform:none;letter-spacing:0;font-family:var(--serif);font-size:1.1rem;margin-bottom:10px}
+  .quiz-options{display:grid;gap:8px}
+  .quiz-options button{
+    text-align:left;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#fff;
+    font:inherit;cursor:pointer;color:var(--ink);transition:all .15s ease
+  }
+  .quiz-options button:hover{border-color:var(--gold)}
+  .quiz-options button.correct{background:#e5f5e5;border-color:#4a9256;color:#1e5f2c}
+  .quiz-options button.wrong{background:#fbe8e8;border-color:#c0554b;color:#7c1d15}
+  .quiz-explain{margin-top:10px;font-size:.92rem;color:var(--muted);display:none}
+  .quiz-explain.show{display:block}
+
+  /* ---- Recall / fill blanks ---- */
+  .recall-item{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:12px 0;background:#fff}
+  .recall-item input{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font:inherit;
+    font-family:var(--serif);font-size:1.05rem;background:var(--cream-2);color:var(--navy);
+  }
+  .recall-item input.correct{background:#e5f5e5;border-color:#4a9256}
+  .recall-item input.wrong{background:#fbe8e8;border-color:#c0554b}
+  .recall-item .hint{font-size:.8rem;color:var(--muted);margin-top:6px}
+  .recall-item .answer{font-size:.85rem;color:var(--gold-2);margin-top:6px;display:none;font-family:var(--serif);font-size:1rem;color:var(--navy-2)}
+  .recall-item .answer.show{display:block}
+
+  /* ---- Reflection textarea ---- */
+  .reflect textarea{
+    width:100%;min-height:100px;padding:12px;border:1px solid var(--line);border-radius:10px;
+    font:inherit;font-family:var(--serif);font-size:1.05rem;background:var(--cream-2);color:var(--navy);resize:vertical
+  }
+
+  /* ---- Buttons ---- */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;
+    background:linear-gradient(180deg,var(--gold) 0%,var(--gold-2) 100%);color:#fff;font-weight:600;
+    border:0;cursor:pointer;font:inherit;font-size:.92rem;letter-spacing:.02em;
+    box-shadow:0 6px 18px rgba(212,162,76,.35)
+  }
+  .btn.secondary{background:transparent;color:var(--navy-2);border:1px solid var(--line);box-shadow:none}
+  .btn:hover{filter:brightness(1.05)}
+
+  /* ---- Prophetic instruction (cup + salt) ---- */
+  .instruction{
+    border:2px dashed var(--gold);border-radius:14px;padding:22px;background:var(--cream);position:relative
+  }
+  .instruction .icon{
+    position:absolute;top:-20px;left:20px;background:var(--navy);color:var(--gold);
+    width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:1.2rem;
+    border:2px solid var(--gold)
+  }
+  .steps{list-style:none;padding:0;counter-reset:step}
+  .steps li{
+    counter-increment:step;padding:10px 0 10px 46px;position:relative;border-bottom:1px dashed var(--line);
+  }
+  .steps li:last-child{border-bottom:0}
+  .steps li::before{
+    content:counter(step);position:absolute;left:0;top:8px;
+    width:32px;height:32px;border-radius:50%;background:var(--navy);color:var(--gold);
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--sans);font-size:.9rem
+  }
+
+  /* ---- Footer ---- */
+  footer{
+    background:linear-gradient(180deg,var(--navy-2) 0%,var(--navy) 100%);color:var(--cream);
+    padding:36px 20px;text-align:center;margin-top:40px;
+  }
+  footer .brand-line{color:var(--gold);letter-spacing:.28em;text-transform:uppercase;font-size:.78rem}
+  footer .tag{margin-top:10px;font-family:var(--serif);font-size:1.15rem}
+  footer small{color:rgba(246,239,224,.6);display:block;margin-top:12px;font-size:.75rem;letter-spacing:.06em}
+
+  /* ---- Note callout ---- */
+  .note{
+    background:var(--cream);border-left:4px solid var(--navy-3);padding:12px 16px;border-radius:0 10px 10px 0;
+    font-size:.9rem;color:var(--navy-2)
+  }
+  .transcript-flag{
+    display:inline-block;background:#fbeed3;color:#8a6100;padding:2px 8px;border-radius:6px;font-size:.72rem;
+    letter-spacing:.04em;margin-left:6px;font-weight:600;text-transform:uppercase
+  }
+  details{border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:10px 0;background:#fff}
+  details summary{cursor:pointer;font-weight:600;color:var(--navy-2);font-family:var(--sans)}
+  details[open] summary{margin-bottom:10px}
+
+  @media (max-width:520px){
+    header.top{padding:44px 18px 80px}
+    section.card{padding:22px 18px}
+    nav.pills{margin-top:-64px}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 15 L7 18 L9 12 L4 8 L10 8 Z"/></svg>
+    Dominion Hour with Prophet Prince Amo David
+  </div>
+  <h1>Divine Breakthrough</h1>
+  <div class="anchor">“The Lord has broken through my enemies before me, like a breakthrough of water.” — 2 Samuel 5:20 (KJV paraphrase)</div>
+  <p class="tagline">A Clubhouse teaching converted into an interactive study companion — full KJV scriptures, Repeat‑After‑Me declarations, quiz, recall, and the prophetic cup‑and‑salt instruction.</p>
+  <div class="meta">Service date: 21 August 2026 · Interactive study companion</div>
+</header>
+
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+    <div class="progress-label"><span id="progressCount">0</span> of 10 sections</div>
+  </div>
+</div>
+
+<nav class="pills" aria-label="Section navigation">
+  <a href="#snapshot">Snapshot</a>
+  <a href="#definition">What Is Breakthrough</a>
+  <a href="#luke5">Luke 5</a>
+  <a href="#samuel5">2 Samuel 5</a>
+  <a href="#themes">Core Themes</a>
+  <a href="#declarations">Declarations</a>
+  <a href="#instruction">Cup &amp; Salt</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#recall">Recall</a>
+  <a href="#reflect">Reflection</a>
+</nav>
+
+<main class="container">
+
+  <!-- ---------- 1. SNAPSHOT ---------- -->
+  <section class="card section" id="snapshot">
+    <div class="kicker">Section 1 · Sermon Snapshot</div>
+    <h2>What this service was about</h2>
+    <p>Prophet Prince Amo David opened with thanksgiving and declared that a season of breakthrough had arrived — over marriage, ministry, career, finances, health, and spiritual life. The teaching moves through two anchor scriptures — <strong>Luke 5:1–11</strong> (Peter’s empty nets and the great catch) and <strong>2 Samuel 5:17–25</strong> (David at Baal‑Perazim) — and ends with a prophetic cup‑of‑water and salt instruction for restoration and “taste” of life.</p>
+
+    <h4 style="margin-top:18px">Key promises spoken over the room</h4>
+    <ul>
+      <li><em>Your breakthrough is here.</em></li>
+      <li>Your bank account, your baskets, your storehouses will be full.</li>
+      <li>The Lord will fill your life with peace, joy, favor, and blessing.</li>
+      <li>Every altar, every wall of resistance is broken today.</li>
+      <li>Whatever the enemy is sitting on — your promotion, glory, contracts, money, doors, peace — the Lord will remove them.</li>
+    </ul>
+
+    <div class="note" style="margin-top:14px">
+      This companion preserves Prophet Prince’s teaching as it was delivered. Recorder‑generated gibberish (unrelated modern sentences that appeared inside the transcript) has been marked <span class="transcript-flag">flagged</span> and set aside so it doesn’t distort the message. Congregant details have been anonymized for this shareable study.
+    </div>
+  </section>
+
+  <!-- ---------- 2. DEFINITION ---------- -->
+  <section class="card section" id="definition">
+    <div class="kicker">Section 2 · What Is a Breakthrough</div>
+    <h2>Prophet Prince’s working definition</h2>
+    <blockquote>“A breakthrough is a sudden and powerful act of God that removes a major barrier, transforms an impossible problem. A breakthrough is a sudden and powerful act of God that removes major barriers.”</blockquote>
+    <p>He continued: the Hebrew and Greek words behind “breakthrough” carry the sense of <strong>break out, bust out, or tear down a wall</strong>. God is often seen as the Breaker who opens a way through closed doors.</p>
+
+    <h4 style="margin-top:14px">Where breakthrough is needed</h4>
+    <ul>
+      <li>Marriage &amp; relationship</li>
+      <li>Career &amp; business</li>
+      <li>Finances &amp; storehouses</li>
+      <li>Ministry &amp; spiritual growth</li>
+      <li>Health, healing, and deliverance from sickness</li>
+      <li>Family lines, father’s house, mother’s house</li>
+      <li>Legal matters and long‑standing court cases</li>
+    </ul>
+  </section>
+
+  <!-- ---------- 3. LUKE 5 ---------- -->
+  <section class="card section" id="luke5">
+    <div class="kicker">Section 3 · Anchor Scripture I</div>
+    <h2>Luke 5 — Empty nets, then a net‑breaking catch</h2>
+    <p>Prophet Prince re‑read the account of Peter, who had toiled all night and taken nothing, and then at the word of Jesus let down his net for a draught. This is the primary picture the whole service is built on: <em>“Your season of waiting for that breakthrough is now over.”</em></p>
+
+    <div class="scripture">
+      <h4>Luke 5:1–11 (KJV)</h4>
+      <span class="verse"><span class="v">1</span>And it came to pass, that, as the people pressed upon him to hear the word of God, he stood by the lake of Gennesaret,</span>
+      <span class="verse"><span class="v">2</span>And saw two ships standing by the lake: but the fishermen were gone out of them, and were washing their nets.</span>
+      <span class="verse"><span class="v">3</span>And he entered into one of the ships, which was Simon’s, and prayed him that he would thrust out a little from the land. And he sat down, and taught the people out of the ship.</span>
+      <span class="verse"><span class="v">4</span>Now when he had left speaking, he said unto Simon, Launch out into the deep, and let down your nets for a draught.</span>
+      <span class="verse"><span class="v">5</span>And Simon answering said unto him, Master, we have toiled all the night, and have taken nothing: nevertheless at thy word I will let down the net.</span>
+      <span class="verse"><span class="v">6</span>And when they had this done, they inclosed a great multitude of fishes: and their net brake.</span>
+      <span class="verse"><span class="v">7</span>And they beckoned unto their partners, which were in the other ship, that they should come and help them. And they came, and filled both the ships, so that they began to sink.</span>
+      <span class="verse"><span class="v">8</span>When Simon Peter saw it, he fell down at Jesus’ knees, saying, Depart from me; for I am a sinful man, O Lord.</span>
+      <span class="verse"><span class="v">9</span>For he was astonished, and all that were with him, at the draught of the fishes which they had taken:</span>
+      <span class="verse"><span class="v">10</span>And so was also James, and John, the sons of Zebedee, which were partners with Simon. And Jesus said unto Simon, Fear not; from henceforth thou shalt catch men.</span>
+      <span class="verse"><span class="v">11</span>And when they had brought their ships to land, they forsook all, and followed him.</span>
+    </div>
+
+    <h4>What the Prophet drew out</h4>
+    <ul>
+      <li>Peter’s hard work through the night produced <em>nothing</em> — until the word of Jesus came.</li>
+      <li>Breakthrough is not about working harder. It is about the supernatural power, favor, and anointing of the Holy Ghost changing the narrative.</li>
+      <li>When the word of God is applied, the net breaks — a “net‑breaking miracle,” a boat‑filling, partner‑calling catch.</li>
+      <li>“At thy word” is the posture of faith the whole room was invited into.</li>
+    </ul>
+  </section>
+
+  <!-- ---------- 4. 2 SAMUEL 5 ---------- -->
+  <section class="card section" id="samuel5">
+    <div class="kicker">Section 4 · Anchor Scripture II</div>
+    <h2>2 Samuel 5 — David at Baal‑Perazim</h2>
+    <p>Prophet Prince turned to David’s first battles as newly anointed king. The Philistines heard he had been anointed and came up to look for him. David <strong>inquired of the Lord</strong>, and God handed them into his hands “like a breakthrough of water.” Then they came up a second time and God gave a different strategy — circle behind, and wait for the sound in the mulberry trees.</p>
+
+    <div class="scripture">
+      <h4>2 Samuel 5:17–25 (KJV)</h4>
+      <span class="verse"><span class="v">17</span>But when the Philistines heard that they had anointed David king over Israel, all the Philistines came up to seek David; and David heard of it, and went down to the hold.</span>
+      <span class="verse"><span class="v">18</span>The Philistines also came and spread themselves in the valley of Rephaim.</span>
+      <span class="verse"><span class="v">19</span>And David enquired of the Lord, saying, Shall I go up to the Philistines? wilt thou deliver them into mine hand? And the Lord said unto David, Go up: for I will doubtless deliver the Philistines into thine hand.</span>
+      <span class="verse"><span class="v">20</span>And David came to Baal‑perazim, and David smote them there, and said, The Lord hath broken forth upon mine enemies before me, as the breach of waters. Therefore he called the name of that place Baal‑perazim.</span>
+      <span class="verse"><span class="v">21</span>And there they left their images, and David and his men burned them.</span>
+      <span class="verse"><span class="v">22</span>And the Philistines came up yet again, and spread themselves in the valley of Rephaim.</span>
+      <span class="verse"><span class="v">23</span>And when David enquired of the Lord, he said, Thou shalt not go up; but fetch a compass behind them, and come upon them over against the mulberry trees.</span>
+      <span class="verse"><span class="v">24</span>And let it be, when thou hearest the sound of a going in the tops of the mulberry trees, that then thou shalt bestir thyself: for then shall the Lord go out before thee, to smite the host of the Philistines.</span>
+      <span class="verse"><span class="v">25</span>And David did so, as the Lord had commanded him; and smote the Philistines from Geba until thou come to Gazer.</span>
+    </div>
+
+    <h4>What the Prophet drew out</h4>
+    <ul>
+      <li><strong>The Philistines rise when you rise.</strong> They only came looking for David after he was anointed king. Fresh anointing draws fresh opposition.</li>
+      <li><strong>Enquire of the Lord — twice.</strong> Same enemy, different strategy. Don’t assume yesterday’s tactic is today’s instruction.</li>
+      <li><strong>Baal‑Perazim means the Lord of Breakthroughs.</strong> When God breaks through, it bursts like water — nothing stops it.</li>
+      <li><strong>Burn the idols.</strong> After the victory, David destroyed what the enemy left behind. Break every altar, image, and secret device.</li>
+      <li><strong>Wait for the sound.</strong> When you hear the sound in the mulberry trees, the Lord is already going ahead of you.</li>
+    </ul>
+  </section>
+
+  <!-- ---------- 5. CORE THEMES ---------- -->
+  <section class="card section" id="themes">
+    <div class="kicker">Section 5 · Core Themes</div>
+    <h2>Six threads running through the whole teaching</h2>
+
+    <details open>
+      <summary>1. Breakthrough is the sovereign act of God, not the reward of hard work</summary>
+      <p>“It is not about hard working. People are working hard, doing things the hard way — but it is the word of God that will make the way soft.” Supernatural favor, supernatural anointing, supernatural power change the narrative.</p>
+    </details>
+
+    <details>
+      <summary>2. Anointing precedes attack — the Philistines only came when David was made king</summary>
+      <p>Because the enemy hears the announcement of your elevation, they set traps, hide in strongholds, and try to block your promotion. But the Lord hands them into your hand.</p>
+    </details>
+
+    <details>
+      <summary>3. Commitment to the altar unlocks the door</summary>
+      <p>The prophet illustrated this with a young man who said, <em>“I was looking for a room to pray,”</em> and stayed committed until the prophecy of travel and open doors was fulfilled. Commitment to the place of prayer opens the door of breakthrough.</p>
+    </details>
+
+    <details>
+      <summary>4. Breakthrough bursts like water — it cannot be stopped</summary>
+      <p>Baal‑Perazim: “as the breach of waters.” When the release comes it floods every dry place — finances, marriage, ministry, health.</p>
+    </details>
+
+    <details>
+      <summary>5. Overflow instead of emptiness</summary>
+      <p>“Fill the empty vessels.” The oil that Elisha poured, the water Jesus turned to wine, the widow’s jars — the Lord is filling every empty place to the brim so no demonic wind can blow you away.</p>
+    </details>
+
+    <details>
+      <summary>6. Salt and taste — restored meaning and preservation</summary>
+      <p>Ye are the salt of the earth. When the salt loses its taste it is good for nothing. The prophetic instruction with salt in the water declares that <em>life</em> — marriage, ministry, calling — becomes tasteful, meaningful, and preserved again.</p>
+    </details>
+  </section>
+
+  <!-- ---------- 6. DECLARATIONS ---------- -->
+  <section class="card section" id="declarations">
+    <div class="kicker">Section 6 · Repeat After Me</div>
+    <h2>Prophetic declarations (say each one out loud)</h2>
+    <p class="note">These are Prophet Prince Amo David’s own “say after me” lines from the service. Read each one out loud, then check it off as you decree it over your life.</p>
+
+    <div class="decl-block">
+      <h4>Opening declaration</h4>
+      <ul class="decl-list">
+        <li>I take my breakthrough.</li>
+        <li>My breakthrough is here.</li>
+        <li>My breakthrough is here — whether the devil likes it or not, Jesus is going to turn it around.</li>
+        <li>My breakthrough is here on the altar today. I receive it. I receive it. I receive it all, in the name of Jesus Christ.</li>
+      </ul>
+    </div>
+
+    <div class="decl-block">
+      <h4>Break out · Break forth</h4>
+      <ul class="decl-list">
+        <li>I break out. I break out. I break out, in the name of Jesus.</li>
+        <li>I break forth. I break forth.</li>
+        <li>Every unseen barrier — break. Every altar — break. Every wall of Jericho in my life — broken down today.</li>
+      </ul>
+    </div>
+
+    <div class="decl-block">
+      <h4>Over enemies of breakthrough</h4>
+      <ul class="decl-list">
+        <li>Father, hand them over to me. Hand them over into my hands.</li>
+        <li>Let me conquer them, let me defeat them.</li>
+        <li>My breakthrough will burst forth like water. It cannot be stopped in the name of Jesus. It shall flow. It shall not be stopped by the enemies of breakthrough.</li>
+        <li>By the blood of Jesus, and by the power of the Holy Ghost, I scatter them. I bind them. I chain them, in the name of Jesus.</li>
+      </ul>
+    </div>
+
+    <div class="decl-block">
+      <h4>Covenant of breakthrough</h4>
+      <ul class="decl-list">
+        <li>By the blood of my covenant, I have entered into my season of breakthroughs.</li>
+        <li>I shall not be stopped. I shall not be hindered, in the name of Jesus.</li>
+        <li>My relationship, my marriage shall be full of joy and peace.</li>
+        <li>My finances is taking a new phase. It’s turning into a new level, in the name of Jesus.</li>
+        <li>No more war. No more debt. No more scarcity.</li>
+      </ul>
+    </div>
+
+    <div class="decl-block">
+      <h4>Claiming every breakthrough</h4>
+      <ul class="decl-list">
+        <li>Any breakthrough designed for me — I take it.</li>
+        <li>Any breakthrough deposited for me — today I claim it, today I take it, in the name of Jesus.</li>
+        <li>I am in my season of breakthrough.</li>
+        <li>Whatever refused to break — from today, has been broken by the power of God. It has broken. It has broken.</li>
+        <li>From today, what I am looking for, what I am praying for, has been released by the power of God. No devil, no power can stop it.</li>
+      </ul>
+    </div>
+
+    <div class="decl-block">
+      <h4>Areas of breakthrough</h4>
+      <ul class="decl-list">
+        <li>Breakthrough over my marriage and relationship.</li>
+        <li>Breakthrough over my career, my business.</li>
+        <li>Breakthrough over my finances.</li>
+        <li>Breakthrough over my spiritual life.</li>
+        <li>Heavenly Father — whatever is in my father’s house, in my mother’s house, whatever is after my life that makes things difficult for me — in the name of Jesus, today I receive a great catch, a net‑breaking miracle, a net‑breaking breakthrough.</li>
+        <li>I serve the God of breakthrough. O God of breakthrough, today, give me breakthrough — in the name of Jesus.</li>
+      </ul>
+    </div>
+
+    <h3 style="margin-top:26px">✅ Personal check‑off list</h3>
+    <p class="note">Tap each declaration once you have spoken it out loud today.</p>
+    <ul class="check-list" id="declCheck">
+      <li><input type="checkbox"><span>I said the opening: <em>“I take my breakthrough — my breakthrough is here.”</em></span></li>
+      <li><input type="checkbox"><span>I declared: <em>“I break out. I break forth.”</em></span></li>
+      <li><input type="checkbox"><span>I asked the Father to hand the enemies of my breakthrough into my hands.</span></li>
+      <li><input type="checkbox"><span>I decreed the covenant of breakthrough over my marriage, finances, and spiritual life.</span></li>
+      <li><input type="checkbox"><span>I claimed every breakthrough designed and deposited for me.</span></li>
+      <li><input type="checkbox"><span>I received the great catch, the net‑breaking miracle.</span></li>
+      <li><input type="checkbox"><span>I called on the God of Breakthrough by name.</span></li>
+    </ul>
+  </section>
+
+  <!-- ---------- 7. INSTRUCTION ---------- -->
+  <section class="card section" id="instruction">
+    <div class="kicker">Section 7 · Prophetic Instruction</div>
+    <h2>The cup, the water, and the salt</h2>
+    <div class="instruction">
+      <div class="icon">✧</div>
+      <p style="margin-top:8px">Prophet Prince gave a two‑part prophetic instruction — first with a cup of water, then with salt — to seal the breakthrough decree in a tangible act of faith. Do this reverently, understanding that the water and salt are not power; the Lord Jesus is the Power. They are a point of contact for your faith.</p>
+
+      <ol class="steps">
+        <li><strong>Prepare.</strong> Take a bowl with a clean drinking glass inside it, and a bottle of clean water. Sit at your altar of prayer.</li>
+        <li><strong>Pour the water into the glass slowly</strong> and pray as you pour: <em>“Lord, as I pour this water back into the glass, restore my marriage. Restore my star, my glory. Restore my anointing.”</em></li>
+        <li><strong>Keep pouring until it overflows into the bowl.</strong> Say: <em>“My bowl is overflowing. Let there be an overflow — anointing, favor, grace, wisdom, healing, prosperity.”</em></li>
+        <li><strong>Speak Isaiah‑like fullness:</strong> <em>“Fill the empty vessels. Let the Lord open the floodgates of heaven into my life from today.”</em></li>
+        <li><strong>Add a little salt to the water</strong> and declare: <em>“From today, my life shall be tasteful. My taste, my glory has been restored. My life shall be meaningful, in the name of Jesus.”</em> (Matthew 5:13)</li>
+        <li><strong>Wash your face and hands with the water</strong> (or, if you cannot, mark your forehead with the sign of the cross of Calvary using the water). Declare: <em>“Just as Jesus washed their feet and they were changed — from today, I am changed for good.”</em></li>
+        <li><strong>Close with thanksgiving.</strong> Thank God for the breakthrough already received, the anointing, the grace, and the doors that are now opening.</li>
+      </ol>
+
+      <div class="scripture" style="margin-top:16px">
+        <h4>Matthew 5:13 (KJV)</h4>
+        <span class="verse"><span class="v">13</span>Ye are the salt of the earth: but if the salt have lost his savour, wherewith shall it be salted? it is thenceforth good for nothing, but to be cast out, and to be trodden under foot of men.</span>
+      </div>
+
+      <div class="scripture">
+        <h4>2 Kings 4:3–6 (KJV) — the widow’s vessels the Prophet referenced</h4>
+        <span class="verse"><span class="v">3</span>Then he said, Go, borrow thee vessels abroad of all thy neighbours, even empty vessels; borrow not a few.</span>
+        <span class="verse"><span class="v">4</span>And when thou art come in, thou shalt shut the door upon thee and upon thy sons, and shalt pour out into all those vessels, and thou shalt set aside that which is full.</span>
+        <span class="verse"><span class="v">5</span>So she went from him, and shut the door upon her and upon her sons, who brought the vessels to her; and she poured out.</span>
+        <span class="verse"><span class="v">6</span>And it came to pass, when the vessels were full, that she said unto her son, Bring me yet a vessel. And he said unto her, There is not a vessel more. And the oil stayed.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- 8. QUIZ ---------- -->
+  <section class="card section" id="quiz">
+    <div class="kicker">Section 8 · Quick Quiz</div>
+    <h2>Test your understanding</h2>
+    <p class="note">Tap the answer you believe is correct. The correct choice turns green and an explanation appears.</p>
+    <div id="quizWrap"></div>
+    <div id="quizScore" style="margin-top:14px;font-weight:600;color:var(--navy-2)"></div>
+  </section>
+
+  <!-- ---------- 9. RECALL ---------- -->
+  <section class="card section" id="recall">
+    <div class="kicker">Section 9 · Scripture Recall</div>
+    <h2>Fill in the blank</h2>
+    <p class="note">Type your answer, then tap “Check” to reveal the KJV wording Prophet Prince used.</p>
+    <div id="recallWrap"></div>
+  </section>
+
+  <!-- ---------- 10. REFLECTION ---------- -->
+  <section class="card section reflect" id="reflect">
+    <div class="kicker">Section 10 · Reflection &amp; Prayer</div>
+    <h2>Personalise it</h2>
+    <p>Write down your own answers. These stay on this device — nothing is uploaded.</p>
+
+    <h4 style="margin-top:14px">1. Which specific area do I need breakthrough in this month?</h4>
+    <textarea data-key="r1" placeholder="Marriage, finances, career, ministry, health, family line, court case…"></textarea>
+
+    <h4 style="margin-top:14px">2. Where is God calling me to enquire of the Lord again — and not repeat yesterday’s strategy?</h4>
+    <textarea data-key="r2" placeholder="Same enemy, different strategy — where do I need a fresh instruction?"></textarea>
+
+    <h4 style="margin-top:14px">3. What is the “altar of commitment” God is asking me to stay committed to right now?</h4>
+    <textarea data-key="r3" placeholder="Which prayer place, service, or discipline is God asking me not to leave?"></textarea>
+
+    <h4 style="margin-top:14px">4. Write your own personal “I take my breakthrough” declaration</h4>
+    <textarea data-key="r4" placeholder="Start with: In the name of Jesus, I take my breakthrough over…"></textarea>
+
+    <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn" id="saveBtn">Save my answers</button>
+      <button class="btn secondary" id="clearBtn">Clear</button>
+    </div>
+
+    <div class="scripture" style="margin-top:22px">
+      <h4>Closing prayer</h4>
+      <p style="font-family:var(--serif);font-size:1.1rem;color:var(--navy-2);margin:0">
+        Father, I thank You for this day of breakthrough. I thank You for the word from Your servant Prophet Prince Amo David. I anchor my faith in Luke chapter five — that at Your word my empty net will be filled to breaking. I anchor my faith in Second Samuel chapter five — that You are the Lord of Baal‑Perazim, breaking through my enemies before me like a breach of waters. I command every stronghold, every image, every hidden altar to be burned. I decree overflow into every empty vessel in my life. My life shall be tasteful; my glory shall be restored. I receive it in the mighty name of Jesus. Amen.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="brand-line">Dominion Hour with Prophet Prince Amo David</div>
+  <div class="tag">Breaking Yokes · Restoring Destinies · Establishing Dominion</div>
+  <small>Interactive study companion · Service of 21 August 2026 · KJV scripture references · Full transcript remains private; congregant details anonymized for study use.</small>
+</footer>
+
+<script>
+// ---------- Quiz data ----------
+const QUIZ = [
+  {
+    q: "What is Prophet Prince’s working definition of a breakthrough?",
+    options: [
+      "A gradual improvement earned by working harder.",
+      "A sudden and powerful act of God that removes a major barrier and transforms an impossible problem.",
+      "A prophetic word that is only for pastors and prophets.",
+      "A financial gift given during a fasting season."
+    ],
+    correct: 1,
+    explain: "“A breakthrough is a sudden and powerful act of God that removes a major barrier, transforms an impossible problem.”"
+  },
+  {
+    q: "Which two Bible passages anchor this teaching?",
+    options: [
+      "Genesis 1 and Revelation 22",
+      "Psalm 23 and John 3",
+      "Luke 5:1–11 and 2 Samuel 5:17–25",
+      "Matthew 6 and Romans 8"
+    ],
+    correct: 2,
+    explain: "The service is built on Peter’s great catch (Luke 5) and David at Baal‑Perazim (2 Samuel 5)."
+  },
+  {
+    q: "What does the name Baal‑Perazim mean, in the sense the Prophet used it?",
+    options: [
+      "A hidden altar of the enemy",
+      "The Lord that breaks through — enemies scattered like a breach of waters",
+      "A place of mourning",
+      "The valley of decision"
+    ],
+    correct: 1,
+    explain: "2 Samuel 5:20: “The Lord hath broken forth upon mine enemies before me, as the breach of waters.”"
+  },
+  {
+    q: "When the Philistines came up a second time, what did David do?",
+    options: [
+      "Went up the same way as the first battle",
+      "Refused to fight and hid in the stronghold",
+      "Enquired of the Lord again and received a new strategy — circle behind them, wait for the sound in the mulberry trees",
+      "Sent someone else to inquire on his behalf"
+    ],
+    correct: 2,
+    explain: "Same enemy, different strategy. God said, “Thou shalt not go up; but fetch a compass behind them.”"
+  },
+  {
+    q: "What is Peter’s posture of faith that unlocks the great catch?",
+    options: [
+      "“Depart from me, for I am a sinful man.”",
+      "“Nevertheless at thy word I will let down the net.”",
+      "“We have toiled all the night, and have taken nothing.”",
+      "“Master, let us go home.”"
+    ],
+    correct: 1,
+    explain: "The word of Jesus is what changes the empty‑net narrative into a net‑breaking miracle."
+  },
+  {
+    q: "In the prophetic instruction, what does the salt in the water declare?",
+    options: [
+      "That the household will be safe from insects",
+      "That the water becomes drinking water",
+      "That life, taste, meaning, and preservation are restored (Matthew 5:13)",
+      "That the enemy is destroyed by the salt"
+    ],
+    correct: 2,
+    explain: "“Ye are the salt of the earth.” Salt declares tastefulness, meaning, and preservation restored to your life."
+  },
+  {
+    q: "According to the teaching, why did the enemy set traps against David only after he was anointed king?",
+    options: [
+      "Because David had sinned",
+      "Because fresh anointing draws fresh opposition — the enemy hears the announcement of your elevation",
+      "Because the Philistines had a personal grudge from childhood",
+      "Because David refused to enquire of the Lord"
+    ],
+    correct: 1,
+    explain: "The enemy hears about your elevation, blessing, and breakthrough, and sets a trap. But the Lord hands them into your hand."
+  }
+];
+
+// ---------- Recall data ----------
+const RECALL = [
+  {
+    label: "Luke 5:5 — Peter’s posture of faith",
+    prompt: "Master, we have toiled all the night, and have taken nothing: nevertheless at thy _______ I will let down the net.",
+    answer: "word",
+    hint: "One word — what Jesus speaks."
+  },
+  {
+    label: "Luke 5:6 — the great catch",
+    prompt: "And when they had this done, they inclosed a great multitude of fishes: and their _______ brake.",
+    answer: "net",
+    hint: "The net‑breaking miracle."
+  },
+  {
+    label: "2 Samuel 5:20 — Baal‑Perazim",
+    prompt: "The Lord hath broken forth upon mine enemies before me, as the _______ of waters.",
+    answer: "breach",
+    hint: "Same word Prophet Prince used: burst, break out."
+  },
+  {
+    label: "2 Samuel 5:24 — the sound",
+    prompt: "When thou hearest the sound of a going in the tops of the _______ trees, that then thou shalt bestir thyself.",
+    answer: "mulberry",
+    hint: "A specific type of tree."
+  },
+  {
+    label: "Matthew 5:13 — salt",
+    prompt: "Ye are the _______ of the earth: but if it have lost his savour, wherewith shall it be salted?",
+    answer: "salt",
+    hint: "The very thing the Prophet added to the water."
+  }
+];
+
+// ---------- Build quiz ----------
+const qWrap = document.getElementById('quizWrap');
+QUIZ.forEach((item,i)=>{
+  const div = document.createElement('div');
+  div.className = 'quiz-q';
+  div.innerHTML = `<h4>${i+1}. ${item.q}</h4>
+    <div class="quiz-options" data-i="${i}">
+      ${item.options.map((o,j)=>`<button data-j="${j}">${o}</button>`).join('')}
+    </div>
+    <div class="quiz-explain">${item.explain}</div>`;
+  qWrap.appendChild(div);
+});
+let quizAnswered = new Set();
+let quizCorrect = 0;
+document.querySelectorAll('.quiz-options').forEach(box=>{
+  const i = +box.dataset.i;
+  box.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(quizAnswered.has(i)) return;
+      quizAnswered.add(i);
+      const j = +btn.dataset.j;
+      const correct = QUIZ[i].correct;
+      box.querySelectorAll('button').forEach((b,k)=>{
+        b.disabled = true;
+        if(k===correct) b.classList.add('correct');
+        else if(k===j) b.classList.add('wrong');
+      });
+      if(j===correct) quizCorrect++;
+      box.parentElement.querySelector('.quiz-explain').classList.add('show');
+      document.getElementById('quizScore').textContent =
+        `Score: ${quizCorrect} correct of ${quizAnswered.size} answered · ${QUIZ.length - quizAnswered.size} to go`;
+      updateProgress();
+    });
+  });
+});
+
+// ---------- Build recall ----------
+const rWrap = document.getElementById('recallWrap');
+RECALL.forEach((item,i)=>{
+  const div = document.createElement('div');
+  div.className = 'recall-item';
+  div.innerHTML = `<h4 style="text-transform:none;letter-spacing:0;font-family:var(--serif);color:var(--navy);font-size:1.05rem">${item.label}</h4>
+    <p style="font-family:var(--serif);font-size:1.05rem;color:var(--navy-2)">${item.prompt.replace('_______','<strong style="color:var(--gold-2)">_______</strong>')}</p>
+    <input type="text" data-i="${i}" placeholder="Type the missing word…" autocomplete="off" />
+    <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn" data-check="${i}" style="padding:8px 14px;font-size:.85rem">Check</button>
+      <button class="btn secondary" data-reveal="${i}" style="padding:8px 14px;font-size:.85rem">Reveal</button>
+    </div>
+    <div class="hint">Hint: ${item.hint}</div>
+    <div class="answer" data-ans="${i}">Answer: <strong>${item.answer}</strong></div>`;
+  rWrap.appendChild(div);
+});
+let recallDone = new Set();
+document.querySelectorAll('[data-check]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const i = +btn.dataset.check;
+    const input = document.querySelector(`input[data-i="${i}"]`);
+    const answer = RECALL[i].answer.toLowerCase();
+    const val = input.value.trim().toLowerCase();
+    input.classList.remove('correct','wrong');
+    if(val === answer){
+      input.classList.add('correct');
+      recallDone.add(i);
+    } else {
+      input.classList.add('wrong');
+    }
+    updateProgress();
+  });
+});
+document.querySelectorAll('[data-reveal]').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const i = +btn.dataset.reveal;
+    document.querySelector(`[data-ans="${i}"]`).classList.add('show');
+  });
+});
+
+// ---------- Checkbox declarations ----------
+document.querySelectorAll('#declCheck input').forEach(cb=>{
+  cb.addEventListener('change', ()=>{
+    cb.parentElement.classList.toggle('done', cb.checked);
+    updateProgress();
+  });
+});
+
+// ---------- Reflection save (in-memory only for this session) ----------
+const reflection = { r1:'', r2:'', r3:'', r4:'' };
+document.querySelectorAll('textarea[data-key]').forEach(t=>{
+  t.addEventListener('input', ()=>{ reflection[t.dataset.key] = t.value; });
+});
+document.getElementById('saveBtn').addEventListener('click', ()=>{
+  document.querySelectorAll('textarea[data-key]').forEach(t=> reflection[t.dataset.key] = t.value);
+  const filled = Object.values(reflection).filter(v => v && v.trim()).length;
+  alert(filled + ' reflection answer(s) saved for this session. To keep them long term, copy the text into your notes app or Dropbox.');
+  updateProgress();
+});
+document.getElementById('clearBtn').addEventListener('click', ()=>{
+  if(!confirm('Clear all reflection answers?')) return;
+  document.querySelectorAll('textarea[data-key]').forEach(t=>{ t.value = ''; reflection[t.dataset.key] = ''; });
+  updateProgress();
+});
+
+// ---------- Progress bar (10 sections tracked) ----------
+function updateProgress(){
+  // 10 progress signals:
+  //  1) quiz has any answer
+  //  2) quiz >= 4 answered
+  //  3) quiz all answered
+  //  4) recall any correct
+  //  5) recall >= 3 correct
+  //  6) recall all correct
+  //  7) any declaration checked
+  //  8) >= 4 declarations checked
+  //  9) all 7 declarations checked
+  // 10) any reflection saved
+  const declChecked = document.querySelectorAll('#declCheck input:checked').length;
+  const qAns = quizAnswered.size;
+  const rDone = recallDone.size;
+  const saved = Object.values(reflection).filter(v => v && v.trim()).length;
+  const signals = [
+    qAns >= 1,
+    qAns >= 4,
+    qAns >= QUIZ.length,
+    rDone >= 1,
+    rDone >= 3,
+    rDone >= RECALL.length,
+    declChecked >= 1,
+    declChecked >= 4,
+    declChecked >= 7,
+    saved >= 1
+  ];
+  const done = signals.filter(Boolean).length;
+  document.getElementById('progressBar').style.width = (done*10)+'%';
+  document.getElementById('progressCount').textContent = done;
+}
+updateProgress();
+
+// Live-refresh progress when the user types + saves (bind after save button already attached).
+document.querySelectorAll('textarea[data-key]').forEach(t=> t.addEventListener('input', updateProgress));
+
+// Smooth scroll nav
+document.querySelectorAll('nav.pills a').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const id = a.getAttribute('href');
+    if(id.startsWith('#')){
+      e.preventDefault();
+      document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Anointing of Prosperity and the Power of Covenant — Dominion Hour</title>
+<meta name="description" content="Interactive study of the teaching on the Anointing of Prosperity and the Power of Covenant by Prophet Prince Amo David, Dominion Hour, August 28, 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="opening-block" aria-label="About this study">
+  <div class="wrap">
+    <div class="opening-eyebrow">Dominion Hour</div>
+    <p class="opening-lede">The following is an interactive study following a service held on Clubhouse by Prophet Prince Amo David.</p>
+    <div class="opening-rule" aria-hidden="true"></div>
+  </div>
+</section>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="date">August 28, 2026 · Clubhouse · Fourth week of fasting and prayer</div>
+    <div class="bookface">Psalm 23:5 · Deuteronomy 8:18 · 3 John 2</div>
+    <h1>The Anointing of Prosperity and the Power of Covenant</h1>
+    <p class="sub">A teaching on the anointing that causes a believer to thrive and flourish in every area of life, and on covenant as the force that binds God to preserve, prosper and defend His people — traced through Isaac, the widow's pot of oil, David and Rahab.</p>
+    <p class="attrib">Prophet Prince Amo David · Dominion Hour</p>
+    <div class="badges">
+      <span class="badge">Read</span><span class="badge">Listen aloud</span><span class="badge">Speak the declarations</span>
+      <span class="badge">Quiz &amp; flashcards</span><span class="badge">Panel story</span><span class="badge">Write &amp; reflect</span>
+      <span class="badge">Track progress</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabbar" aria-label="Study sections">
+  <div class="tabs" role="tablist" id="tabs"></div>
+</nav>
+
+<main class="wrap" id="main">
+
+  <!-- START -->
+  <section class="panel" id="p-start" role="tabpanel" aria-labelledby="t-start">
+    <div class="panel-head"><div class="kicker">Begin here</div><h2>How to use this study</h2></div>
+    <p class="lede">Everything on this page works on a phone, offline once loaded, and your ticks, notes and journal are saved on your own device. Nothing is sent anywhere.</p>
+
+    <div class="grid two">
+      <div class="card">
+        <h3>Seven ways to learn the same message</h3>
+        <ul>
+          <li><strong>Read</strong> — the teaching in twelve modules, in the Prophet's own points.</li>
+          <li><strong>Listen</strong> — tap <em>Listen</em> on any section and it is read aloud to you.</li>
+          <li><strong>See</strong> — the eight-panel story and the one-page teaching flow.</li>
+          <li><strong>Speak</strong> — repeat-after-me declarations, one at a time, in large type.</li>
+          <li><strong>Pray</strong> — the prayer points, grouped in the order of the service.</li>
+          <li><strong>Practise</strong> — quiz, fill-in-the-blank, matching and memory-verse cards.</li>
+          <li><strong>Write</strong> — reflection journal and free notes, saved on your device.</li>
+        </ul>
+      </div>
+      <div class="card tinted">
+        <h3>The order of the service</h3>
+        <ol>
+          <li>Praise and worship</li>
+          <li>Thanksgiving</li>
+          <li>Confession of sins</li>
+          <li>Forgive others</li>
+          <li>Invite the Holy Spirit</li>
+          <li>Teaching</li>
+          <li>Prayers and declarations</li>
+          <li>Sealing — covered by the blood of Jesus</li>
+        </ol>
+        <p class="small">All scripture is quoted in full from the King James Version.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>What this teaching says in one paragraph</h3>
+      <p>There is an anointing called the anointing of prosperity. When it settles on a believer, that life becomes like a tree planted by the rivers of water — fruitful in its season, its leaf never withering, and whatsoever it doeth prospers. Prosperity is not money alone: it is to thrive and flourish in spirit, in body, in marriage, in career and in ministry. The oil is poured on the head because the head carries destiny. And behind every lasting harvest stands covenant — the covenant that made Isaac reap a hundredfold in a famine, that preserved David's kingdom, and that saved Rahab's entire household. Ask for the oil, keep the covenant, guard the anointing, and go forward to possess.</p>
+      <div class="btnrow">
+        <button class="btn" data-goto="modules">Open the teaching</button>
+        <button class="btn ghost" data-goto="declare">Go to the declarations</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULES -->
+  <section class="panel" id="p-modules" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">Teaching · read or listen</div><h2>Twelve modules</h2></div>
+    <p class="lede">Tap a module to open it. Tap a scripture chip to read the full verse. Tick the box when you have finished a module — your progress is saved.</p>
+    <div class="btnrow">
+      <button class="btn ghost small" id="openAll">Open all modules</button>
+      <button class="btn ghost small" id="closeAll">Close all</button>
+    </div>
+    <div id="modules"></div>
+  </section>
+
+  <!-- SCRIPTURE -->
+  <section class="panel" id="p-scripture" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">Scripture library · KJV in full</div><h2>Every scripture from the service</h2></div>
+    <p class="lede">Grouped by the theme it carried in the teaching. Nothing is shortened.</p>
+    <div class="listenbar"><span class="lb-label">Read aloud</span>
+      <button class="btn small" data-speak="#scriptures">Listen to all</button>
+      <button class="btn ghost small" data-stop>Stop</button>
+    </div>
+    <div id="scriptures"></div>
+  </section>
+
+  <!-- DECLARATIONS -->
+  <section class="panel" id="p-declare" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">Repeat after me</div><h2>Declarations</h2></div>
+    <p class="lede">Say each one aloud, then tap <em>Next</em>. These are the declarations of the service, in the order they were prayed.</p>
+    <div class="decl-stage" id="declStage">
+      <div class="count" id="declCount">Declaration 1</div>
+      <div class="line" id="declLine"></div>
+      <div class="repeat-note">Say it aloud</div>
+    </div>
+    <div class="btnrow">
+      <button class="btn ghost" id="declPrev">Back</button>
+      <button class="btn" id="declNext">Next</button>
+      <button class="btn gold" id="declSpeak">Listen</button>
+      <button class="btn ghost" data-stop>Stop</button>
+    </div>
+    <div class="divider"></div>
+    <h3>All declarations on one page</h3>
+    <p class="small">Screenshot or print this list to share in a prayer group.</p>
+    <ol class="decl-list" id="declAll"></ol>
+  </section>
+
+  <!-- PRAYERS -->
+  <section class="panel" id="p-prayers" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">Prayer library</div><h2>Prayer points in the order of the service</h2></div>
+    <div class="listenbar"><span class="lb-label">Read aloud</span>
+      <button class="btn small" data-speak="#prayers">Listen to all</button>
+      <button class="btn ghost small" data-stop>Stop</button>
+    </div>
+    <div id="prayers"></div>
+  </section>
+
+  <!-- STORY -->
+  <section class="panel" id="p-story" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">Visual Bible companion</div><h2>The eight-panel story</h2></div>
+    <p class="lede">One panel answers one question. Use your own supplied photographs for the believer — same hairstyle, clothing, skin tone, age and expression in every panel. God is never given a human face: only light, rays of glory and radiance.</p>
+    <div class="grid two" id="panels"></div>
+    <div class="card tinted">
+      <h3>Closing of the story</h3>
+      <p><strong>Prayer:</strong> Lord, anoint my head with fresh oil, and let my cup run over. Prosper the work of my hands and keep me in covenant with You all the days of my life.</p>
+      <p><strong>Declaration:</strong> By the reason of the anointing of prosperity upon my head, I am moving forward. I am advancing. I am prospering in all areas of my life.</p>
+      <p><strong>Memory verse:</strong> "But thou shalt remember the Lord thy God: for it is he that giveth thee power to get wealth, that he may establish his covenant which he sware unto thy fathers, as it is this day." (Deuteronomy 8:18)</p>
+      <p><strong>Reflection:</strong> What is the pot of oil already in my hand that God is asking me to bring out?</p>
+    </div>
+  </section>
+
+  <!-- FLOW + CHARACTERS -->
+  <section class="panel" id="p-see" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">See it at a glance</div><h2>Teaching flow and Bible characters</h2></div>
+    <div class="card">
+      <h3>From problem to maintenance</h3>
+      <div class="flow" id="flow"></div>
+    </div>
+    <h3>Bible characters in this teaching</h3>
+    <div class="grid two" id="characters"></div>
+  </section>
+
+  <!-- PRACTISE -->
+  <section class="panel" id="p-practise" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">Knowledge check</div><h2>Quiz, blanks and matching</h2></div>
+
+    <h3>Twelve questions</h3>
+    <p class="lede">Tap an answer to see straight away whether it is right, with the reason.</p>
+    <div id="quiz"></div>
+    <div class="card tinted"><div class="score" id="quizScore">Score: 0 of 12</div>
+      <div class="btnrow"><button class="btn ghost small" id="quizReset">Start again</button></div>
+    </div>
+
+    <div class="divider"></div>
+    <h3>Finish the declaration</h3>
+    <div class="card" id="blanks"></div>
+
+    <div class="divider"></div>
+    <h3>Match the scripture to the picture it paints</h3>
+    <div class="card"><div class="matchgrid" id="matching"></div>
+      <div class="btnrow"><button class="btn small" id="matchCheck">Check my answers</button><span class="mark" id="matchMark"></span></div>
+    </div>
+  </section>
+
+  <!-- MEMORY -->
+  <section class="panel" id="p-memory" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">Memory verse cards</div><h2>Learn eight verses by heart</h2></div>
+    <p class="lede">Tap the card to turn it over. Tap <em>Listen</em> to hear the verse read aloud.</p>
+    <div class="fcard" id="fcard"><div class="fref" id="fcardFace"></div><div class="hint">Tap to turn over</div></div>
+    <div class="btnrow">
+      <button class="btn ghost" id="fPrev">Back</button>
+      <button class="btn" id="fNext">Next card</button>
+      <button class="btn gold" id="fSpeak">Listen</button>
+      <button class="btn ghost" data-stop>Stop</button>
+    </div>
+    <p class="small" id="fcardCount"></p>
+    <div class="divider"></div>
+    <h3>All eight verses</h3>
+    <div id="memoryAll"></div>
+  </section>
+
+  <!-- WRITE -->
+  <section class="panel" id="p-write" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">Reflect and apply</div><h2>Journal, assignment and notes</h2></div>
+    <p class="lede">Everything you type here stays on this device and is saved as you write.</p>
+    <div id="reflection"></div>
+    <div class="divider"></div>
+    <div class="card tinted">
+      <h3>This week's assignment</h3>
+      <ul id="assignment"></ul>
+      <label style="display:flex;gap:10px;align-items:center;font-weight:700;margin-top:10px">
+        <input type="checkbox" id="assignDone"> I have completed this week's assignment
+      </label>
+    </div>
+    <div class="card">
+      <h3>My free notes</h3>
+      <textarea id="freeNotes" placeholder="Anything the Holy Spirit said to you during this teaching…"></textarea>
+      <div class="saveflag" id="notesFlag"></div>
+      <div class="btnrow"><button class="btn ghost small" id="copyNotes">Copy my notes</button></div>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <section class="panel" id="p-search" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">Search</div><h2>Find anything in this teaching</h2></div>
+    <div class="searchbox">
+      <input type="text" id="q" placeholder="covenant, oil, Rahab, retrogression, September…" aria-label="Search this teaching">
+      <button class="btn" id="qgo">Search</button>
+    </div>
+    <p class="small">Searches the modules, scriptures, declarations, prayer points, characters and the transcript.</p>
+    <div id="hits"></div>
+  </section>
+
+  <!-- PROGRESS -->
+  <section class="panel" id="p-progress" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">Progress</div><h2>Your progress through the study</h2></div>
+    <div class="card">
+      <div class="pbar"><span id="pfill"></span></div>
+      <p class="small" id="ptext" style="margin-top:10px"></p>
+      <ul class="plist" id="plist"></ul>
+      <div class="btnrow"><button class="btn ghost small" id="resetAll">Clear my saved progress</button></div>
+    </div>
+    <div id="certWrap"></div>
+  </section>
+
+  <!-- TRANSCRIPT -->
+  <section class="panel" id="p-transcript" role="tabpanel" hidden>
+    <div class="panel-head"><div class="kicker">Master transcript</div><h2>The original transcript, preserved word for word</h2></div>
+    <div class="privacy">
+      <p><strong>Private — for internal ministry use only.</strong> This is the complete Dominion Hour master transcript with the timestamps and speaker labels exactly as recorded. Nothing has been edited, shortened or reworded.</p>
+      <p class="small" style="margin:0">Ministry policy: the complete Dominion Hour transcript remains private. Only approved derivative resources — the modules, scriptures, declarations, prayers, story panels and study exercises on this page — may be shared publicly. Names of members mentioned during the service appear in this transcript, so please do not share this section.</p>
+    </div>
+    <div class="btnrow">
+      <button class="btn" id="showTx">Show the transcript</button>
+      <button class="btn ghost" id="hideTx" hidden>Hide the transcript</button>
+      <button class="btn ghost small" id="copyTx" hidden>Copy transcript</button>
+      <button class="btn ghost small" id="dlTx" hidden>Download as text file</button>
+    </div>
+    <pre class="transcript" id="tx" hidden></pre>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="tag">"But thou shalt remember the Lord thy God: for it is he that giveth thee power to get wealth, that he may establish his covenant." — Deuteronomy 8:18 (KJV)</p>
+    <p class="small">The Anointing of Prosperity and the Power of Covenant · Prophet Prince Amo David · Dominion Hour · Clubhouse, August 28, 2026. All scripture quoted in full from the King James Version. Teaching content preserved from the original service transcript.</p>
+  </div>
+</footer>
+
+<script src="transcript.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

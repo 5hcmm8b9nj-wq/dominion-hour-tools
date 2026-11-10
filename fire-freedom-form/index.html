@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fire Freedom Form</title>
+  <meta name="description" content="A simple mobile-friendly 7-day ministry workbook form for remembering and applying weekly teachings." />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=boska@400,500&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
+      --color-bg:#f7f6f2; --color-surface:#f9f8f5; --color-surface-2:#fbfbf9; --color-surface-offset:#f3f0ec; --color-border:#d4d1ca; --color-text:#28251d; --color-text-muted:#7a7974; --color-primary:#01696f; --color-primary-hover:#0c4e54; --color-gold:#d19900; --color-blue:#006494; --color-success:#437a22; --color-error:#a12c7b; --radius-sm:0.375rem; --radius-md:0.5rem; --radius-lg:0.75rem; --radius-xl:1rem; --shadow-sm:0 1px 2px rgba(0,0,0,.06); --shadow-md:0 8px 24px rgba(0,0,0,.08); --font-display:'Boska', Georgia, serif; --font-body:'Satoshi', Inter, sans-serif;
+    }
+    [data-theme="dark"] {
+      --color-bg:#171614; --color-surface:#1c1b19; --color-surface-2:#201f1d; --color-surface-offset:#1d1c1a; --color-border:#393836; --color-text:#cdccca; --color-text-muted:#97958f; --color-primary:#4f98a3; --color-primary-hover:#227f8b; --color-gold:#e8af34; --color-blue:#5591c7; --color-success:#6daa45; --color-error:#d163a7; --shadow-sm:0 1px 2px rgba(0,0,0,.25); --shadow-md:0 8px 24px rgba(0,0,0,.35);
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html{-webkit-text-size-adjust:none;text-size-adjust:none;scroll-behavior:smooth}
+    body{margin:0;font-family:var(--font-body);font-size:var(--text-base);line-height:1.6;background:var(--color-bg);color:var(--color-text)}
+    h1,h2,h3{line-height:1.15;margin:0 0 var(--space-3)}
+    h1,h2{font-family:var(--font-display)}
+    p{margin:0 0 var(--space-4);max-width:68ch}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip-link{position:absolute;left:var(--space-4);top:-40px;background:var(--color-primary);color:#fff;padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm);z-index:1000}
+    .skip-link:focus{top:var(--space-4)}
+    .topbar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:var(--space-3) var(--space-4);background:color-mix(in oklab, var(--color-bg) 88%, transparent);backdrop-filter:blur(12px);border-bottom:1px solid color-mix(in oklab, var(--color-text) 12%, transparent)}
+    .brand{display:flex;gap:var(--space-3);align-items:center;font-weight:700}
+    .logo{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--color-primary),var(--color-gold));color:white;box-shadow:var(--shadow-sm)}
+    .theme-toggle,.btn{min-height:44px;border:none;border-radius:9999px;padding:0 var(--space-4);font:inherit}
+    .theme-toggle{background:var(--color-surface);color:var(--color-text);border:1px solid color-mix(in oklab, var(--color-text) 12%, transparent);min-width:44px;padding:0;display:grid;place-items:center}
+    .shell{max-width:960px;margin:0 auto;padding:var(--space-6) var(--space-4) var(--space-16)}
+    .hero{padding:var(--space-8);background:linear-gradient(180deg,color-mix(in oklab, var(--color-primary) 10%, var(--color-surface)),var(--color-surface));border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent);border-radius:var(--radius-xl);box-shadow:var(--shadow-md);margin-bottom:var(--space-8)}
+    .eyebrow{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.12em;color:var(--color-text-muted);font-weight:700;margin-bottom:var(--space-3)}
+    .hero h1{font-size:var(--text-xl);margin-bottom:var(--space-4)}
+    .hero-grid{display:grid;gap:var(--space-4);grid-template-columns:1fr}
+    .card{background:var(--color-surface);border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-sm);margin-bottom:var(--space-6)}
+    .mini-grid{display:grid;gap:var(--space-4)}
+    .chip{display:flex;align-items:center;gap:var(--space-2);padding:var(--space-3);background:var(--color-surface-offset);border-radius:var(--radius-lg);font-size:var(--text-sm)}
+    .dot{width:12px;height:12px;border-radius:50%}.red{background:#a13544}.gold{background:var(--color-gold)}.blue{background:var(--color-blue)}.green{background:var(--color-success)}
+    form{display:grid;gap:var(--space-6)}
+    .section-head{display:flex;justify-content:space-between;gap:var(--space-3);align-items:flex-start;flex-wrap:wrap}
+    .day-badge{font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--color-primary)}
+    .field-grid{display:grid;gap:var(--space-4)}
+    label{display:block;font-size:var(--text-sm);font-weight:700;margin-bottom:var(--space-2)}
+    input, textarea, select{width:100%;padding:0.85rem 0.95rem;border-radius:var(--radius-md);border:1px solid color-mix(in oklab, var(--color-text) 14%, transparent);background:var(--color-surface-2);color:var(--color-text)}
+    textarea{min-height:120px;resize:vertical}
+    input:focus,textarea:focus,select:focus{outline:2px solid var(--color-primary);outline-offset:2px}
+    .three-col,.two-col{display:grid;gap:var(--space-4)}
+    .tracker{display:grid;gap:var(--space-3)}
+    .tracker-row{display:grid;grid-template-columns:1fr auto auto auto;gap:var(--space-3);align-items:center;padding:var(--space-3);border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent);border-radius:var(--radius-lg);background:var(--color-surface-2)}
+    .check{display:flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs)}
+    .action-bar{position:sticky;bottom:0;padding:var(--space-3);background:color-mix(in oklab, var(--color-bg) 92%, transparent);backdrop-filter:blur(12px);border-top:1px solid color-mix(in oklab, var(--color-text) 10%, transparent);display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3)}
+    .btn{font-weight:700}
+    .btn-primary{background:var(--color-primary);color:#fff}.btn-primary:hover{background:var(--color-primary-hover)}
+    .btn-secondary{background:var(--color-surface);color:var(--color-text);border:1px solid color-mix(in oklab, var(--color-text) 12%, transparent)}
+    .note{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .success-box,.error-box{display:none;margin-top:var(--space-4);padding:var(--space-4);border-radius:var(--radius-lg)}
+    .success-box{background:color-mix(in oklab, var(--color-success) 14%, var(--color-surface));border:1px solid color-mix(in oklab, var(--color-success) 28%, transparent)}
+    .error-box{background:color-mix(in oklab, var(--color-error) 14%, var(--color-surface));border:1px solid color-mix(in oklab, var(--color-error) 28%, transparent)}
+    code{font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.9em; background:var(--color-surface-offset); padding:.15rem .35rem; border-radius:.35rem}
+    @media (min-width: 760px){
+      .hero-grid,.field-grid,.mini-grid{grid-template-columns:1fr 1fr}
+      .two-col{grid-template-columns:1fr 1fr}
+      .three-col{grid-template-columns:repeat(3,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="brand" aria-label="Fire and Freedom">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M12 2c1.5 2.2 4 4.5 4 7.3A4 4 0 0 1 12 13a4 4 0 0 1-4-3.7C8 6.5 10.6 4.2 12 2Z" fill="currentColor" stroke="none"></path>
+          <path d="M9 14.5c0 3 2.1 5.5 3 7 1-1.5 3-4 3-7a3 3 0 0 0-6 0Z"></path>
+        </svg>
+      </div>
+      <div>
+        <div>Fire &amp; Freedom</div>
+        <div class="note">Web form + Google Sheet submit</div>
+      </div>
+    </div>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme"><span aria-hidden="true">☾</span></button>
+  </header>
+
+  <main id="main" class="shell">
+    <section class="hero">
+      <div class="eyebrow">7-Day ministry workbook</div>
+      <h1>Fill it online and send answers into Google Sheets.</h1>
+      <div class="hero-grid">
+        <p>This version keeps the simple workbook form but adds a place for your Google Apps Script web app URL, so your group can submit answers straight into a Google Sheet after you connect it.</p>
+        <div class="mini-grid">
+          <div class="chip"><span class="dot red"></span><span>Breakthroughs God is addressing</span></div>
+          <div class="chip"><span class="dot gold"></span><span>Declarations and prophetic words</span></div>
+          <div class="chip"><span class="dot blue"></span><span>Prayer and intimacy</span></div>
+          <div class="chip"><span class="dot green"></span><span>Action and application</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Google Sheet setup</h2>
+      <p>Google Apps Script can be deployed as a web app, and an HTML form can send data to that web app so the script writes each submission into a Google Sheet.[web:116][web:120]</p>
+      <p>For this method to work correctly, the column headers in the sheet should match the form field names you want to collect, and the Apps Script web app should be deployed with access that allows form submissions.[web:116][web:118]</p>
+      <div class="field-grid">
+        <div>
+          <label for="scriptUrl">Google Apps Script web app URL</label>
+          <input id="scriptUrl" type="url" placeholder="Paste your deployed Apps Script URL here" />
+        </div>
+      </div>
+      <p class="note">Example Apps Script functions usually use a deployed web app URL and receive form data with a POST request, then append the values to the next open row in the sheet.[web:116][web:121]</p>
+    </section>
+
+    <form id="workbookForm">
+      <section class="card">
+        <div class="section-head"><div><h2>Group details</h2><p class="note">Start with the basics for this week’s workbook.</p></div></div>
+        <div class="field-grid">
+          <div><label for="participant">Your name</label><input id="participant" name="participant" type="text" /></div>
+          <div><label for="groupName">Group or ministry name</label><input id="groupName" name="groupName" type="text" /></div>
+          <div><label for="weekOf">Week of teachings</label><input id="weekOf" name="weekOf" type="text" /></div>
+          <div><label for="mainTheme">Main theme from the week</label><input id="mainTheme" name="mainTheme" type="text" /></div>
+        </div>
+      </section>
+
+      <section class="card"><div class="section-head"><div><div class="day-badge">Day 1</div><h2>Receive the Word</h2></div></div><div class="field-grid"><div><label for="d1pp">Most powerful thing Prophet Prince declared</label><textarea id="d1pp" name="d1pp"></textarea></div><div><label for="d1pk">Key theme Pastor Kiki opened with</label><textarea id="d1pk" name="d1pk"></textarea></div><div><label for="d1words">Three words or phrases that stood out</label><textarea id="d1words" name="d1words"></textarea></div><div><label for="d1testimony">Reflection or testimony</label><textarea id="d1testimony" name="d1testimony"></textarea></div></div></section>
+      <section class="card"><div class="section-head"><div><div class="day-badge">Day 2</div><h2>The Fire Falls</h2></div></div><div class="field-grid"><div><label for="d2authority">What was taught about spiritual authority?</label><textarea id="d2authority" name="d2authority"></textarea></div><div><label for="d2theme">Breakthrough theme from the day</label><textarea id="d2theme" name="d2theme"></textarea></div><div><label for="d2ignite">What is God igniting in your life right now?</label><textarea id="d2ignite" name="d2ignite"></textarea></div><div><label for="d2testimony">Reflection or testimony</label><textarea id="d2testimony" name="d2testimony"></textarea></div></div></section>
+      <section class="card"><div class="section-head"><div><div class="day-badge">Day 3</div><h2>Break the Yoke</h2></div></div><div class="field-grid"><div><label for="d3truth">Yoke-breaking truth</label><textarea id="d3truth" name="d3truth"></textarea></div><div><label for="d3area">Area the message spoke to most</label><textarea id="d3area" name="d3area"></textarea></div></div><div class="three-col"><div><label for="d3mind">Mind</label><textarea id="d3mind" name="d3mind"></textarea></div><div><label for="d3relations">Relationships</label><textarea id="d3relations" name="d3relations"></textarea></div><div><label for="d3ministry">Ministry / calling</label><textarea id="d3ministry" name="d3ministry"></textarea></div></div></section>
+      <section class="card"><div class="section-head"><div><div class="day-badge">Day 4</div><h2>Speak It Into Being</h2></div></div><div class="field-grid"><div><label for="d4decl">Specific declarations released this week</label><textarea id="d4decl" name="d4decl"></textarea></div><div><label for="d4personal">My personal declaration</label><textarea id="d4personal" name="d4personal"></textarea></div><div><label for="d4scripture">Scripture for my declaration</label><input id="d4scripture" name="d4scripture" type="text" /></div><div><label for="d4reflection">Reflection or testimony</label><textarea id="d4reflection" name="d4reflection"></textarea></div></div></section>
+      <section class="card"><div class="section-head"><div><div class="day-badge">Day 5</div><h2>See It Clearly</h2></div></div><div class="field-grid"><div><label for="d5vision">Vision or future word</label><textarea id="d5vision" name="d5vision"></textarea></div><div><label for="d5identity">What was taught about identity in Christ?</label><textarea id="d5identity" name="d5identity"></textarea></div></div><div class="two-col"><div><label for="d5ministry">12-month vision: ministry</label><textarea id="d5ministry" name="d5ministry"></textarea></div><div><label for="d5family">12-month vision: family</label><textarea id="d5family" name="d5family"></textarea></div><div><label for="d5health">12-month vision: health</label><textarea id="d5health" name="d5health"></textarea></div><div><label for="d5spirit">12-month vision: spiritual life</label><textarea id="d5spirit" name="d5spirit"></textarea></div></div></section>
+      <section class="card"><div class="section-head"><div><div class="day-badge">Day 6</div><h2>Seal It In Prayer</h2></div></div><div class="field-grid"><div><label for="d6strategy">Prayer strategies taught this week</label><textarea id="d6strategy" name="d6strategy"></textarea></div><div><label for="d6targets">Prayer targets from the week</label><textarea id="d6targets" name="d6targets"></textarea></div></div><div class="three-col"><div><label for="flame1">Flame 1</label><input id="flame1" name="flame1" type="text"></div><div><label for="flame2">Flame 2</label><input id="flame2" name="flame2" type="text"></div><div><label for="flame3">Flame 3</label><input id="flame3" name="flame3" type="text"></div></div></section>
+      <section class="card"><div class="section-head"><div><div class="day-badge">Day 7</div><h2>Walk In It &amp; Share It</h2></div></div><div class="field-grid"><div><label for="d7lifechange">Most life-changing thing from the week</label><textarea id="d7lifechange" name="d7lifechange"></textarea></div><div><label for="d7confirm">What God confirmed personally</label><textarea id="d7confirm" name="d7confirm"></textarea></div><div><label for="d7belief">One thing I now believe</label><textarea id="d7belief" name="d7belief"></textarea></div><div><label for="d7doing">One thing I am doing differently</label><textarea id="d7doing" name="d7doing"></textarea></div><div><label for="d7testimony">Testimony to share with the group</label><textarea id="d7testimony" name="d7testimony"></textarea></div><div><label for="d7scripture">Scripture God gave me personally</label><input id="d7scripture" name="d7scripture" type="text"></div></div></section>
+
+      <section class="card">
+        <h2>7-day tracker</h2>
+        <div class="tracker">
+          <div class="tracker-row"><strong>Day 1</strong><label class="check"><input type="checkbox" name="track1done"> done</label><label class="check"><input type="checkbox" name="track1test"> testimony</label><label class="check"><input type="checkbox" name="track1decl"> declaration</label></div>
+          <div class="tracker-row"><strong>Day 2</strong><label class="check"><input type="checkbox" name="track2done"> done</label><label class="check"><input type="checkbox" name="track2test"> testimony</label><label class="check"><input type="checkbox" name="track2decl"> declaration</label></div>
+          <div class="tracker-row"><strong>Day 3</strong><label class="check"><input type="checkbox" name="track3done"> done</label><label class="check"><input type="checkbox" name="track3test"> testimony</label><label class="check"><input type="checkbox" name="track3decl"> declaration</label></div>
+          <div class="tracker-row"><strong>Day 4</strong><label class="check"><input type="checkbox" name="track4done"> done</label><label class="check"><input type="checkbox" name="track4test"> testimony</label><label class="check"><input type="checkbox" name="track4decl"> declaration</label></div>
+          <div class="tracker-row"><strong>Day 5</strong><label class="check"><input type="checkbox" name="track5done"> done</label><label class="check"><input type="checkbox" name="track5test"> testimony</label><label class="check"><input type="checkbox" name="track5decl"> declaration</label></div>
+          <div class="tracker-row"><strong>Day 6</strong><label class="check"><input type="checkbox" name="track6done"> done</label><label class="check"><input type="checkbox" name="track6test"> testimony</label><label class="check"><input type="checkbox" name="track6decl"> declaration</label></div>
+          <div class="tracker-row"><strong>Day 7</strong><label class="check"><input type="checkbox" name="track7done"> done</label><label class="check"><input type="checkbox" name="track7test"> testimony</label><label class="check"><input type="checkbox" name="track7decl"> declaration</label></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Status</h2>
+        <p class="note">Use Save Draft while filling out. Use Submit to Google Sheet after you paste in your Apps Script web app URL above.</p>
+        <div id="successBox" class="success-box" role="status" aria-live="polite"></div>
+        <div id="errorBox" class="error-box" role="alert"></div>
+      </section>
+
+      <div class="action-bar">
+        <button type="button" class="btn btn-secondary" id="saveDraftBtn">Save Draft</button>
+        <button type="button" class="btn btn-primary" id="submitSheetBtn">Submit to Google Sheet</button>
+      </div>
+    </form>
+
+    <section class="card">
+      <h2>Apps Script code</h2>
+      <p>Apps Script web apps use functions such as <code>doPost(e)</code> to receive submitted data and can append that data into a Google Sheet row by row.[web:120][web:118]</p>
+      <p class="note">Paste this into Extensions → Apps Script inside your Google Sheet, replace <code>YOUR_SHEET_NAME</code>, then deploy as a web app with access set so your group can submit.[web:116][web:120]</p>
+<pre style="white-space:pre-wrap;overflow:auto;background:var(--color-surface-offset);padding:1rem;border-radius:.75rem;border:1px solid color-mix(in oklab, var(--color-text) 10%, transparent);"><code>function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('YOUR_SHEET_NAME');
+  var data = JSON.parse(e.postData.contents);
+
+  sheet.appendRow([
+    new Date(),
+    data.participant || '',
+    data.groupName || '',
+    data.weekOf || '',
+    data.mainTheme || '',
+    data.d1pp || '',
+    data.d1pk || '',
+    data.d1words || '',
+    data.d1testimony || '',
+    data.d2authority || '',
+    data.d2theme || '',
+    data.d2ignite || '',
+    data.d2testimony || '',
+    data.d3truth || '',
+    data.d3area || '',
+    data.d3mind || '',
+    data.d3relations || '',
+    data.d3ministry || '',
+    data.d4decl || '',
+    data.d4personal || '',
+    data.d4scripture || '',
+    data.d4reflection || '',
+    data.d5vision || '',
+    data.d5identity || '',
+    data.d5ministry || '',
+    data.d5family || '',
+    data.d5health || '',
+    data.d5spirit || '',
+    data.d6strategy || '',
+    data.d6targets || '',
+    data.flame1 || '',
+    data.flame2 || '',
+    data.flame3 || '',
+    data.d7lifechange || '',
+    data.d7confirm || '',
+    data.d7belief || '',
+    data.d7doing || '',
+    data.d7testimony || '',
+    data.d7scripture || '',
+    String(data.track1done || false),
+    String(data.track2done || false),
+    String(data.track3done || false),
+    String(data.track4done || false),
+    String(data.track5done || false),
+    String(data.track6done || false),
+    String(data.track7done || false)
+  ]);
+
+  return ContentService
+    .createTextOutput(JSON.stringify({ result: 'success' }))
+    .setMimeType(ContentService.MimeType.JSON);
+}</code></pre>
+    </section>
+  </main>
+
+  <script>
+    const htmlEl = document.documentElement;
+    const themeToggle = document.querySelector('[data-theme-toggle]');
+    let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    htmlEl.setAttribute('data-theme', currentTheme);
+    const setThemeIcon = () => themeToggle.innerHTML = currentTheme === 'dark' ? '<span aria-hidden="true">☀</span>' : '<span aria-hidden="true">☾</span>';
+    setThemeIcon();
+    themeToggle.addEventListener('click', () => { currentTheme = currentTheme === 'dark' ? 'light' : 'dark'; htmlEl.setAttribute('data-theme', currentTheme); setThemeIcon(); });
+
+    const form = document.getElementById('workbookForm');
+    const saveDraftBtn = document.getElementById('saveDraftBtn');
+    const submitSheetBtn = document.getElementById('submitSheetBtn');
+    const successBox = document.getElementById('successBox');
+    const errorBox = document.getElementById('errorBox');
+    const scriptUrlInput = document.getElementById('scriptUrl');
+    const memoryDraft = {};
+
+    function showSuccess(message) {
+      successBox.textContent = message;
+      successBox.style.display = 'block';
+      errorBox.style.display = 'none';
+    }
+    function showError(message) {
+      errorBox.textContent = message;
+      errorBox.style.display = 'block';
+      successBox.style.display = 'none';
+    }
+    function getFormData() {
+      const data = {};
+      const fd = new FormData(form);
+      for (const [key, value] of fd.entries()) data[key] = value;
+      form.querySelectorAll('input[type="checkbox"]').forEach(box => data[box.name] = box.checked);
+      return data;
+    }
+
+    form.addEventListener('input', () => Object.assign(memoryDraft, getFormData()));
+    saveDraftBtn.addEventListener('click', () => {
+      Object.assign(memoryDraft, getFormData());
+      showSuccess('Draft saved for this open session.');
+    });
+
+    submitSheetBtn.addEventListener('click', async () => {
+      const url = scriptUrlInput.value.trim();
+      if (!url) {
+        showError('Please paste your Google Apps Script web app URL first.');
+        scriptUrlInput.focus();
+        return;
+      }
+      const payload = getFormData();
+      submitSheetBtn.disabled = true;
+      submitSheetBtn.textContent = 'Submitting...';
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        });
+        if (!response.ok) throw new Error('Submission failed');
+        showSuccess('Success! Your workbook was submitted to the Google Sheet.');
+      } catch (err) {
+        showError('Submission did not go through. Check the Apps Script deployment, permissions, and URL, then try again.');
+      } finally {
+        submitSheetBtn.disabled = false;
+        submitSheetBtn.textContent = 'Submit to Google Sheet';
+      }
+    });
+  </script>
+</body>
+</html>

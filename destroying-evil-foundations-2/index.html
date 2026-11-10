@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destroying Evil Foundations Study Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
+      --color-bg: #f7f6f2; --color-surface: #f9f8f5; --color-surface-2: #fbfbf9; --color-surface-offset: #edeae5; --color-border: #d4d1ca;
+      --color-text: #28251d; --color-text-muted: #5f5b54; --color-text-faint: #8a857d; --color-text-inverse: #f9f8f4;
+      --color-primary: #01696f; --color-primary-hover: #0c4e54; --color-success: #437a22; --color-warning: #964219; --color-error: #8b1e4f;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.06); --shadow-md: 0 8px 24px rgba(0,0,0,.08);
+      --radius-sm: .375rem; --radius-md: .75rem; --radius-lg: 1rem; --radius-full: 9999px;
+      --font-display: 'Source Serif 4', Georgia, serif; --font-body: 'Inter', sans-serif;
+    }
+    [data-theme="dark"] {
+      --color-bg: #171614; --color-surface: #1c1b19; --color-surface-2: #201f1d; --color-surface-offset: #2a2825; --color-border: #393836;
+      --color-text: #e5e1d8; --color-text-muted: #b8b2a6; --color-text-faint: #8b857a; --color-text-inverse: #171614;
+      --color-primary: #61aab3; --color-primary-hover: #7fbfc6; --color-success: #8cc46a; --color-warning: #d19763; --color-error: #de7ca5;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.28); --shadow-md: 0 8px 24px rgba(0,0,0,.34);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: var(--font-body); font-size: var(--text-base); line-height: 1.6; color: var(--color-text); background: linear-gradient(180deg, var(--color-bg), var(--color-surface)); }
+    h1,h2,h3 { font-family: var(--font-display); line-height: 1.15; margin: 0; }
+    p { margin: 0; max-width: 72ch; }
+    a, button { transition: all .18s ease; }
+    button { cursor: pointer; border: none; }
+    .skip-link { position:absolute; left:-9999px; top:auto; }
+    .skip-link:focus { left:var(--space-4); top:var(--space-4); background:var(--color-primary); color:var(--color-text-inverse); padding:var(--space-3) var(--space-4); border-radius:var(--radius-sm); z-index:10; }
+    .site-header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(10px); background: color-mix(in srgb, var(--color-bg) 88%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); }
+    .header-inner, .container { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; }
+    .header-inner { display:flex; justify-content:space-between; align-items:center; gap:var(--space-4); padding:var(--space-4) 0; }
+    .brand { display:flex; align-items:center; gap:var(--space-3); }
+    .logo { width: 36px; height: 36px; border-radius: 50%; display:grid; place-items:center; background: radial-gradient(circle at 50% 50%, rgba(255,215,120,.95), rgba(255,215,120,.2) 35%, rgba(1,105,111,.18) 60%, transparent 70%); box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary) 20%, transparent); }
+    .brand-text strong { display:block; font-size:var(--text-sm); }
+    .brand-text span { display:block; font-size:var(--text-xs); color:var(--color-text-muted); }
+    .theme-toggle { min-width:44px; min-height:44px; border-radius:var(--radius-full); background:var(--color-surface-2); color:var(--color-text); box-shadow:var(--shadow-sm); }
+    .hero { padding: var(--space-12) 0 var(--space-8); }
+    .hero-grid { display:grid; grid-template-columns: 1.2fr .8fr; gap: var(--space-8); align-items:start; }
+    .eyebrow { display:inline-flex; align-items:center; gap:.5rem; padding:.45rem .8rem; border-radius:var(--radius-full); background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)); color:var(--color-primary); font-size:var(--text-xs); font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+    .hero h1 { font-size: var(--text-2xl); margin-top: var(--space-4); margin-bottom: var(--space-4); }
+    .hero p { color: var(--color-text-muted); }
+    .hero-card, .panel, .scripture-card, .scene-card { background: var(--color-surface-2); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+    .hero-card { padding: var(--space-6); display:grid; gap:var(--space-4); }
+    .hero-actions, .tab-list, .filters, .memory-actions { display:flex; flex-wrap:wrap; gap:var(--space-3); }
+    .btn { min-height:44px; padding:.8rem 1rem; border-radius:var(--radius-md); font-weight:600; font-size:var(--text-sm); }
+    .btn-primary { background: var(--color-primary); color: var(--color-text-inverse); }
+    .btn-primary:hover, .btn-primary:focus-visible { background: var(--color-primary-hover); }
+    .btn-secondary { background: var(--color-surface-offset); color: var(--color-text); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); }
+    .layout { display:grid; grid-template-columns: 280px 1fr; gap: var(--space-6); padding-bottom: var(--space-16); }
+    .sidebar { position: sticky; top: 88px; align-self:start; }
+    .panel { padding: var(--space-5); margin-bottom: var(--space-4); }
+    .panel h2 { font-size: var(--text-lg); margin-bottom: var(--space-4); }
+    .nav-list { list-style:none; padding:0; margin:0; display:grid; gap:var(--space-2); }
+    .nav-list a { display:block; padding:.8rem .9rem; border-radius:var(--radius-md); color:var(--color-text); text-decoration:none; background:transparent; }
+    .nav-list a:hover, .nav-list a:focus-visible, .nav-list a.active { background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)); color: var(--color-primary); }
+    .main { display:grid; gap: var(--space-6); }
+    .tab-section { scroll-margin-top: 96px; }
+    .tab-list button { background: var(--color-surface); color: var(--color-text); border:1px solid color-mix(in srgb, var(--color-text) 10%, transparent); }
+    .tab-list button.active { background: var(--color-primary); color: var(--color-text-inverse); }
+    .grid-two { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:var(--space-4); }
+    .scripture-card, .scene-card { padding: var(--space-5); }
+    .scripture-card h3, .scene-card h3 { font-size: var(--text-lg); margin-bottom: var(--space-3); }
+    .meta { display:flex; flex-wrap:wrap; gap:var(--space-2); margin-bottom: var(--space-3); }
+    .tag { display:inline-flex; align-items:center; padding:.32rem .65rem; border-radius:var(--radius-full); font-size:var(--text-xs); font-weight:600; background: var(--color-surface-offset); color: var(--color-text-muted); }
+    .summary-box { padding: var(--space-5); background: color-mix(in srgb, var(--color-success) 10%, var(--color-surface)); border:1px solid color-mix(in srgb, var(--color-success) 22%, transparent); border-radius: var(--radius-lg); }
+    .declaration { padding: var(--space-5); background: color-mix(in srgb, var(--color-warning) 10%, var(--color-surface)); border:1px solid color-mix(in srgb, var(--color-warning) 22%, transparent); border-radius: var(--radius-lg); }
+    .notes { width:100%; min-height:160px; padding:var(--space-4); border-radius:var(--radius-md); border:1px solid color-mix(in srgb, var(--color-text) 14%, transparent); background:var(--color-surface); color:var(--color-text); }
+    .checklist { display:grid; gap:var(--space-3); }
+    .check-item { display:flex; gap:var(--space-3); align-items:flex-start; padding:var(--space-3); border-radius:var(--radius-md); background:var(--color-surface); }
+    .check-item input { margin-top:.3rem; }
+    .accordion details { background:var(--color-surface-2); border:1px solid color-mix(in srgb, var(--color-text) 10%, transparent); border-radius:var(--radius-md); padding:var(--space-4); }
+    .accordion details + details { margin-top:var(--space-3); }
+    .accordion summary { cursor:pointer; font-weight:700; }
+    .progress { height: 10px; border-radius: var(--radius-full); background: var(--color-surface-offset); overflow:hidden; }
+    .progress > span { display:block; height:100%; width:0%; background: linear-gradient(90deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 60%, white)); }
+    .muted { color: var(--color-text-muted); }
+    .hidden { display:none !important; }
+    .footer-space { height: var(--space-10); }
+    @media (max-width: 900px) {
+      .hero-grid, .layout, .grid-two { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand" aria-label="Study tool logo">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brand-text">
+          <strong>Destroying Evil Foundations</strong>
+          <span>Interactive Bible study tool</span>
+        </div>
+      </div>
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">☀️</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Biblical study and prayer</span>
+        <h1>Study the message step by step with Scriptures, scenes, themes, and prayer points.</h1>
+        <p>This tool organizes the teaching into linked sections so you can read, reflect, teach, and build visual ministry content from one place.</p>
+        <div class="hero-actions" style="margin-top:1.25rem;">
+          <a class="btn btn-primary" href="#study-flow">Start study</a>
+          <button class="btn btn-secondary" id="expandAllBtn" type="button">Open all study notes</button>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Study overview">
+        <div>
+          <div class="tag">Main text</div>
+          <p><strong>Genesis 11:27</strong> — “Now these are the generations of Terah...”</p>
+        </div>
+        <div>
+          <div class="tag">Main burden</div>
+          <p>To identify recurring faulty patterns in Scripture and to emphasize Christ as the only sure foundation.</p>
+        </div>
+        <div>
+          <div class="tag">Best uses</div>
+          <p>Personal study, prayer meetings, deliverance teaching, storyboard planning, and visual lesson development.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="container layout" id="study-flow">
+    <aside class="sidebar" aria-label="Section navigation">
+      <div class="panel">
+        <h2>Sections</h2>
+        <nav>
+          <ul class="nav-list">
+            <li><a href="#overview" class="active">Overview</a></li>
+            <li><a href="#scriptures">Scriptures</a></li>
+            <li><a href="#patterns">Patterns</a></li>
+            <li><a href="#study-notes">Study notes</a></li>
+            <li><a href="#storyboard">Storyboard</a></li>
+            <li><a href="#full-verses">Full verses</a></li>
+            <li><a href="#prayer">Prayer guide</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="panel">
+        <h2>Progress</h2>
+        <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+        <p class="muted" id="progressText" style="margin-top:.75rem;">0 of 7 sections marked complete.</p>
+      </div>
+    </aside>
+
+    <main class="main" id="main">
+      <section class="tab-section" id="overview">
+        <div class="panel">
+          <div class="tab-list" role="tablist" aria-label="Overview tabs">
+            <button class="btn active" data-tab="summary" role="tab" aria-selected="true" type="button">Summary</button>
+            <button class="btn" data-tab="aims" role="tab" aria-selected="false" type="button">Aims</button>
+            <button class="btn" data-tab="warnings" role="tab" aria-selected="false" type="button">Warnings</button>
+          </div>
+          <div id="summary" class="tab-panel" style="margin-top:1rem;">
+            <div class="summary-box">
+              <p>This message argues that Scripture sometimes reveals troubling patterns in individuals, families, and even cities, and that believers should respond with repentance, discernment, and confidence in the redeeming blood of Jesus.</p>
+            </div>
+          </div>
+          <div id="aims" class="tab-panel hidden" style="margin-top:1rem;">
+            <div class="grid-two">
+              <div class="scripture-card"><h3>Study aim 1</h3><p>Observe repeated patterns such as barrenness, premature death, instability, and blood-linked judgment in the cited passages.</p></div>
+              <div class="scripture-card"><h3>Study aim 2</h3><p>Distinguish between direct biblical statements and interpretive ministry applications so teaching stays careful and clear.</p></div>
+            </div>
+          </div>
+          <div id="warnings" class="tab-panel hidden" style="margin-top:1rem;">
+            <div class="declaration">
+              <p>Use the text prayerfully and responsibly. Some points in the message are explicit in Scripture, while others are ministry inferences drawn from patterns across passages.</p>
+            </div>
+          </div>
+          <label class="check-item" style="margin-top:1rem;"><input type="checkbox" class="section-check" data-section="overview"> <span>Mark Overview complete</span></label>
+        </div>
+      </section>
+
+      <section class="tab-section" id="scriptures">
+        <div class="panel">
+          <h2>Key Scriptures</h2>
+          <div class="filters" style="margin-bottom:1rem;">
+            <button class="btn btn-secondary filter-btn active" data-filter="all" type="button">All</button>
+            <button class="btn btn-secondary filter-btn" data-filter="foundation" type="button">Foundation</button>
+            <button class="btn btn-secondary filter-btn" data-filter="barrenness" type="button">Barrenness</button>
+            <button class="btn btn-secondary filter-btn" data-filter="judgment" type="button">Judgment</button>
+          </div>
+          <p class="muted" style="margin-bottom:1rem;">Use the filter buttons for a quick survey, then move to the Full verses section for longer reading.</p><div class="grid-two" id="scriptureGrid">
+            <article class="scripture-card" data-category="foundation">
+              <div class="meta"><span class="tag">Genesis 11:27</span><span class="tag">Genealogy</span></div>
+              <h3>Terah’s generations</h3>
+              <p>Now these are the generations of Terah: Terah begat Abram, Nahor, and Haran; and Haran begat Lot.</p>
+            </article>
+            <article class="scripture-card" data-category="foundation">
+              <div class="meta"><span class="tag">Genesis 2:16–17</span><span class="tag">Command</span></div>
+              <h3>Adam’s command</h3>
+              <p>God warned Adam that disobedience would bring death, showing that foundations begin with obedience or rebellion.</p>
+            </article>
+            <article class="scripture-card" data-category="foundation judgment">
+              <div class="meta"><span class="tag">Genesis 3:14–19</span><span class="tag">Fall</span></div>
+              <h3>Consequences of sin</h3>
+              <p>The curse after the fall introduces pain, toil, and death into human experience.</p>
+            </article>
+            <article class="scripture-card" data-category="foundation">
+              <div class="meta"><span class="tag">Romans 3:23</span><span class="tag">Humanity</span></div>
+              <h3>Universal sin</h3>
+              <p>All have sinned and fall short of the glory of God.</p>
+            </article>
+            <article class="scripture-card" data-category="barrenness">
+              <div class="meta"><span class="tag">Genesis 11:30</span><span class="tag">Sarah</span></div>
+              <h3>Barrenness begins</h3>
+              <p>Sarai was barren and had no child.</p>
+            </article>
+            <article class="scripture-card" data-category="barrenness">
+              <div class="meta"><span class="tag">Genesis 25:21</span><span class="tag">Rebekah</span></div>
+              <h3>Answered prayer</h3>
+              <p>Isaac entreated the Lord for Rebekah because she was barren, and the Lord heard him.</p>
+            </article>
+            <article class="scripture-card" data-category="barrenness">
+              <div class="meta"><span class="tag">Genesis 29:31</span><span class="tag">Rachel</span></div>
+              <h3>Rachel barren</h3>
+              <p>Rachel remained barren while Leah’s womb was opened.</p>
+            </article>
+            <article class="scripture-card" data-category="judgment">
+              <div class="meta"><span class="tag">Genesis 49:3–4</span><span class="tag">Reuben</span></div>
+              <h3>Unstable as water</h3>
+              <p>Reuben loses preeminence because of defilement and instability.</p>
+            </article>
+            <article class="scripture-card" data-category="judgment">
+              <div class="meta"><span class="tag">1 Kings 16:34</span><span class="tag">Jericho</span></div>
+              <h3>Jericho rebuilt</h3>
+              <p>Jericho’s rebuilding is linked with the loss of Hiel’s sons according to Joshua’s earlier word.</p>
+            </article>
+          </div>
+          <label class="check-item" style="margin-top:1rem;"><input type="checkbox" class="section-check" data-section="scriptures"> <span>Mark Scriptures complete</span></label>
+        </div>
+      </section>
+
+      <section class="tab-section" id="patterns">
+        <div class="panel">
+          <h2>Pattern tracker</h2>
+          <div class="grid-two">
+            <div class="scripture-card">
+              <h3>Observed patterns</h3>
+              <div class="checklist">
+                <label class="check-item"><input type="checkbox" class="pattern-box"> <span>Premature death, Haran dies before Terah.</span></label>
+                <label class="check-item"><input type="checkbox" class="pattern-box"> <span>Repeated barrenness, Sarah, Rebekah, and Rachel.</span></label>
+                <label class="check-item"><input type="checkbox" class="pattern-box"> <span>Idolatry and mixture in Rachel’s household story.</span></label>
+                <label class="check-item"><input type="checkbox" class="pattern-box"> <span>Instability and sexual sin in Reuben’s life.</span></label>
+                <label class="check-item"><input type="checkbox" class="pattern-box"> <span>Judgment attached to Jericho’s rebuilding.</span></label>
+              </div>
+            </div>
+            <div class="scripture-card">
+              <h3>Interpretive questions</h3>
+              <div class="accordion">
+                <details>
+                  <summary>What is clearly stated in the text?</summary>
+                  <p style="margin-top:.75rem;">The passages directly state events such as Haran’s death, barrenness in the family line, Reuben’s sin, and the deaths connected to Jericho’s rebuilding.</p>
+                </details>
+                <details>
+                  <summary>What is interpretive application?</summary>
+                  <p style="margin-top:.75rem;">Calling these events an “evil foundation” is a ministry interpretation that connects repeated patterns and covenant themes across passages.</p>
+                </details>
+                <details>
+                  <summary>How should this affect prayer?</summary>
+                  <p style="margin-top:.75rem;">It should move believers toward repentance, renunciation of sin and idols, and fresh trust in the redeeming work of Christ.</p>
+                </details>
+              </div>
+            </div>
+          </div>
+          <label class="check-item" style="margin-top:1rem;"><input type="checkbox" class="section-check" data-section="patterns"> <span>Mark Patterns complete</span></label>
+        </div>
+      </section>
+
+      <section class="tab-section" id="study-notes">
+        <div class="panel">
+          <h2>Study notes</h2>
+          <div class="accordion">
+            <details>
+              <summary>1. Adam and the first broken foundation</summary>
+              <p style="margin-top:.75rem;">The message begins with Adam because the fall introduces the broadest human foundation problem: sin, sorrow, toil, and death.</p>
+            </details>
+            <details>
+              <summary>2. Terah’s line and recurring patterns</summary>
+              <p style="margin-top:.75rem;">Genesis 11:27–32 introduces a family through which God will work, yet the passage already contains death, delay, and barrenness.</p>
+            </details>
+            <details>
+              <summary>3. Reuben as a warning</summary>
+              <p style="margin-top:.75rem;">Reuben shows that inheritance is not the only issue; personal sin and instability can deepen what is already damaged.</p>
+            </details>
+            <details>
+              <summary>4. Jericho and blood-linked rebuilding</summary>
+              <p style="margin-top:.75rem;">Jericho highlights how a place under judgment can become a vivid example of a troubled foundation.</p>
+            </details>
+            <details>
+              <summary>5. Christ the new foundation</summary>
+              <p style="margin-top:.75rem;">The study reaches its goal only when it lands on redemption: Jesus Christ breaks curses, cleanses sin, and establishes a new covenant foundation.</p>
+            </details>
+          </div>
+          <div class="memory-actions" style="margin-top:1rem;">
+            <button class="btn btn-secondary" id="copyNotesBtn" type="button">Copy prayer declaration</button>
+          </div>
+          <label class="check-item" style="margin-top:1rem;"><input type="checkbox" class="section-check" data-section="study-notes"> <span>Mark Study notes complete</span></label>
+        </div>
+      </section>
+
+      <section class="tab-section" id="storyboard">
+        <div class="panel">
+          <h2>Storyboard builder</h2>
+          <div class="tab-list" role="tablist" aria-label="Storyboard tabs" style="margin-bottom:1rem;">
+            <button class="btn active" data-tab="story8" role="tab" aria-selected="true" type="button">8 scenes</button>
+            <button class="btn" data-tab="story12" role="tab" aria-selected="false" type="button">12 scenes</button>
+          </div>
+          <div id="story8" class="tab-panel">
+          <div class="grid-two">
+            <article class="scene-card"><h3>Scene 1</h3><p><strong>Caption:</strong> Humanity’s fall opened the door to a broken foundation. <span class="muted">Genesis 3:14–19; Romans 3:23</span></p></article>
+            <article class="scene-card"><h3>Scene 2</h3><p><strong>Caption:</strong> Terah’s family line reveals a history that already carries pain and limitation. <span class="muted">Genesis 11:27–32</span></p></article>
+            <article class="scene-card"><h3>Scene 3</h3><p><strong>Caption:</strong> Haran dies early, showing grief and unfinished destiny in the family line. <span class="muted">Genesis 11:28</span></p></article>
+            <article class="scene-card"><h3>Scene 4</h3><p><strong>Caption:</strong> Barrenness appears again and again, pointing to resistance against fruitfulness. <span class="muted">Genesis 11:30; 25:21; 29:31</span></p></article>
+            <article class="scene-card"><h3>Scene 5</h3><p><strong>Caption:</strong> Hidden idols reveal mixture that must be exposed and renounced. <span class="muted">Genesis 31:19, 30–36</span></p></article>
+            <article class="scene-card"><h3>Scene 6</h3><p><strong>Caption:</strong> Reuben’s instability shows how moral failure can wound destiny. <span class="muted">Genesis 35:22; 49:3–4</span></p></article>
+            <article class="scene-card"><h3>Scene 7</h3><p><strong>Caption:</strong> Jericho’s rebuilding warns that some foundations are tied to judgment and bloodshed. <span class="muted">1 Kings 16:34</span></p></article>
+            <article class="scene-card"><h3>Scene 8</h3><p><strong>Caption:</strong> The blood of Jesus establishes a new foundation and breaks every evil pattern. <span class="muted">Galatians 3:13; Hebrews 12:24</span></p></article>
+          </div>
+          </div>
+          <div id="story12" class="tab-panel hidden">
+            <div class="grid-two">
+              <article class="scene-card"><h3>Scene 1</h3><p><strong>Caption:</strong> God created man for life and fellowship, but disobedience opened the door to ruin. <span class="muted">Genesis 2:16–17</span></p></article>
+              <article class="scene-card"><h3>Scene 2</h3><p><strong>Caption:</strong> The fall released pain, toil, and death into human experience. <span class="muted">Genesis 3:14–19</span></p></article>
+              <article class="scene-card"><h3>Scene 3</h3><p><strong>Caption:</strong> All humanity now stands in need of redemption because all have sinned. <span class="muted">Romans 3:23</span></p></article>
+              <article class="scene-card"><h3>Scene 4</h3><p><strong>Caption:</strong> Terah’s generations introduce the family line through which God will call Abram. <span class="muted">Genesis 11:27</span></p></article>
+              <article class="scene-card"><h3>Scene 5</h3><p><strong>Caption:</strong> Haran dies before his father, revealing sorrow and interruption in the family record. <span class="muted">Genesis 11:28</span></p></article>
+              <article class="scene-card"><h3>Scene 6</h3><p><strong>Caption:</strong> Sarai’s barrenness appears early as a sign of delayed fruitfulness. <span class="muted">Genesis 11:30</span></p></article>
+              <article class="scene-card"><h3>Scene 7</h3><p><strong>Caption:</strong> Rebekah’s barrenness is answered through intercession, showing that prayer confronts limitation. <span class="muted">Genesis 25:21</span></p></article>
+              <article class="scene-card"><h3>Scene 8</h3><p><strong>Caption:</strong> Rachel’s barrenness continues the pattern of resistance within the family line. <span class="muted">Genesis 29:31</span></p></article>
+              <article class="scene-card"><h3>Scene 9</h3><p><strong>Caption:</strong> Hidden idols point to mixture that must be exposed before freedom can be complete. <span class="muted">Genesis 31:19, 30–36</span></p></article>
+              <article class="scene-card"><h3>Scene 10</h3><p><strong>Caption:</strong> Reuben’s defilement and instability weaken his destiny and testimony. <span class="muted">Genesis 35:22; 49:3–4</span></p></article>
+              <article class="scene-card"><h3>Scene 11</h3><p><strong>Caption:</strong> Jericho’s rebuilding becomes a solemn warning about foundations tied to judgment. <span class="muted">1 Kings 16:34</span></p></article>
+              <article class="scene-card"><h3>Scene 12</h3><p><strong>Caption:</strong> Through Jesus Christ, every believer can stand on a new foundation of redemption, cleansing, and victory. <span class="muted">Galatians 3:13; Hebrews 12:24</span></p></article>
+            </div>
+          </div>
+          <label class="check-item" style="margin-top:1rem;"><input type="checkbox" class="section-check" data-section="storyboard"> <span>Mark Storyboard complete</span></label>
+        </div>
+      </section>
+
+      <section class="tab-section" id="full-verses">
+        <div class="panel">
+          <h2>Full verses</h2>
+          <p class="muted" style="margin-bottom:1rem;">This section places the longer Scripture portions together so you can read them as a study block before prayer or teaching.</p>
+          <div class="accordion">
+            <details>
+              <summary>Genesis 11:27–32 (KJV)</summary>
+              <p style="margin-top:.75rem; white-space:pre-line;">27 Now these are the generations of Terah: Terah begat Abram, Nahor, and Haran; and Haran begat Lot.
+28 And Haran died before his father Terah in the land of his nativity, in Ur of the Chaldees.
+29 And Abram and Nahor took them wives: the name of Abram's wife was Sarai; and the name of Nahor's wife, Milcah, the daughter of Haran, the father of Milcah, and the father of Iscah.
+30 But Sarai was barren; she had no child.
+31 And Terah took Abram his son, and Lot the son of Haran his son's son, and Sarai his daughter in law, his son Abram's wife; and they went forth with them from Ur of the Chaldees, to go into the land of Canaan; and they came unto Haran, and dwelt there.
+32 And the days of Terah were two hundred and five years: and Terah died in Haran.</p>
+            </details>
+            <details>
+              <summary>Genesis 25:21 (KJV)</summary>
+              <p style="margin-top:.75rem;">And Isaac intreated the LORD for his wife, because she was barren: and the LORD was intreated of him, and Rebekah his wife conceived.</p>
+            </details>
+            <details>
+              <summary>Genesis 29:31 (KJV)</summary>
+              <p style="margin-top:.75rem;">And when the LORD saw that Leah was hated, he opened her womb: but Rachel was barren.</p>
+            </details>
+            <details>
+              <summary>Genesis 35:22 (KJV)</summary>
+              <p style="margin-top:.75rem;">And it came to pass, when Israel dwelt in that land, that Reuben went and lay with Bilhah his father's concubine: and Israel heard it. Now the sons of Jacob were twelve.</p>
+            </details>
+            <details>
+              <summary>Genesis 49:3–4 (KJV)</summary>
+              <p style="margin-top:.75rem; white-space:pre-line;">3 Reuben, thou art my firstborn, my might, and the beginning of my strength, the excellency of dignity, and the excellency of power:
+4 Unstable as water, thou shalt not excel; because thou wentest up to thy father's bed; then defiledst thou it: he went up to my couch.</p>
+            </details>
+            <details>
+              <summary>1 Kings 16:34 (KJV)</summary>
+              <p style="margin-top:.75rem;">In his days did Hiel the Bethelite build Jericho: he laid the foundation thereof in Abiram his firstborn, and set up the gates thereof in his youngest son Segub, according to the word of the LORD, which he spake by Joshua the son of Nun.</p>
+            </details>
+          </div>
+          <label class="check-item" style="margin-top:1rem;"><input type="checkbox" class="section-check" data-section="full-verses"> <span>Mark Full verses complete</span></label>
+        </div>
+      </section>
+
+      <section class="tab-section" id="prayer">
+        <div class="panel">
+          <h2>Prayer guide</h2>
+          <div class="declaration">
+            <p id="declarationText">In the name of Jesus Christ, I repent of every sin, renounce every evil pattern, and declare that every faulty foundation in my life is broken by the blood of Jesus. Let every godly promise over my life stand, and let Christ alone be my sure foundation. Amen.</p>
+          </div>
+          <div class="grid-two" style="margin-top:1rem;">
+            <div class="scripture-card">
+              <h3>Prayer steps</h3>
+              <div class="checklist">
+                <label class="check-item"><input type="checkbox" class="pattern-box"> <span>Repent for personal sin and ask for mercy.</span></label>
+                <label class="check-item"><input type="checkbox" class="pattern-box"> <span>Renounce idols, covenants, and ungodly patterns.</span></label>
+                <label class="check-item"><input type="checkbox" class="pattern-box"> <span>Declare Christ’s blood over family lines and future fruitfulness.</span></label>
+              </div>
+            </div>
+            <div class="scripture-card">
+              <h3>Personal notes</h3>
+              <textarea class="notes" placeholder="Write personal observations, scriptures to revisit, prayer burdens, or storyboard ideas here."></textarea>
+            </div>
+          </div>
+          <label class="check-item" style="margin-top:1rem;"><input type="checkbox" class="section-check" data-section="prayer"> <span>Mark Prayer guide complete</span></label>
+        </div>
+      </section>
+      <div class="footer-space"></div>
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      const html = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      let dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      html.setAttribute('data-theme', dark ? 'dark' : 'light');
+      toggle.textContent = dark ? '🌙' : '☀️';
+      toggle.addEventListener('click', () => {
+        dark = html.getAttribute('data-theme') !== 'dark';
+        html.setAttribute('data-theme', dark ? 'dark' : 'light');
+        toggle.textContent = dark ? '🌙' : '☀️';
+      });
+
+      document.querySelectorAll('.tab-list').forEach(list => {
+        const groupBtns = list.querySelectorAll('[data-tab]');
+        const groupPanelIds = Array.from(groupBtns).map(b => b.dataset.tab);
+        const groupPanels = groupPanelIds.map(id => document.getElementById(id)).filter(Boolean);
+        groupBtns.forEach(btn => btn.addEventListener('click', () => {
+          groupBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          groupPanels.forEach(p => p.classList.add('hidden'));
+          btn.classList.add('active'); btn.setAttribute('aria-selected', 'true');
+          const panel = document.getElementById(btn.dataset.tab);
+          if (panel) panel.classList.remove('hidden');
+        }));
+      });
+
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('#scriptureGrid .scripture-card');
+      filterButtons.forEach(btn => btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        cards.forEach(card => {
+          card.classList.toggle('hidden', !(f === 'all' || card.dataset.category.includes(f)));
+        });
+      }));
+
+      const detailsEls = document.querySelectorAll('details');
+      document.getElementById('expandAllBtn').addEventListener('click', () => {
+        detailsEls.forEach(d => d.open = true);
+      });
+
+      const sectionChecks = [...document.querySelectorAll('.section-check')];
+      const progressBar = document.getElementById('progressBar');
+      const progressText = document.getElementById('progressText');
+      function updateProgress() {
+        const done = sectionChecks.filter(c => c.checked).length;
+        const total = sectionChecks.length;
+        const pct = Math.round((done / total) * 100);
+        progressBar.style.width = pct + '%';
+        progressText.textContent = `${done} of ${total} sections marked complete.`;
+      }
+      sectionChecks.forEach(c => c.addEventListener('change', updateProgress));
+      updateProgress();
+
+      const navLinks = document.querySelectorAll('.nav-list a');
+      const sections = [...document.querySelectorAll('.tab-section')];
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + entry.target.id));
+          }
+        });
+      }, { rootMargin: '-35% 0px -55% 0px', threshold: 0.01 });
+      sections.forEach(s => observer.observe(s));
+
+      document.getElementById('copyNotesBtn').addEventListener('click', async () => {
+        const text = document.getElementById('declarationText').textContent.trim();
+        try {
+          await navigator.clipboard.writeText(text);
+          const btn = document.getElementById('copyNotesBtn');
+          const old = btn.textContent;
+          btn.textContent = 'Copied';
+          setTimeout(() => btn.textContent = old, 1200);
+        } catch (e) {}
+      });
+    })();
+  </script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

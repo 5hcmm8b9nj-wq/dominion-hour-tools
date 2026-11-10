@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>A Word From Prophet Prince — September 4, 2026</title>
+<meta name="description" content="A personal devotional built around a morning word from Prophet Prince Amo David: prayer, the Word of God, and being built into a mighty deliverer for your family." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1c1410;
+    --ink-soft:#3a2b23;
+    --parchment:#f7efe1;
+    --parchment-2:#f2e6d0;
+    --cream:#fbf5e9;
+    --gold:#b8862f;
+    --gold-deep:#8a5f18;
+    --olive:#5b6b3a;
+    --wine:#7a2e2e;
+    --line:rgba(60,40,20,.16);
+    --shadow: 0 10px 30px rgba(70,45,20,.10), 0 2px 6px rgba(70,45,20,.06);
+    --radius:14px;
+    --serif:"Fraunces", Georgia, "Times New Roman", serif;
+    --sans:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 50% -10%, #fff8e7 0%, transparent 60%),
+      linear-gradient(180deg, var(--cream) 0%, var(--parchment) 100%);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  a{color:var(--gold-deep);text-decoration:underline;text-underline-offset:3px}
+  .wrap{max-width:720px;margin:0 auto;padding:28px 20px 80px}
+  header.masthead{
+    text-align:center;
+    padding:36px 8px 22px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:28px;
+  }
+  .eyebrow{
+    font-family:var(--sans);
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-size:11px;
+    color:var(--gold-deep);
+    font-weight:600;
+  }
+  .ornament{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin:12px 0 6px;color:var(--gold);
+  }
+  .ornament svg{width:28px;height:28px}
+  .ornament .rule{height:1px;background:var(--gold);flex:0 0 60px;opacity:.7}
+  h1.title{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(30px, 6.4vw, 44px);
+    line-height:1.15;
+    letter-spacing:-.01em;
+    margin:6px 0 8px;
+    color:var(--ink);
+  }
+  .subtitle{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:400;
+    font-size:16px;
+    color:var(--ink-soft);
+    margin:0 0 6px;
+  }
+  .stamp{
+    display:inline-block;
+    margin-top:10px;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border:1px solid var(--line);
+    padding:6px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.5);
+  }
+
+  /* Section styling */
+  section{margin:28px 0}
+  .section-label{
+    display:flex;align-items:center;gap:10px;
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    margin-bottom:12px;
+  }
+  .section-label .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  h2{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:24px;
+    line-height:1.25;
+    margin:0 0 10px;
+    color:var(--ink);
+  }
+
+  /* The Word card */
+  .word-card{
+    background:linear-gradient(180deg, #fffaf0 0%, #f9efd8 100%);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 20px;
+    box-shadow:var(--shadow);
+    position:relative;
+  }
+  .word-card::before{
+    content:"“";
+    position:absolute;
+    top:-14px;left:16px;
+    font-family:var(--serif);
+    font-size:80px;
+    line-height:1;
+    color:var(--gold);
+    opacity:.55;
+  }
+  .word-text{
+    font-family:var(--serif);
+    font-size:18px;
+    line-height:1.7;
+    color:var(--ink);
+    margin:6px 0 10px;
+  }
+  .word-text p{margin:0 0 12px}
+  .attribution{
+    font-family:var(--sans);
+    font-size:13px;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    padding-top:12px;
+    margin-top:8px;
+  }
+
+  /* Scripture card */
+  .scripture{
+    background:#fffdf6;
+    border-left:4px solid var(--gold);
+    border-radius:10px;
+    padding:16px 16px 14px;
+    box-shadow:var(--shadow);
+    margin-bottom:12px;
+  }
+  .scripture .ref{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    margin-bottom:6px;
+  }
+  .scripture p{
+    font-family:var(--serif);
+    font-size:16.5px;
+    line-height:1.65;
+    margin:0;
+    color:var(--ink);
+  }
+  .translation{
+    display:inline-block;
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:8px;
+    opacity:.8;
+  }
+
+  /* Reflection – tap to reveal */
+  .reflect details{
+    background:#fff9ec;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:14px 16px;
+    margin-bottom:10px;
+    box-shadow:var(--shadow);
+  }
+  .reflect summary{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:17px;
+    color:var(--ink);
+    cursor:pointer;
+    list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+  }
+  .reflect summary::-webkit-details-marker{display:none}
+  .reflect summary::after{
+    content:"+";
+    font-family:var(--serif);
+    font-size:22px;
+    color:var(--gold-deep);
+    transition:transform .2s ease;
+  }
+  .reflect details[open] summary::after{content:"–"}
+  .reflect .answer{
+    font-family:var(--sans);
+    font-size:15px;
+    color:var(--ink-soft);
+    margin-top:10px;
+  }
+
+  /* Prayer */
+  .prayer{
+    background:linear-gradient(180deg,#fff7e2 0%,#fbeac2 100%);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:20px;
+    box-shadow:var(--shadow);
+  }
+  .prayer p{
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.7;
+    margin:0 0 10px;
+  }
+
+  /* Declarations */
+  .decl-list{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+  .decl-list li{
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:4px solid var(--wine);
+    border-radius:10px;
+    padding:12px 14px;
+    font-family:var(--serif);
+    font-size:16.5px;
+    color:var(--ink);
+    box-shadow:var(--shadow);
+    display:flex;gap:10px;align-items:flex-start;
+  }
+  .decl-list li::before{
+    content:"🔥";
+    flex:0 0 auto;
+    font-size:16px;
+    line-height:1.6;
+  }
+
+  /* Listen / say / repeat cues */
+  .audio-cues{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .audio-cues .cue{
+    font-family:var(--sans);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    background:#fff;
+    border:1px solid var(--line);
+    color:var(--ink-soft);
+    padding:5px 10px;
+    border-radius:999px;
+  }
+
+  /* Footer */
+  footer{
+    margin-top:44px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    text-align:center;
+    font-size:12px;
+    color:var(--ink-soft);
+  }
+  footer .verse{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:14px;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">A Personal Word</div>
+    <div class="ornament" aria-hidden="true">
+      <span class="rule"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M6 8l6-6 6 6M6 16l6 6 6-6"/></svg>
+      <span class="rule"></span>
+    </div>
+    <h1 class="title">Built to Deliver</h1>
+    <p class="subtitle">A word for the season — prayer, the Word, and mighty men</p>
+    <span class="stamp">Friday · September 4, 2026 · 5:59 AM</span>
+  </header>
+
+  <!-- The Word -->
+  <section>
+    <div class="section-label"><span class="dot"></span> The Word Spoken Over You</div>
+    <div class="word-card">
+      <div class="word-text">
+        <p>Why should you bother yourself about negative thoughts or what someone thinks about you?</p>
+        <p>Your sister Shelia has been coming to the room also to pray. Do you know the spiritual effects of prayer and the Word of God? Maybe if it wasn’t for the prayers, your situation would have been worse.</p>
+        <p>The rooms are Holy Ghost filled and the Word of God is being spoken every time.</p>
+        <p>The Bible says that David surrendered with a group of people, and he trained them to become mighty men.</p>
+        <p>God is not just delivering you from demonic spirits and attacks — He is building capacity in you, which is the Word and prayer, to deliver your family from bondage.</p>
+      </div>
+      <div class="attribution">— Prophet Prince Amo David · Dominion Hour</div>
+    </div>
+  </section>
+
+  <!-- Scriptures -->
+  <section>
+    <div class="section-label"><span class="dot"></span> Scriptures That Confirm This Word</div>
+
+    <div class="scripture">
+      <div class="ref">1 Samuel 22:1–2</div>
+      <p>David therefore departed thence, and escaped to the cave Adullam: and when his brethren and all his father’s house heard it, they went down thither to him. And every one that was in distress, and every one that was in debt, and every one that was discontented, gathered themselves unto him; and he became a captain over them: and there were with him about four hundred men.</p>
+      <span class="translation">KJV</span>
+    </div>
+
+    <div class="scripture">
+      <div class="ref">1 Chronicles 12:1–2</div>
+      <p>Now these are they that came to David to Ziklag, while he yet kept himself close because of Saul the son of Kish: and they were among the mighty men, helpers of the war. They were armed with bows, and could use both the right hand and the left in hurling stones and shooting arrows out of a bow, even of Saul’s brethren of Benjamin.</p>
+      <span class="translation">KJV</span>
+    </div>
+
+    <div class="scripture">
+      <div class="ref">James 5:16</div>
+      <p>Confess your faults one to another, and pray one for another, that ye may be healed. The effectual fervent prayer of a righteous man availeth much.</p>
+      <span class="translation">KJV</span>
+    </div>
+
+    <div class="scripture">
+      <div class="ref">Ephesians 6:17–18</div>
+      <p>And take the helmet of salvation, and the sword of the Spirit, which is the word of God: Praying always with all prayer and supplication in the Spirit, and watching thereunto with all perseverance and supplication for all saints.</p>
+      <span class="translation">KJV</span>
+    </div>
+
+    <div class="scripture">
+      <div class="ref">Acts 16:31</div>
+      <p>And they said, Believe on the Lord Jesus Christ, and thou shalt be saved, and thy house.</p>
+      <span class="translation">KJV</span>
+    </div>
+
+    <div class="scripture">
+      <div class="ref">Isaiah 54:17</div>
+      <p>No weapon that is formed against thee shall prosper; and every tongue that shall rise against thee in judgment thou shalt condemn. This is the heritage of the servants of the Lord, and their righteousness is of me, saith the Lord.</p>
+      <span class="translation">KJV</span>
+    </div>
+  </section>
+
+  <!-- Key Lessons -->
+  <section>
+    <div class="section-label"><span class="dot"></span> Key Lessons From This Word</div>
+    <div class="reflect">
+      <details>
+        <summary>1. Negative thoughts and opinions are not your assignment</summary>
+        <div class="answer">The enemy uses the opinions of people and the noise of your own mind to pull you off the altar. You are not required to carry what someone thinks of you. Your assignment is to keep praying, keep standing on the Word.</div>
+      </details>
+      <details>
+        <summary>2. Someone is praying you through</summary>
+        <div class="answer">Sister Shelia coming into the room to pray is not small — it is covering. The intercession of others is one of the reasons your situation is not worse. Thank God for the ones He has stationed around you.</div>
+      </details>
+      <details>
+        <summary>3. The room is Holy Ghost filled</summary>
+        <div class="answer">Where the Word of God is spoken continually, the atmosphere shifts. You are not fighting in a dry place — you are being sustained in a Holy Ghost saturated environment.</div>
+      </details>
+      <details>
+        <summary>4. David gathered a company and trained them</summary>
+        <div class="answer">David did not fight Saul’s battles alone. He surrendered with a group, trained them, and they became mighty men. You are being gathered and trained the same way.</div>
+      </details>
+      <details>
+        <summary>5. God is building capacity, not just delivering you</summary>
+        <div class="answer">Your deliverance is not the end goal. God is depositing the Word and prayer inside you so that you can turn around and deliver your own family from bondage. You are being made a deliverer.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Prayer -->
+  <section>
+    <div class="section-label"><span class="dot"></span> Prayer</div>
+    <div class="prayer">
+      <p>Father, in the name of Jesus, I thank You for every prayer that has been prayed over my life. Thank You for my sister Shelia, for Prophet Prince, and for every intercessor You have stationed around me.</p>
+      <p>I release my mind from every negative thought and from the opinion of every person. I refuse to carry what You have not asked me to carry.</p>
+      <p>Fill this room, fill my ears, fill my mouth with Your Word. Build capacity in me by prayer and by the Word, that I would rise as a mighty one for the deliverance of my whole family. In Jesus’ name, amen.</p>
+      <div class="audio-cues" aria-label="Audio cues">
+        <span class="cue">🔊 Listen</span>
+        <span class="cue">🗣️ Say</span>
+        <span class="cue">🙏 Pray</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Declarations -->
+  <section>
+    <div class="section-label"><span class="dot"></span> Declarations · Repeat After Me</div>
+    <ul class="decl-list">
+      <li>I refuse to bother myself with negative thoughts or the opinions of people.</li>
+      <li>I am covered by the prayers of the righteous, and no weapon formed against me shall prosper.</li>
+      <li>The room I sit in is Holy Ghost filled; the Word of God is spoken over my life every time.</li>
+      <li>Like David, I am being gathered, trained, and made mighty in prayer and in the Word.</li>
+      <li>God is building capacity in me — I am being raised to deliver my family from bondage.</li>
+      <li>My household shall serve the Lord; I and my house are saved in Jesus’ name.</li>
+    </ul>
+    <div class="audio-cues" aria-label="Audio cues">
+      <span class="cue">🔁 Repeat</span>
+      <span class="cue">🔥 Declare</span>
+    </div>
+  </section>
+
+  <!-- Reflection -->
+  <section>
+    <div class="section-label"><span class="dot"></span> Reflection · Pause and Journal</div>
+    <div class="reflect">
+      <details>
+        <summary>Who are the intercessors God has placed around me?</summary>
+        <div class="answer">Write their names down. Thank God for each one by name today.</div>
+      </details>
+      <details>
+        <summary>What negative thoughts or opinions am I still carrying?</summary>
+        <div class="answer">Name them honestly. Then release them at the feet of Jesus.</div>
+      </details>
+      <details>
+        <summary>Which family members am I being trained to deliver?</summary>
+        <div class="answer">List them. Begin to pray over them daily using the Word.</div>
+      </details>
+      <details>
+        <summary>What is my next step in building capacity — more Word, more prayer, more consistency?</summary>
+        <div class="answer">Choose one practical step for this week and commit to it before the Lord.</div>
+      </details>
+    </div>
+  </section>
+
+  <footer>
+    <div class="verse">“He teacheth my hands to war, so that a bow of steel is broken by mine arms.” — Psalm 18:34, KJV</div>
+    <div>A personal devotional companion · Friday, September 4, 2026</div>
+  </footer>
+
+</div>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://perplexity.localhost","http://localhost:1420","http://127.0.0.1:1420","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>
