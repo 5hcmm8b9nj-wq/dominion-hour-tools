@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bewitchment Must Die — Interactive Book Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1512; --parch:#faf6ed; --cream:#f4ecd8; --gold:#c19a2b; --gold-light:#e7c965;
+  --scripture:#0f5b5f; --scripture-bg:#e6f0f0;
+  --teaching:#6e2f5a; --teaching-bg:#f2e6ec;
+  --decl:#c24a16; --decl-bg:#fbe8dc;
+  --prayer:#4f7a2e; --prayer-bg:#e8f0dc;
+  --direction:#1e3a8a; --direction-bg:#e0e7f5;
+  --warning:#8b1a1a; --warning-bg:#f8e0e0;
+  --border:rgba(26,21,18,.12);
+  --bg:var(--parch); --fg:var(--ink); --card:#ffffff;
+  --font-scale:1;
+}
+:root[data-theme="dark"]{
+  --bg:#12100e; --fg:#f4ecd8; --card:#1f1a15;
+  --parch:#12100e; --cream:#1f1a15; --border:rgba(244,236,216,.16);
+  --scripture-bg:#0f2a2c; --teaching-bg:#2b1626; --decl-bg:#3a1a0c;
+  --prayer-bg:#1e2b12; --direction-bg:#12193d; --warning-bg:#3a1414;
+}
+:root[data-contrast="high"]{
+  --border:rgba(26,21,18,.5);
+}
+:root[data-contrast="high"][data-theme="dark"]{
+  --border:rgba(244,236,216,.7);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  font-size:calc(16px * var(--font-scale)); line-height:1.65;
+  transition:background .25s ease, color .25s ease;
+}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',Georgia,serif; font-weight:700; letter-spacing:.005em; margin:0 0 .5em}
+h1{font-size:2.4em; line-height:1.15}
+h2{font-size:1.9em; line-height:1.2}
+h3{font-size:1.35em}
+p{margin:0 0 .9em}
+a{color:var(--gold); text-decoration:none}
+a:hover{text-decoration:underline}
+button{font-family:inherit; cursor:pointer}
+
+/* ============ HEADER ============ */
+header.top{
+  background:linear-gradient(135deg,#180712 0%,#3a0f1a 60%,#5a1a1a 100%);
+  color:#faf6ed; padding:22px 0 26px; position:sticky; top:0; z-index:40;
+  border-bottom:2px solid var(--gold);
+}
+header.top .inner{max-width:1200px; margin:0 auto; padding:0 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap}
+header.top .brand{display:flex; align-items:center; gap:14px}
+header.top .brand .flame{width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+  background:radial-gradient(circle,#c19a2b,#7a5f18); border-radius:50%; font-size:22px}
+header.top .brand h1{margin:0; font-size:1.35em; color:#faf6ed; line-height:1.1}
+header.top .brand .sub{font-size:.78em; color:#e7c965; letter-spacing:.08em; text-transform:uppercase}
+header.top .tools{display:flex; gap:8px; flex-wrap:wrap}
+header.top .tools button{background:transparent; color:#faf6ed; border:1px solid rgba(231,201,101,.4);
+  padding:6px 12px; border-radius:6px; font-size:.82em}
+header.top .tools button:hover{background:rgba(231,201,101,.14)}
+
+/* ============ NAV TABS ============ */
+nav.tabs{background:var(--card); border-bottom:1px solid var(--border); position:sticky; top:82px; z-index:30;
+  overflow-x:auto; white-space:nowrap; -webkit-overflow-scrolling:touch}
+nav.tabs .inner{max-width:1200px; margin:0 auto; padding:0 12px; display:flex; gap:2px}
+nav.tabs button{background:transparent; border:0; color:var(--fg); padding:14px 16px; font-size:.9em;
+  font-weight:500; border-bottom:3px solid transparent; opacity:.7}
+nav.tabs button.active{border-bottom-color:var(--gold); color:var(--gold); opacity:1; font-weight:600}
+nav.tabs button:hover{opacity:1}
+
+/* ============ MAIN ============ */
+main{max-width:1200px; margin:0 auto; padding:28px 20px 80px}
+.panel{display:none}
+.panel.active{display:block; animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ============ CARDS ============ */
+.card{background:var(--card); border-radius:12px; border:1px solid var(--border); padding:22px;
+  margin-bottom:18px; box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.card h2{color:var(--fg)}
+.card .meta{font-size:.85em; color:var(--gold); text-transform:uppercase; letter-spacing:.08em; font-weight:600; margin-bottom:6px}
+
+/* ============ COVER PANEL ============ */
+.hero{background:linear-gradient(135deg,#180712 0%,#3a0f1a 60%,#5a1a1a 100%);
+  color:#faf6ed; padding:56px 32px; border-radius:16px; text-align:center; margin-bottom:24px;
+  border:2px solid var(--gold); position:relative; overflow:hidden}
+.hero::before{content:""; position:absolute; inset:0;
+  background:radial-gradient(ellipse at top,rgba(231,201,101,.15) 0%,transparent 60%); pointer-events:none}
+.hero .ornament{font-size:36px; color:var(--gold-light); margin-bottom:10px}
+.hero h1{color:#faf6ed; font-size:3.4em; margin:.1em 0 .1em}
+.hero h1 .die{color:#c24a16; text-shadow:0 0 20px rgba(194,74,22,.5)}
+.hero .subtitle{font-style:italic; color:var(--gold-light); font-size:1.1em; max-width:640px; margin:0 auto 22px}
+.hero .anchor{background:var(--gold); color:#1a0d16; padding:10px 22px; display:inline-block; font-weight:600;
+  font-size:.85em; letter-spacing:.05em; border-radius:2px; margin-bottom:20px}
+.hero .author{font-family:'Cormorant Garamond',serif; font-size:1.35em; color:var(--gold-light); letter-spacing:.05em}
+.hero .ministry{font-style:italic; color:#faf6ed; opacity:.85}
+.hero .cta-row{margin-top:26px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
+.hero .cta-row button{background:var(--gold); color:#1a0d16; border:0; padding:12px 22px; font-size:.9em;
+  font-weight:600; letter-spacing:.03em; border-radius:6px}
+.hero .cta-row button.secondary{background:transparent; color:var(--gold-light); border:1px solid var(--gold-light)}
+.hero .cta-row button:hover{transform:translateY(-1px); box-shadow:0 6px 14px rgba(0,0,0,.2)}
+
+/* ============ SCRIPTURE / DECLARATION / KEY / PRAYER BLOCKS ============ */
+.scripture-box{background:var(--scripture-bg); border-left:4px solid var(--scripture); padding:14px 18px;
+  border-radius:6px; margin:12px 0}
+.scripture-box .ref{color:var(--scripture); font-weight:700; font-size:.9em; letter-spacing:.03em; margin-bottom:4px; font-family:'Inter',sans-serif}
+.scripture-box .text{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.08em; line-height:1.55}
+
+.decl-box{background:var(--decl-bg); border-left:4px solid var(--decl); padding:16px 18px; border-radius:6px; margin:12px 0}
+.decl-box .header{color:var(--decl); font-weight:700; font-size:.8em; letter-spacing:.1em; text-transform:uppercase; margin-bottom:6px}
+.decl-box .text{font-weight:600; line-height:1.55}
+
+.keypoints{background:var(--cream); border-radius:6px; padding:14px 18px; margin:12px 0; border:1px solid var(--border)}
+.keypoints h4{color:var(--gold); font-family:'Inter',sans-serif; font-size:.82em; letter-spacing:.1em; text-transform:uppercase; margin:0 0 8px}
+.keypoints ul{margin:0; padding-left:20px}
+.keypoints li{margin:4px 0}
+
+.reflect{background:var(--prayer-bg); border-left:4px solid var(--prayer); padding:14px 18px; border-radius:6px; margin:12px 0}
+.reflect h4{color:var(--prayer); font-family:'Inter',sans-serif; font-size:.82em; letter-spacing:.1em; text-transform:uppercase; margin:0 0 8px}
+.reflect ol{margin:0; padding-left:22px}
+.reflect li{margin:4px 0; font-style:italic}
+
+/* ============ TOC ============ */
+.toc-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px}
+.toc-item{background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px; cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease; display:flex; gap:12px; align-items:flex-start}
+.toc-item:hover{transform:translateY(-2px); box-shadow:0 8px 22px rgba(0,0,0,.08); border-color:var(--gold)}
+.toc-item .num{background:var(--gold); color:#1a0d16; width:36px; height:36px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0}
+.toc-item .body h3{font-size:1.05em; margin:0 0 3px}
+.toc-item .body .sub{font-size:.85em; color:var(--gold); font-style:italic}
+.toc-item.done{border-color:var(--prayer)}
+.toc-item.done .num{background:var(--prayer); color:#fff}
+
+/* ============ DECLARATIONS GRID ============ */
+.decl-grid{display:grid; grid-template-columns:1fr; gap:10px}
+.decl-item{background:var(--decl-bg); border-radius:8px; overflow:hidden; display:flex; border:1px solid var(--border)}
+.decl-item .num{background:var(--decl); color:#fff; width:56px; display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0}
+.decl-item .body{padding:12px 16px; flex:1}
+.decl-item .body .text{margin-bottom:8px}
+.decl-item .body .actions{display:flex; gap:6px; flex-wrap:wrap}
+.decl-item .body .actions button{background:transparent; border:1px solid var(--decl); color:var(--decl);
+  padding:4px 10px; font-size:.78em; border-radius:4px}
+.decl-item .body .actions button:hover{background:var(--decl); color:#fff}
+
+/* ============ QUIZ / FLASHCARDS ============ */
+.quiz-card{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px}
+.quiz-question{font-family:'Cormorant Garamond',serif; font-size:1.3em; margin-bottom:16px; line-height:1.4}
+.quiz-options{display:flex; flex-direction:column; gap:8px}
+.quiz-options button{background:var(--card); border:1px solid var(--border); padding:12px 16px;
+  text-align:left; border-radius:8px; color:var(--fg); font-size:.95em; transition:all .15s ease}
+.quiz-options button:hover{border-color:var(--gold); background:var(--cream)}
+.quiz-options button.correct{background:var(--prayer-bg); border-color:var(--prayer); color:var(--prayer); font-weight:600}
+.quiz-options button.wrong{background:var(--warning-bg); border-color:var(--warning); color:var(--warning)}
+.quiz-progress{font-size:.85em; color:var(--gold); text-transform:uppercase; letter-spacing:.08em; margin-bottom:10px}
+.quiz-feedback{margin-top:14px; padding:12px 16px; border-radius:8px; background:var(--cream); border:1px solid var(--border); font-size:.95em}
+
+.flash-card{perspective:1000px; height:260px; margin-bottom:16px}
+.flash-inner{position:relative; width:100%; height:100%; transition:transform .6s; transform-style:preserve-3d; cursor:pointer}
+.flash-card.flipped .flash-inner{transform:rotateY(180deg)}
+.flash-front, .flash-back{position:absolute; width:100%; height:100%; backface-visibility:hidden;
+  border-radius:12px; padding:26px; display:flex; align-items:center; justify-content:center; text-align:center;
+  border:2px solid var(--border)}
+.flash-front{background:var(--scripture-bg); color:var(--scripture); font-family:'Inter',sans-serif; font-weight:700; font-size:1.4em}
+.flash-back{background:var(--card); transform:rotateY(180deg); font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1em; line-height:1.5; padding:26px; overflow:auto}
+
+/* ============ FORM ELEMENTS ============ */
+input[type="text"], input[type="search"], textarea, select{
+  background:var(--card); border:1px solid var(--border); border-radius:6px; padding:10px 14px;
+  color:var(--fg); font-family:inherit; font-size:.95em; width:100%
+}
+input[type="text"]:focus, input[type="search"]:focus, textarea:focus{outline:2px solid var(--gold); border-color:var(--gold)}
+textarea{min-height:120px; font-family:'Cormorant Garamond',serif; font-size:1.05em}
+.btn{background:var(--gold); color:#1a0d16; border:0; padding:10px 18px; border-radius:6px; font-weight:600; font-size:.9em}
+.btn:hover{background:var(--gold-light)}
+.btn.ghost{background:transparent; color:var(--gold); border:1px solid var(--gold)}
+.btn.ghost:hover{background:var(--cream)}
+
+/* ============ MISC ============ */
+.progress-bar{background:var(--cream); height:10px; border-radius:5px; overflow:hidden; margin:8px 0}
+.progress-bar .fill{background:linear-gradient(90deg,var(--gold),var(--gold-light)); height:100%; transition:width .35s ease}
+.chip{display:inline-block; background:var(--cream); color:var(--gold); padding:4px 10px; border-radius:99px; font-size:.78em; font-weight:600; margin:3px}
+
+.two-col{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+@media(max-width:720px){.two-col{grid-template-columns:1fr}}
+
+.audio-placeholder{background:var(--direction-bg); border:2px dashed var(--direction); border-radius:10px;
+  padding:22px; text-align:center; color:var(--direction); font-weight:500; margin:14px 0}
+.audio-placeholder .icon{font-size:32px; margin-bottom:8px}
+.audio-placeholder small{display:block; opacity:.75; font-size:.82em; margin-top:6px}
+
+.chapter-content{max-width:800px; margin:0 auto}
+.chapter-nav{display:flex; justify-content:space-between; margin:26px 0 0; gap:12px}
+.chapter-nav button{background:var(--card); border:1px solid var(--border); color:var(--fg); padding:12px 16px; border-radius:8px; flex:1; text-align:left; font-size:.9em}
+.chapter-nav button:hover{border-color:var(--gold)}
+.chapter-nav button:disabled{opacity:.35; cursor:not-allowed}
+
+.feature-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; margin:14px 0}
+.feature-grid .card{margin:0; padding:16px}
+.feature-grid .card .icon{font-size:24px; color:var(--gold); margin-bottom:8px}
+.feature-grid .card h3{font-size:1.05em; margin:0 0 4px}
+.feature-grid .card p{font-size:.85em; opacity:.75; margin:0}
+
+.faq-item{border-bottom:1px solid var(--border); padding:14px 0}
+.faq-item summary{cursor:pointer; font-weight:600; padding:6px 0; font-family:'Cormorant Garamond',serif; font-size:1.15em}
+.faq-item[open] summary{color:var(--gold)}
+.faq-item p{margin:8px 0 0; opacity:.85}
+
+.badge{display:inline-block; background:var(--gold); color:#1a0d16; padding:2px 10px; border-radius:99px; font-size:.75em; font-weight:700; letter-spacing:.05em}
+
+footer.footer{background:linear-gradient(135deg,#180712,#3a0f1a); color:#faf6ed; padding:32px 20px; text-align:center; margin-top:40px}
+footer.footer h3{color:var(--gold-light); font-size:1.3em; margin-bottom:6px}
+footer.footer p{opacity:.85; margin:4px 0; font-size:.9em}
+footer.footer .ministry-line{color:var(--gold); font-weight:600; margin-top:12px}
+
+/* SR-only */
+.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="inner">
+    <div class="brand">
+      <div class="flame">✦</div>
+      <div>
+        <h1>Bewitchment Must Die</h1>
+        <div class="sub">Interactive Book Companion · KJV</div>
+      </div>
+    </div>
+    <div class="tools" role="toolbar" aria-label="Reading tools">
+      <button id="btn-font-down" title="Smaller text">A−</button>
+      <button id="btn-font-up" title="Larger text">A+</button>
+      <button id="btn-contrast" title="High contrast">◐</button>
+      <button id="btn-theme" title="Toggle dark mode">🌙</button>
+      <button id="btn-share" title="Share on WhatsApp">Share</button>
+      <a href="./bewitchment-must-die-book.pdf" download><button title="Download the PDF">Download</button></a>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Sections">
+  <div class="inner" id="tabs"></div>
+</nav>
+
+<main>
+  <section class="panel active" id="panel-home"></section>
+  <section class="panel" id="panel-toc"></section>
+  <section class="panel" id="panel-read"></section>
+  <section class="panel" id="panel-scripture"></section>
+  <section class="panel" id="panel-declarations"></section>
+  <section class="panel" id="panel-flashcards"></section>
+  <section class="panel" id="panel-quiz"></section>
+  <section class="panel" id="panel-notes"></section>
+  <section class="panel" id="panel-bookmarks"></section>
+  <section class="panel" id="panel-progress"></section>
+  <section class="panel" id="panel-audio"></section>
+  <section class="panel" id="panel-about"></section>
+</main>
+
+<footer class="footer">
+  <h3>Bewitchment Must Die</h3>
+  <p>Interactive Book Companion · KJV Edition</p>
+  <p class="ministry-line">— Prophet Prince Amo David —</p>
+  <p><em>Dominion Hour with Prophet Prince Amo David</em></p>
+  <p style="margin-top:16px;opacity:.6;font-size:.8em">Anchor Scripture — Numbers 23:23 (KJV)<br>
+  <em>Surely there is no enchantment against Jacob, neither is there any divination against Israel.</em></p>
+</footer>
+
+<script src="./book-data.js"></script>
+<script>
+/* ============ STATE (in-memory only — pplx.app blocks storage APIs) ============ */
+const STATE = {
+  activeTab: 'home',
+  activeChapter: 1,
+  fontScale: 1,
+  contrast: 'normal',
+  theme: 'light',
+  notes: {},
+  bookmarks: new Set(),
+  read: new Set(),
+  quizIndex: 0, quizScore: 0, quizStarted: false,
+  flashIndex: 0,
+};
+
+/* ============ TABS ============ */
+const TABS = [
+  {id:'home', label:'Home', icon:'✦'},
+  {id:'toc', label:'Contents', icon:'☰'},
+  {id:'read', label:'Read', icon:'📖'},
+  {id:'scripture', label:'Scriptures', icon:'✝'},
+  {id:'declarations', label:'Declarations', icon:'🔥'},
+  {id:'flashcards', label:'Flashcards', icon:'♣'},
+  {id:'quiz', label:'Quiz', icon:'?'},
+  {id:'notes', label:'Notes', icon:'✎'},
+  {id:'bookmarks', label:'Bookmarks', icon:'⚑'},
+  {id:'progress', label:'Progress', icon:'▤'},
+  {id:'audio', label:'Audio', icon:'♪'},
+  {id:'about', label:'About', icon:'ⓘ'},
+];
+
+function renderTabs(){
+  const el = document.getElementById('tabs');
+  el.innerHTML = '';
+  TABS.forEach(t => {
+    const btn = document.createElement('button');
+    btn.textContent = t.label;
+    btn.className = STATE.activeTab === t.id ? 'active' : '';
+    btn.onclick = () => setTab(t.id);
+    el.appendChild(btn);
+  });
+}
+function setTab(id){
+  STATE.activeTab = id;
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  renderTabs();
+  render(id);
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+/* ============ RENDER DISPATCH ============ */
+function render(id){
+  const map = {
+    home: renderHome,
+    toc: renderTOC,
+    read: renderRead,
+    scripture: renderScripture,
+    declarations: renderDeclarations,
+    flashcards: renderFlashcards,
+    quiz: renderQuiz,
+    notes: renderNotes,
+    bookmarks: renderBookmarks,
+    progress: renderProgress,
+    audio: renderAudio,
+    about: renderAbout,
+  };
+  map[id] && map[id]();
+}
+
+/* ============ HOME PANEL ============ */
+function renderHome(){
+  const b = window.BOOK.book;
+  const featuredDecl = window.BOOK.declarations[Math.floor(Math.random()*window.BOOK.declarations.length)];
+  const featuredScripture = window.BOOK.scripture_index[Math.floor(Math.random()*window.BOOK.scripture_index.length)];
+  document.getElementById('panel-home').innerHTML = `
+    <div class="hero">
+      <div class="ornament">✦ ✞ ✦</div>
+      <h1><span>Bewitchment</span> <span>Must</span> <span class="die">Die</span></h1>
+      <div class="subtitle">${escapeHtml(b.subtitle)}</div>
+      <div class="anchor">✦ NUMBERS 23:23 &nbsp;·&nbsp; SURELY NO ENCHANTMENT AGAINST JACOB ✦</div>
+      <div class="author">Prophet Prince Amo David</div>
+      <div class="ministry">Dominion Hour with Prophet Prince Amo David</div>
+      <div class="cta-row">
+        <button onclick="setTab('read'); openChapter(1)">Start Reading</button>
+        <button class="secondary" onclick="setTab('declarations')">Declare the 29</button>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <div class="meta">✦ Daily Declaration</div>
+        <h3 style="font-family:'Cormorant Garamond'; font-style:italic">Repeat after me</h3>
+        <div class="decl-box"><div class="text">${escapeHtml(featuredDecl)}</div></div>
+        <button class="btn ghost" onclick="copyToClipboard(${JSON.stringify(featuredDecl).replace(/"/g,'&quot;')})">Copy Declaration</button>
+      </div>
+      <div class="card">
+        <div class="meta">✝ Featured Scripture</div>
+        <h3 style="font-family:'Cormorant Garamond'; font-style:italic">KJV</h3>
+        <div class="scripture-box">
+          <div class="ref">${escapeHtml(featuredScripture.ref)} (KJV)</div>
+          <div class="text">${escapeHtml(featuredScripture.text)}</div>
+        </div>
+        <button class="btn ghost" onclick="copyToClipboard(${JSON.stringify(featuredScripture.ref+' (KJV) — '+featuredScripture.text).replace(/"/g,'&quot;')})">Copy Scripture</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="meta">Foreword</div>
+      <h2>Read the Foreword</h2>
+      ${b.foreword.map(p => `<p>${escapeHtml(p)}</p>`).join('')}
+    </div>
+
+    <div class="card">
+      <div class="meta">Included in this Companion</div>
+      <h2>What's inside</h2>
+      <div class="feature-grid">
+        <div class="card"><div class="icon">📖</div><h3>Chapter Reader</h3><p>Read all 12 chapters with KJV in full</p></div>
+        <div class="card"><div class="icon">🔥</div><h3>29 Fiery Declarations</h3><p>Preserved word-for-word from the altar</p></div>
+        <div class="card"><div class="icon">✝</div><h3>Scripture Library</h3><p>${window.BOOK.scripture_index.length} verses · 11 topics</p></div>
+        <div class="card"><div class="icon">♣</div><h3>Flashcards</h3><p>Memorize key KJV passages</p></div>
+        <div class="card"><div class="icon">?</div><h3>Knowledge Quiz</h3><p>Test what you learned</p></div>
+        <div class="card"><div class="icon">✎</div><h3>Personal Notes</h3><p>Per-chapter reflection space</p></div>
+        <div class="card"><div class="icon">⚑</div><h3>Bookmarks</h3><p>Save what to return to</p></div>
+        <div class="card"><div class="icon">▤</div><h3>Progress Tracker</h3><p>Mark chapters as read</p></div>
+        <div class="card"><div class="icon">♪</div><h3>Audio Slots</h3><p>ElevenLabs narration — coming soon</p></div>
+      </div>
+    </div>
+  `;
+}
+
+/* ============ TABLE OF CONTENTS ============ */
+function renderTOC(){
+  const chs = window.BOOK.chapters;
+  document.getElementById('panel-toc').innerHTML = `
+    <div class="card">
+      <div class="meta">The 12 Chapters</div>
+      <h2>Contents</h2>
+      <p style="opacity:.75">Tap any chapter to open it. Chapters you have read are marked.</p>
+      <div class="toc-grid">
+        ${chs.map(ch => `
+          <div class="toc-item ${STATE.read.has(ch.num)?'done':''}" onclick="openChapter(${ch.num})">
+            <div class="num">${ch.num}</div>
+            <div class="body">
+              <h3>${escapeHtml(ch.title)}</h3>
+              <div class="sub">${escapeHtml(ch.subtitle)}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div class="card">
+      <div class="meta">Appendices</div>
+      <div class="toc-grid">
+        <div class="toc-item" onclick="setTab('declarations')">
+          <div class="num" style="background:var(--decl)">✦</div>
+          <div class="body"><h3>29 Declarations</h3><div class="sub">Word-for-word from the altar</div></div>
+        </div>
+        <div class="toc-item" onclick="setTab('scripture')">
+          <div class="num" style="background:var(--scripture)">✝</div>
+          <div class="body"><h3>Scripture Index</h3><div class="sub">${window.BOOK.scripture_index.length} full-KJV verses</div></div>
+        </div>
+        <div class="toc-item" onclick="setTab('quiz')">
+          <div class="num" style="background:var(--teaching)">?</div>
+          <div class="body"><h3>Knowledge Quiz</h3><div class="sub">Test your understanding</div></div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+/* ============ READ (CHAPTER) ============ */
+function openChapter(n){
+  STATE.activeChapter = n;
+  STATE.read.add(n);
+  setTab('read');
+}
+
+function renderRead(){
+  const n = STATE.activeChapter;
+  const ch = window.BOOK.chapters.find(c => c.num === n);
+  if (!ch){ document.getElementById('panel-read').innerHTML = '<div class="card"><p>Chapter not found.</p></div>'; return; }
+  const colorMap = {scripture:'var(--scripture)', teaching:'var(--teaching)', declaration:'var(--decl)',
+    prayer:'var(--prayer)', direction:'var(--direction)', warning:'var(--warning)'};
+  const c = colorMap[ch.color] || 'var(--gold)';
+  const isBookmarked = STATE.bookmarks.has(n);
+
+  let specialBlock = '';
+  if (ch.special === 'declarations'){
+    specialBlock = `
+      <div class="card">
+        <div class="meta">The 29 Declarations</div>
+        <p style="opacity:.75; font-size:.9em">Anoint yourself. Plead the blood. Speak each declaration aloud.</p>
+        <div class="decl-grid">
+          ${window.BOOK.declarations.map((d,i) => `
+            <div class="decl-item">
+              <div class="num">${String(i+1).padStart(2,'0')}</div>
+              <div class="body">
+                <div class="text">${escapeHtml(d)}</div>
+                <div class="actions">
+                  <button onclick="copyToClipboard(${JSON.stringify(d).replace(/"/g,'&quot;')})">Copy</button>
+                  <button onclick="shareWhatsApp(${JSON.stringify('Declaration '+(i+1)+' — '+d).replace(/"/g,'&quot;')})">Share</button>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }
+
+  document.getElementById('panel-read').innerHTML = `
+    <div class="chapter-content">
+      <div class="card" style="border-top:6px solid ${c}">
+        <div class="meta" style="color:${c}">Chapter ${ch.num}</div>
+        <h1 style="color:${c}">${escapeHtml(ch.title)}</h1>
+        <div style="font-style:italic; opacity:.75; margin-bottom:14px">${escapeHtml(ch.subtitle)}</div>
+        <p style="font-family:'Cormorant Garamond'; font-style:italic; font-size:1.15em; line-height:1.55">${escapeHtml(ch.opening)}</p>
+      </div>
+
+      <div class="audio-placeholder">
+        <div class="icon">♪</div>
+        <div>Chapter ${ch.num} — Audio Narration</div>
+        <small>ElevenLabs audio · to be inserted soon</small>
+      </div>
+
+      <div class="card">
+        <div class="meta">✝ KJV Scripture</div>
+        ${ch.scriptures.map(s => `
+          <div class="scripture-box">
+            <div class="ref">${escapeHtml(s.ref)} (KJV)</div>
+            <div class="text">${escapeHtml(s.text)}</div>
+            <div style="margin-top:8px"><button class="btn ghost" style="font-size:.78em; padding:4px 10px" onclick="copyToClipboard(${JSON.stringify(s.ref+' (KJV) — '+s.text).replace(/"/g,'&quot;')})">Copy verse</button></div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="card">
+        <div class="meta">The Teaching</div>
+        ${ch.body.map(p => `<p>${escapeHtml(p)}</p>`).join('')}
+      </div>
+
+      ${specialBlock}
+
+      <div class="keypoints">
+        <h4>Key Points</h4>
+        <ul>${ch.key_points.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ul>
+      </div>
+
+      <div class="decl-box">
+        <div class="header">✦ Declaration — Repeat After Me</div>
+        <div class="text">${escapeHtml(ch.declaration)}</div>
+        <div style="margin-top:10px; display:flex; gap:6px; flex-wrap:wrap">
+          <button class="btn ghost" style="font-size:.85em; padding:6px 12px" onclick="copyToClipboard(${JSON.stringify(ch.declaration).replace(/"/g,'&quot;')})">Copy</button>
+          <button class="btn ghost" style="font-size:.85em; padding:6px 12px" onclick="shareWhatsApp(${JSON.stringify('Bewitchment Must Die — Chapter '+ch.num+' declaration: '+ch.declaration).replace(/"/g,'&quot;')})">Share on WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="reflect">
+        <h4>Reflection Questions</h4>
+        <ol>${ch.reflection.map(q => `<li>${escapeHtml(q)}</li>`).join('')}</ol>
+      </div>
+
+      <div class="card">
+        <div class="meta">✎ Your notes for this chapter</div>
+        <textarea id="notes-${ch.num}" placeholder="Write what the Lord is speaking to you in this chapter..." oninput="saveNote(${ch.num}, this.value)">${escapeHtml(STATE.notes[ch.num] || '')}</textarea>
+        <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap">
+          <button class="btn" onclick="toggleBookmark(${ch.num})">${isBookmarked?'★ Bookmarked':'☆ Bookmark this chapter'}</button>
+          <button class="btn ghost" onclick="STATE.read.add(${ch.num}); alert('Marked as read.'); renderTabs();">Mark as read</button>
+        </div>
+      </div>
+
+      <div class="chapter-nav">
+        <button ${n<=1?'disabled':''} onclick="openChapter(${n-1})">← Chapter ${n-1}</button>
+        <button ${n>=window.BOOK.chapters.length?'disabled':''} onclick="openChapter(${n+1})">Chapter ${n+1} →</button>
+      </div>
+    </div>
+  `;
+}
+
+function saveNote(num, val){ STATE.notes[num] = val; }
+function toggleBookmark(num){
+  if (STATE.bookmarks.has(num)) STATE.bookmarks.delete(num);
+  else STATE.bookmarks.add(num);
+  renderRead();
+}
+
+/* ============ SCRIPTURE LIBRARY ============ */
+function renderScripture(){
+  const list = window.BOOK.scripture_index;
+  const topics = window.BOOK.topics;
+  document.getElementById('panel-scripture').innerHTML = `
+    <div class="card">
+      <div class="meta">KJV Scripture Library</div>
+      <h2>All ${list.length} Verses — In Full</h2>
+      <input type="search" id="scripture-search" placeholder="Search reference or text (e.g. Ephesians, blood, witchcraft)..." oninput="filterScriptures(this.value)">
+      <div style="margin-top:10px">${Object.keys(topics).map(t => `<span class="chip" onclick="filterByTopic('${t.replace(/'/g,"\\'")}')" style="cursor:pointer">${escapeHtml(t)}</span>`).join('')}</div>
+    </div>
+    <div id="scripture-list">
+      ${list.map(s => scriptureCard(s)).join('')}
+    </div>
+  `;
+}
+
+function scriptureCard(s){
+  return `
+    <div class="card scripture-card" data-ref="${escapeHtml(s.ref.toLowerCase())}" data-text="${escapeHtml(s.text.toLowerCase())}">
+      <div class="scripture-box" style="margin:0">
+        <div class="ref">${escapeHtml(s.ref)} (KJV)</div>
+        <div class="text">${escapeHtml(s.text)}</div>
+      </div>
+      <div style="margin-top:10px"><button class="btn ghost" onclick="copyToClipboard(${JSON.stringify(s.ref+' (KJV) — '+s.text).replace(/"/g,'&quot;')})">Copy</button></div>
+    </div>
+  `;
+}
+
+function filterScriptures(q){
+  q = q.toLowerCase().trim();
+  const list = window.BOOK.scripture_index;
+  const filtered = q ? list.filter(s => s.ref.toLowerCase().includes(q) || s.text.toLowerCase().includes(q)) : list;
+  document.getElementById('scripture-list').innerHTML = filtered.map(s => scriptureCard(s)).join('') || '<div class="card"><p>No verses match.</p></div>';
+}
+
+function filterByTopic(topic){
+  const refs = window.BOOK.topics[topic] || [];
+  const list = window.BOOK.scripture_index;
+  const filtered = list.filter(s => refs.some(r => normalizeRef(s.ref) === normalizeRef(r)));
+  document.getElementById('scripture-list').innerHTML = `
+    <div class="card">
+      <div class="meta">Topic</div>
+      <h2>${escapeHtml(topic)}</h2>
+      <p><button class="btn ghost" onclick="renderScripture()">← Back to all scriptures</button></p>
+    </div>
+    ${filtered.map(s => scriptureCard(s)).join('')}
+  `;
+}
+
+function normalizeRef(r){ return r.replace(/[–—]/g,'-').replace(/\s+/g,' ').trim().toLowerCase(); }
+
+/* ============ DECLARATIONS ============ */
+function renderDeclarations(){
+  const decls = window.BOOK.declarations;
+  document.getElementById('panel-declarations').innerHTML = `
+    <div class="card">
+      <div class="meta">Repeat After Me</div>
+      <h2>The 29 Fiery Declarations</h2>
+      <p style="opacity:.85">Preserved verbatim from the deliverance service. Speak them aloud. Do not paraphrase. Do not shorten them.</p>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px">
+        <button class="btn" onclick="randomDeclaration()">🎲 Random Declaration</button>
+        <button class="btn ghost" onclick="copyAllDeclarations()">Copy all 29</button>
+      </div>
+      <div id="random-decl" style="margin-top:14px"></div>
+    </div>
+    <div class="card">
+      <div class="meta">All Declarations</div>
+      <div class="decl-grid">
+        ${decls.map((d,i) => `
+          <div class="decl-item">
+            <div class="num">${String(i+1).padStart(2,'0')}</div>
+            <div class="body">
+              <div class="text">${escapeHtml(d)}</div>
+              <div class="actions">
+                <button onclick="copyToClipboard(${JSON.stringify(d).replace(/"/g,'&quot;')})">Copy</button>
+                <button onclick="shareWhatsApp(${JSON.stringify('Declaration '+(i+1)+' — '+d).replace(/"/g,'&quot;')})">Share</button>
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function randomDeclaration(){
+  const d = window.BOOK.declarations[Math.floor(Math.random()*window.BOOK.declarations.length)];
+  const el = document.getElementById('random-decl');
+  if (el) el.innerHTML = `<div class="decl-box"><div class="header">✦ Speak this now</div><div class="text">${escapeHtml(d)}</div></div>`;
+}
+
+function copyAllDeclarations(){
+  const text = window.BOOK.declarations.map((d,i) => `Declaration ${i+1}. ${d}`).join('\n\n');
+  copyToClipboard(text);
+}
+
+/* ============ FLASHCARDS ============ */
+function renderFlashcards(){
+  const list = window.BOOK.scripture_index;
+  if (STATE.flashIndex >= list.length) STATE.flashIndex = 0;
+  const s = list[STATE.flashIndex];
+  document.getElementById('panel-flashcards').innerHTML = `
+    <div class="card">
+      <div class="meta">Scripture Flashcards</div>
+      <h2>Memorize the Word</h2>
+      <p style="opacity:.75">Tap the card to reveal the verse. ${STATE.flashIndex+1} of ${list.length}.</p>
+      <div class="flash-card" id="flash-card" onclick="this.classList.toggle('flipped')">
+        <div class="flash-inner">
+          <div class="flash-front">${escapeHtml(s.ref)}<br><span style="font-size:.55em; opacity:.65; letter-spacing:.1em">(KJV) · TAP TO REVEAL</span></div>
+          <div class="flash-back">${escapeHtml(s.text)}</div>
+        </div>
+      </div>
+      <div style="display:flex; gap:8px; justify-content:space-between; flex-wrap:wrap">
+        <button class="btn ghost" onclick="STATE.flashIndex = (STATE.flashIndex - 1 + ${list.length}) % ${list.length}; renderFlashcards()">← Previous</button>
+        <button class="btn" onclick="STATE.flashIndex = Math.floor(Math.random()*${list.length}); renderFlashcards()">🎲 Shuffle</button>
+        <button class="btn ghost" onclick="STATE.flashIndex = (STATE.flashIndex + 1) % ${list.length}; renderFlashcards()">Next →</button>
+      </div>
+    </div>
+  `;
+}
+
+/* ============ QUIZ ============ */
+const QUIZ = [
+  {q:"What is the anchor scripture of Bewitchment Must Die?", a:["Ephesians 6:12","Numbers 23:23","Galatians 3:1","Deuteronomy 18:10-12"], correct:1,
+   why:"Numbers 23:23 (KJV) — Surely there is no enchantment against Jacob, neither is there any divination against Israel."},
+  {q:"According to Ephesians 6:12, our wrestling is not against…", a:["Flesh and blood","Principalities","Powers","Rulers of darkness"], correct:0,
+   why:"We wrestle NOT against flesh and blood, but against principalities, powers, rulers of darkness, and spiritual wickedness."},
+  {q:"Who did Paul ask, 'Who hath bewitched you?'", a:["The Ephesians","The Corinthians","The Galatians","The Romans"], correct:2,
+   why:"Galatians 3:1 (KJV) — O foolish Galatians, who hath bewitched you..."},
+  {q:"In Acts 8, which sorcerer 'bewitched' a whole city with sorceries?", a:["Elymas","Simon","Bar-Jesus","Balaam"], correct:1,
+   why:"Simon the sorcerer bewitched the people of Samaria (Acts 8:9-11)."},
+  {q:"According to Revelation 12:11, believers overcame the accuser by two things — the blood of the Lamb and…", a:["Their tithes","Their good works","The word of their testimony","Their prayers"], correct:2,
+   why:"Revelation 12:11 — And they overcame him by the blood of the Lamb, and by the word of their testimony."},
+  {q:"In Deuteronomy 18, God calls witchcraft, divination, and consulting spirits…", a:["A minor sin","An abomination unto the Lord","A cultural practice","Permissible under grace"], correct:1,
+   why:"Deuteronomy 18:12 — For all that do these things are an abomination unto the LORD."},
+  {q:"What prophet stopped rain for three and a half years, exposing Jezebel's Baal worship?", a:["Elisha","Elijah","Samuel","Jeremiah"], correct:1,
+   why:"Elijah confronted Ahab and Jezebel — 1 Kings 17-18."},
+  {q:"Isaiah 10:27 says the yoke shall be destroyed because of…", a:["Fasting","The anointing","Tithes","Sacrifices"], correct:1,
+   why:"Isaiah 10:27 (KJV) — the yoke shall be destroyed because of the anointing."},
+  {q:"According to Job 22:28, when you decree a thing…", a:["It shall come to pass eventually","It shall be established unto thee","You must wait forty days","You must fast first"], correct:1,
+   why:"Job 22:28 (KJV) — Thou shalt also decree a thing, and it shall be established unto thee."},
+  {q:"The chapter titled 'The Prophetic Direction' teaches which practical action?", a:["Salt bath","Anointing with oil","Fasting for 40 days","Speaking in tongues only"], correct:1,
+   why:"The Prophetic Direction is anointing oil applied morning and evening, framed through the finished work of Christ."},
+];
+
+function renderQuiz(){
+  if (!STATE.quizStarted){
+    document.getElementById('panel-quiz').innerHTML = `
+      <div class="card">
+        <div class="meta">Knowledge Check</div>
+        <h2>Bewitchment Must Die — Quiz</h2>
+        <p>Ten questions from the teaching. Answer each — feedback and Scripture given after each choice.</p>
+        <button class="btn" onclick="STATE.quizStarted=true; STATE.quizIndex=0; STATE.quizScore=0; renderQuiz()">Begin Quiz</button>
+      </div>
+    `;
+    return;
+  }
+  if (STATE.quizIndex >= QUIZ.length){
+    document.getElementById('panel-quiz').innerHTML = `
+      <div class="card">
+        <div class="meta">Quiz Complete</div>
+        <h2>You scored ${STATE.quizScore} / ${QUIZ.length}</h2>
+        <div class="progress-bar"><div class="fill" style="width:${(STATE.quizScore/QUIZ.length)*100}%"></div></div>
+        <p style="margin-top:12px">${STATE.quizScore === QUIZ.length ? 'Excellent — you know the teaching.' : STATE.quizScore >= 7 ? 'Well done. Review the chapters you missed.' : 'Return to the chapters and study the Word.'}</p>
+        <button class="btn" onclick="STATE.quizStarted=false; renderQuiz()">Take again</button>
+      </div>
+    `;
+    return;
+  }
+  const q = QUIZ[STATE.quizIndex];
+  document.getElementById('panel-quiz').innerHTML = `
+    <div class="quiz-card">
+      <div class="quiz-progress">Question ${STATE.quizIndex+1} of ${QUIZ.length} · Score ${STATE.quizScore}</div>
+      <div class="progress-bar"><div class="fill" style="width:${(STATE.quizIndex/QUIZ.length)*100}%"></div></div>
+      <div class="quiz-question" style="margin-top:14px">${escapeHtml(q.q)}</div>
+      <div class="quiz-options">
+        ${q.a.map((opt,i) => `<button onclick="answerQuiz(${i})" data-idx="${i}">${escapeHtml(opt)}</button>`).join('')}
+      </div>
+      <div id="quiz-feedback"></div>
+    </div>
+  `;
+}
+
+function answerQuiz(idx){
+  const q = QUIZ[STATE.quizIndex];
+  const opts = document.querySelectorAll('.quiz-options button');
+  opts.forEach((b,i) => {
+    b.disabled = true;
+    if (i === q.correct) b.classList.add('correct');
+    if (i === idx && idx !== q.correct) b.classList.add('wrong');
+  });
+  const correct = idx === q.correct;
+  if (correct) STATE.quizScore++;
+  document.getElementById('quiz-feedback').innerHTML = `
+    <div class="quiz-feedback">
+      <strong style="color:${correct?'var(--prayer)':'var(--warning)'}">${correct?'✓ Correct':'✗ Not quite'}.</strong>
+      <p style="margin:6px 0 12px">${escapeHtml(q.why)}</p>
+      <button class="btn" onclick="STATE.quizIndex++; renderQuiz()">Next question →</button>
+    </div>
+  `;
+}
+
+/* ============ NOTES ============ */
+function renderNotes(){
+  const chs = window.BOOK.chapters;
+  const filled = Object.entries(STATE.notes).filter(([k,v]) => v && v.trim());
+  document.getElementById('panel-notes').innerHTML = `
+    <div class="card">
+      <div class="meta">Personal Notes</div>
+      <h2>Your Reflections</h2>
+      <p style="opacity:.85">Notes are held in this browser session. Copy them out if you want to keep them permanently.</p>
+      ${filled.length === 0 ? `<p style="opacity:.55; font-style:italic">You haven't written any notes yet. Open a chapter to begin.</p>` : `
+        <button class="btn ghost" onclick="copyAllNotes()">Copy all notes</button>
+        <div style="margin-top:14px">
+          ${filled.map(([num,text]) => {
+            const ch = chs.find(c => c.num === +num);
+            return `
+              <div class="card" style="margin-bottom:10px">
+                <div class="meta">Chapter ${num}</div>
+                <h3>${ch?escapeHtml(ch.title):''}</h3>
+                <p style="white-space:pre-wrap; font-family:'Cormorant Garamond'; font-size:1.05em">${escapeHtml(text)}</p>
+                <button class="btn ghost" onclick="openChapter(${num})">Open chapter</button>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `}
+    </div>
+  `;
+}
+
+function copyAllNotes(){
+  const chs = window.BOOK.chapters;
+  const text = Object.entries(STATE.notes)
+    .filter(([,v]) => v && v.trim())
+    .map(([num,text]) => {
+      const ch = chs.find(c => c.num === +num);
+      return `Chapter ${num} — ${ch?ch.title:''}\n${text}`;
+    }).join('\n\n---\n\n');
+  copyToClipboard(text);
+}
+
+/* ============ BOOKMARKS ============ */
+function renderBookmarks(){
+  const chs = window.BOOK.chapters;
+  const marked = [...STATE.bookmarks].map(n => chs.find(c => c.num === n)).filter(Boolean);
+  document.getElementById('panel-bookmarks').innerHTML = `
+    <div class="card">
+      <div class="meta">Bookmarks</div>
+      <h2>Saved Chapters</h2>
+      ${marked.length === 0 ? `<p style="opacity:.55; font-style:italic">You haven't bookmarked any chapters yet.</p>` : `
+        <div class="toc-grid">
+          ${marked.map(ch => `
+            <div class="toc-item" onclick="openChapter(${ch.num})">
+              <div class="num">${ch.num}</div>
+              <div class="body"><h3>${escapeHtml(ch.title)}</h3><div class="sub">${escapeHtml(ch.subtitle)}</div></div>
+            </div>
+          `).join('')}
+        </div>
+      `}
+    </div>
+  `;
+}
+
+/* ============ PROGRESS ============ */
+function renderProgress(){
+  const total = window.BOOK.chapters.length;
+  const read = STATE.read.size;
+  const pct = Math.round((read/total)*100);
+  document.getElementById('panel-progress').innerHTML = `
+    <div class="card">
+      <div class="meta">Reading Progress</div>
+      <h2>${read} of ${total} chapters</h2>
+      <div class="progress-bar" style="height:16px"><div class="fill" style="width:${pct}%"></div></div>
+      <p style="margin-top:10px; opacity:.85">${pct}% complete</p>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px">
+        <button class="btn" onclick="setTab('toc')">Open the contents</button>
+        <button class="btn ghost" onclick="STATE.read = new Set(); renderProgress()">Reset progress</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="meta">Chapters</div>
+      <div class="toc-grid">
+        ${window.BOOK.chapters.map(ch => `
+          <div class="toc-item ${STATE.read.has(ch.num)?'done':''}" onclick="openChapter(${ch.num})">
+            <div class="num">${STATE.read.has(ch.num)?'✓':ch.num}</div>
+            <div class="body"><h3>${escapeHtml(ch.title)}</h3><div class="sub">${escapeHtml(ch.subtitle)}</div></div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+/* ============ AUDIO ============ */
+function renderAudio(){
+  document.getElementById('panel-audio').innerHTML = `
+    <div class="card">
+      <div class="meta">Audio Narration</div>
+      <h2>♪ ElevenLabs Audio Coming Soon</h2>
+      <p>Every chapter and the full 29 declarations will be narrated professionally. Audio slots are prepared below — recordings will be inserted here.</p>
+    </div>
+    <div class="card">
+      <div class="meta">Chapter Audio</div>
+      ${window.BOOK.chapters.map(ch => `
+        <div class="audio-placeholder" onclick="openChapter(${ch.num})" style="cursor:pointer">
+          <div style="display:flex; gap:12px; align-items:center; justify-content:center">
+            <div style="font-size:24px">♪</div>
+            <div style="text-align:left">
+              <strong>Chapter ${ch.num} — ${escapeHtml(ch.title)}</strong>
+              <div style="font-size:.82em; opacity:.75">${escapeHtml(ch.subtitle)}</div>
+            </div>
+          </div>
+          <small>Audio placeholder · will be inserted from ElevenLabs</small>
+        </div>
+      `).join('')}
+    </div>
+    <div class="card">
+      <div class="meta">Declaration Audio</div>
+      <div class="audio-placeholder">
+        <div class="icon">🔥</div>
+        <div><strong>The 29 Fiery Declarations</strong></div>
+        <small>Anointed audio recording · to be inserted soon</small>
+      </div>
+    </div>
+  `;
+}
+
+/* ============ ABOUT & FAQ ============ */
+function renderAbout(){
+  document.getElementById('panel-about').innerHTML = `
+    <div class="card">
+      <div class="meta">About This Companion</div>
+      <h2>Bewitchment Must Die — Interactive Book</h2>
+      <p>This is the interactive companion to the book <em>Bewitchment Must Die</em> by Prophet Prince Amo David, delivered as a live Clubhouse deliverance service on August 18, 2026.</p>
+      <p>Every KJV Scripture is quoted in full. Every declaration is preserved word-for-word from the altar. No paraphrasing. No shortening.</p>
+    </div>
+    <div class="card">
+      <div class="meta">Ministry</div>
+      <h2>Dominion Hour with Prophet Prince Amo David</h2>
+      <p>Dominion Hour is a deliverance and prophetic ministry equipping believers to walk in the fullness of Christ's authority — through the blood of Jesus, the fire of the Holy Ghost, and the unshakable word of God.</p>
+    </div>
+    <div class="card">
+      <div class="meta">How to Read This Book</div>
+      <ol>
+        ${window.BOOK.book.how_to_read.map(h => `<li style="margin:6px 0">${escapeHtml(h)}</li>`).join('')}
+      </ol>
+    </div>
+    <div class="card">
+      <div class="meta">Frequently Asked</div>
+      <details class="faq-item"><summary>Why is every Scripture in full KJV?</summary><p>Because the Word carries the power. Snippets and paraphrases cut the sword shorter than God intended. Every verse in this book is quoted in full King James Version so that when you read, you are reading the Word — not a summary of it.</p></details>
+      <details class="faq-item"><summary>Why are the declarations kept word-for-word?</summary><p>They were spoken under the burden of the Holy Ghost on the altar. The anointing is on the exact words. Speak them the way they were spoken.</p></details>
+      <details class="faq-item"><summary>Is this replacing the book?</summary><p>No — this is the companion. Download the printable PDF for study offline. Use this site for interactive reading, quizzes, and notes.</p></details>
+      <details class="faq-item"><summary>When will the audio be added?</summary><p>Audio narration is being prepared with ElevenLabs. When ready, it will replace the placeholders throughout this site.</p></details>
+      <details class="faq-item"><summary>Are my notes saved permanently?</summary><p>No — notes and bookmarks live only in this browser session. Use the Copy buttons to keep a permanent record.</p></details>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg,#180712,#3a0f1a); color:#faf6ed">
+      <div class="meta" style="color:var(--gold-light)">Anchor Scripture</div>
+      <h2 style="color:#faf6ed">Numbers 23:23 (KJV)</h2>
+      <p style="font-family:'Cormorant Garamond'; font-style:italic; font-size:1.2em">Surely there is no enchantment against Jacob, neither is there any divination against Israel: according to this time it shall be said of Jacob and of Israel, What hath God wrought!</p>
+    </div>
+  `;
+}
+
+/* ============ TOOLS ============ */
+function escapeHtml(s){
+  if (s == null) return '';
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function copyToClipboard(text){
+  try{
+    navigator.clipboard.writeText(text).then(() => flashToast('Copied.'));
+  } catch(e){
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = text; ta.style.position='fixed'; ta.style.opacity=0;
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); flashToast('Copied.'); } catch(_){}
+    document.body.removeChild(ta);
+  }
+}
+
+function shareWhatsApp(text){
+  const url = 'https://wa.me/?text=' + encodeURIComponent(text);
+  window.open(url, '_blank', 'noopener');
+}
+
+function flashToast(msg){
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--parch);padding:10px 18px;border-radius:99px;z-index:100;font-size:.9em;box-shadow:0 10px 30px rgba(0,0,0,.2)';
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 1500);
+}
+
+/* ============ TOOLBAR HANDLERS ============ */
+document.getElementById('btn-font-up').onclick = () => { STATE.fontScale = Math.min(1.4, STATE.fontScale + .1); document.documentElement.style.setProperty('--font-scale', STATE.fontScale); };
+document.getElementById('btn-font-down').onclick = () => { STATE.fontScale = Math.max(.85, STATE.fontScale - .1); document.documentElement.style.setProperty('--font-scale', STATE.fontScale); };
+document.getElementById('btn-contrast').onclick = () => {
+  STATE.contrast = STATE.contrast === 'normal' ? 'high' : 'normal';
+  document.documentElement.setAttribute('data-contrast', STATE.contrast);
+};
+document.getElementById('btn-theme').onclick = () => {
+  STATE.theme = STATE.theme === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', STATE.theme);
+  document.getElementById('btn-theme').textContent = STATE.theme === 'light' ? '🌙' : '☀';
+};
+document.getElementById('btn-share').onclick = () => shareWhatsApp('Read "Bewitchment Must Die" — the interactive deliverance book by Prophet Prince Amo David · Dominion Hour ministry. ' + location.href);
+
+/* ============ INIT ============ */
+renderTabs();
+renderHome();
+</script>
+</body>
+</html>
