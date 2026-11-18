@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" data-theme="day">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Holy Spirit Anointing | Dominion Hour with Prophet Prince Amo David</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="rays" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><span class="mark">D</span><span><b>DOMINION HOUR</b><i>with Prophet Prince Amo David</i></span></a>
+    <nav class="links" aria-label="Sections">
+      <a href="#teaching">Teaching</a><a href="#declare">Declare</a><a href="#study">Study</a><a href="#download">Download</a>
+    </nav>
+    <div class="prog" id="prog">
+      <button class="ring" id="progBtn" aria-expanded="false" aria-controls="progInfo" aria-label="Study progress. Show what counts">
+        <svg viewBox="0 0 44 44" width="44" height="44" aria-hidden="true"><circle class="rt" cx="22" cy="22" r="18"/><circle class="rf" id="ringFill" cx="22" cy="22" r="18"/></svg>
+        <span class="pct" id="progPct">0%</span>
+      </button>
+      <span class="ptext" id="progText">0 of 15 activities</span>
+      <button class="restart" id="restartBtn">Start Over</button>
+      <div class="prog-info" id="progInfo" hidden>
+        <b>What counts toward progress</b>
+        <p>15 study activities, saved on this device:</p>
+        <ul id="progList"></ul>
+        <p class="small">Listening and personal notes do not count toward progress.</p>
+      </div>
+    </div>
+    <button id="themeBtn" class="theme" aria-label="Switch to night">
+      <svg class="sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg>
+      <svg class="moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="currentColor"/></svg>
+      <span class="theme-label">Day</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-img"><img src="assets/img/hero.jpg" alt="Golden oil poured beneath rays of heavenly light"></div>
+    <div class="wrap hero-in">
+      <p class="eyebrow">A DOMINION HOUR TEACHING PACK</p>
+      <h1 class="display">THE HOLY SPIRIT<br>ANOINTING</h1>
+      <p class="sub" id="heroSub"></p>
+      <p class="by">A teaching from Dominion Hour with Prophet Prince Amo David<br><span id="heroDate"></span> · KJV throughout</p>
+      <p class="approval" id="heroApproval"></p>
+      <div class="cta">
+        <a class="btn gold" href="#teaching">Begin Reading</a>
+        <button class="btn ghost" data-play="welcome">▶ Listen <small>(automated reading)</small></button>
+        <a class="btn ghost" href="#download">Download PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap narrow sec">
+    <p class="kicker">HOW TO READ THIS TEACHING</p>
+    <h2>What Each Label Means</h2>
+    <div class="orn">❦</div>
+    <div class="labels" id="labels"></div>
+    <div class="callout note"><span class="chip ed">About the source</span><p id="sourceNote"></p><p id="audioNote"></p></div>
+    <p class="summary" id="summary"></p>
+  </section>
+
+  <section class="wrap narrow sec">
+    <p class="kicker">ANCHOR</p>
+    <h2>Anchor Scripture</h2>
+    <div class="orn">❦</div>
+    <div id="anchor"></div>
+    <p id="corporate"></p>
+  </section>
+
+  <section id="teaching" class="wrap sec">
+    <p class="kicker center">PART I</p>
+    <h2 class="center">The Teaching</h2>
+    <p class="center muted">Six chapters. Tap any chapter to open it.</p>
+    <div class="orn">❦</div>
+    <div id="chapters" class="chapters"></div>
+  </section>
+
+  <section id="declare" class="band">
+    <div class="wrap narrow sec">
+      <p class="kicker">PART II</p>
+      <h2>Declarations from the Service</h2>
+      <div class="orn">❦</div>
+      <p><span class="chip qt">❝ Quoted in the Service</span></p>
+      <p class="muted" id="declIntro"></p>
+      <div id="decls"></div>
+      <div class="row"><button class="btn gold" data-play="declarations">▶ Listen &amp; Declare</button><span class="muted small">Automated reading of the study notes</span></div>
+      <div id="phil"></div>
+      <div class="callout note"><span class="chip ed">✎ Editor’s Note</span><p id="declNote"></p></div>
+      <p><span class="chip mint">⚑ Ministry Interpretation</span></p>
+      <h3>Prayer Focus from the Service</h3>
+      <ol id="prayer" class="gold-list"></ol>
+    </div>
+  </section>
+
+  <section class="wrap narrow sec">
+    <p class="kicker">BIBLICAL MODELS</p>
+    <h2>Characters in This Teaching</h2>
+    <div class="orn">❦</div>
+    <div id="chars" class="chars"></div>
+  </section>
+
+  <section class="wrap narrow sec" id="week">
+    <p class="kicker"><span class="chip ed">✎ Editor’s Note</span></p>
+    <h2 id="planTitle">Suggested Seven-Day Study Plan</h2>
+    <div class="orn">❦</div>
+    <p id="planNote"></p>
+    <div class="row"><button class="btn ghost" data-play="next-steps">▶ Listen to the Next Steps</button><span class="muted small">Automated reading of the study notes</span></div>
+    <div id="days" class="days"></div>
+    <p class="muted small" id="dayCount"></p>
+  </section>
+
+  <section id="study" class="band">
+    <div class="wrap sec">
+      <p class="kicker center">PART III</p>
+      <h2 class="center">Study</h2>
+      <div class="orn">❦</div>
+      <p class="center muted small"><span class="chip ed">✎ Editor’s Note</span> Flashcards and quiz were prepared by the editor from the service record.</p>
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-tab="flash">Flashcards</button>
+        <button role="tab" aria-selected="false" data-tab="quiz">Quiz</button>
+        <button role="tab" aria-selected="false" data-tab="scripture">Scripture</button>
+        <button role="tab" aria-selected="false" data-tab="notes">Notes</button>
+      </div>
+      <div class="tabpanel" id="tab-flash">
+        <div class="flash" id="flashCard" tabindex="0" role="button" aria-label="Flip card"><div class="face front"></div><div class="face back"></div></div>
+        <div class="row center"><button class="btn ghost" id="fPrev">← Previous</button><span id="fCount" class="muted"></span><button class="btn ghost" id="fNext">Next →</button></div>
+        <p class="center muted small">Tap the card to see the answer.</p>
+      </div>
+      <div class="tabpanel" id="tab-quiz" hidden><div id="quiz"></div><div class="row center"><button class="btn gold" id="quizCheck">Check answers</button><button class="btn ghost" id="quizReset">Reset</button></div><p id="quizScore" class="center score"></p></div>
+      <div class="tabpanel" id="tab-scripture" hidden><div id="scrList"></div></div>
+      <div class="tabpanel" id="tab-notes" hidden><label for="notes" class="muted small">Your notes stay on this device. Start Over does not delete them.</label><textarea id="notes" rows="10"></textarea><div class="row"><button class="btn ghost" id="delNotes">Delete notes</button></div></div>
+    </div>
+  </section>
+
+  <section id="download" class="wrap narrow sec">
+    <p class="kicker">DOWNLOAD</p>
+    <h2>Download the Pack</h2>
+    <div class="orn">❦</div>
+    <div id="downloads" class="downloads"></div>
+  </section>
+
+  <section class="wrap narrow sec closing">
+    <p class="kicker">CLOSING CHARGE</p>
+    <h2>Draw From the Wells of Salvation</h2>
+    <div class="orn">❦</div>
+    <div id="anchor2"></div>
+    <div id="decls2"></div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="display">DOMINION HOUR WITH PROPHET PRINCE AMO DAVID</p>
+    <p id="footDate"></p>
+    <p class="approval" id="footApproval"></p>
+    <p>All Scripture in this teaching is quoted from the Authorized King James Version.</p>
+    <p class="small">Free personal, family, and small-group ministry use is welcomed. Nothing may be reproduced for commercial use without ministry consent.</p>
+  </div>
+</footer>
+
+<div class="player" id="player" hidden>
+  <div class="wrap player-in">
+    <div class="ptitle"><span class="kicker">NOW PLAYING · AUTOMATED READING, NOT THE SERVICE RECORDING</span><b id="pName"></b></div>
+    <div class="pctl">
+      <button id="pPlay" class="pbtn" aria-label="Play">▶</button>
+      <button id="pPause" class="pbtn" aria-label="Pause">❚❚</button>
+      <button id="pStop" class="pbtn" aria-label="Stop">■</button>
+    </div>
+    <div class="pbar"><input id="pSeek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek"><span id="pTime">0:00</span></div>
+  </div>
+</div>
+<div class="modal" id="confirmBox" hidden role="dialog" aria-modal="true" aria-labelledby="cTitle">
+  <div class="modal-card">
+    <h3 id="cTitle"></h3>
+    <p id="cBody"></p>
+    <div class="row"><button class="btn ghost" id="cCancel">Cancel</button><button class="btn gold" id="cOk"></button></div>
+  </div>
+</div>
+<audio id="audio" preload="none"></audio>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
